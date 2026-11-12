@@ -50,18 +50,27 @@ def build_query(city: str) -> str:
     return f"[out:json][timeout:90];{area}{counts}"
 
 
-def run_query(query: str) -> dict:
+def run_query(query: str) -> list[int]:
+    """Renvoie les comptes, en passant au serveur suivant si la réponse est vide ou invalide."""
     last_error = None
     for server in SERVERS:
         try:
             r = requests.post(server, data={"data": query}, headers=HEADERS, timeout=100)
-            if r.status_code == 200:
-                return r.json()
-            last_error = f"{server} -> HTTP {r.status_code}"
-        except requests.RequestException as e:
+            if r.status_code != 200:
+                last_error = f"{server} -> HTTP {r.status_code}"
+            else:
+                totals = [int(e["tags"]["total"]) for e in r.json()["elements"] if e.get("type") == "count"]
+                if len(totals) != len(CONCURRENTS):
+                    last_error = f"{server} -> {len(totals)} comptes au lieu de {len(CONCURRENTS)}"
+                elif sum(totals) == 0:
+                    # Une grande ville sans aucun magasin = zone de la ville introuvable sur ce serveur
+                    last_error = f"{server} -> zone de la ville introuvable (tout à 0)"
+                else:
+                    return totals
+        except (requests.RequestException, ValueError) as e:
             last_error = f"{server} -> {e}"
         time.sleep(5)
-    raise RuntimeError(f"Aucun serveur Overpass n'a répondu ({last_error})")
+    raise RuntimeError(f"Aucun serveur Overpass n'a donné de résultat valide ({last_error})")
 
 
 # Population officielle au 31/12/2025 (Destatis), utilisée si le script tourne hors du dépôt
@@ -84,6 +93,9 @@ def main() -> None:
     deja = pd.read_csv(OUT) if OUT.exists() else pd.DataFrame()
     if not deja.empty and "status" in deja:
         deja = deja[deja["status"] == "collecté"]
+        # Une ville enregistrée avec 0 magasin partout est fausse : on la refait
+        vides = deja.groupby("city")["store_count"].sum().loc[lambda s: s == 0].index
+        deja = deja[~deja["city"].isin(vides)]
     faites = set(deja["city"]) if not deja.empty else set()
 
     echecs = []
@@ -92,10 +104,7 @@ def main() -> None:
             print(f"{v['city']:<18} déjà collectée, on passe")
             continue
         try:
-            data = run_query(build_query(v["city"]))
-            totals = [int(e["tags"]["total"]) for e in data["elements"] if e.get("type") == "count"]
-            if len(totals) != len(CONCURRENTS):
-                raise ValueError(f"{len(totals)} comptes reçus au lieu de {len(CONCURRENTS)}")
+            totals = run_query(build_query(v["city"]))
         except Exception as e:
             print(f"{v['city']:<18} ÉCHEC ({e}) : relance le script plus tard")
             echecs.append(v["city"])
