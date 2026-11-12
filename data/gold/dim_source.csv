@@ -11,9 +11,10 @@ HANDELSDATEN,Marktanteile Drogeriemärkte 2024,Handelsdaten.de,https://www.hande
 IKW,IKW Market Data,Industrieverband Körperpflege- und Waschmittel,https://www.ikw.org/en/market-data,Fédération professionnelle,Élevée
 LOREAL_DACH,"L'Oréal en Allemagne, en Autriche et en Suisse (rapport annuel 2023)",L'Oréal,https://www.loreal-finance.com/fr/rapport-annuel-2023/loreal-dans-le-monde/dach/,Rapport annuel,Élevée
 LOREAL_FR,L'Oréal en France (rapport annuel 2024),L'Oréal,https://www.loreal-finance.com/fr/rapport-annuel-2024/loreal-dans-le-monde/france/,Rapport annuel,Élevée
-DESTATIS,Population des communes au 31/12/2023 (valeurs arrondies),Destatis,https://www.destatis.de,Open data officielle,Élevée
+DESTATIS,"Population des communes au 31/12/2025 (Gemeindeverzeichnis, mise à jour du Zensus 2022)",Destatis / Statistische Landesämter,https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Gemeindeverzeichnis/_inhalt.html,Open data officielle,Élevée
 TVA,Taux de TVA standard (DE 19 % / FR 20 %),Législations nationales,https://taxation-customs.ec.europa.eu,Réglementation,Élevée
 REG1223,Règlement (CE) n° 1223/2009 relatif aux produits cosmétiques,Union européenne,https://biorius.com/de/kosmetikverordnung/europa/,Réglementation,Élevée
 IHK,"Kosmetik - Herstellung, Import und Vertrieb",IHK Frankfurt am Main,https://www.frankfurt-main.ihk.de/recht/uebersicht-alle-rechtsthemen/lebensmittel-und-bedarfsgegenstaenderecht/kosmetik-5195262,Chambre de commerce,Élevée
 UE,Union douanière de l'UE,Commission européenne,https://taxation-customs.ec.europa.eu,Réglementation,Élevée
 INTERNE,"Base interne simulée (boutiques France, catalogue, hypothèses)",Équipe projet,,Données simulées,À valider
+OSM,OpenStreetMap via l'API Overpass,Contributeurs OpenStreetMap,https://overpass-api.de,Open data (API),Moyenne
