@@ -4,7 +4,7 @@ Projet du module Data Analytics, Eugenia School. **Question du Comex : L'Oréal 
 
 **Réponse : Go conditionnel, limité à 3 boutiques pilotes en 2027**, en rue commerçante 1a. Pas d'engagement à 15 boutiques à ce stade : le plan 3 → 8 → 15 n'est pas remboursé fin 2031 dans nos scénarios. La vague 2028 ne se déclenche que si les pilotes atteignent environ 9 600 € de CA par m². Le détail est dans la [synthèse IA](docs/synthese_ia.md).
 
-**Équipe** : Hanine Bendiab, Hugo Fissier, Nathan Skwarek, Gaspard [Nom], Lili [Nom]
+**Équipe** : Hanine Bendiab, Hugo Fissier, Nathan Skwarek, Gaspard Leroux, Lili Sheppard
 
 ## 1. Présentation de l'entreprise
 
@@ -113,8 +113,8 @@ La liste complète, avec un niveau de fiabilité pour chaque source, est dans [`
 | Cheffe de projet et business case | Hanine Bendiab | Cadrage, lien avec le professeur, recommandation Go / No-Go |
 | Collecte des données marché et concurrence | Hugo Fissier | Sources marché, villes, concurrents, loyers |
 | Modélisation et pipeline | Nathan Skwarek | Modèle en étoile, dictionnaire, code, données internes simulées |
-| KPIs et rentabilité | Gaspard [Nom] | Indice prix, marges après TVA, coûts, scénarios |
-| Dataviz et brique IA | Lili [Nom] | Dashboard, synthèse IA |
+| KPIs et rentabilité | Gaspard Leroux | Indice prix, marges après TVA, coûts, scénarios |
+| Dataviz et brique IA | Lili Sheppard | Dashboard, synthèse IA |
 
 **Méthode** : cadrage des 5 axes avec la grille de KPIs, une branche Git par personne fusionnée dans `develop`, puis dans `main` une fois les contrôles du pipeline validés.
 
