@@ -64,8 +64,21 @@ def run_query(query: str) -> dict:
     raise RuntimeError(f"Aucun serveur Overpass n'a répondu ({last_error})")
 
 
+# Population officielle au 31/12/2025 (Destatis), utilisée si le script tourne hors du dépôt
+VILLES_PAR_DEFAUT = {
+    "München": 1505036, "Düsseldorf": 619444, "Frankfurt am Main": 760656,
+    "Stuttgart": 609365, "Hamburg": 1869473, "Köln": 1025523,
+    "Berlin": 3700577, "Leipzig": 615932,
+}
+
+
 def main() -> None:
-    villes = pd.read_csv(VILLES)
+    global OUT
+    if VILLES.exists():
+        villes = pd.read_csv(VILLES)
+    else:  # lancé seul, hors du dépôt : on écrit le CSV à côté du script
+        villes = pd.DataFrame(VILLES_PAR_DEFAUT.items(), columns=["city", "population"])
+        OUT = Path.cwd() / "concurrents_villes.csv"
     rows = []
     for _, v in villes.iterrows():
         data = run_query(build_query(v["city"]))
@@ -87,7 +100,7 @@ def main() -> None:
 
     df = pd.DataFrame(rows)
     df.to_csv(OUT, index=False)
-    print(f"\n{len(df)} lignes écrites dans {OUT.relative_to(ROOT)}")
+    print(f"\n{len(df)} lignes écrites dans {OUT}")
 
     # Contrôle de cohérence : villes sans aucun résultat = zone mal trouvée
     zero = df.groupby("city")["store_count"].sum().loc[lambda s: s == 0]
