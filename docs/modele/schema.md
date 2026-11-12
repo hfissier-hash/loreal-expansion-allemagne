@@ -35,7 +35,11 @@ Le premier modèle (`docs/img/modele_etoile.png`) reste celui des tables de rest
 
 ## Diagramme
 
-Rendu automatique dans GitHub. Pour DrawSQL : Import, PostgreSQL, coller `sql/schema.sql`.
+![Entrepôt en constellation (DrawSQL)](../img/modele_constellation_drawsql.png)
+
+Diagramme DrawSQL des 20 tables principales, rangées en 4 familles : boutiques pilotes (orange), dimensions partagées (violet), marché allemand (bleu), business case (vert). La version gratuite de DrawSQL s'arrête à 20 tables : `fact_price`, `fact_market_indicator`, `dim_source`, `ref_hypotheses` et `ref_reglementation` figurent seulement dans `sql/schema.sql` (les trois premières aussi dans le diagramme Mermaid ci-dessous).
+
+Pour refaire le diagramme : DrawSQL, File, Import, PostgreSQL, coller `sql/schema.sql`. Le diagramme Mermaid ci-dessous s'affiche directement dans GitHub.
 
 ```mermaid
 erDiagram
