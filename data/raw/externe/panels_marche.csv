@@ -1,0 +1,17 @@
+source_id,country_code,scope,metric,value,unit,period,note,collected_at
+CIRCANA2026,EU,Beauté prestige (circuit sélectif),Croissance en valeur,4,%,2025,+4 % aussi en volume,2026-11-12
+CIRCANA2026,DE,Beauté prestige (circuit sélectif),Croissance en valeur,1,%,2025,Croissance « modeste »,2026-11-12
+CIRCANA2026,FR,Beauté prestige (circuit sélectif),Taille du marché,4.3,Md€,2025,,2026-11-12
+CIRCANA2026,FR,Beauté prestige (circuit sélectif),Croissance en valeur,-1,%,2025,-3 % en volume,2026-11-12
+CIRCANA2026,FR,Soin prestige,Taille du marché,0.8,Md€,2025,Catégorie la plus touchée,2026-11-12
+CIRCANA2026,FR,Soin prestige,Croissance en valeur,-4,%,2025,-8 % en volume,2026-11-12
+CIRCANA2026,FR,Parfum prestige,Taille du marché,2.3,Md€,2025,"-3 % valeur, -5 % volume",2026-11-12
+CIRCANA2026,FR,Maquillage prestige,Taille du marché,1.2,Md€,2025,"Stable en valeur, -1 % volume",2026-11-12
+CIRCANA2025,EU,Soin milieu de gamme,Part des ventes de soin,27,%,2025 (cumul à fin sept.),"Segment de La Roche-Posay, CeraVe, Vichy",2026-11-12
+CIRCANA2025,EU,Soin milieu de gamme,Croissance en valeur,6,%,2025 (cumul à fin sept.),Soin prestige : stable,2026-11-12
+NIQ2026,DE,Soin : ingrédient niacinamide,Croissance des ventes,33,%,52 sem. au 25/01/2026,Tendance actifs dermo,2026-11-12
+NIQ2026,GLOBAL,E-commerce beauté,Croissance en valeur,18,%,2025,Contre +4 % en magasin,2026-11-12
+NIQ2026,FR,Consommateurs,Part attentive au « fabriqué en France »,50,%,avril 2025,"« Plus de la moitié » (Homescan, 8 318 répondants)",2026-11-12
+IKW2025,DE,Cosmétique,Croissance du e-commerce,22.5,%,2025,E-commerce = 7 % du marché,2026-11-12
+IKW2025,DE,Soin peau et visage,Croissance,11.1,%,2025,Segment le plus dynamique ; cohérent avec Cosmetics Europe,2026-11-12
+IKW2025,DE,Cosmétique,Prévision de croissance du secteur,1.5,%,2026,,2026-11-12

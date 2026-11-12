@@ -18,3 +18,7 @@ IHK,"Kosmetik - Herstellung, Import und Vertrieb",IHK Frankfurt am Main,https://
 UE,Union douanière de l'UE,Commission européenne,https://taxation-customs.ec.europa.eu,Réglementation,Élevée
 INTERNE,"Base interne simulée (boutiques France, catalogue, hypothèses)",Équipe projet,,Données simulées,À valider
 OSM,OpenStreetMap via l'API Overpass,Contributeurs OpenStreetMap,https://overpass-api.de,Open data (API),Moyenne
+CIRCANA2026,"Prestige beauty 2025 : France falls behind in a rising European market (données Circana relayées)",Premium Beauty News / Circana,https://www.premiumbeautynews.com/en/prestige-beauty-2025-france-falls,27212,Panel distributeur (presse),Moyenne-élevée
+CIRCANA2025,Beauty market trends in Europe: mid-range brands are gaining momentum,Circana,https://www.circana.com/post/beauty-market-trends-in-europe-mid-range-brands-are-gaining-momentum,Panel distributeur,Élevée
+NIQ2026,Global Beauty Views 2026,NielsenIQ,https://nielseniq.com/wp-content/uploads/sites/4/2026/04/Global-Beauty-Views-2026.pdf,Panel distributeur,Élevée
+IKW2025,"Schönheits- und Haushaltspflege 2025 (bilan annuel IKW)",Kosmetik Nachrichten / IKW,https://www.kosmetiknachrichten.de/2025/12/04/schoenheits-und-haushaltspflege-2025-branche-erwirtschaftet-erneut-ein-wachstumsplus,Fédération professionnelle (presse),Élevée
