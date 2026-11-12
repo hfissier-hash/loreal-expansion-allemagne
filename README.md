@@ -76,6 +76,10 @@ Les tables Gold ci-dessus servent la restitution. La base de référence est l'*
 
 Les dimensions conformes (`dim_city`, `dim_location`, `dim_scenario`, `dim_category`, `dim_country`, `dim_date`) permettent de croiser l'activité des pilotes avec le marché allemand et le business case. Le détail des pilotes (105 000 diagnostics, 572 000 lignes de vente en 2025) est calé boutique par boutique sur `boutiques_france.csv` : le CA, la conversion et le rachat agrégés ne changent pas, donc les KPIs non plus.
 
+![Entrepôt en constellation (DrawSQL)](docs/img/modele_constellation_drawsql.png)
+
+*Diagramme DrawSQL des 20 tables principales, par famille. Absentes du diagramme (limite de 20 tables de la version gratuite), mais présentes dans le schéma SQL : `fact_price`, `fact_market_indicator`, `dim_source`, `ref_hypotheses`, `ref_reglementation`.*
+
 - Choix du modèle et diagramme : [`docs/modele/schema.md`](docs/modele/schema.md)
 - Dictionnaire complet (termes métier, 12 règles de gestion, colonnes, KPIs) : [`docs/modele/dictionnaire-de-donnees.md`](docs/modele/dictionnaire-de-donnees.md)
 - Contrôles à chaque construction (clés étrangères, calage, calculs) : `data/warehouse/rapport_qualite.md` et `tests/`
