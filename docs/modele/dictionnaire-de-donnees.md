@@ -75,7 +75,7 @@ Tables construites par `src/build_warehouse.py` dans `data/warehouse/`. Schéma 
 | Marché & potentiel | Croissance annuelle du secteur | `fact_market.growth_pct` (DE, total ou Soins de la peau) |
 | | Part de marché d'un concurrent | `fact_market_share` (dm : 46,8 % des drogeries) |
 | | Tendances des panels (prestige, milieu de gamme, e-commerce) | `fact_market_indicator` filtré par `scope` et `metric` |
-| Prix & marges | Indice prix relatif DE / FR | `fact_price` (relevé) ou `dim_country.price_level_index_eu100` |
+| Prix & marges | Indice prix relatif DE / FR | relevé `releve_prix_soins.csv` : moyenne par marque du ratio des prix au litre (prix public conseillé FR), pondérée par le CA des pilotes ; repli sur `dim_country.price_level_index_eu100` si le relevé est vide |
 | | Marge brute post-taxe | `SUM(gross_margin_ht) / SUM(revenue_ht)` sur `fact_sales`, ou `fact_business_case` |
 | Réseau & implantation | Densité concurrentielle | `fact_competition.stores_per_100k` par ville cible |
 | | Coût moyen au m² | `fact_rent.rent_eur_m2_month` par ville et emplacement |

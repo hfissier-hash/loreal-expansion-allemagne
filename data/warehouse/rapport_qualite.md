@@ -17,7 +17,7 @@ Généré par `src/build_warehouse.py`, ne pas modifier à la main.
 | dim_customer | 105 026 |
 | dim_retailer | 8 |
 | dim_hub | 4 |
-| dim_source | 28 |
+| dim_source | 31 |
 | fact_diagnostic | 105 025 |
 | fact_sales | 571 987 |
 | fact_market | 14 |
@@ -25,7 +25,7 @@ Généré par `src/build_warehouse.py`, ne pas modifier à la main.
 | fact_market_indicator | 16 |
 | fact_competition | 56 |
 | fact_rent | 16 |
-| fact_price | 12 |
+| fact_price | 16 |
 | fact_hub_distance | 72 |
 | fact_business_case | 48 |
 | fact_deployment_plan | 15 |
