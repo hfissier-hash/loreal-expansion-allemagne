@@ -1,14 +1,17 @@
-city,location,rent_eur_m2,unit,period,trend_pct_pa,source_id,status,collected_at
-München,Rue commerçante 1a,45.0,€/m²/mois,2024/25 (médiane),3.3,IW2026,collecté,2026-11-12
-München,Artère n°1,3840.0,€/m²/an,2025,,CW2025,collecté,2026-11-12
-Düsseldorf,Rue commerçante 1a,23.0,€/m²/mois,2024/25 (médiane),3.2,IW2026,collecté,2026-11-12
-Düsseldorf,Artère n°1,3000.0,€/m²/an,2025,,CW2025,collecté,2026-11-12
-Frankfurt am Main,Rue commerçante 1a,32.0,€/m²/mois,2024/25 (médiane),2.4,IW2026,collecté,2026-11-12
-Frankfurt am Main,Artère n°1,3000.0,€/m²/an,2025,,CW2025,collecté,2026-11-12
-Stuttgart,Rue commerçante 1a,35.0,€/m²/mois,2024/25 (médiane),0.4,IW2026,collecté,2026-11-12
-Hamburg,Rue commerçante 1a,25.0,€/m²/mois,2024/25 (médiane),2.9,IW2026,collecté,2026-11-12
-Hamburg,Artère n°1,3000.0,€/m²/an,2025,,CW2025,collecté,2026-11-12
-Köln,Rue commerçante 1a,26.0,€/m²/mois,2024/25 (médiane),2.1,IW2026,collecté,2026-11-12
-Berlin,Rue commerçante 1a,30.0,€/m²/mois,2024/25 (médiane),3.1,IW2026,collecté,2026-11-12
-Berlin,Artère n°1,3000.0,€/m²/an,2025,,CW2025,collecté,2026-11-12
-Leipzig,Rue commerçante 1a,20.0,€/m²/mois,2024/25 (médiane),2.2,IW2026,collecté,2026-11-12
+city,location,rent_eur_m2,unit,period,trend_pct_pa,source_id,status,collected_at,street
+München,Rue commerçante 1a,45.0,€/m²/mois,2024/25 (médiane),3.3,IW2026,collecté,2026-11-12,
+München,Artère n°1,320.0,€/m²/mois,S1 2026 (loyer prime),,BNPPRE2026,collecté,2026-11-12,Kaufingerstraße
+Düsseldorf,Rue commerçante 1a,23.0,€/m²/mois,2024/25 (médiane),3.2,IW2026,collecté,2026-11-12,
+Düsseldorf,Artère n°1,285.0,€/m²/mois,S1 2026 (loyer prime),,BNPPRE2026,collecté,2026-11-12,Königsallee
+Frankfurt am Main,Rue commerçante 1a,32.0,€/m²/mois,2024/25 (médiane),2.4,IW2026,collecté,2026-11-12,
+Frankfurt am Main,Artère n°1,295.0,€/m²/mois,S1 2026 (loyer prime),,BNPPRE2026,collecté,2026-11-12,Goethestraße
+Stuttgart,Rue commerçante 1a,35.0,€/m²/mois,2024/25 (médiane),0.4,IW2026,collecté,2026-11-12,
+Stuttgart,Artère n°1,200.0,€/m²/mois,S1 2026 (loyer prime),,BNPPRE2026,collecté,2026-11-12,Königstraße
+Hamburg,Rue commerçante 1a,25.0,€/m²/mois,2024/25 (médiane),2.9,IW2026,collecté,2026-11-12,
+Hamburg,Artère n°1,235.0,€/m²/mois,S1 2026 (loyer prime),,BNPPRE2026,collecté,2026-11-12,Neuer Wall
+Köln,Rue commerçante 1a,26.0,€/m²/mois,2024/25 (médiane),2.1,IW2026,collecté,2026-11-12,
+Köln,Artère n°1,230.0,€/m²/mois,S1 2026 (loyer prime),,BNPPRE2026,collecté,2026-11-12,Wallrafplatz
+Berlin,Rue commerçante 1a,30.0,€/m²/mois,2024/25 (médiane),3.1,IW2026,collecté,2026-11-12,
+Berlin,Artère n°1,250.0,€/m²/mois,S1 2026 (loyer prime),,BNPPRE2026,collecté,2026-11-12,Tauentzienstraße
+Leipzig,Rue commerçante 1a,20.0,€/m²/mois,2024/25 (médiane),2.2,IW2026,collecté,2026-11-12,
+Leipzig,Artère n°1,120.0,€/m²/mois,S1 2026 (loyer prime),,BNPPRE2026,collecté,2026-11-12,Grimmaische Straße / Petersstraße

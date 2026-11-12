@@ -1,0 +1,57 @@
+city,competitor,store_count,stores_per_100k,status,source_id
+München,Douglas,6,0.4,collecté,OSM
+München,dm-drogerie markt,59,3.92,collecté,OSM
+München,Rossmann,43,2.86,collecté,OSM
+München,Müller,12,0.8,collecté,OSM
+München,Sephora,1,0.07,collecté,OSM
+München,Pharmacies,306,20.33,collecté,OSM
+München,Instituts de beauté,498,33.09,collecté,OSM
+Düsseldorf,Instituts de beauté,166,26.8,collecté,OSM
+Düsseldorf,Pharmacies,152,24.54,collecté,OSM
+Düsseldorf,Müller,1,0.16,collecté,OSM
+Düsseldorf,Sephora,1,0.16,collecté,OSM
+Düsseldorf,dm-drogerie markt,22,3.55,collecté,OSM
+Düsseldorf,Douglas,3,0.48,collecté,OSM
+Düsseldorf,Rossmann,19,3.07,collecté,OSM
+Frankfurt am Main,Douglas,6,0.79,collecté,OSM
+Frankfurt am Main,dm-drogerie markt,29,3.81,collecté,OSM
+Frankfurt am Main,Rossmann,16,2.1,collecté,OSM
+Frankfurt am Main,Müller,3,0.39,collecté,OSM
+Frankfurt am Main,Sephora,1,0.13,collecté,OSM
+Frankfurt am Main,Pharmacies,147,19.33,collecté,OSM
+Frankfurt am Main,Instituts de beauté,191,25.11,collecté,OSM
+Stuttgart,Sephora,0,0.0,collecté,OSM
+Stuttgart,Pharmacies,101,16.57,collecté,OSM
+Stuttgart,Müller,6,0.98,collecté,OSM
+Stuttgart,Instituts de beauté,139,22.81,collecté,OSM
+Stuttgart,dm-drogerie markt,20,3.28,collecté,OSM
+Stuttgart,Douglas,2,0.33,collecté,OSM
+Stuttgart,Rossmann,6,0.98,collecté,OSM
+Hamburg,Instituts de beauté,555,29.69,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",OSM
+Hamburg,Sephora,2,0.11,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",OSM
+Hamburg,Müller,10,0.53,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",OSM
+Hamburg,Rossmann,44,2.35,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",OSM
+Hamburg,dm-drogerie markt,72,3.85,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",OSM
+Hamburg,Douglas,10,0.53,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",OSM
+Hamburg,Pharmacies,381,20.38,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",OSM
+Köln,Pharmacies,214,20.87,collecté,OSM
+Köln,Sephora,1,0.1,collecté,OSM
+Köln,Müller,1,0.1,collecté,OSM
+Köln,Rossmann,22,2.15,collecté,OSM
+Köln,dm-drogerie markt,43,4.19,collecté,OSM
+Köln,Douglas,6,0.59,collecté,OSM
+Köln,Instituts de beauté,349,34.03,collecté,OSM
+Berlin,Instituts de beauté,1100,29.73,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",OSM
+Berlin,Pharmacies,753,20.35,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",OSM
+Berlin,Sephora,3,0.08,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",OSM
+Berlin,Müller,19,0.51,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",OSM
+Berlin,dm-drogerie markt,142,3.84,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",OSM
+Berlin,Douglas,19,0.51,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",OSM
+Berlin,Rossmann,87,2.35,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",OSM
+Leipzig,Pharmacies,125,20.29,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",OSM
+Leipzig,Douglas,3,0.49,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",OSM
+Leipzig,dm-drogerie markt,24,3.9,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",OSM
+Leipzig,Rossmann,14,2.27,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",OSM
+Leipzig,Müller,3,0.49,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",OSM
+Leipzig,Sephora,1,0.16,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",OSM
+Leipzig,Instituts de beauté,183,29.71,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",OSM

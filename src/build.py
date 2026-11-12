@@ -30,10 +30,10 @@ def villes_avec_loyers():
     f = loyers[loyers.location == "Artère n°1"].set_index("city")
     villes["rent_1a_eur_m2_month"] = villes.city.map(a.rent_eur_m2)
     villes["rent_trend_pct_pa"] = villes.city.map(a.trend_pct_pa)
-    villes["rent_prime_street_eur_m2_year"] = villes.city.map(f.rent_eur_m2)
+    villes["rent_prime_street_eur_m2_month"] = villes.city.map(f.rent_eur_m2)
     if villes.rent_1a_eur_m2_month.isna().any():
         raise ValueError("Loyer 1a manquant pour une ville")
-    villes["source_id"] = villes.source_id + ";IW2026" + villes.city.map(lambda c: ";CW2025" if c in f.index else "")
+    villes["source_id"] = villes.source_id + ";IW2026" + villes.city.map(lambda c: ";BNPPRE2026" if c in f.index else "")
     return villes
 
 
@@ -45,6 +45,9 @@ def load():
         "prix": pd.read_csv(EXT / "prix_taxes.csv").set_index("country_code"),
         "villes": villes_avec_loyers(),
         "concurrents": pd.read_csv(EXT / "concurrents_nationaux.csv"),
+        "concurrents_villes": pd.read_csv(EXT / "concurrents_villes.csv"),
+        "loyers": pd.read_csv(EXT / "loyers_villes.csv"),
+        "hubs_raw": pd.read_csv(EXT / "hubs_loreal.csv"),
         "hubs": pd.read_csv(EXT / "hubs_loreal.csv").set_index("hub"),
         "reglementation": pd.read_csv(EXT / "reglementation.csv"),
         "sources": pd.read_csv(RAW / "sources.csv"),
@@ -64,7 +67,7 @@ def build(d):
     dim_categorie = pd.DataFrame({"category": sorted(d["categories"].category.unique())})
     dim_emplacement = pd.DataFrame({
         "location": ["Rue commerçante 1a (médiane)", "Artère n°1 (flagship)"],
-        "rent_source": ["IW 2026, médiane 1a 2024/25", "Cushman & Wakefield 2025, loyer prime"],
+        "rent_source": ["IW 2026, médiane 1a 2024/25", "BNP Paribas Real Estate, loyer prime S1 2026"],
     })
     dim_scenario = pd.DataFrame({
         "scenario": ["Pessimiste", "Réaliste", "Optimiste"],
@@ -75,6 +78,20 @@ def build(d):
     dim_ville = d["villes"].copy()
     dim_ville["distance_karlsruhe_km"] = dim_ville.apply(lambda r: round(haversine_km(r.lat, r.lon, kar.lat, kar.lon) * h["facteur_route"]), axis=1)
     dim_ville["distance_rambouillet_km"] = dim_ville.apply(lambda r: round(haversine_km(r.lat, r.lon, ram.lat, ram.lon) * h["facteur_route"]), axis=1)
+    for hub, col in [("La Roche-Posay", "distance_la_roche_posay_km"), ("Vichy", "distance_vichy_km")]:
+        hb = d["hubs"].loc[hub]
+        dim_ville[col] = dim_ville.apply(lambda r: round(haversine_km(r.lat, r.lon, hb.lat, hb.lon) * h["facteur_route"]), axis=1)
+
+    # --- Concurrence par ville (OpenStreetMap) : densités pour 100 000 habitants
+    cv = d["concurrents_villes"]
+    groupes = {"drogeries": ["dm-drogerie markt", "Rossmann", "Müller"], "parfumeries": ["Douglas", "Sephora"],
+               "pharmacies": ["Pharmacies"], "instituts": ["Instituts de beauté"]}
+    for g, comps in groupes.items():
+        n = cv[cv.competitor.isin(comps)].groupby("city").store_count.sum()
+        dim_ville[f"{g}_per_100k"] = (dim_ville.city.map(n) / dim_ville.population * 1e5).round(2)
+    dim_ville["competition_status"] = dim_ville.city.map(
+        cv.groupby("city").status.first().map(lambda s: "mesuré" if s == "collecté" else "estimé"))
+    fact_concurrence = cv.merge(dim_ville[["city"]], on="city")[["city", "competitor", "store_count", "stores_per_100k", "status", "source_id"]]
     dim_source = d["sources"]
 
     # --- Fait marché : pays x catégorie
@@ -107,13 +124,13 @@ def build(d):
     rows = []
     for _, v in dim_ville.iterrows():
       for loc in dim_emplacement.location:
-        if loc.startswith("Artère") and pd.isna(v.rent_prime_street_eur_m2_year):
+        if loc.startswith("Artère") and pd.isna(v.rent_prime_street_eur_m2_month):
             continue  # pas de loyer prime publié pour cette ville
         for _, s in dim_scenario.iterrows():
             ca_ttc = density_fr * surf * market_factor * price_factor * v.purchasing_power_index / 100 * s.revenue_factor
             ca_ht = ca_ttc / (1 + vat_de)
             gm = ca_ht * gm_rate_fr
-            rent = (v.rent_prime_street_eur_m2_year if loc.startswith("Artère") else v.rent_1a_eur_m2_month * 12) * surf
+            rent = (v.rent_prime_street_eur_m2_month if loc.startswith("Artère") else v.rent_1a_eur_m2_month) * 12 * surf
             other = ca_ht * h["autres_charges_pct_ca_ht"] / 100
             logi_pct = h["logistique_pct_ca_ht_base"] + h["logistique_pct_par_100km"] * v.distance_karlsruhe_km / 100
             logi = ca_ht * logi_pct / 100
@@ -172,10 +189,15 @@ def build(d):
             "competitor_stores_per_100k": round(float(stores_compet / pop_de * 1e5), 1),
             "rent_min": float(dim_ville.rent_1a_eur_m2_month.min()), "rent_max": float(dim_ville.rent_1a_eur_m2_month.max()),
             "capex_per_store": capex, "pilots": pilots,
+            "pilots_drugstores_per_100k": round(float(dim_ville[dim_ville.is_pilot].drogeries_per_100k.mean()), 2),
+            "pilots_pharmacies_per_100k": round(float(dim_ville[dim_ville.is_pilot].pharmacies_per_100k.mean()), 1),
+            "competition_by_city": {r.city: {"drogeries": r.drogeries_per_100k, "parfumeries": r.parfumeries_per_100k, "pharmacies": r.pharmacies_per_100k, "statut": r.competition_status} for r in dim_ville.itertuples()},
         },
         "logistique": {
             "avg_distance_karlsruhe_pilots_km": round(float(dim_ville[dim_ville.is_pilot].distance_karlsruhe_km.mean())),
             "avg_distance_rambouillet_pilots_km": round(float(dim_ville[dim_ville.is_pilot].distance_rambouillet_km.mean())),
+            "avg_distance_la_roche_posay_pilots_km": round(float(dim_ville[dim_ville.is_pilot].distance_la_roche_posay_km.mean())),
+            "avg_distance_vichy_pilots_km": round(float(dim_ville[dim_ville.is_pilot].distance_vichy_km.mean())),
             "customs_pct": 0,
         },
         "assortiment": {"catalogue_eligible_pct": round(float(eligible_pct), 1), "nb_sku": int(len(catal))},
@@ -256,7 +278,7 @@ def build(d):
     }
 
     tables = {"dim_pays": dim_pays, "dim_ville": dim_ville, "dim_categorie": dim_categorie, "dim_scenario": dim_scenario, "dim_emplacement": dim_emplacement,
-              "dim_source": dim_source, "fact_marche_categorie": fact_marche, "fact_business_case": fact_bc, "fact_plan_deploiement": fact_plan}
+              "dim_source": dim_source, "fact_marche_categorie": fact_marche, "fact_business_case": fact_bc, "fact_plan_deploiement": fact_plan, "fact_concurrence_ville": fact_concurrence}
     return tables, kpis
 
 
@@ -266,8 +288,10 @@ def check(t, d):
     tests = {
         "chaque ville x emplacement a 3 scénarios": (bc.groupby(["city", "location"]).size() == 3).all(),
         "clés ville connues": bc.city.isin(villes.city).all(),
+        "concurrents : 8 villes x 7 enseignes": len(d["concurrents_villes"]) == 56 and d["concurrents_villes"].city.isin(villes.city).all(),
+        "aucune ville à 0 concurrent": (d["concurrents_villes"].groupby("city").store_count.sum() > 0).all(),
         "parts de catégories ≈ 100 % par pays": (t["fact_marche_categorie"].groupby("country_code").share_pct.sum().between(99.5, 100.5)).all(),
-        "toutes les sources citées existent": set(";".join(pd.concat([d[k].source_id for k in ["marche", "categories", "villes", "concurrents", "reglementation"]])).split(";")) <= set(d["sources"].source_id),
+        "toutes les sources citées existent": set(";".join(pd.concat([d[k].source_id for k in ["marche", "categories", "villes", "concurrents", "concurrents_villes", "loyers", "hubs_raw", "reglementation"]])).split(";")) <= set(d["sources"].source_id),
         "nombre de boutiques France = hypothèse": d["boutiques"].store_id.nunique() == int(d["h"]["nb_boutiques_france"]),
         "plan : 15 boutiques ouvertes en 2029": int(t["fact_plan_deploiement"].query("year == 2029").stores.iloc[0]) == int(d["h"]["deploiement_2029"]),
         "CA pessimiste < réaliste < optimiste": (bc.pivot_table(index=["city", "location"], columns="scenario", values="revenue_ttc_eur").pipe(lambda p: (p["Pessimiste"] < p["Réaliste"]) & (p["Réaliste"] < p["Optimiste"]))).all(),
