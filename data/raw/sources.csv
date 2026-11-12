@@ -17,3 +17,4 @@ REG1223,Règlement (CE) n° 1223/2009 relatif aux produits cosmétiques,Union eu
 IHK,"Kosmetik - Herstellung, Import und Vertrieb",IHK Frankfurt am Main,https://www.frankfurt-main.ihk.de/recht/uebersicht-alle-rechtsthemen/lebensmittel-und-bedarfsgegenstaenderecht/kosmetik-5195262,Chambre de commerce,Élevée
 UE,Union douanière de l'UE,Commission européenne,https://taxation-customs.ec.europa.eu,Réglementation,Élevée
 INTERNE,"Base interne simulée (boutiques France, catalogue, hypothèses)",Équipe projet,,Données simulées,À valider
+OSM,OpenStreetMap via l'API Overpass,Contributeurs OpenStreetMap,https://overpass-api.de,Open data (API),Moyenne

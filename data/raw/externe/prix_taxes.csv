@@ -1,3 +1,3 @@
-country_code,price_level_index_eu100,pli_year,vat_standard_pct,customs_duty_intra_eu_pct,source_id
-DE,108.3,2025,19,0,SSB_PLI;TVA
-FR,110.3,2025,20,0,SSB_PLI;TVA
+country_code,price_level_index_eu100,pli_year,vat_standard_pct,customs_duty_intra_eu_pct,source_id,collected_at
+DE,108.3,2025,19,0,SSB_PLI;TVA,2026-11-12
+FR,110.3,2025,20,0,SSB_PLI;TVA,2026-11-12

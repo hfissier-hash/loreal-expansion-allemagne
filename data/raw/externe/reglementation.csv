@@ -1,6 +1,6 @@
-topic,france,allemagne,impact,source_id
-Droits de douane,0 % (marché unique UE),0 % (marché unique UE),Aucun surcoût à l'import,UE
-TVA standard,20 %,19 %,Prix HT plus élevé à prix TTC égal en Allemagne,TVA
-Règlement cosmétique,Règlement (CE) 1223/2009,Règlement (CE) 1223/2009,Catalogue conforme sans reformulation,REG1223
-Étiquetage,Français,Allemand obligatoire,Ré-étiquetage ou étiquettes multilingues,IHK
-Emballages,Filière REP (Citeo),VerpackG : enregistrement LUCID et contrat de système dual,Démarche administrative et coût par emballage,IHK
+topic,france,allemagne,impact,source_id,collected_at
+Droits de douane,0 % (marché unique UE),0 % (marché unique UE),Aucun surcoût à l'import,UE,2026-11-12
+TVA standard,20 %,19 %,Prix HT plus élevé à prix TTC égal en Allemagne,TVA,2026-11-12
+Règlement cosmétique,Règlement (CE) 1223/2009,Règlement (CE) 1223/2009,Catalogue conforme sans reformulation,REG1223,2026-11-12
+Étiquetage,Français,Allemand obligatoire,Ré-étiquetage ou étiquettes multilingues,IHK,2026-11-12
+Emballages,Filière REP (Citeo),VerpackG : enregistrement LUCID et contrat de système dual,Démarche administrative et coût par emballage,IHK,2026-11-12

@@ -1,9 +1,9 @@
-city,state,population,purchasing_power_eur_per_capita,purchasing_power_index,rent_1a_eur_m2_month,rent_trend_pct_pa,rent_prime_street_eur_m2_year,lat,lon,source_id,distance_karlsruhe_km,distance_rambouillet_km,pilot_rank,is_pilot
-München,Bayern,1510000,38138,129.0,45,3.3,3840.0,48.137,11.575,DESTATIS;NIQ2025;IW2026;CW2025,316,902,1,True
-Düsseldorf,Nordrhein-Westfalen,630000,33782,114.3,23,3.2,3000.0,51.225,6.776,DESTATIS;NIQ2025;IW2026;CW2025,341,570,2,True
-Frankfurt am Main,Hessen,775000,32131,108.7,32,2.4,3000.0,50.11,8.682,DESTATIS;NIQ2025;IW2026;CW2025,155,652,3,True
-Stuttgart,Baden-Württemberg,633000,31853,107.7,35,0.4,,48.776,9.183,DESTATIS;NIQ2025;IW2026,78,674,5,False
-Hamburg,Hamburg,1910000,31270,105.8,25,2.9,3000.0,53.551,9.994,DESTATIS;NIQ2025;IW2026;CW2025,647,985,4,False
-Köln,Nordrhein-Westfalen,1087000,30701,103.8,26,2.1,,50.938,6.96,DESTATIS;NIQ2025;IW2026,298,560,6,False
-Berlin,Berlin,3662000,28330,95.8,30,3.1,3000.0,52.52,13.405,DESTATIS;NIQ2025;IW2026;CW2025,657,1153,7,False
-Leipzig,Sachsen,620000,26987,91.3,20,2.2,,51.34,12.375,DESTATIS;NIQ2025;IW2026,480,1013,8,False
+city,state,population,population_year,population_status,purchasing_power_eur_per_capita,purchasing_power_index,purchasing_power_year,lat,lon,source_id,collected_at,rent_1a_eur_m2_month,rent_trend_pct_pa,rent_prime_street_eur_m2_year,distance_karlsruhe_km,distance_rambouillet_km,pilot_rank,is_pilot
+München,Bayern,1510000,2023,"approximatif (arrondi, à remplacer via Destatis)",38138,129.0,2025,48.137,11.575,DESTATIS;NIQ2025;IW2026;CW2025,2026-11-12,45.0,3.3,3840.0,316,902,1,True
+Düsseldorf,Nordrhein-Westfalen,630000,2023,"approximatif (arrondi, à remplacer via Destatis)",33782,114.3,2025,51.225,6.776,DESTATIS;NIQ2025;IW2026;CW2025,2026-11-12,23.0,3.2,3000.0,341,570,2,True
+Frankfurt am Main,Hessen,775000,2023,"approximatif (arrondi, à remplacer via Destatis)",32131,108.7,2025,50.11,8.682,DESTATIS;NIQ2025;IW2026;CW2025,2026-11-12,32.0,2.4,3000.0,155,652,3,True
+Stuttgart,Baden-Württemberg,633000,2023,"approximatif (arrondi, à remplacer via Destatis)",31853,107.7,2025,48.776,9.183,DESTATIS;NIQ2025;IW2026,2026-11-12,35.0,0.4,,78,674,5,False
+Hamburg,Hamburg,1910000,2023,"approximatif (arrondi, à remplacer via Destatis)",31270,105.8,2025,53.551,9.994,DESTATIS;NIQ2025;IW2026;CW2025,2026-11-12,25.0,2.9,3000.0,647,985,4,False
+Köln,Nordrhein-Westfalen,1087000,2023,"approximatif (arrondi, à remplacer via Destatis)",30701,103.8,2025,50.938,6.96,DESTATIS;NIQ2025;IW2026,2026-11-12,26.0,2.1,,298,560,6,False
+Berlin,Berlin,3662000,2023,"approximatif (arrondi, à remplacer via Destatis)",28330,95.8,2025,52.52,13.405,DESTATIS;NIQ2025;IW2026;CW2025,2026-11-12,30.0,3.1,3000.0,657,1153,7,False
+Leipzig,Sachsen,620000,2023,"approximatif (arrondi, à remplacer via Destatis)",26987,91.3,2025,51.34,12.375,DESTATIS;NIQ2025;IW2026,2026-11-12,20.0,2.2,,480,1013,8,False

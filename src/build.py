@@ -22,14 +22,29 @@ def haversine_km(lat1, lon1, lat2, lon2):
     return 2 * r * math.asin(math.sqrt(a))
 
 
+def villes_avec_loyers():
+    """Villes + loyers (table longue ville x emplacement) remis en colonnes pour le business case."""
+    villes = pd.read_csv(EXT / "villes_de.csv")
+    loyers = pd.read_csv(EXT / "loyers_villes.csv")
+    a = loyers[loyers.location == "Rue commerçante 1a"].set_index("city")
+    f = loyers[loyers.location == "Artère n°1"].set_index("city")
+    villes["rent_1a_eur_m2_month"] = villes.city.map(a.rent_eur_m2)
+    villes["rent_trend_pct_pa"] = villes.city.map(a.trend_pct_pa)
+    villes["rent_prime_street_eur_m2_year"] = villes.city.map(f.rent_eur_m2)
+    if villes.rent_1a_eur_m2_month.isna().any():
+        raise ValueError("Loyer 1a manquant pour une ville")
+    villes["source_id"] = villes.source_id + ";IW2026" + villes.city.map(lambda c: ";CW2025" if c in f.index else "")
+    return villes
+
+
 def load():
     h = pd.read_csv(INT / "hypotheses.csv").set_index("parameter")["value"].astype(float).to_dict()
     return {
         "marche": pd.read_csv(EXT / "marche_pays.csv"),
         "categories": pd.read_csv(EXT / "categories_pays.csv"),
         "prix": pd.read_csv(EXT / "prix_taxes.csv").set_index("country_code"),
-        "villes": pd.read_csv(EXT / "villes_de.csv"),
-        "concurrents": pd.read_csv(EXT / "concurrents_de.csv"),
+        "villes": villes_avec_loyers(),
+        "concurrents": pd.read_csv(EXT / "concurrents_nationaux.csv"),
         "hubs": pd.read_csv(EXT / "hubs_loreal.csv").set_index("hub"),
         "reglementation": pd.read_csv(EXT / "reglementation.csv"),
         "sources": pd.read_csv(RAW / "sources.csv"),

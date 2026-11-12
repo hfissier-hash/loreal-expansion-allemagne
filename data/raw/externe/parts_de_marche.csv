@@ -1,0 +1,8 @@
+country_code,scope,player,market_share_pct,year,source_id,status,collected_at
+DE,Ventes des drogeries,dm-drogerie markt,46.8,2024,HANDELSDATEN,collecté,2026-11-12
+DE,Ventes des drogeries,Rossmann,,2024,HANDELSDATEN,à collecter (payant),2026-11-12
+DE,Canaux de vente des cosmétiques,Drogeries,53.0,2025,IKW,collecté,2026-11-12
+DE,Canaux de vente des cosmétiques,Commerce spécialisé,18.0,2025,IKW,collecté,2026-11-12
+DE,Canaux de vente des cosmétiques,E-commerce,7.0,2025,IKW,collecté,2026-11-12
+DE,Marché beauté,L'Oréal,,2023,LOREAL_DACH,non publié (n°1 du marché),2026-11-12
+FR,Marché beauté,L'Oréal,,2024,LOREAL_FR,non publié,2026-11-12

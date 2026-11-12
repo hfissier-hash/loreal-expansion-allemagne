@@ -1,11 +1,11 @@
-country_code,category,value_bn_eur,share_pct,growth_pct,source_id,penetration_index_vs_fr
-DE,Parfums,2.144,11.9,2.1,CE2025,0.51
-DE,Maquillage,2.239,12.4,1.5,CE2025,1.41
-DE,Soins de la peau,4.023,22.3,11.1,CE2025,0.71
-DE,Capillaires,4.107,22.8,8.1,CE2025,1.7
-DE,Hygiène et toilette,5.499,30.5,5.3,CE2025,1.33
-FR,Parfums,3.401,23.5,3.5,CE2025,1.0
-FR,Maquillage,1.266,8.8,1.7,CE2025,1.0
-FR,Soins de la peau,4.529,31.3,2.7,CE2025,1.0
-FR,Capillaires,1.941,13.4,0.1,CE2025,1.0
-FR,Hygiène et toilette,3.327,23.0,-1.1,CE2025,1.0
+country_code,category,value_bn_eur,share_pct,growth_pct,source_id,collected_at,penetration_index_vs_fr
+DE,Parfums,2.144,11.9,2.1,CE2025,2026-11-12,0.51
+DE,Maquillage,2.239,12.4,1.5,CE2025,2026-11-12,1.41
+DE,Soins de la peau,4.023,22.3,11.1,CE2025,2026-11-12,0.71
+DE,Capillaires,4.107,22.8,8.1,CE2025,2026-11-12,1.7
+DE,Hygiène et toilette,5.499,30.5,5.3,CE2025,2026-11-12,1.33
+FR,Parfums,3.401,23.5,3.5,CE2025,2026-11-12,1.0
+FR,Maquillage,1.266,8.8,1.7,CE2025,2026-11-12,1.0
+FR,Soins de la peau,4.529,31.3,2.7,CE2025,2026-11-12,1.0
+FR,Capillaires,1.941,13.4,0.1,CE2025,2026-11-12,1.0
+FR,Hygiène et toilette,3.327,23.0,-1.1,CE2025,2026-11-12,1.0

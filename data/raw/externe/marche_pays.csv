@@ -1,5 +1,5 @@
-country_code,country,year,market_value_bn_eur,growth_pct,spend_per_capita_eur,source_id
-DE,Allemagne,2025,18.012,6.28,216,CE2025
-FR,France,2025,14.464,1.55,210,CE2025
-DE,Allemagne,2024,16.94,,,CE2024
-FR,France,2024,14.18,,,CE2024
+country_code,country,year,market_value_bn_eur,growth_pct,spend_per_capita_eur,source_id,collected_at
+DE,Allemagne,2025,18.012,6.28,216.0,CE2025,2026-11-12
+FR,France,2025,14.464,1.55,210.0,CE2025,2026-11-12
+DE,Allemagne,2024,16.94,,,CE2024,2026-11-12
+FR,France,2024,14.18,,,CE2024,2026-11-12
