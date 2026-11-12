@@ -47,14 +47,14 @@ def build_query(city: str) -> str:
     area = (f'area["name"="{city}"]["boundary"="administrative"]'
             f'["admin_level"~"^(4|6)$"]->.a;')
     counts = "".join(f"({flt}(area.a););out count;" for flt in CONCURRENTS.values())
-    return f"[out:json][timeout:120];{area}{counts}"
+    return f"[out:json][timeout:90];{area}{counts}"
 
 
 def run_query(query: str) -> dict:
     last_error = None
     for server in SERVERS:
         try:
-            r = requests.post(server, data={"data": query}, headers=HEADERS, timeout=180)
+            r = requests.post(server, data={"data": query}, headers=HEADERS, timeout=100)
             if r.status_code == 200:
                 return r.json()
             last_error = f"{server} -> HTTP {r.status_code}"
@@ -79,33 +79,48 @@ def main() -> None:
     else:  # lancé seul, hors du dépôt : on écrit le CSV à côté du script
         villes = pd.DataFrame(VILLES_PAR_DEFAUT.items(), columns=["city", "population"])
         OUT = Path.cwd() / "concurrents_villes.csv"
-    rows = []
+
+    # Reprise : on garde les villes déjà collectées lors d'un lancement précédent
+    deja = pd.read_csv(OUT) if OUT.exists() else pd.DataFrame()
+    if not deja.empty and "status" in deja:
+        deja = deja[deja["status"] == "collecté"]
+    faites = set(deja["city"]) if not deja.empty else set()
+
+    echecs = []
     for _, v in villes.iterrows():
-        data = run_query(build_query(v["city"]))
-        totals = [int(e["tags"]["total"]) for e in data["elements"] if e.get("type") == "count"]
-        if len(totals) != len(CONCURRENTS):
-            raise ValueError(f"{v['city']} : {len(totals)} comptes reçus au lieu de {len(CONCURRENTS)}")
-        for name, n in zip(CONCURRENTS, totals):
-            rows.append({
-                "city": v["city"],
-                "competitor": name,
-                "store_count": n,
-                "stores_per_100k": round(n / v["population"] * 100_000, 2),
-                "source_id": "OSM",
-                "status": "collecté",
-                "collected_at": date.today().isoformat(),
-            })
+        if v["city"] in faites:
+            print(f"{v['city']:<18} déjà collectée, on passe")
+            continue
+        try:
+            data = run_query(build_query(v["city"]))
+            totals = [int(e["tags"]["total"]) for e in data["elements"] if e.get("type") == "count"]
+            if len(totals) != len(CONCURRENTS):
+                raise ValueError(f"{len(totals)} comptes reçus au lieu de {len(CONCURRENTS)}")
+        except Exception as e:
+            print(f"{v['city']:<18} ÉCHEC ({e}) : relance le script plus tard")
+            echecs.append(v["city"])
+            continue
+        rows = [{
+            "city": v["city"],
+            "competitor": name,
+            "store_count": n,
+            "stores_per_100k": round(n / v["population"] * 100_000, 2),
+            "source_id": "OSM",
+            "status": "collecté",
+            "collected_at": date.today().isoformat(),
+        } for name, n in zip(CONCURRENTS, totals)]
+        deja = pd.concat([deja, pd.DataFrame(rows)], ignore_index=True)
+        deja.to_csv(OUT, index=False)  # sauvegarde après chaque ville
         print(f"{v['city']:<18} " + "  ".join(f"{k.split()[0]}={n}" for k, n in zip(CONCURRENTS, totals)))
         time.sleep(10)  # politesse envers le serveur public
 
-    df = pd.DataFrame(rows)
-    df.to_csv(OUT, index=False)
-    print(f"\n{len(df)} lignes écrites dans {OUT}")
-
-    # Contrôle de cohérence : villes sans aucun résultat = zone mal trouvée
-    zero = df.groupby("city")["store_count"].sum().loc[lambda s: s == 0]
-    if not zero.empty:
-        print("ATTENTION, aucune boutique trouvée pour :", ", ".join(zero.index))
+    print(f"\n{deja['city'].nunique()} villes sur {len(villes)} dans {OUT}")
+    if echecs:
+        print("Villes à reprendre (relance simplement le script) :", ", ".join(echecs))
+    else:
+        zero = deja.groupby("city")["store_count"].sum().loc[lambda s: s == 0]
+        if not zero.empty:
+            print("ATTENTION, aucune boutique trouvée pour :", ", ".join(zero.index))
 
 
 if __name__ == "__main__":
