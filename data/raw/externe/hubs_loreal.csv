@@ -1,3 +1,5 @@
 hub,country_code,type,lat,lon,source_id,collected_at
 Karlsruhe,DE,"Usine soins peau et cheveux (~1 M d'unités/jour, 90 % pour l'Europe et la zone DACH)",49.007,8.403,LOREAL_DACH,2026-11-12
-Rambouillet,FR,Usine France,48.643,1.83,LOREAL_FR,2026-11-12
+Rambouillet,FR,Usine France (non spécialisée dermocosmétique),48.643,1.83,LOREAL_FR,2026-11-12
+La Roche-Posay,FR,Usine Cosmétique Active (dermocosmétique),46.787,0.811,LOREAL_ACP,2026-11-12
+Vichy,FR,Usine Cosmétique Active (dermocosmétique),46.127,3.426,LOREAL_ACP,2026-11-12

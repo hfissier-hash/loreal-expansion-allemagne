@@ -31,9 +31,9 @@ L'Oréal est un fabricant, qui vend surtout via des distributeurs. Le projet ét
 | | Dépense en soins de la peau par habitant | DE 48 € / FR 66 € (−27 %) ; croissance du soin DE +11,1 % | Potentiel du concept |
 | Prix & marges | Indice de prix relatif (DE vs FR) | 98,2 | Positionnement prix |
 | | Marge brute estimée après taxes | 70,3 % du CA HT ; +0,8 % de CA HT grâce à la TVA à 19 % | Rentabilité unitaire |
-| Réseau & implantation | Densité concurrentielle | 6,2 magasins de drogerie / parfumerie pour 100 000 hab. | Rythme de déploiement |
-| | Coût moyen au m² | 20 – 45 €/m²/mois en rue 1a ; 3 000 – 3 840 €/m²/an sur artère n°1 | Coût de déploiement |
-| Opérations & logistique | Distance moyenne au hub | 271 km depuis Karlsruhe pour les 3 pilotes (708 km depuis Rambouillet) | Chaîne d'approvisionnement |
+| Réseau & implantation | Densité concurrentielle | Villes pilotes : 6,9 drogeries (dm, Rossmann, Müller) et 21 pharmacies pour 100 000 hab. (OpenStreetMap) ; 6,2 au niveau national | Rythme de déploiement |
+| | Coût moyen au m² | 20 – 45 €/m²/mois en rue 1a ; 120 – 320 €/m²/mois sur artère n°1 | Coût de déploiement |
+| Opérations & logistique | Distance moyenne au hub | 271 km depuis Karlsruhe pour les 3 pilotes (776 km depuis l'usine de Vichy, 903 km depuis La Roche-Posay) | Chaîne d'approvisionnement |
 | | Droits de douane / taxes | 0 % de douane, TVA 19 % | Surcoûts à l'import |
 | Assortiment | Indice de pénétration des catégories (DE / FR) | Soins de la peau 0,71 ; capillaires 1,70 | Assortiment ciblé ou complet |
 | | % du catalogue soin France éligible | 94,6 % | Déploiement du catalogue |
@@ -49,7 +49,9 @@ L'Oréal est un fabricant, qui vend surtout via des distributeurs. Le projet ét
 | `penetration_index_vs_fr` | fact_marche_categorie | décimal | Poids relatif d'une catégorie en Allemagne | part DE / part FR | Calculé |
 | `purchasing_power_index` | dim_ville | décimal | Pouvoir d'achat par habitant, Allemagne = 100 | — | NIQ-GfK 2025 |
 | `rent_1a_eur_m2_month` | dim_ville | décimal | Loyer médian en rue commerçante 1a | médiane 2024/25 | IW Köln 2026 |
-| `rent_prime_street_eur_m2_year` | dim_ville | décimal | Loyer de l'artère n°1 de la ville | vide si non publié | Cushman & Wakefield 2025 |
+| `rent_prime_street_eur_m2_month` | dim_ville | décimal | Loyer de l'artère n°1 de la ville, en €/m²/mois | — | BNP Paribas Real Estate S1 2026 |
+| `drogeries_per_100k` | dim_ville | décimal | dm + Rossmann + Müller pour 100 000 habitants | idem pour `parfumeries_`, `pharmacies_`, `instituts_per_100k` | OpenStreetMap |
+| `competition_status` | dim_ville | texte | « mesuré » ou « estimé » | estimé = densité moyenne des 5 villes mesurées | Calculé |
 | `distance_karlsruhe_km` | dim_ville | entier | Distance routière estimée depuis l'usine de Karlsruhe | vol d'oiseau × 1,25 | Calculé |
 | `revenue_ttc_eur` | fact_business_case | décimal | CA annuel potentiel d'une boutique | densité FR × surface × (dépense soin/hab DE ÷ FR) × (indice prix DE ÷ FR) × indice pouvoir d'achat ÷ 100 × facteur scénario | Calculé |
 | `revenue_ht_eur` | fact_business_case | décimal | CA hors taxe | CA TTC / 1,19 | Calculé |
@@ -72,7 +74,7 @@ data/raw/interne  ──┘    (contrôles)
 
 ![Modèle en étoile](docs/img/modele_etoile.png)
 
-Le modèle Gold a **trois tables de faits** : `fact_business_case` (grain : une ville × un emplacement × un scénario), `fact_plan_deploiement` (grain : une année × un scénario) et `fact_marche_categorie` (grain : un pays × une catégorie). Toutes les tables pointent vers `dim_source`, ce qui permet de remonter à l'origine de chaque chiffre.
+Le modèle Gold a **quatre tables de faits** : `fact_business_case` (grain : une ville × un emplacement × un scénario), `fact_plan_deploiement` (grain : une année × un scénario), `fact_concurrence_ville` (grain : une ville × une enseigne) et `fact_marche_categorie` (grain : un pays × une catégorie). Toutes les tables pointent vers `dim_source`, ce qui permet de remonter à l'origine de chaque chiffre.
 
 | Source | Type | Données utilisées | Pourquoi elle |
 |---|---|---|---|
@@ -80,7 +82,9 @@ Le modèle Gold a **trois tables de faits** : `fact_business_case` (grain : une 
 | [Statistics Norway / Eurostat](https://www.ssb.no/en/priser-og-prisindekser/konsumpriser/statistikk/sammenlikning-av-prisniva-i-europa) | Open data officielle | Niveau des prix 2025 (DE 108,3 ; FR 110,3) | Comparaison officielle des prix entre pays |
 | [NIQ-GfK Kaufkraft 2025](https://nielseniq.com/global/de/news-center/2025/kaufkraft-der-deutschen-erhoeht-sich-2025-was-den-anstieg-der-verbraucherpreise-jedoch-nicht-kompensiert/) | Étude de marché | Pouvoir d'achat des 8 grandes villes | Référence du commerce allemand pour choisir une implantation |
 | [IW Köln 2026](https://www.iwkoeln.de/fileadmin/user_upload/Studien/Report/PDF/2026/IW-Report_2026-Mietentwicklung-Einzelhandel.pdf) | Institut de recherche | Loyers en rue 1a | Médianes ajustées de la qualité, pas des annonces isolées |
-| [Cushman & Wakefield 2025](https://www.cushmanwakefield.com/de-de/germany/news/2025/11/main-streets-across-the-world) | Conseil immobilier | Loyers des artères n°1 | Référence mondiale des loyers prime |
+| [BNP Paribas Real Estate, S1 2026](https://www.realestate.bnpparibas.de/sites/default/files/document/2026-07/bnppre-top-retailm%C3%A4rkte-2026-h1-inkl-b-standorte.pdf) | Conseil immobilier | Loyers des artères n°1 des 8 villes | Seule source couvrant les 8 villes avec la même méthode ; recoupe Cushman & Wakefield à München (320 €/m²/mois) |
+| [OpenStreetMap](https://www.openstreetmap.org) (API Overpass) | Open data | Magasins concurrents par ville | Seule source gratuite au niveau ville, automatisable (`src/collect/collect_osm.py`) |
+| [Circana](https://www.circana.com/post/beauty-market-trends-in-europe-mid-range-brands-are-gaining-momentum), [NielsenIQ](https://nielseniq.com/wp-content/uploads/sites/4/2026/04/Global-Beauty-Views-2026.pdf) | Panels de distribution | Tendances prestige / milieu de gamme, e-commerce | Références du secteur ; seules les publications gratuites sont utilisées |
 | [Sonko Consulting](https://www.sonko-consulting.com/guides/german-beauty-retailers), [Douglas](https://douglas.group/fileadmin/user_upload/20251218_DOUGLAS_Group_PM_Q4_2024-25.pdf), [Handelsdaten](https://www.handelsdaten.de/drogerien-und-drogeriemarkte/2024-marktanteile-umsatzstaerkste-drogeriemaerkte-deutschland), [IKW](https://www.ikw.org/en/market-data) | Conseil, rapport financier, statistiques | Concurrents, magasins, parts de marché, canaux | Croisement de plusieurs sources pour la concurrence |
 | [L'Oréal, rapports annuels](https://www.loreal-finance.com/fr/rapport-annuel-2023/loreal-dans-le-monde/dach/) | Rapport annuel | Usine de Karlsruhe, position n°1 en Allemagne | Source primaire de l'entreprise |
 | [IHK Frankfurt](https://www.frankfurt-main.ihk.de/recht/uebersicht-alle-rechtsthemen/lebensmittel-und-bedarfsgegenstaenderecht/kosmetik-5195262), Règlement (CE) 1223/2009 | Réglementation | Étiquetage, emballages, conformité | Sources officielles |
@@ -88,7 +92,7 @@ Le modèle Gold a **trois tables de faits** : `fact_business_case` (grain : une 
 
 La liste complète, avec un niveau de fiabilité pour chaque source, est dans [`data/raw/sources.csv`](data/raw/sources.csv).
 
-**Limites assumées** : la densité concurrentielle est calculée au niveau national ; le comptage par ville prévu via OpenStreetMap (Douglas, dm, Rossmann, pharmacies) reste à faire. La base France est simulée, avec une graine fixe pour être reproductible. Les populations des villes sont arrondies. L'indice de prix porte sur toute la consommation des ménages, pas seulement la beauté. Le nombre de magasins Douglas en Allemagne n'est pas publié séparément.
+**Limites assumées** : la concurrence par ville est mesurée dans OpenStreetMap pour 5 villes ; Hamburg, Berlin et Leipzig sont estimées avec la densité moyenne des 5 autres (serveurs OSM saturés), et les magasins Douglas y sont probablement sous-comptés. La base France est simulée, avec une graine fixe pour être reproductible. Les populations sont officielles (Destatis, 31/12/2025). L'indice de prix porte sur toute la consommation des ménages, pas seulement la beauté. Le nombre de magasins Douglas n'est publié que pour le segment Allemagne-Autriche-Suisse-Pays-Bas (486). Les parts de marché de L'Oréal et de Rossmann ne sont pas publiques (données NielsenIQ / Circana payantes).
 
 ## 4. Plan d'organisation & roadmap
 
@@ -107,7 +111,7 @@ La liste complète, avec un niveau de fiabilité pour chaque source, est dans [`
 2. Déclencher la vague 2028 seulement si les pilotes atteignent ≈ 9 600 € de CA par m² sur 12 mois et ≈ 60 % de conversion des diagnostics.
 3. Remplacer la base simulée par les chiffres réels des boutiques France, puis refaire tourner le pipeline.
 4. Étudier une alternative moins coûteuse : des corners diagnostic chez dm, Rossmann ou en pharmacie.
-5. Compter les concurrents par ville (OpenStreetMap), étiquetage en allemand et enregistrement LUCID.
+5. Mesurer la concurrence à Hamburg, Berlin et Leipzig (relancer `collect_osm.py`), étiquetage en allemand et enregistrement LUCID.
 
 ## 5. Stack technique
 

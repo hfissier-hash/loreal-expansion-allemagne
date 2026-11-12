@@ -32,6 +32,58 @@
       "Düsseldorf",
       "Frankfurt am Main"
     ],
+    "pilots_drugstores_per_100k": 6.89,
+    "pilots_pharmacies_per_100k": 21.4,
+    "competition_by_city": {
+      "München": {
+        "drogeries": 7.57,
+        "parfumeries": 0.47,
+        "pharmacies": 20.33,
+        "statut": "mesuré"
+      },
+      "Düsseldorf": {
+        "drogeries": 6.78,
+        "parfumeries": 0.65,
+        "pharmacies": 24.54,
+        "statut": "mesuré"
+      },
+      "Frankfurt am Main": {
+        "drogeries": 6.31,
+        "parfumeries": 0.92,
+        "pharmacies": 19.33,
+        "statut": "mesuré"
+      },
+      "Stuttgart": {
+        "drogeries": 5.25,
+        "parfumeries": 0.33,
+        "pharmacies": 16.57,
+        "statut": "mesuré"
+      },
+      "Hamburg": {
+        "drogeries": 6.74,
+        "parfumeries": 0.64,
+        "pharmacies": 20.38,
+        "statut": "estimé"
+      },
+      "Köln": {
+        "drogeries": 6.44,
+        "parfumeries": 0.68,
+        "pharmacies": 20.87,
+        "statut": "mesuré"
+      },
+      "Berlin": {
+        "drogeries": 6.7,
+        "parfumeries": 0.59,
+        "pharmacies": 20.35,
+        "statut": "estimé"
+      },
+      "Leipzig": {
+        "drogeries": 6.66,
+        "parfumeries": 0.65,
+        "pharmacies": 20.29,
+        "statut": "estimé"
+      }
+    },
     "openings": [
       {
         "city": "München",
@@ -98,6 +150,8 @@
   "logistique": {
     "avg_distance_karlsruhe_pilots_km": 271,
     "avg_distance_rambouillet_pilots_km": 708,
+    "avg_distance_la_roche_posay_pilots_km": 903,
+    "avg_distance_vichy_pilots_km": 776,
     "customs_pct": 0
   },
   "assortiment": {
@@ -132,22 +186,31 @@
       "München",
       "Düsseldorf",
       "Frankfurt am Main",
+      "Stuttgart",
       "Hamburg",
-      "Berlin"
+      "Köln",
+      "Berlin",
+      "Leipzig"
     ],
     "ebitda_by_city": {
       "München": -194038,
-      "Düsseldorf": -158700,
-      "Frankfurt am Main": -172534,
-      "Hamburg": -184119,
-      "Berlin": -211207
+      "Düsseldorf": -196500,
+      "Frankfurt am Main": -221134,
+      "Stuttgart": -120689,
+      "Hamburg": -167919,
+      "Köln": -165384,
+      "Berlin": -211207,
+      "Leipzig": -81831
     },
     "rent_pct_ca_ht": {
       "München": 57.3,
-      "Düsseldorf": 50.5,
-      "Frankfurt am Main": 53.1,
-      "Hamburg": 54.6,
-      "Berlin": 60.3
+      "Düsseldorf": 57.6,
+      "Frankfurt am Main": 62.7,
+      "Stuttgart": 42.9,
+      "Hamburg": 51.3,
+      "Köln": 51.2,
+      "Berlin": 60.3,
+      "Leipzig": 30.4
     }
   },
   "reference_fr": {
@@ -305,6 +368,8 @@
   "controles": {
     "chaque ville x emplacement a 3 scénarios": true,
     "clés ville connues": true,
+    "concurrents : 8 villes x 7 enseignes": true,
+    "aucune ville à 0 concurrent": true,
     "parts de catégories ≈ 100 % par pays": true,
     "toutes les sources citées existent": true,
     "nombre de boutiques France = hypothèse": true,

@@ -1,57 +1,57 @@
 city,competitor,store_count,stores_per_100k,source_id,status,collected_at
-München,Douglas,,,OSM,à collecter (script OSM),
-München,dm-drogerie markt,,,OSM,à collecter (script OSM),
-München,Rossmann,,,OSM,à collecter (script OSM),
-München,Müller,,,OSM,à collecter (script OSM),
-München,Sephora,,,OSM,à collecter (script OSM),
-München,Pharmacies,,,OSM,à collecter (script OSM),
-München,Instituts de beauté,,,OSM,à collecter (script OSM),
-Düsseldorf,Douglas,,,OSM,à collecter (script OSM),
-Düsseldorf,dm-drogerie markt,,,OSM,à collecter (script OSM),
-Düsseldorf,Rossmann,,,OSM,à collecter (script OSM),
-Düsseldorf,Müller,,,OSM,à collecter (script OSM),
-Düsseldorf,Sephora,,,OSM,à collecter (script OSM),
-Düsseldorf,Pharmacies,,,OSM,à collecter (script OSM),
-Düsseldorf,Instituts de beauté,,,OSM,à collecter (script OSM),
-Frankfurt am Main,Douglas,,,OSM,à collecter (script OSM),
-Frankfurt am Main,dm-drogerie markt,,,OSM,à collecter (script OSM),
-Frankfurt am Main,Rossmann,,,OSM,à collecter (script OSM),
-Frankfurt am Main,Müller,,,OSM,à collecter (script OSM),
-Frankfurt am Main,Sephora,,,OSM,à collecter (script OSM),
-Frankfurt am Main,Pharmacies,,,OSM,à collecter (script OSM),
-Frankfurt am Main,Instituts de beauté,,,OSM,à collecter (script OSM),
-Stuttgart,Douglas,,,OSM,à collecter (script OSM),
-Stuttgart,dm-drogerie markt,,,OSM,à collecter (script OSM),
-Stuttgart,Rossmann,,,OSM,à collecter (script OSM),
-Stuttgart,Müller,,,OSM,à collecter (script OSM),
-Stuttgart,Sephora,,,OSM,à collecter (script OSM),
-Stuttgart,Pharmacies,,,OSM,à collecter (script OSM),
-Stuttgart,Instituts de beauté,,,OSM,à collecter (script OSM),
-Hamburg,Douglas,,,OSM,à collecter (script OSM),
-Hamburg,dm-drogerie markt,,,OSM,à collecter (script OSM),
-Hamburg,Rossmann,,,OSM,à collecter (script OSM),
-Hamburg,Müller,,,OSM,à collecter (script OSM),
-Hamburg,Sephora,,,OSM,à collecter (script OSM),
-Hamburg,Pharmacies,,,OSM,à collecter (script OSM),
-Hamburg,Instituts de beauté,,,OSM,à collecter (script OSM),
-Köln,Douglas,,,OSM,à collecter (script OSM),
-Köln,dm-drogerie markt,,,OSM,à collecter (script OSM),
-Köln,Rossmann,,,OSM,à collecter (script OSM),
-Köln,Müller,,,OSM,à collecter (script OSM),
-Köln,Sephora,,,OSM,à collecter (script OSM),
-Köln,Pharmacies,,,OSM,à collecter (script OSM),
-Köln,Instituts de beauté,,,OSM,à collecter (script OSM),
-Berlin,Douglas,,,OSM,à collecter (script OSM),
-Berlin,dm-drogerie markt,,,OSM,à collecter (script OSM),
-Berlin,Rossmann,,,OSM,à collecter (script OSM),
-Berlin,Müller,,,OSM,à collecter (script OSM),
-Berlin,Sephora,,,OSM,à collecter (script OSM),
-Berlin,Pharmacies,,,OSM,à collecter (script OSM),
-Berlin,Instituts de beauté,,,OSM,à collecter (script OSM),
-Leipzig,Douglas,,,OSM,à collecter (script OSM),
-Leipzig,dm-drogerie markt,,,OSM,à collecter (script OSM),
-Leipzig,Rossmann,,,OSM,à collecter (script OSM),
-Leipzig,Müller,,,OSM,à collecter (script OSM),
-Leipzig,Sephora,,,OSM,à collecter (script OSM),
-Leipzig,Pharmacies,,,OSM,à collecter (script OSM),
-Leipzig,Instituts de beauté,,,OSM,à collecter (script OSM),
+München,Douglas,6,0.4,OSM,collecté,2026-11-12
+München,dm-drogerie markt,59,3.92,OSM,collecté,2026-11-12
+München,Rossmann,43,2.86,OSM,collecté,2026-11-12
+München,Müller,12,0.8,OSM,collecté,2026-11-12
+München,Sephora,1,0.07,OSM,collecté,2026-11-12
+München,Pharmacies,306,20.33,OSM,collecté,2026-11-12
+München,Instituts de beauté,498,33.09,OSM,collecté,2026-11-12
+Düsseldorf,Instituts de beauté,166,26.8,OSM,collecté,2026-11-12
+Düsseldorf,Pharmacies,152,24.54,OSM,collecté,2026-11-12
+Düsseldorf,Müller,1,0.16,OSM,collecté,2026-11-12
+Düsseldorf,Sephora,1,0.16,OSM,collecté,2026-11-12
+Düsseldorf,dm-drogerie markt,22,3.55,OSM,collecté,2026-11-12
+Düsseldorf,Douglas,3,0.48,OSM,collecté,2026-11-12
+Düsseldorf,Rossmann,19,3.07,OSM,collecté,2026-11-12
+Frankfurt am Main,Douglas,6,0.79,OSM,collecté,2026-11-12
+Frankfurt am Main,dm-drogerie markt,29,3.81,OSM,collecté,2026-11-12
+Frankfurt am Main,Rossmann,16,2.1,OSM,collecté,2026-11-12
+Frankfurt am Main,Müller,3,0.39,OSM,collecté,2026-11-12
+Frankfurt am Main,Sephora,1,0.13,OSM,collecté,2026-11-12
+Frankfurt am Main,Pharmacies,147,19.33,OSM,collecté,2026-11-12
+Frankfurt am Main,Instituts de beauté,191,25.11,OSM,collecté,2026-11-12
+Stuttgart,Sephora,0,0.0,OSM,collecté,2026-11-12
+Stuttgart,Pharmacies,101,16.57,OSM,collecté,2026-11-12
+Stuttgart,Müller,6,0.98,OSM,collecté,2026-11-12
+Stuttgart,Instituts de beauté,139,22.81,OSM,collecté,2026-11-12
+Stuttgart,dm-drogerie markt,20,3.28,OSM,collecté,2026-11-12
+Stuttgart,Douglas,2,0.33,OSM,collecté,2026-11-12
+Stuttgart,Rossmann,6,0.98,OSM,collecté,2026-11-12
+Hamburg,Instituts de beauté,555,29.69,OSM,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",2026-11-12
+Hamburg,Sephora,2,0.11,OSM,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",2026-11-12
+Hamburg,Müller,10,0.53,OSM,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",2026-11-12
+Hamburg,Rossmann,44,2.35,OSM,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",2026-11-12
+Hamburg,dm-drogerie markt,72,3.85,OSM,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",2026-11-12
+Hamburg,Douglas,10,0.53,OSM,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",2026-11-12
+Hamburg,Pharmacies,381,20.38,OSM,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",2026-11-12
+Köln,Pharmacies,214,20.87,OSM,collecté,2026-11-12
+Köln,Sephora,1,0.1,OSM,collecté,2026-11-12
+Köln,Müller,1,0.1,OSM,collecté,2026-11-12
+Köln,Rossmann,22,2.15,OSM,collecté,2026-11-12
+Köln,dm-drogerie markt,43,4.19,OSM,collecté,2026-11-12
+Köln,Douglas,6,0.59,OSM,collecté,2026-11-12
+Köln,Instituts de beauté,349,34.03,OSM,collecté,2026-11-12
+Berlin,Instituts de beauté,1100,29.73,OSM,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",2026-11-12
+Berlin,Pharmacies,753,20.35,OSM,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",2026-11-12
+Berlin,Sephora,3,0.08,OSM,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",2026-11-12
+Berlin,Müller,19,0.51,OSM,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",2026-11-12
+Berlin,dm-drogerie markt,142,3.84,OSM,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",2026-11-12
+Berlin,Douglas,19,0.51,OSM,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",2026-11-12
+Berlin,Rossmann,87,2.35,OSM,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",2026-11-12
+Leipzig,Pharmacies,125,20.29,OSM,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",2026-11-12
+Leipzig,Douglas,3,0.49,OSM,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",2026-11-12
+Leipzig,dm-drogerie markt,24,3.9,OSM,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",2026-11-12
+Leipzig,Rossmann,14,2.27,OSM,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",2026-11-12
+Leipzig,Müller,3,0.49,OSM,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",2026-11-12
+Leipzig,Sephora,1,0.16,OSM,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",2026-11-12
+Leipzig,Instituts de beauté,183,29.71,OSM,"estimé (densité moyenne des 5 villes mesurées, serveurs OSM saturés)",2026-11-12

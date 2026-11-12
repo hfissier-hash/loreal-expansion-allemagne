@@ -10,7 +10,7 @@ _Générée par Claude (Anthropic) à partir de `docs/kpis.json`, avec la consig
 
 - **Marché** : l'Allemagne est le premier marché beauté d'Europe (18,0 Md€ en 2025, +6,3 %), et le soin de la peau y croît de +11,1 %. Mais un Allemand dépense 48 € par an en soins de la peau, contre 66 € pour un Français (−27 %). Le concept diagnostic de peau part donc d'une base plus petite qu'en France.
 - **Prix et marges** : les prix à la consommation sont proches de ceux de la France (indice relatif 98,2). La TVA à 19 % rend 0,8 % de CA hors taxe en plus à prix TTC égal. Le taux de marge brute de référence (70,3 %) est préservé.
-- **Réseau** : une boutique pilote ferait environ 600 000 à 720 000 € de CA par an, pour 435 000 € d'investissement (aménagement, appareils de diagnostic, ouverture). En rue 1a, le loyer coûte 5 à 8 % du CA. Sur l'artère n°1, il en coûte 51 à 60 %, et aucune ville n'est rentable.
+- **Réseau** : une boutique pilote ferait environ 600 000 à 720 000 € de CA par an, pour 435 000 € d'investissement (aménagement, appareils de diagnostic, ouverture). En rue 1a, le loyer coûte 5 à 8 % du CA. Sur l'artère n°1, il en coûte 30 à 63 %, et aucune des 8 villes n'est rentable.
 - **Logistique** : l'usine L'Oréal de Karlsruhe est en moyenne à 271 km des 3 villes pilotes, contre 708 km pour Rambouillet. Aucun droit de douane dans l'Union européenne.
 - **Assortiment** : 94,6 % du catalogue soin français est éligible. Les marques dermatologiques (La Roche-Posay, CeraVe, Vichy) sont le cœur de l'offre.
 

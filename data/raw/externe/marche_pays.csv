@@ -1,5 +1,5 @@
-country_code,country,year,market_value_bn_eur,growth_pct,spend_per_capita_eur,source_id,collected_at
-DE,Allemagne,2025,18.012,6.28,216.0,CE2025,2026-11-12
-FR,France,2025,14.464,1.55,210.0,CE2025,2026-11-12
-DE,Allemagne,2024,16.94,,,CE2024,2026-11-12
-FR,France,2024,14.18,,,CE2024,2026-11-12
+country_code,country,year,market_value_bn_eur,growth_pct,spend_per_capita_eur,source_id,collected_at,note
+DE,Allemagne,2025,18.012,6.28,216.0,CE2025,2026-11-12,Croissance publiée par Cosmetics Europe (sur montants 2024 révisés) : valeur de référence
+FR,France,2025,14.464,1.55,210.0,CE2025,2026-11-12,Croissance publiée par Cosmetics Europe (sur montants 2024 révisés) : valeur de référence
+DE,Allemagne,2024,16.94,,,CE2024,2026-11-12,"Édition 2024 non révisée : ne pas l’utiliser pour recalculer la croissance (+6,33 % DE / +2,00 % FR au lieu de 6,28 % / 1,55 %)"
+FR,France,2024,14.18,,,CE2024,2026-11-12,"Édition 2024 non révisée : ne pas l’utiliser pour recalculer la croissance (+6,33 % DE / +2,00 % FR au lieu de 6,28 % / 1,55 %)"
