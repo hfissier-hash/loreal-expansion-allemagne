@@ -42,26 +42,43 @@ CONCURRENTS = {
 }
 
 
-def build_query(city: str) -> str:
-    """Une seule requête par ville : un 'out count' par concurrent, dans l'ordre."""
+def build_query(city: str, flt: str) -> str:
+    """Une petite requête par ville et par concurrent (les serveurs publics coupent les grosses)."""
     area = (f'area["name"="{city}"]["boundary"="administrative"]'
             f'["admin_level"~"^(4|6)$"]->.a;')
-    counts = "".join(f"({flt}(area.a););out count;" for flt in CONCURRENTS.values())
-    return f"[out:json][timeout:90];{area}{counts}"
+    return f"[out:json][timeout:60];{area}({flt}(area.a););out count;"
 
 
-def run_query(query: str) -> dict:
+def run_query(query: str) -> int:
+    """Renvoie le nombre de magasins, en essayant chaque serveur l'un après l'autre."""
     last_error = None
-    for server in SERVERS:
-        try:
-            r = requests.post(server, data={"data": query}, headers=HEADERS, timeout=100)
-            if r.status_code == 200:
-                return r.json()
-            last_error = f"{server} -> HTTP {r.status_code}"
-        except requests.RequestException as e:
-            last_error = f"{server} -> {e}"
-        time.sleep(5)
-    raise RuntimeError(f"Aucun serveur Overpass n'a répondu ({last_error})")
+    for attempt in range(2):  # deux tours complets des serveurs
+        for server in SERVERS:
+            try:
+                r = requests.post(server, data={"data": query}, headers=HEADERS, timeout=90)
+                if r.status_code == 200:
+                    counts = [e for e in r.json()["elements"] if e.get("type") == "count"]
+                    if counts:
+                        return int(counts[0]["tags"]["total"])
+                    last_error = f"{server} -> réponse vide"
+                else:
+                    last_error = f"{server} -> HTTP {r.status_code}"
+            except (requests.RequestException, ValueError) as e:
+                last_error = f"{server} -> {e}"
+            time.sleep(3)
+        time.sleep(20)
+    raise RuntimeError(f"aucun serveur n'a répondu ({last_error})")
+
+
+def collect_city(city: str) -> list[int]:
+    totals = []
+    for flt in CONCURRENTS.values():
+        totals.append(run_query(build_query(city, flt)))
+        time.sleep(2)
+    if sum(totals) == 0:
+        # Une grande ville sans aucun magasin = zone de la ville introuvable sur ce serveur
+        raise RuntimeError("zone de la ville introuvable (tout à 0)")
+    return totals
 
 
 # Population officielle au 31/12/2025 (Destatis), utilisée si le script tourne hors du dépôt
@@ -84,6 +101,9 @@ def main() -> None:
     deja = pd.read_csv(OUT) if OUT.exists() else pd.DataFrame()
     if not deja.empty and "status" in deja:
         deja = deja[deja["status"] == "collecté"]
+        # Une ville enregistrée avec 0 magasin partout est fausse : on la refait
+        vides = deja.groupby("city")["store_count"].sum().loc[lambda s: s == 0].index
+        deja = deja[~deja["city"].isin(vides)]
     faites = set(deja["city"]) if not deja.empty else set()
 
     echecs = []
@@ -92,10 +112,7 @@ def main() -> None:
             print(f"{v['city']:<18} déjà collectée, on passe")
             continue
         try:
-            data = run_query(build_query(v["city"]))
-            totals = [int(e["tags"]["total"]) for e in data["elements"] if e.get("type") == "count"]
-            if len(totals) != len(CONCURRENTS):
-                raise ValueError(f"{len(totals)} comptes reçus au lieu de {len(CONCURRENTS)}")
+            totals = collect_city(v["city"])
         except Exception as e:
             print(f"{v['city']:<18} ÉCHEC ({e}) : relance le script plus tard")
             echecs.append(v["city"])
