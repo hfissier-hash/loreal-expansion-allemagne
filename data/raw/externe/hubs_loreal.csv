@@ -1,0 +1,3 @@
+hub,country_code,type,lat,lon,source_id
+Karlsruhe,DE,"Usine soins peau et cheveux (~1 M d'unités/jour, 90 % pour l'Europe et la zone DACH)",49.007,8.403,LOREAL_DACH
+Rambouillet,FR,Usine France,48.643,1.830,LOREAL_FR

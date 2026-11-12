@@ -1,0 +1,481 @@
+sku,brand,category,france_only
+SKU00001,La Roche-Posay,Soins de la peau,False
+SKU00002,Vichy,Soins de la peau,False
+SKU00003,La Roche-Posay,Soins de la peau,False
+SKU00004,Vichy,Soins de la peau,False
+SKU00005,CeraVe,Soins de la peau,False
+SKU00006,La Roche-Posay,Soins de la peau,False
+SKU00007,La Roche-Posay,Soins de la peau,False
+SKU00008,Lancôme Skincare,Soins de la peau,False
+SKU00009,SkinCeuticals,Soins de la peau,False
+SKU00010,CeraVe,Soins de la peau,False
+SKU00011,La Roche-Posay,Soins de la peau,False
+SKU00012,Vichy,Soins de la peau,False
+SKU00013,La Roche-Posay,Soins de la peau,False
+SKU00014,Vichy,Soins de la peau,True
+SKU00015,Kiehl's,Soins de la peau,False
+SKU00016,La Roche-Posay,Soins de la peau,False
+SKU00017,Kiehl's,Soins de la peau,False
+SKU00018,Vichy,Soins de la peau,False
+SKU00019,La Roche-Posay,Soins de la peau,False
+SKU00020,La Roche-Posay,Soins de la peau,True
+SKU00021,CeraVe,Soins de la peau,False
+SKU00022,La Roche-Posay,Soins de la peau,False
+SKU00023,Vichy,Soins de la peau,False
+SKU00024,CeraVe,Soins de la peau,False
+SKU00025,Vichy,Soins de la peau,False
+SKU00026,SkinCeuticals,Soins de la peau,False
+SKU00027,CeraVe,Soins de la peau,False
+SKU00028,CeraVe,Soins de la peau,False
+SKU00029,La Roche-Posay,Soins de la peau,False
+SKU00030,Vichy,Soins de la peau,False
+SKU00031,La Roche-Posay,Soins de la peau,True
+SKU00032,CeraVe,Soins de la peau,False
+SKU00033,CeraVe,Soins de la peau,False
+SKU00034,Lancôme Skincare,Soins de la peau,False
+SKU00035,La Roche-Posay,Soins de la peau,False
+SKU00036,CeraVe,Soins de la peau,False
+SKU00037,Kiehl's,Soins de la peau,False
+SKU00038,CeraVe,Soins de la peau,False
+SKU00039,Kiehl's,Soins de la peau,False
+SKU00040,CeraVe,Soins de la peau,False
+SKU00041,SkinCeuticals,Soins de la peau,False
+SKU00042,CeraVe,Soins de la peau,False
+SKU00043,SkinCeuticals,Soins de la peau,False
+SKU00044,La Roche-Posay,Soins de la peau,False
+SKU00045,Lancôme Skincare,Soins de la peau,False
+SKU00046,SkinCeuticals,Soins de la peau,False
+SKU00047,Lancôme Skincare,Soins de la peau,False
+SKU00048,SkinCeuticals,Soins de la peau,False
+SKU00049,La Roche-Posay,Soins de la peau,False
+SKU00050,CeraVe,Soins de la peau,False
+SKU00051,SkinCeuticals,Soins de la peau,False
+SKU00052,SkinCeuticals,Soins de la peau,True
+SKU00053,La Roche-Posay,Soins de la peau,False
+SKU00054,La Roche-Posay,Soins de la peau,False
+SKU00055,Lancôme Skincare,Soins de la peau,False
+SKU00056,La Roche-Posay,Soins de la peau,True
+SKU00057,CeraVe,Soins de la peau,False
+SKU00058,La Roche-Posay,Soins de la peau,False
+SKU00059,La Roche-Posay,Soins de la peau,False
+SKU00060,SkinCeuticals,Soins de la peau,False
+SKU00061,Kiehl's,Soins de la peau,False
+SKU00062,CeraVe,Soins de la peau,False
+SKU00063,Lancôme Skincare,Soins de la peau,False
+SKU00064,La Roche-Posay,Soins de la peau,False
+SKU00065,La Roche-Posay,Soins de la peau,False
+SKU00066,SkinCeuticals,Soins de la peau,False
+SKU00067,La Roche-Posay,Soins de la peau,False
+SKU00068,Kiehl's,Soins de la peau,False
+SKU00069,La Roche-Posay,Soins de la peau,False
+SKU00070,Lancôme Skincare,Soins de la peau,True
+SKU00071,CeraVe,Soins de la peau,False
+SKU00072,CeraVe,Soins de la peau,False
+SKU00073,Kiehl's,Soins de la peau,False
+SKU00074,Vichy,Soins de la peau,False
+SKU00075,La Roche-Posay,Soins de la peau,False
+SKU00076,SkinCeuticals,Soins de la peau,False
+SKU00077,La Roche-Posay,Soins de la peau,False
+SKU00078,Kiehl's,Soins de la peau,False
+SKU00079,La Roche-Posay,Soins de la peau,False
+SKU00080,La Roche-Posay,Soins de la peau,False
+SKU00081,Vichy,Soins de la peau,False
+SKU00082,CeraVe,Soins de la peau,False
+SKU00083,CeraVe,Soins de la peau,False
+SKU00084,Lancôme Skincare,Soins de la peau,False
+SKU00085,La Roche-Posay,Soins de la peau,False
+SKU00086,Vichy,Soins de la peau,False
+SKU00087,SkinCeuticals,Soins de la peau,False
+SKU00088,Kiehl's,Soins de la peau,False
+SKU00089,La Roche-Posay,Soins de la peau,False
+SKU00090,CeraVe,Soins de la peau,False
+SKU00091,La Roche-Posay,Soins de la peau,False
+SKU00092,SkinCeuticals,Soins de la peau,False
+SKU00093,Vichy,Soins de la peau,False
+SKU00094,Kiehl's,Soins de la peau,False
+SKU00095,La Roche-Posay,Soins de la peau,False
+SKU00096,Lancôme Skincare,Soins de la peau,False
+SKU00097,CeraVe,Soins de la peau,False
+SKU00098,Kiehl's,Soins de la peau,False
+SKU00099,Vichy,Soins de la peau,False
+SKU00100,La Roche-Posay,Soins de la peau,False
+SKU00101,La Roche-Posay,Soins de la peau,False
+SKU00102,Lancôme Skincare,Soins de la peau,False
+SKU00103,Lancôme Skincare,Soins de la peau,False
+SKU00104,SkinCeuticals,Soins de la peau,False
+SKU00105,Kiehl's,Soins de la peau,False
+SKU00106,CeraVe,Soins de la peau,False
+SKU00107,La Roche-Posay,Soins de la peau,False
+SKU00108,La Roche-Posay,Soins de la peau,True
+SKU00109,La Roche-Posay,Soins de la peau,False
+SKU00110,La Roche-Posay,Soins de la peau,False
+SKU00111,CeraVe,Soins de la peau,False
+SKU00112,La Roche-Posay,Soins de la peau,False
+SKU00113,La Roche-Posay,Soins de la peau,False
+SKU00114,Lancôme Skincare,Soins de la peau,False
+SKU00115,La Roche-Posay,Soins de la peau,False
+SKU00116,CeraVe,Soins de la peau,False
+SKU00117,La Roche-Posay,Soins de la peau,True
+SKU00118,La Roche-Posay,Soins de la peau,False
+SKU00119,CeraVe,Soins de la peau,False
+SKU00120,Vichy,Soins de la peau,False
+SKU00121,Lancôme Skincare,Soins de la peau,False
+SKU00122,Vichy,Soins de la peau,False
+SKU00123,CeraVe,Soins de la peau,False
+SKU00124,CeraVe,Soins de la peau,False
+SKU00125,Kiehl's,Soins de la peau,False
+SKU00126,La Roche-Posay,Soins de la peau,False
+SKU00127,CeraVe,Soins de la peau,False
+SKU00128,Kiehl's,Soins de la peau,False
+SKU00129,La Roche-Posay,Soins de la peau,False
+SKU00130,SkinCeuticals,Soins de la peau,False
+SKU00131,CeraVe,Soins de la peau,False
+SKU00132,SkinCeuticals,Soins de la peau,False
+SKU00133,CeraVe,Soins de la peau,False
+SKU00134,Lancôme Skincare,Soins de la peau,False
+SKU00135,La Roche-Posay,Soins de la peau,False
+SKU00136,SkinCeuticals,Soins de la peau,False
+SKU00137,CeraVe,Soins de la peau,False
+SKU00138,La Roche-Posay,Soins de la peau,True
+SKU00139,CeraVe,Soins de la peau,False
+SKU00140,La Roche-Posay,Soins de la peau,False
+SKU00141,CeraVe,Soins de la peau,False
+SKU00142,La Roche-Posay,Soins de la peau,False
+SKU00143,La Roche-Posay,Soins de la peau,False
+SKU00144,CeraVe,Soins de la peau,True
+SKU00145,Vichy,Soins de la peau,False
+SKU00146,La Roche-Posay,Soins de la peau,False
+SKU00147,CeraVe,Soins de la peau,False
+SKU00148,La Roche-Posay,Soins de la peau,True
+SKU00149,Lancôme Skincare,Soins de la peau,False
+SKU00150,Kiehl's,Soins de la peau,False
+SKU00151,La Roche-Posay,Soins de la peau,True
+SKU00152,SkinCeuticals,Soins de la peau,False
+SKU00153,Kiehl's,Soins de la peau,False
+SKU00154,Kiehl's,Soins de la peau,False
+SKU00155,CeraVe,Soins de la peau,False
+SKU00156,CeraVe,Soins de la peau,False
+SKU00157,SkinCeuticals,Soins de la peau,False
+SKU00158,CeraVe,Soins de la peau,False
+SKU00159,La Roche-Posay,Soins de la peau,False
+SKU00160,SkinCeuticals,Soins de la peau,False
+SKU00161,Vichy,Soins de la peau,False
+SKU00162,CeraVe,Soins de la peau,False
+SKU00163,Vichy,Soins de la peau,False
+SKU00164,La Roche-Posay,Soins de la peau,False
+SKU00165,CeraVe,Soins de la peau,False
+SKU00166,Vichy,Soins de la peau,False
+SKU00167,Lancôme Skincare,Soins de la peau,False
+SKU00168,Lancôme Skincare,Soins de la peau,False
+SKU00169,CeraVe,Soins de la peau,False
+SKU00170,CeraVe,Soins de la peau,False
+SKU00171,CeraVe,Soins de la peau,False
+SKU00172,CeraVe,Soins de la peau,False
+SKU00173,Lancôme Skincare,Soins de la peau,False
+SKU00174,La Roche-Posay,Soins de la peau,False
+SKU00175,La Roche-Posay,Soins de la peau,False
+SKU00176,CeraVe,Soins de la peau,False
+SKU00177,CeraVe,Soins de la peau,False
+SKU00178,CeraVe,Soins de la peau,False
+SKU00179,CeraVe,Soins de la peau,False
+SKU00180,La Roche-Posay,Soins de la peau,False
+SKU00181,CeraVe,Soins de la peau,False
+SKU00182,Vichy,Soins de la peau,False
+SKU00183,SkinCeuticals,Soins de la peau,False
+SKU00184,Vichy,Soins de la peau,False
+SKU00185,Lancôme Skincare,Soins de la peau,False
+SKU00186,Kiehl's,Soins de la peau,False
+SKU00187,SkinCeuticals,Soins de la peau,False
+SKU00188,Kiehl's,Soins de la peau,False
+SKU00189,SkinCeuticals,Soins de la peau,False
+SKU00190,La Roche-Posay,Soins de la peau,False
+SKU00191,CeraVe,Soins de la peau,False
+SKU00192,SkinCeuticals,Soins de la peau,False
+SKU00193,CeraVe,Soins de la peau,False
+SKU00194,CeraVe,Soins de la peau,False
+SKU00195,Lancôme Skincare,Soins de la peau,False
+SKU00196,Lancôme Skincare,Soins de la peau,False
+SKU00197,Vichy,Soins de la peau,False
+SKU00198,SkinCeuticals,Soins de la peau,False
+SKU00199,Lancôme Skincare,Soins de la peau,True
+SKU00200,SkinCeuticals,Soins de la peau,False
+SKU00201,CeraVe,Soins de la peau,False
+SKU00202,Vichy,Soins de la peau,False
+SKU00203,SkinCeuticals,Soins de la peau,False
+SKU00204,CeraVe,Soins de la peau,False
+SKU00205,Kiehl's,Soins de la peau,False
+SKU00206,CeraVe,Soins de la peau,False
+SKU00207,Lancôme Skincare,Soins de la peau,False
+SKU00208,Vichy,Soins de la peau,False
+SKU00209,CeraVe,Soins de la peau,False
+SKU00210,SkinCeuticals,Soins de la peau,False
+SKU00211,CeraVe,Soins de la peau,False
+SKU00212,Lancôme Skincare,Soins de la peau,False
+SKU00213,Lancôme Skincare,Soins de la peau,False
+SKU00214,SkinCeuticals,Soins de la peau,False
+SKU00215,CeraVe,Soins de la peau,False
+SKU00216,La Roche-Posay,Soins de la peau,False
+SKU00217,Lancôme Skincare,Soins de la peau,False
+SKU00218,Lancôme Skincare,Soins de la peau,False
+SKU00219,Lancôme Skincare,Soins de la peau,False
+SKU00220,Vichy,Soins de la peau,False
+SKU00221,La Roche-Posay,Soins de la peau,False
+SKU00222,La Roche-Posay,Soins de la peau,False
+SKU00223,SkinCeuticals,Soins de la peau,False
+SKU00224,Kiehl's,Soins de la peau,False
+SKU00225,Vichy,Soins de la peau,False
+SKU00226,CeraVe,Soins de la peau,False
+SKU00227,Vichy,Soins de la peau,False
+SKU00228,Kiehl's,Soins de la peau,False
+SKU00229,Vichy,Soins de la peau,False
+SKU00230,Lancôme Skincare,Soins de la peau,False
+SKU00231,CeraVe,Soins de la peau,False
+SKU00232,La Roche-Posay,Soins de la peau,False
+SKU00233,La Roche-Posay,Soins de la peau,False
+SKU00234,Kiehl's,Soins de la peau,False
+SKU00235,Kiehl's,Soins de la peau,False
+SKU00236,SkinCeuticals,Soins de la peau,False
+SKU00237,Kiehl's,Soins de la peau,False
+SKU00238,Lancôme Skincare,Soins de la peau,False
+SKU00239,Kiehl's,Soins de la peau,False
+SKU00240,Kiehl's,Soins de la peau,False
+SKU00241,Lancôme Skincare,Soins de la peau,False
+SKU00242,SkinCeuticals,Soins de la peau,True
+SKU00243,La Roche-Posay,Soins de la peau,False
+SKU00244,Kiehl's,Soins de la peau,False
+SKU00245,Vichy,Soins de la peau,False
+SKU00246,Kiehl's,Soins de la peau,False
+SKU00247,Lancôme Skincare,Soins de la peau,True
+SKU00248,CeraVe,Soins de la peau,False
+SKU00249,CeraVe,Soins de la peau,False
+SKU00250,La Roche-Posay,Soins de la peau,False
+SKU00251,CeraVe,Soins de la peau,True
+SKU00252,CeraVe,Soins de la peau,False
+SKU00253,Vichy,Soins de la peau,False
+SKU00254,CeraVe,Soins de la peau,False
+SKU00255,La Roche-Posay,Soins de la peau,False
+SKU00256,SkinCeuticals,Soins de la peau,False
+SKU00257,CeraVe,Soins de la peau,False
+SKU00258,Vichy,Soins de la peau,False
+SKU00259,CeraVe,Soins de la peau,False
+SKU00260,SkinCeuticals,Soins de la peau,False
+SKU00261,La Roche-Posay,Soins de la peau,False
+SKU00262,SkinCeuticals,Soins de la peau,False
+SKU00263,La Roche-Posay,Soins de la peau,False
+SKU00264,La Roche-Posay,Soins de la peau,False
+SKU00265,Lancôme Skincare,Soins de la peau,False
+SKU00266,La Roche-Posay,Soins de la peau,False
+SKU00267,Kiehl's,Soins de la peau,False
+SKU00268,La Roche-Posay,Soins de la peau,False
+SKU00269,La Roche-Posay,Soins de la peau,False
+SKU00270,Vichy,Soins de la peau,False
+SKU00271,Vichy,Soins de la peau,False
+SKU00272,Vichy,Soins de la peau,False
+SKU00273,La Roche-Posay,Soins de la peau,False
+SKU00274,SkinCeuticals,Soins de la peau,False
+SKU00275,Lancôme Skincare,Soins de la peau,False
+SKU00276,La Roche-Posay,Soins de la peau,False
+SKU00277,SkinCeuticals,Soins de la peau,False
+SKU00278,SkinCeuticals,Soins de la peau,False
+SKU00279,CeraVe,Soins de la peau,False
+SKU00280,SkinCeuticals,Soins de la peau,False
+SKU00281,Lancôme Skincare,Soins de la peau,True
+SKU00282,Kiehl's,Soins de la peau,False
+SKU00283,Kiehl's,Soins de la peau,False
+SKU00284,CeraVe,Soins de la peau,False
+SKU00285,Lancôme Skincare,Soins de la peau,False
+SKU00286,CeraVe,Soins de la peau,False
+SKU00287,CeraVe,Soins de la peau,False
+SKU00288,Vichy,Soins de la peau,False
+SKU00289,CeraVe,Soins de la peau,False
+SKU00290,Kiehl's,Soins de la peau,False
+SKU00291,Kiehl's,Soins de la peau,False
+SKU00292,CeraVe,Soins de la peau,False
+SKU00293,CeraVe,Soins de la peau,False
+SKU00294,CeraVe,Soins de la peau,False
+SKU00295,CeraVe,Soins de la peau,False
+SKU00296,Vichy,Soins de la peau,False
+SKU00297,SkinCeuticals,Soins de la peau,False
+SKU00298,La Roche-Posay,Soins de la peau,False
+SKU00299,La Roche-Posay,Soins de la peau,False
+SKU00300,Vichy,Soins de la peau,False
+SKU00301,Vichy,Soins de la peau,False
+SKU00302,La Roche-Posay,Soins de la peau,False
+SKU00303,Lancôme Skincare,Soins de la peau,False
+SKU00304,CeraVe,Soins de la peau,False
+SKU00305,Lancôme Skincare,Soins de la peau,False
+SKU00306,Vichy,Soins de la peau,False
+SKU00307,CeraVe,Soins de la peau,False
+SKU00308,Vichy,Soins de la peau,False
+SKU00309,Vichy,Soins de la peau,False
+SKU00310,Kiehl's,Soins de la peau,False
+SKU00311,Kiehl's,Soins de la peau,False
+SKU00312,La Roche-Posay,Soins de la peau,False
+SKU00313,La Roche-Posay,Soins de la peau,False
+SKU00314,Lancôme Skincare,Soins de la peau,True
+SKU00315,CeraVe,Soins de la peau,False
+SKU00316,Vichy,Soins de la peau,False
+SKU00317,CeraVe,Soins de la peau,True
+SKU00318,La Roche-Posay,Soins de la peau,False
+SKU00319,Kiehl's,Soins de la peau,False
+SKU00320,CeraVe,Soins de la peau,False
+SKU00321,Kiehl's,Soins de la peau,False
+SKU00322,Vichy,Soins de la peau,False
+SKU00323,Vichy,Soins de la peau,False
+SKU00324,Vichy,Soins de la peau,False
+SKU00325,La Roche-Posay,Soins de la peau,False
+SKU00326,CeraVe,Soins de la peau,False
+SKU00327,CeraVe,Soins de la peau,True
+SKU00328,Vichy,Soins de la peau,False
+SKU00329,CeraVe,Soins de la peau,False
+SKU00330,Lancôme Skincare,Soins de la peau,False
+SKU00331,SkinCeuticals,Soins de la peau,False
+SKU00332,SkinCeuticals,Soins de la peau,False
+SKU00333,CeraVe,Soins de la peau,False
+SKU00334,Vichy,Soins de la peau,False
+SKU00335,CeraVe,Soins de la peau,False
+SKU00336,CeraVe,Soins de la peau,False
+SKU00337,Vichy,Soins de la peau,False
+SKU00338,Vichy,Soins de la peau,False
+SKU00339,La Roche-Posay,Soins de la peau,False
+SKU00340,La Roche-Posay,Soins de la peau,True
+SKU00341,La Roche-Posay,Soins de la peau,False
+SKU00342,CeraVe,Soins de la peau,False
+SKU00343,Vichy,Soins de la peau,False
+SKU00344,CeraVe,Soins de la peau,False
+SKU00345,SkinCeuticals,Soins de la peau,False
+SKU00346,Vichy,Soins de la peau,False
+SKU00347,La Roche-Posay,Soins de la peau,False
+SKU00348,Lancôme Skincare,Soins de la peau,False
+SKU00349,La Roche-Posay,Soins de la peau,False
+SKU00350,La Roche-Posay,Soins de la peau,False
+SKU00351,La Roche-Posay,Soins de la peau,False
+SKU00352,Lancôme Skincare,Soins de la peau,False
+SKU00353,SkinCeuticals,Soins de la peau,False
+SKU00354,La Roche-Posay,Soins de la peau,False
+SKU00355,La Roche-Posay,Soins de la peau,False
+SKU00356,CeraVe,Soins de la peau,False
+SKU00357,La Roche-Posay,Soins de la peau,False
+SKU00358,Kiehl's,Soins de la peau,False
+SKU00359,CeraVe,Soins de la peau,True
+SKU00360,La Roche-Posay,Soins de la peau,False
+SKU00361,SkinCeuticals,Soins de la peau,False
+SKU00362,Kiehl's,Soins de la peau,False
+SKU00363,La Roche-Posay,Soins de la peau,False
+SKU00364,Vichy,Soins de la peau,False
+SKU00365,CeraVe,Soins de la peau,False
+SKU00366,La Roche-Posay,Soins de la peau,False
+SKU00367,Lancôme Skincare,Soins de la peau,False
+SKU00368,CeraVe,Soins de la peau,False
+SKU00369,Lancôme Skincare,Soins de la peau,False
+SKU00370,La Roche-Posay,Soins de la peau,False
+SKU00371,SkinCeuticals,Soins de la peau,False
+SKU00372,Kiehl's,Soins de la peau,False
+SKU00373,La Roche-Posay,Soins de la peau,False
+SKU00374,SkinCeuticals,Soins de la peau,False
+SKU00375,CeraVe,Soins de la peau,False
+SKU00376,CeraVe,Soins de la peau,False
+SKU00377,Kiehl's,Soins de la peau,True
+SKU00378,CeraVe,Soins de la peau,False
+SKU00379,Lancôme Skincare,Soins de la peau,False
+SKU00380,CeraVe,Soins de la peau,False
+SKU00381,CeraVe,Soins de la peau,False
+SKU00382,La Roche-Posay,Soins de la peau,False
+SKU00383,SkinCeuticals,Soins de la peau,False
+SKU00384,La Roche-Posay,Soins de la peau,False
+SKU00385,CeraVe,Soins de la peau,False
+SKU00386,SkinCeuticals,Soins de la peau,False
+SKU00387,CeraVe,Soins de la peau,False
+SKU00388,La Roche-Posay,Soins de la peau,True
+SKU00389,Kiehl's,Soins de la peau,False
+SKU00390,CeraVe,Soins de la peau,False
+SKU00391,Vichy,Soins de la peau,False
+SKU00392,Vichy,Soins de la peau,False
+SKU00393,CeraVe,Soins de la peau,False
+SKU00394,La Roche-Posay,Soins de la peau,False
+SKU00395,Lancôme Skincare,Soins de la peau,False
+SKU00396,CeraVe,Soins de la peau,False
+SKU00397,CeraVe,Soins de la peau,False
+SKU00398,CeraVe,Soins de la peau,False
+SKU00399,Vichy,Soins de la peau,False
+SKU00400,La Roche-Posay,Soins de la peau,False
+SKU00401,La Roche-Posay,Soins de la peau,False
+SKU00402,SkinCeuticals,Soins de la peau,False
+SKU00403,Lancôme Skincare,Soins de la peau,False
+SKU00404,Lancôme Skincare,Soins de la peau,False
+SKU00405,CeraVe,Soins de la peau,False
+SKU00406,SkinCeuticals,Soins de la peau,False
+SKU00407,La Roche-Posay,Soins de la peau,False
+SKU00408,Lancôme Skincare,Soins de la peau,False
+SKU00409,Kiehl's,Soins de la peau,False
+SKU00410,Vichy,Soins de la peau,False
+SKU00411,La Roche-Posay,Soins de la peau,False
+SKU00412,SkinCeuticals,Soins de la peau,True
+SKU00413,Vichy,Soins de la peau,False
+SKU00414,SkinCeuticals,Soins de la peau,False
+SKU00415,La Roche-Posay,Soins de la peau,False
+SKU00416,CeraVe,Soins de la peau,False
+SKU00417,CeraVe,Soins de la peau,False
+SKU00418,Vichy,Soins de la peau,False
+SKU00419,La Roche-Posay,Soins de la peau,False
+SKU00420,Vichy,Soins de la peau,False
+SKU00421,La Roche-Posay,Soins de la peau,True
+SKU00422,CeraVe,Soins de la peau,False
+SKU00423,Vichy,Soins de la peau,False
+SKU00424,Lancôme Skincare,Soins de la peau,False
+SKU00425,La Roche-Posay,Soins de la peau,False
+SKU00426,La Roche-Posay,Soins de la peau,False
+SKU00427,CeraVe,Soins de la peau,False
+SKU00428,La Roche-Posay,Soins de la peau,False
+SKU00429,La Roche-Posay,Soins de la peau,False
+SKU00430,La Roche-Posay,Soins de la peau,False
+SKU00431,Kiehl's,Soins de la peau,False
+SKU00432,CeraVe,Soins de la peau,False
+SKU00433,La Roche-Posay,Soins de la peau,False
+SKU00434,Vichy,Soins de la peau,False
+SKU00435,CeraVe,Soins de la peau,False
+SKU00436,Kiehl's,Soins de la peau,False
+SKU00437,CeraVe,Soins de la peau,False
+SKU00438,La Roche-Posay,Soins de la peau,False
+SKU00439,Vichy,Soins de la peau,False
+SKU00440,La Roche-Posay,Soins de la peau,False
+SKU00441,La Roche-Posay,Soins de la peau,False
+SKU00442,La Roche-Posay,Soins de la peau,False
+SKU00443,Vichy,Soins de la peau,False
+SKU00444,La Roche-Posay,Soins de la peau,False
+SKU00445,Vichy,Soins de la peau,False
+SKU00446,CeraVe,Soins de la peau,False
+SKU00447,La Roche-Posay,Soins de la peau,False
+SKU00448,La Roche-Posay,Soins de la peau,False
+SKU00449,La Roche-Posay,Soins de la peau,False
+SKU00450,La Roche-Posay,Soins de la peau,False
+SKU00451,CeraVe,Soins de la peau,False
+SKU00452,La Roche-Posay,Soins de la peau,False
+SKU00453,Vichy,Soins de la peau,False
+SKU00454,Kiehl's,Soins de la peau,False
+SKU00455,Kiehl's,Soins de la peau,False
+SKU00456,Vichy,Soins de la peau,False
+SKU00457,CeraVe,Soins de la peau,False
+SKU00458,La Roche-Posay,Soins de la peau,False
+SKU00459,Vichy,Soins de la peau,False
+SKU00460,La Roche-Posay,Soins de la peau,False
+SKU00461,SkinCeuticals,Soins de la peau,False
+SKU00462,Lancôme Skincare,Soins de la peau,False
+SKU00463,Kiehl's,Soins de la peau,False
+SKU00464,Vichy,Soins de la peau,False
+SKU00465,Vichy,Soins de la peau,False
+SKU00466,CeraVe,Soins de la peau,False
+SKU00467,Vichy,Soins de la peau,False
+SKU00468,La Roche-Posay,Soins de la peau,False
+SKU00469,Vichy,Soins de la peau,False
+SKU00470,CeraVe,Soins de la peau,False
+SKU00471,SkinCeuticals,Soins de la peau,False
+SKU00472,Lancôme Skincare,Soins de la peau,False
+SKU00473,La Roche-Posay,Soins de la peau,False
+SKU00474,Kiehl's,Soins de la peau,False
+SKU00475,CeraVe,Soins de la peau,False
+SKU00476,SkinCeuticals,Soins de la peau,False
+SKU00477,Vichy,Soins de la peau,False
+SKU00478,Vichy,Soins de la peau,False
+SKU00479,SkinCeuticals,Soins de la peau,False
+SKU00480,CeraVe,Soins de la peau,False

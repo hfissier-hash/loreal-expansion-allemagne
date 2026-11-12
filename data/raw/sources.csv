@@ -1,0 +1,19 @@
+source_id,name,publisher,url,type,reliability
+CE2025,European Cosmetics Market Performance 2025,Cosmetics Europe,https://via.ritzau.dk/files/13559575/15049655/464298/da,Fédération professionnelle,Élevée
+CE2024,European beauty market 2024 (via Premium Beauty News),Cosmetics Europe,"https://www.premiumbeautynews.com/en/cosmetics-europe-european-beauty,25947",Presse spécialisée,Élevée
+SSB_PLI,Comparison of price levels in Europe 2025 (données Eurostat),Statistics Norway / Eurostat,https://www.ssb.no/en/priser-og-prisindekser/konsumpriser/statistikk/sammenlikning-av-prisniva-i-europa,Open data officielle,Élevée
+NIQ2025,Kaufkraft Deutschland 2025,NielsenIQ-GfK,https://nielseniq.com/global/de/news-center/2025/kaufkraft-der-deutschen-erhoeht-sich-2025-was-den-anstieg-der-verbraucherpreise-jedoch-nicht-kompensiert/,Étude de marché,Élevée
+IW2026,Mietentwicklung im innerstädtischen Einzelhandel 2018-2025,Institut der deutschen Wirtschaft,https://www.iwkoeln.de/fileadmin/user_upload/Studien/Report/PDF/2026/IW-Report_2026-Mietentwicklung-Einzelhandel.pdf,Institut de recherche,Élevée
+CW2025,Main Streets Across the World 2025,Cushman & Wakefield,https://www.cushmanwakefield.com/de-de/germany/news/2025/11/main-streets-across-the-world,Conseil immobilier,Élevée
+SONKO2026,Who Sells Beauty in Germany? A Retail Map for Brands,Sonko Consulting,https://www.sonko-consulting.com/guides/german-beauty-retailers,Cabinet de conseil,Moyenne
+DOUGLAS2025,Douglas Group FY 2024/25 results,Douglas Group,https://douglas.group/fileadmin/user_upload/20251218_DOUGLAS_Group_PM_Q4_2024-25.pdf,Rapport financier,Élevée
+HANDELSDATEN,Marktanteile Drogeriemärkte 2024,Handelsdaten.de,https://www.handelsdaten.de/drogerien-und-drogeriemarkte/2024-marktanteile-umsatzstaerkste-drogeriemaerkte-deutschland,Statistiques,Moyenne
+IKW,IKW Market Data,Industrieverband Körperpflege- und Waschmittel,https://www.ikw.org/en/market-data,Fédération professionnelle,Élevée
+LOREAL_DACH,"L'Oréal en Allemagne, en Autriche et en Suisse (rapport annuel 2023)",L'Oréal,https://www.loreal-finance.com/fr/rapport-annuel-2023/loreal-dans-le-monde/dach/,Rapport annuel,Élevée
+LOREAL_FR,L'Oréal en France (rapport annuel 2024),L'Oréal,https://www.loreal-finance.com/fr/rapport-annuel-2024/loreal-dans-le-monde/france/,Rapport annuel,Élevée
+DESTATIS,Population des communes au 31/12/2023 (valeurs arrondies),Destatis,https://www.destatis.de,Open data officielle,Élevée
+TVA,Taux de TVA standard (DE 19 % / FR 20 %),Législations nationales,https://taxation-customs.ec.europa.eu,Réglementation,Élevée
+REG1223,Règlement (CE) n° 1223/2009 relatif aux produits cosmétiques,Union européenne,https://biorius.com/de/kosmetikverordnung/europa/,Réglementation,Élevée
+IHK,"Kosmetik - Herstellung, Import und Vertrieb",IHK Frankfurt am Main,https://www.frankfurt-main.ihk.de/recht/uebersicht-alle-rechtsthemen/lebensmittel-und-bedarfsgegenstaenderecht/kosmetik-5195262,Chambre de commerce,Élevée
+UE,Union douanière de l'UE,Commission européenne,https://taxation-customs.ec.europa.eu,Réglementation,Élevée
+INTERNE,"Base interne simulée (boutiques France, catalogue, hypothèses)",Équipe projet,,Données simulées,À valider

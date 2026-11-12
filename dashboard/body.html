@@ -1,0 +1,104 @@
+<div class="wrap">
+  <header class="hero">
+    <div class="hero-q">
+      <span class="eyebrow">Stratégie 2027-2029 · Comex</span>
+      <h1>Des boutiques L'Oréal de diagnostic de peau en Allemagne : réalisable et rentable ?</h1>
+      <p class="lede">Étude du plan 3 → 8 → 15 boutiques en propre (2027-2029) à partir du marché, des prix, des loyers, de la logistique et de l'assortiment. Montants en euros. Le business case repose sur une base interne simulée de 20 boutiques françaises.</p>
+    </div>
+    <aside class="verdict" aria-label="Recommandation">
+      <span class="pill">Go conditionnel</span>
+      <p><b>Oui pour 3 boutiques pilotes en 2027</b> (München, Düsseldorf, Frankfurt), en rue commerçante 1a.</p>
+      <p><b>Pas d'engagement à 15 boutiques</b> : fin 2031, le plan reste à <b id="v-cash">—</b> de trésorerie cumulée (scénario réaliste). On ne passe à 8 boutiques que si les pilotes atteignent <b id="v-dens">—</b> de CA par m².</p>
+    </aside>
+  </header>
+
+  <section class="tiles" aria-label="Chiffres clés">
+    <div class="tile"><span class="l">Marché beauté Allemagne 2025</span><span class="v" id="k-market">—</span><span class="d" id="k-market-d">—</span></div>
+    <div class="tile"><span class="l">Indice de prix Allemagne vs France</span><span class="v" id="k-price">—</span><span class="d">100 = même niveau de prix</span></div>
+    <div class="tile"><span class="l">EBITDA annuel des 3 pilotes</span><span class="v" id="k-ebitda">—</span><span class="d" id="k-ebitda-d">—</span></div>
+    <div class="tile"><span class="l">Retour sur investissement</span><span class="v" id="k-payback">—</span><span class="d" id="k-payback-d">—</span></div>
+    <div class="tile"><span class="l">Dépense en soins de la peau / hab.</span><span class="v" id="k-cat">—</span><span class="d" id="k-cat-d">—</span></div>
+  </section>
+
+  <section class="filters" aria-label="Filtres">
+    <label>Scénario
+      <span class="seg" id="f-scen" role="group" aria-label="Scénario">
+        <button type="button" data-v="Pessimiste" aria-pressed="false">Pessimiste −20 %</button>
+        <button type="button" data-v="Réaliste" aria-pressed="true">Réaliste</button>
+        <button type="button" data-v="Optimiste" aria-pressed="false">Optimiste +15 %</button>
+      </span>
+    </label>
+    <label>Emplacement
+      <span class="seg" id="f-loc" role="group" aria-label="Emplacement">
+        <button type="button" data-v="Rue commerçante 1a (médiane)" aria-pressed="true">Rue 1a</button>
+        <button type="button" data-v="Artère n°1 (flagship)" aria-pressed="false">Artère n°1 (flagship)</button>
+      </span>
+    </label>
+    <p class="note" id="f-note">Les filtres agissent sur les graphiques des villes, la cascade de résultat et l'analyse IA.</p>
+  </section>
+
+  <div class="axis-title"><h3>Marché & assortiment</h3></div>
+  <div class="grid">
+    <article class="card" id="c-market">
+      <h2>Plus gros et plus dynamique, mais moins de soin par habitant</h2>
+      <div class="legend"><span><i style="background:var(--accent)"></i>Allemagne</span><span><i style="background:var(--ref)"></i>France</span></div>
+      <div class="chart" id="ch-market"></div>
+      <p class="take"><b>À retenir :</b> l'Allemagne est le premier marché beauté d'Europe (18,0 Md€, +6,3 %). Mais un Allemand dépense 48 € par an en soins de la peau, contre 66 € pour un Français (−27 %). Le concept part donc d'une base plus petite, même si le soin y croît de +11 % par an.</p>
+    </article>
+    <article class="card" id="c-assort">
+      <h2>Le soin pèse moins en Allemagne qu'en France</h2>
+      <div class="chart" id="ch-assort"></div>
+      <p class="take"><b>À retenir :</b> 1 = même poids qu'en France. Le soin de la peau pèse 29 % de moins dans le marché allemand (indice 0,71), alors que les capillaires et l'hygiène y pèsent plus. 94,6 % du catalogue soin français est éligible, mais le cœur de cible est plus étroit.</p>
+    </article>
+  </div>
+
+  <div class="axis-title"><h3>Réseau, loyers & rentabilité</h3></div>
+  <div class="grid">
+    <article class="card" id="c-ebitda">
+      <h2>EBITDA annuel d'une boutique, par ville</h2>
+      <div class="chart" id="ch-ebitda"></div>
+      <p class="take" id="t-ebitda">—</p>
+    </article>
+    <article class="card" id="c-rent">
+      <h2>Le loyer fait basculer la rentabilité</h2>
+      <div class="legend"><span><i style="background:var(--accent)"></i>Rue commerçante 1a</span><span><i style="background:var(--bad)"></i>Artère n°1 (flagship)</span></div>
+      <div class="chart" id="ch-rent"></div>
+      <p class="take"><b>À retenir :</b> en rue 1a, le loyer coûte 5 à 8 % du CA. Sur l'artère n°1, il en coûte 51 à 60 % : un flagship n'est rentable dans aucune ville. Les villes sans barre rouge n'ont pas de loyer prime publié.</p>
+    </article>
+
+    <article class="card" id="c-plan">
+      <h2>Le plan à 15 boutiques n'est pas remboursé fin 2031</h2>
+      <div class="legend"><span><i style="background:var(--bad)"></i>Pessimiste</span><span><i style="background:var(--accent)"></i>Réaliste</span><span><i style="background:var(--good)"></i>Optimiste</span></div>
+      <div class="chart" id="ch-plan"></div>
+      <p class="take"><b>À retenir :</b> trésorerie cumulée du plan 3 → 8 → 15 boutiques, investissements compris. Chaque vague d'ouvertures creuse le déficit. La courbe réaliste ne remonte qu'à partir de 2030, la pessimiste reste à plat. Fin 2031, le plan reste négatif dans les trois scénarios. Il faudrait environ 32 % de CA en plus que l'estimation réaliste pour le rembourser.</p>
+    </article>
+    <article class="card" id="c-logi">
+      <h2>L'usine de Karlsruhe est 2,5 fois plus proche</h2>
+      <div class="legend"><span><i style="background:var(--accent)"></i>Depuis Karlsruhe (DE)</span><span><i style="background:var(--ref)"></i>Depuis Rambouillet (FR)</span></div>
+      <div class="chart" id="ch-logi"></div>
+      <p class="take"><b>À retenir :</b> l'usine L'Oréal de Karlsruhe est en moyenne à 271 km des 3 villes pilotes, contre 708 km pour Rambouillet. Il n'y a aucun droit de douane dans l'Union européenne, mais deux démarches : étiquetage en allemand et enregistrement LUCID pour les emballages.</p>
+    </article>
+    <article class="card wide" id="c-cascade">
+      <h2>D'où vient le résultat d'une boutique pilote moyenne</h2>
+      <div class="chart" id="ch-cascade"></div>
+      <p class="take" id="t-cascade">—</p>
+    </article>
+  </div>
+
+  <section class="ai" id="ia" aria-label="Synthèse IA">
+    <div class="ai-head">
+      <div><span class="eyebrow">Brique IA</span><h2>Synthèse pour le Comex</h2></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button type="button" class="btn" id="ai-run" hidden>Analyser le scénario affiché</button>
+        <button type="button" class="btn ghost" id="ai-stop" hidden>Arrêter</button>
+      </div>
+    </div>
+    <p class="status" id="ai-status">Synthèse générée par Claude à partir des KPIs du pipeline (docs/synthese_ia.md).</p>
+    <div class="md" id="ai-out"></div>
+  </section>
+
+  <footer class="src">
+    <h3>Sources</h3>
+    <ul id="src-list"></ul>
+  </footer>
+</div>
