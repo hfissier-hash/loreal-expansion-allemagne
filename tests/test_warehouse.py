@@ -58,7 +58,7 @@ class WarehouseTest(unittest.TestCase):
 
     def test_rents_are_monthly(self):
         self.assertAlmostEqual(self.one("""SELECT rent_eur_m2_month FROM fact_rent JOIN dim_city USING (city_key)
-            JOIN dim_location USING (location_key) WHERE city_name = 'Düsseldorf' AND location_code = 'artere_n1'"""), 250.0)
+            JOIN dim_location USING (location_key) WHERE city_name = 'Düsseldorf' AND location_code = 'artere_n1'"""), 285.0)  # BNP Paribas RE S1 2026
 
     def test_hub_distance_matches_gold_dim_ville(self):
         with open(ROOT / "data/gold/dim_ville.csv", encoding="utf-8") as f:

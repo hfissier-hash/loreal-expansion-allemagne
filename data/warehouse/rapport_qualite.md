@@ -16,17 +16,17 @@ Généré par `src/build_warehouse.py`, ne pas modifier à la main.
 | dim_product | 480 |
 | dim_customer | 105 026 |
 | dim_retailer | 8 |
-| dim_hub | 2 |
-| dim_source | 19 |
+| dim_hub | 4 |
+| dim_source | 25 |
 | fact_diagnostic | 105 025 |
 | fact_sales | 571 987 |
 | fact_market | 14 |
 | fact_market_share | 7 |
 | fact_competition | 56 |
-| fact_rent | 13 |
+| fact_rent | 16 |
 | fact_price | 12 |
-| fact_hub_distance | 36 |
-| fact_business_case | 39 |
+| fact_hub_distance | 72 |
+| fact_business_case | 48 |
 | fact_deployment_plan | 15 |
 | ref_hypotheses | 19 |
 | ref_reglementation | 5 |
@@ -41,8 +41,6 @@ Généré par `src/build_warehouse.py`, ne pas modifier à la main.
 ## Données encore manquantes
 
 - `parts_de_marche.csv` : 3 ligne(s) « à collecter (payant) »
-- `concurrents_nationaux.csv` : 1 ligne(s) « non publié »
-- `concurrents_villes.csv` : 56 ligne(s) « à collecter (script OSM) »
 - `releve_prix_soins.csv` : 6 ligne(s) « à collecter (relevé manuel, optionnel) »
 
 ## Repères de la base interne simulée (2025)
