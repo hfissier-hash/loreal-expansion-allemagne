@@ -10,7 +10,7 @@ La question du Comex croise deux mondes qui n'ont pas le même grain :
 - le **marché allemand** vu de l'extérieur : un pays × une catégorie, une ville × une enseigne, une ville × un emplacement ;
 - les **résultats du business case** : une boutique type × un scénario, une année du plan × un scénario.
 
-Une seule table de faits ne peut pas porter ces grains. Le modèle a donc **10 tables de faits**, chacune à son grain, reliées par **12 dimensions partagées** (conformes). Ce sont ces dimensions qui permettent de croiser les mondes :
+Une seule table de faits ne peut pas porter ces grains. Le modèle a donc **11 tables de faits**, chacune à son grain, reliées par **12 dimensions partagées** (conformes). Ce sont ces dimensions qui permettent de croiser les mondes :
 
 | Dimension conforme | Relie |
 |---|---|
@@ -18,7 +18,7 @@ Une seule table de faits ne peut pas porter ces grains. Le modèle a donc **10 t
 | `dim_location` | loyers relevés (`fact_rent`) et business case (`fact_business_case`) |
 | `dim_scenario` | business case et plan de déploiement |
 | `dim_category` | ventes des pilotes (via `dim_product`) et marché par catégorie |
-| `dim_country` | TVA, douane, niveau des prix, marché, relevé de prix |
+| `dim_country` | TVA, douane, niveau des prix, marché, relevé de prix, panels (avec les zones UE et monde) |
 | `dim_date` | diagnostics, ventes, plan de déploiement |
 
 Deux liens restent en flocon, assumés : `dim_store → dim_city → dim_country` et `dim_product → dim_category`. Les recopier dans chaque fait ajouterait des colonnes sans rien apporter au dashboard.
@@ -31,7 +31,7 @@ Le premier modèle (`docs/img/modele_etoile.png`) reste celui des tables de rest
 2. **Une dimension date**, absente du premier modèle.
 3. **Loyers et distances sortis de la dimension ville** et rangés dans des faits (`fact_rent`, `fact_hub_distance`) : ce sont des mesures, pas des attributs.
 4. **Le détail des boutiques pilotes** : diagnostics, ventes et rachats, au grain de la transaction, calés boutique par boutique sur `boutiques_france.csv`. Le CA, la conversion et le rachat agrégés sont identiques, donc les KPIs du business case ne changent pas.
-5. **Les faits qui manquaient** : concurrence par ville, parts de marché, relevé de prix, distances aux deux hubs.
+5. **Les faits qui manquaient** : concurrence par ville, parts de marché, indicateurs des panels, relevé de prix, distances aux quatre usines.
 
 ## Diagramme
 
@@ -51,6 +51,8 @@ erDiagram
     dim_country ||--o{ fact_market : country_code
     dim_category ||--o{ fact_market : category_key
     dim_country ||--o{ fact_market_share : country_code
+    dim_country ||--o{ fact_market_indicator : country_code
+    dim_source ||--o{ fact_market_indicator : source_id
     dim_city ||--o{ fact_competition : city_key
     dim_retailer ||--o{ fact_competition : retailer_key
     dim_city ||--o{ fact_rent : city_key

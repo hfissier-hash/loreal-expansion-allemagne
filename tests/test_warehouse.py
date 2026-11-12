@@ -72,6 +72,12 @@ class WarehouseTest(unittest.TestCase):
         self.assertEqual(self.one("SELECT COUNT(*) FROM fact_business_case WHERE ebitda_eur IS NULL"), 0)
         self.assertEqual(self.one("SELECT COUNT(DISTINCT scenario_key) FROM fact_deployment_plan"), 3)
 
+    def test_all_panel_indicators_loaded(self):
+        with open(ROOT / "data/raw/externe/panels_marche.csv", encoding="utf-8") as f:
+            expected = sum(1 for _ in csv.DictReader(f))
+        self.assertEqual(self.one("SELECT COUNT(*) FROM fact_market_indicator"), expected)
+        self.assertEqual(self.one("SELECT COUNT(*) FROM fact_market_indicator WHERE value IS NULL"), 0)
+
 
 if __name__ == "__main__":
     unittest.main()
