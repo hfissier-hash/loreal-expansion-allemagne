@@ -17,7 +17,7 @@ Généré par `src/build_warehouse.py`, ne pas modifier à la main.
 | dim_customer | 105 026 |
 | dim_retailer | 8 |
 | dim_hub | 4 |
-| dim_source | 25 |
+| dim_source | 28 |
 | fact_diagnostic | 105 025 |
 | fact_sales | 571 987 |
 | fact_market | 14 |
@@ -42,7 +42,6 @@ Généré par `src/build_warehouse.py`, ne pas modifier à la main.
 ## Données encore manquantes
 
 - `parts_de_marche.csv` : 3 ligne(s) « à collecter (payant) »
-- `releve_prix_soins.csv` : 6 ligne(s) « à collecter (relevé manuel, optionnel) »
 
 ## Repères de la base interne simulée (2025)
 

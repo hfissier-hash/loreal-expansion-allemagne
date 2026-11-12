@@ -1,7 +1,7 @@
-product,brand,size,price_de_eur,retailer_de,price_fr_eur,retailer_fr,collected_at,status
-Effaclar Duo+,La Roche-Posay,40 ml,,dm.de,,[site français],,"à collecter (relevé manuel, optionnel)"
-Toleriane Sensitive,La Roche-Posay,40 ml,,dm.de,,[site français],,"à collecter (relevé manuel, optionnel)"
-Crème hydratante,CeraVe,340 g,,dm.de,,[site français],,"à collecter (relevé manuel, optionnel)"
-Lotion hydratante,CeraVe,236 ml,,dm.de,,[site français],,"à collecter (relevé manuel, optionnel)"
-Minéral 89,Vichy,50 ml,,dm.de,,[site français],,"à collecter (relevé manuel, optionnel)"
-Ultra Facial Cream,Kiehl's,50 ml,,dm.de,,[site français],,"à collecter (relevé manuel, optionnel)"
+product,brand,size,price_de_eur,retailer_de,size_fr,price_fr_eur,price_fr_ppc_eur,retailer_fr,price_de_eur_per_l,price_fr_eur_per_l,ratio_de_fr,ratio_de_fr_ppc,collected_at,status,note
+Effaclar Duo+ SPF 30,La Roche-Posay,40 ml,16.95,dm.de (dm-med),40 ml,16.79,19.89,redcare-pharmacie.fr,423.75,419.75,1.01,0.852,2026-11-12,collecté (relevé manuel en ligne),
+Toleriane Sensitive Crème,La Roche-Posay,40 ml,17.95,dm.de (dm-med),40 ml,13.99,16.59,redcare-pharmacie.fr,448.75,349.75,1.283,1.082,2026-11-12,collecté (relevé manuel en ligne),"Prix dm affiché, produit momentanément non livrable"
+Baume / crème hydratante visage et corps,CeraVe,454 g,16.85,dm.de (dm-med),454 ml,11.19,13.99,redcare-pharmacie.fr,37.11,24.65,1.505,1.204,2026-11-12,collecté (relevé manuel en ligne),Le format 340 g n'existe pas en France : comparaison sur le 454
+Lait / lotion hydratant(e),CeraVe,236 ml,9.75,dm.de (dm-med),236 ml,7.11,8.89,redcare-pharmacie.fr,41.31,30.13,1.371,1.097,2026-11-12,collecté (relevé manuel en ligne),
+Minéral 89 Booster (sérum),Vichy,75 ml,31.45,dm.de (dm-med),50 ml,20.89,20.99,redcare-pharmacie.fr,419.33,417.8,1.004,0.999,2026-11-12,collecté (relevé manuel en ligne),"Pas de format commun (DE : 30 / 75 ml, FR : 50 ml) : comparer le prix au litre"
+Ultra Facial Cream,Kiehl's,50 ml,35.0,kiehls.de,50 ml,35.0,35.0,kiehls.fr,700.0,700.0,1.0,1.0,2026-11-12,collecté (relevé manuel en ligne),Prix normal ; kiehls.de affiche -30 % (Black Friday) au moment du relevé

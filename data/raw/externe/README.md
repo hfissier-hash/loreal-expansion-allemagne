@@ -13,7 +13,7 @@ Une table par sujet, au format CSV (séparateur virgule, UTF-8). Chaque ligne in
 | `villes_de.csv` | ville | Population, pouvoir d'achat, coordonnées | Destatis, NIQ-GfK | Manuelle (population officielle au 31/12/2025) |
 | `loyers_villes.csv` | ville × emplacement | Loyer commercial en rue 1a et sur l'artère n°1 | IW Köln (rue 1a), BNP Paribas Real Estate (artère n°1, 8 villes) | Manuelle |
 | `prix_taxes.csv` | pays | Niveau des prix (UE = 100), TVA, droits de douane | Eurostat, législations | Manuelle (script Eurostat possible) |
-| `releve_prix_soins.csv` | produit | Prix de 6 soins L'Oréal en Allemagne et en France | dm.de, site français | **Relevé manuel, optionnel** |
+| `releve_prix_soins.csv` | produit | Prix de 6 soins L'Oréal en Allemagne et en France, prix au litre et ratio DE/FR (prix pratiqué et prix public conseillé FR) | dm.de, redcare-pharmacie.fr, kiehls.de/.fr | Relevé manuel le 12/11/2026 |
 | `hubs_loreal.csv` | site | Usines L'Oréal : Karlsruhe (DE), Rambouillet, La Roche-Posay et Vichy (FR, dermocosmétique) | Rapports annuels et site L'Oréal | Manuelle |
 | `reglementation.csv` | sujet | Douane, TVA, règlement cosmétique, étiquetage, emballages | UE, IHK | Manuelle |
 
