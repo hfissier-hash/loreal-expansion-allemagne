@@ -34,6 +34,7 @@ LOCATIONS = {"Rue commerçante 1a": "rue_1a", "Rue commerçante 1a (médiane)": 
              "Artère n°1": "artere_n1", "Artère n°1 (flagship)": "artere_n1"}
 LOCATION_NAMES = {"rue_1a": "Rue commerçante 1a (médiane)", "artere_n1": "Artère n°1 (flagship)"}
 SKINCARE, TOTAL = "Soins de la peau", "Total marché"
+ZONES = {"EU": "Union européenne", "GLOBAL": "Monde"}
 VAT_FR = 0.20
 MONTHS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août",
           "septembre", "octobre", "novembre", "décembre"]
@@ -84,7 +85,8 @@ def keyed(rows, key):
 def build():
     ext = {n: read(EXT / f"{n}.csv") for n in [
         "villes_de", "marche_pays", "categories_pays", "parts_de_marche", "concurrents_nationaux",
-        "concurrents_villes", "loyers_villes", "prix_taxes", "releve_prix_soins", "hubs_loreal", "reglementation"]}
+        "concurrents_villes", "loyers_villes", "prix_taxes", "releve_prix_soins", "hubs_loreal", "reglementation",
+        "panels_marche"]}
     intern = {n: read(INT / f"{n}.csv") for n in [
         "boutiques_france", "catalogue_france", "hypotheses", "produits_attributs", "clientes", "diagnostics", "ventes"]}
     gold = {n: read(GOLD / f"{n}.csv") for n in ["fact_business_case", "fact_plan_deploiement", "dim_scenario"]}
@@ -106,7 +108,14 @@ def build():
                          "vat_standard_pct": num(r["vat_standard_pct"]),
                          "customs_duty_intra_eu_pct": num(r["customs_duty_intra_eu_pct"]),
                          "price_level_index_eu100": num(r["price_level_index_eu100"]),
-                         "pli_year": integer(r["pli_year"]), "source_ids": r["source_id"]} for r in ext["prix_taxes"]]
+                         "pli_year": integer(r["pli_year"]), "source_ids": r["source_id"],
+                         "geo_level": "pays"} for r in ext["prix_taxes"]]
+    # zones des panels (UE, monde) : même dimension, niveau géographique « zone »
+    known = {c["country_code"] for c in t["dim_country"]}
+    t["dim_country"] += [{"country_code": code, "country_name": ZONES.get(code, code), "vat_standard_pct": None,
+                          "customs_duty_intra_eu_pct": None, "price_level_index_eu100": None, "pli_year": None,
+                          "source_ids": None, "geo_level": "zone"}
+                         for code in sorted({r["country_code"] for r in ext["panels_marche"]} - known)]
 
     cities = [{"city_name": city(r["city"]), "region": r["state"], "country_code": "DE",
                "city_role": "cible_2027" if city(r["city"]) in TARGET_CITIES_2027 else "comparaison_de",
@@ -231,6 +240,10 @@ def build():
                                "year": integer(r["year"]), "market_share_pct": num(r["market_share_pct"]),
                                "source_ids": r["source_id"], "status": r["status"]} for r in ext["parts_de_marche"]]
 
+    t["fact_market_indicator"] = [{"source_id": r["source_id"], "country_code": r["country_code"], "scope": r["scope"],
+                                   "metric": r["metric"], "period": r["period"], "value": num(r["value"]),
+                                   "unit": r["unit"], "note": r["note"]} for r in ext["panels_marche"]]
+
     population = {c["city_key"]: c["population"] for c in cities}
     competition = []
     for r in ext["concurrents_villes"]:
@@ -285,7 +298,7 @@ def build():
 
 ORDER = ["dim_date", "dim_country", "dim_city", "dim_location", "dim_scenario", "dim_store", "dim_category",
          "dim_product", "dim_customer", "dim_retailer", "dim_hub", "dim_source", "fact_diagnostic", "fact_sales",
-         "fact_market", "fact_market_share", "fact_competition", "fact_rent", "fact_price", "fact_hub_distance",
+         "fact_market", "fact_market_share", "fact_market_indicator", "fact_competition", "fact_rent", "fact_price", "fact_hub_distance",
          "fact_business_case", "fact_deployment_plan", "ref_hypotheses", "ref_reglementation"]
 
 

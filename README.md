@@ -66,12 +66,12 @@ L'Oréal est un fabricant, qui vend surtout via des distributeurs. Le projet ét
 
 ### Entrepôt de données : modèle en constellation
 
-Les tables Gold ci-dessus servent la restitution. La base de référence est l'**entrepôt** (`data/warehouse/`, schéma [`sql/schema.sql`](sql/schema.sql)) : **10 tables de faits**, chacune à son grain, reliées par **12 dimensions partagées** avec des clés de substitution.
+Les tables Gold ci-dessus servent la restitution. La base de référence est l'**entrepôt** (`data/warehouse/`, schéma [`sql/schema.sql`](sql/schema.sql)) : **11 tables de faits**, chacune à son grain, reliées par **12 dimensions partagées** avec des clés de substitution.
 
 | Famille | Tables de faits (grain) |
 |---|---|
 | Boutiques pilotes France (simulé) | `fact_diagnostic` (un diagnostic), `fact_sales` (une ligne de ticket : après diagnostic, rachat ou sans diagnostic) |
-| Marché allemand (collecté) | `fact_market` (pays × année × catégorie), `fact_market_share`, `fact_competition` (ville × enseigne), `fact_rent` (ville × emplacement), `fact_price` (produit × pays), `fact_hub_distance` (hub × ville) |
+| Marché allemand (collecté) | `fact_market` (pays × année × catégorie), `fact_market_share`, `fact_market_indicator` (indicateurs des panels NielsenIQ, Circana, IKW), `fact_competition` (ville × enseigne), `fact_rent` (ville × emplacement), `fact_price` (produit × pays), `fact_hub_distance` (hub × ville) |
 | Business case (calculé) | `fact_business_case` (ville × emplacement × scénario), `fact_deployment_plan` (scénario × année) |
 
 Les dimensions conformes (`dim_city`, `dim_location`, `dim_scenario`, `dim_category`, `dim_country`, `dim_date`) permettent de croiser l'activité des pilotes avec le marché allemand et le business case. Le détail des pilotes (105 000 diagnostics, 572 000 lignes de vente en 2025) est calé boutique par boutique sur `boutiques_france.csv` : le CA, la conversion et le rachat agrégés ne changent pas, donc les KPIs non plus.

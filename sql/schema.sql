@@ -25,7 +25,8 @@ CREATE TABLE dim_country (
     customs_duty_intra_eu_pct  REAL,
     price_level_index_eu100    REAL,
     pli_year                   INTEGER,
-    source_ids                 TEXT
+    source_ids                 TEXT,
+    geo_level                  TEXT NOT NULL   -- pays (DE, FR) | zone (EU, GLOBAL, pour les panels)
 );
 
 CREATE TABLE dim_city (
@@ -184,6 +185,20 @@ CREATE TABLE fact_market_share (
     source_ids        TEXT,
     status            TEXT,
     PRIMARY KEY (country_code, scope, player, year)
+);
+
+-- Grain : source × zone × périmètre × indicateur × période (panels NielsenIQ, Circana, IKW).
+-- Indicateurs hétérogènes : l'unité est portée par la ligne.
+CREATE TABLE fact_market_indicator (
+    source_id     TEXT NOT NULL REFERENCES dim_source(source_id),
+    country_code  TEXT NOT NULL REFERENCES dim_country(country_code),
+    scope         TEXT NOT NULL,
+    metric        TEXT NOT NULL,
+    period        TEXT NOT NULL,
+    value         REAL,
+    unit          TEXT,
+    note          TEXT,
+    PRIMARY KEY (source_id, country_code, scope, metric, period)
 );
 
 -- Grain : ville × enseigne.

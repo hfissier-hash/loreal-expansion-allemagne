@@ -7,7 +7,7 @@ Généré par `src/build_warehouse.py`, ne pas modifier à la main.
 | Table | Lignes |
 |---|---|
 | dim_date | 2 922 |
-| dim_country | 2 |
+| dim_country | 4 |
 | dim_city | 18 |
 | dim_location | 2 |
 | dim_scenario | 3 |
@@ -22,6 +22,7 @@ Généré par `src/build_warehouse.py`, ne pas modifier à la main.
 | fact_sales | 571 987 |
 | fact_market | 14 |
 | fact_market_share | 7 |
+| fact_market_indicator | 16 |
 | fact_competition | 56 |
 | fact_rent | 16 |
 | fact_price | 12 |
