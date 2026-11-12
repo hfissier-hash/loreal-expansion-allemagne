@@ -1,3 +1,11 @@
 __pycache__/
 .venv/
 .DS_Store
+
+# Détail simulé et entrepôt : régénérés par src.simulate_transactions et src.build_warehouse
+data/raw/interne/produits_attributs.csv
+data/raw/interne/clientes.csv
+data/raw/interne/diagnostics.csv
+data/raw/interne/ventes.csv
+data/warehouse/*
+!data/warehouse/rapport_qualite.md

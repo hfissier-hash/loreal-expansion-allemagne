@@ -4,7 +4,7 @@ Projet du module Data Analytics, Eugenia School. **Question du Comex : L'Oréal 
 
 **Réponse : Go conditionnel, limité à 3 boutiques pilotes en 2027**, en rue commerçante 1a. Pas d'engagement à 15 boutiques à ce stade : le plan 3 → 8 → 15 n'est pas remboursé fin 2031 dans nos scénarios. La vague 2028 ne se déclenche que si les pilotes atteignent environ 9 600 € de CA par m². Le détail est dans la [synthèse IA](docs/synthese_ia.md).
 
-**Équipe** : Hanine Bendiab, Hugo Fissier, Nathan [Nom], Gaspard [Nom], Lili [Nom]
+**Équipe** : Hanine Bendiab, Hugo Fissier, Nathan Skwarek, Gaspard [Nom], Lili [Nom]
 
 ## 1. Présentation de l'entreprise
 
@@ -62,6 +62,22 @@ L'Oréal est un fabricant, qui vend surtout via des distributeurs. Le projet ét
 
 **Termes métier** : *rue 1a* = meilleure rue commerçante d'une ville, hors artère n°1 ; *artère n°1 (flagship)* = l'emplacement le plus cher de la ville (Kaufingerstraße à München, Königsallee à Düsseldorf…) ; *drogerie* = chaîne de type dm ou Rossmann, premier canal de vente des cosmétiques en Allemagne.
 
+### Entrepôt de données : modèle en constellation
+
+Les tables Gold ci-dessus servent la restitution. La base de référence est l'**entrepôt** (`data/warehouse/`, schéma [`sql/schema.sql`](sql/schema.sql)) : **10 tables de faits**, chacune à son grain, reliées par **12 dimensions partagées** avec des clés de substitution.
+
+| Famille | Tables de faits (grain) |
+|---|---|
+| Boutiques pilotes France (simulé) | `fact_diagnostic` (un diagnostic), `fact_sales` (une ligne de ticket : après diagnostic, rachat ou sans diagnostic) |
+| Marché allemand (collecté) | `fact_market` (pays × année × catégorie), `fact_market_share`, `fact_competition` (ville × enseigne), `fact_rent` (ville × emplacement), `fact_price` (produit × pays), `fact_hub_distance` (hub × ville) |
+| Business case (calculé) | `fact_business_case` (ville × emplacement × scénario), `fact_deployment_plan` (scénario × année) |
+
+Les dimensions conformes (`dim_city`, `dim_location`, `dim_scenario`, `dim_category`, `dim_country`, `dim_date`) permettent de croiser l'activité des pilotes avec le marché allemand et le business case. Le détail des pilotes (105 000 diagnostics, 572 000 lignes de vente en 2025) est calé boutique par boutique sur `boutiques_france.csv` : le CA, la conversion et le rachat agrégés ne changent pas, donc les KPIs non plus.
+
+- Choix du modèle et diagramme : [`docs/modele/schema.md`](docs/modele/schema.md)
+- Dictionnaire complet (termes métier, 12 règles de gestion, colonnes, KPIs) : [`docs/modele/dictionnaire-de-donnees.md`](docs/modele/dictionnaire-de-donnees.md)
+- Contrôles à chaque construction (clés étrangères, calage, calculs) : `data/warehouse/rapport_qualite.md` et `tests/`
+
 ## 3. Architecture & choix des sources
 
 ```text
@@ -96,7 +112,7 @@ La liste complète, avec un niveau de fiabilité pour chaque source, est dans [`
 |---|---|---|
 | Cheffe de projet et business case | Hanine Bendiab | Cadrage, lien avec le professeur, recommandation Go / No-Go |
 | Collecte des données marché et concurrence | Hugo Fissier | Sources marché, villes, concurrents, loyers |
-| Modélisation et pipeline | Nathan [Nom] | Modèle en étoile, dictionnaire, code, données internes simulées |
+| Modélisation et pipeline | Nathan Skwarek | Modèle en étoile, dictionnaire, code, données internes simulées |
 | KPIs et rentabilité | Gaspard [Nom] | Indice prix, marges après TVA, coûts, scénarios |
 | Dataviz et brique IA | Lili [Nom] | Dashboard, synthèse IA |
 
@@ -115,7 +131,9 @@ La liste complète, avec un niveau de fiabilité pour chaque source, est dans [`
 |---|---|
 | Collecte | Recherche documentaire, open data, CSV sourcés |
 | Transformation et contrôles | Python 3, pandas |
-| Modélisation | Modèle en étoile en CSV (Gold), schéma Mermaid |
+| Modélisation | Entrepôt en constellation : schéma SQL (`sql/schema.sql`), base SQLite et CSV, diagramme Mermaid et DrawSQL ; tables de restitution Gold en CSV |
+| Base interne détaillée et entrepôt | Python standard (`src/simulate_transactions.py`, `src/build_warehouse.py`), sans dépendance |
+| Tests | `unittest` (`tests/`) : clés étrangères, calage sur les agrégats, calculs |
 | Brique IA | API Claude (Anthropic) via `src/ai_synthesis.py`, et synthèse à la demande dans le dashboard |
 | Restitution | Dashboard interactif (Claude Artifact), slides |
 | Versioning | Git / GitHub |
@@ -125,6 +143,11 @@ La liste complète, avec un niveau de fiabilité pour chaque source, est dans [`
 ```bash
 pip install -r requirements.txt
 python -m src.simulate_internal   # régénère la base interne simulée
+python -m src.simulate_transactions   # détail : diagnostics, ventes, rachats (calés sur la base simulée)
 python -m src.build               # modèle en étoile + KPIs (s'arrête si un contrôle échoue)
+python -m src.build_warehouse     # entrepôt en constellation + rapport qualité (data/warehouse/)
+python -m unittest discover tests # contrôles de l'entrepôt
 python -m src.ai_synthesis        # synthèse IA (nécessite ANTHROPIC_API_KEY)
 ```
+
+Le détail des pilotes et l'entrepôt (environ 160 Mo) ne sont pas versionnés : ils se régénèrent à l'identique avec les commandes ci-dessus, sauf `data/warehouse/rapport_qualite.md`.
