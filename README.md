@@ -36,7 +36,7 @@ L'Oréal est un fabricant, qui vend surtout via des distributeurs. Le projet ét
 | Opérations & logistique | Distance moyenne au hub | 271 km depuis Karlsruhe pour les 3 pilotes (776 km depuis l'usine de Vichy, 903 km depuis La Roche-Posay) | Chaîne d'approvisionnement |
 | | Droits de douane / taxes | 0 % de douane, TVA 19 % | Surcoûts à l'import |
 | Assortiment | Indice de pénétration des catégories (DE / FR) | Soins de la peau 0,71 ; capillaires 1,70 | Assortiment ciblé ou complet |
-| | % du catalogue soin France éligible | 95,1 % | Déploiement du catalogue |
+| | % du catalogue soin France éligible | 94,6 % | Déploiement du catalogue |
 | Rentabilité (synthèse) | Trésorerie cumulée fin 2031 du plan 15 boutiques | −4,8 M€ (réaliste) | Go / No-Go |
 | | CA par m² nécessaire pour rembourser le plan | ≈ 9 600 € (estimation réaliste : 7 251 €) | Seuil de passage à l'échelle |
 
