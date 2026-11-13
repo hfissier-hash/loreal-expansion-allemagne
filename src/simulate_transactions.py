@@ -22,7 +22,7 @@ VAT_FR = 0.20
 
 # Fourchettes de prix TTC par marque (SIMULÉ, ordre de grandeur des prix publics)
 PRICE_RANGE = {"La Roche-Posay": (11, 40), "CeraVe": (9, 24), "Vichy": (14, 45),
-               "SkinCeuticals": (60, 180), "Kiehl's": (24, 60)}
+               "SkinCeuticals": (60, 180), "Kiehl's": (24, 60), "Lancôme Skincare": (40, 120)}
 CONCERNS = [("imperfections", 0.20), ("sensibilité", 0.20), ("sécheresse", 0.22),
             ("signes de l'âge", 0.22), ("éclat", 0.10), ("protection solaire", 0.06)]
 CONCERNS_BY_AGE = {

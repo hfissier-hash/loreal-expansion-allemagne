@@ -1,101 +1,121 @@
 store_id,city,surface_m2,brand,category,revenue_ttc_eur,gross_margin_rate_ht,diagnostics_per_year,diag_conversion_rate,repurchase_rate_6m,year
-FR001,Paris,91,La Roche-Posay,Soins de la peau,261441.19,0.694,4787,0.512,0.483,2025
-FR001,Paris,91,CeraVe,Soins de la peau,215740.73,0.683,4787,0.512,0.483,2025
-FR001,Paris,91,Vichy,Soins de la peau,155284.68,0.698,4787,0.512,0.483,2025
-FR001,Paris,91,SkinCeuticals,Soins de la peau,145923.83,0.692,4787,0.512,0.483,2025
-FR001,Paris,91,Kiehl's,Soins de la peau,128726.49,0.657,4787,0.512,0.483,2025
-FR002,Paris,85,La Roche-Posay,Soins de la peau,261875.47,0.669,4612,0.597,0.438,2025
-FR002,Paris,85,CeraVe,Soins de la peau,191815.37,0.638,4612,0.597,0.438,2025
-FR002,Paris,85,Vichy,Soins de la peau,139728.71,0.705,4612,0.597,0.438,2025
-FR002,Paris,85,SkinCeuticals,Soins de la peau,132316.01,0.744,4612,0.597,0.438,2025
-FR002,Paris,85,Kiehl's,Soins de la peau,113900.28,0.707,4612,0.597,0.438,2025
-FR003,Paris,118,La Roche-Posay,Soins de la peau,350147.72,0.745,5827,0.613,0.541,2025
-FR003,Paris,118,CeraVe,Soins de la peau,306184.83,0.71,5827,0.613,0.541,2025
-FR003,Paris,118,Vichy,Soins de la peau,186737.26,0.75,5827,0.613,0.541,2025
-FR003,Paris,118,SkinCeuticals,Soins de la peau,174124.31,0.667,5827,0.613,0.541,2025
-FR003,Paris,118,Kiehl's,Soins de la peau,142796.16,0.658,5827,0.613,0.541,2025
-FR004,Paris,75,La Roche-Posay,Soins de la peau,185367.29,0.676,4051,0.585,0.36,2025
-FR004,Paris,75,CeraVe,Soins de la peau,145826.19,0.696,4051,0.585,0.36,2025
-FR004,Paris,75,Vichy,Soins de la peau,119523.56,0.705,4051,0.585,0.36,2025
-FR004,Paris,75,SkinCeuticals,Soins de la peau,109414.7,0.654,4051,0.585,0.36,2025
-FR004,Paris,75,Kiehl's,Soins de la peau,99068.95,0.731,4051,0.585,0.36,2025
-FR005,Paris,93,La Roche-Posay,Soins de la peau,248274.41,0.676,5866,0.591,0.324,2025
-FR005,Paris,93,CeraVe,Soins de la peau,231598.72,0.668,5866,0.591,0.324,2025
-FR005,Paris,93,Vichy,Soins de la peau,161563.81,0.73,5866,0.591,0.324,2025
-FR005,Paris,93,SkinCeuticals,Soins de la peau,139536.45,0.706,5866,0.591,0.324,2025
-FR005,Paris,93,Kiehl's,Soins de la peau,144217.09,0.721,5866,0.591,0.324,2025
-FR006,Paris,87,La Roche-Posay,Soins de la peau,228428.88,0.69,5530,0.616,0.502,2025
-FR006,Paris,87,CeraVe,Soins de la peau,169391.29,0.669,5530,0.616,0.502,2025
-FR006,Paris,87,Vichy,Soins de la peau,127439.7,0.693,5530,0.616,0.502,2025
-FR006,Paris,87,SkinCeuticals,Soins de la peau,117510.65,0.67,5530,0.616,0.502,2025
-FR006,Paris,87,Kiehl's,Soins de la peau,89927.29,0.735,5530,0.616,0.502,2025
-FR007,Lyon,101,La Roche-Posay,Soins de la peau,266977.14,0.755,7050,0.624,0.42,2025
-FR007,Lyon,101,CeraVe,Soins de la peau,230783.12,0.741,7050,0.624,0.42,2025
-FR007,Lyon,101,Vichy,Soins de la peau,160414.88,0.732,7050,0.624,0.42,2025
-FR007,Lyon,101,SkinCeuticals,Soins de la peau,147623.72,0.767,7050,0.624,0.42,2025
-FR007,Lyon,101,Kiehl's,Soins de la peau,126398.87,0.733,7050,0.624,0.42,2025
-FR008,Lyon,67,La Roche-Posay,Soins de la peau,149005.83,0.697,3883,0.671,0.342,2025
-FR008,Lyon,67,CeraVe,Soins de la peau,149683.04,0.687,3883,0.671,0.342,2025
-FR008,Lyon,67,Vichy,Soins de la peau,96420.79,0.767,3883,0.671,0.342,2025
-FR008,Lyon,67,SkinCeuticals,Soins de la peau,82572.58,0.732,3883,0.671,0.342,2025
-FR008,Lyon,67,Kiehl's,Soins de la peau,69621.85,0.745,3883,0.671,0.342,2025
-FR009,Marseille,102,La Roche-Posay,Soins de la peau,214782.1,0.657,5907,0.676,0.451,2025
-FR009,Marseille,102,CeraVe,Soins de la peau,207556.02,0.717,5907,0.676,0.451,2025
-FR009,Marseille,102,Vichy,Soins de la peau,142842.2,0.689,5907,0.676,0.451,2025
-FR009,Marseille,102,SkinCeuticals,Soins de la peau,108663.3,0.729,5907,0.676,0.451,2025
-FR009,Marseille,102,Kiehl's,Soins de la peau,112117.18,0.686,5907,0.676,0.451,2025
-FR010,Marseille,65,La Roche-Posay,Soins de la peau,172656.63,0.712,3577,0.522,0.398,2025
-FR010,Marseille,65,CeraVe,Soins de la peau,153723.54,0.713,3577,0.522,0.398,2025
-FR010,Marseille,65,Vichy,Soins de la peau,106648.04,0.717,3577,0.522,0.398,2025
-FR010,Marseille,65,SkinCeuticals,Soins de la peau,95639.04,0.744,3577,0.522,0.398,2025
-FR010,Marseille,65,Kiehl's,Soins de la peau,79625.39,0.724,3577,0.522,0.398,2025
-FR011,Bordeaux,98,La Roche-Posay,Soins de la peau,273876.98,0.629,6185,0.587,0.355,2025
-FR011,Bordeaux,98,CeraVe,Soins de la peau,218753.54,0.742,6185,0.587,0.355,2025
-FR011,Bordeaux,98,Vichy,Soins de la peau,144832.97,0.702,6185,0.587,0.355,2025
-FR011,Bordeaux,98,SkinCeuticals,Soins de la peau,134820.52,0.733,6185,0.587,0.355,2025
-FR011,Bordeaux,98,Kiehl's,Soins de la peau,108302.31,0.684,6185,0.587,0.355,2025
-FR012,Bordeaux,103,La Roche-Posay,Soins de la peau,256142.85,0.712,5658,0.649,0.464,2025
-FR012,Bordeaux,103,CeraVe,Soins de la peau,207486.79,0.699,5658,0.649,0.464,2025
-FR012,Bordeaux,103,Vichy,Soins de la peau,158679.51,0.709,5658,0.649,0.464,2025
-FR012,Bordeaux,103,SkinCeuticals,Soins de la peau,146358.37,0.692,5658,0.649,0.464,2025
-FR012,Bordeaux,103,Kiehl's,Soins de la peau,130837.1,0.696,5658,0.649,0.464,2025
-FR013,Lille,97,La Roche-Posay,Soins de la peau,237475.5,0.693,7051,0.66,0.488,2025
-FR013,Lille,97,CeraVe,Soins de la peau,176111.99,0.73,7051,0.66,0.488,2025
-FR013,Lille,97,Vichy,Soins de la peau,150800.46,0.684,7051,0.66,0.488,2025
-FR013,Lille,97,SkinCeuticals,Soins de la peau,124450.99,0.728,7051,0.66,0.488,2025
-FR013,Lille,97,Kiehl's,Soins de la peau,102734.38,0.729,7051,0.66,0.488,2025
-FR014,Lille,101,La Roche-Posay,Soins de la peau,236267.55,0.726,4894,0.562,0.497,2025
-FR014,Lille,101,CeraVe,Soins de la peau,235400.19,0.699,4894,0.562,0.497,2025
-FR014,Lille,101,Vichy,Soins de la peau,151821.0,0.752,4894,0.562,0.497,2025
-FR014,Lille,101,SkinCeuticals,Soins de la peau,134822.92,0.724,4894,0.562,0.497,2025
-FR014,Lille,101,Kiehl's,Soins de la peau,113869.05,0.648,4894,0.562,0.497,2025
-FR015,Toulouse,88,La Roche-Posay,Soins de la peau,206069.48,0.687,5135,0.602,0.462,2025
-FR015,Toulouse,88,CeraVe,Soins de la peau,184462.98,0.702,5135,0.602,0.462,2025
-FR015,Toulouse,88,Vichy,Soins de la peau,138906.55,0.729,5135,0.602,0.462,2025
-FR015,Toulouse,88,SkinCeuticals,Soins de la peau,94500.88,0.73,5135,0.602,0.462,2025
-FR015,Toulouse,88,Kiehl's,Soins de la peau,87769.77,0.692,5135,0.602,0.462,2025
-FR016,Toulouse,82,La Roche-Posay,Soins de la peau,219872.19,0.767,4210,0.615,0.353,2025
-FR016,Toulouse,82,CeraVe,Soins de la peau,159906.73,0.685,4210,0.615,0.353,2025
-FR016,Toulouse,82,Vichy,Soins de la peau,125804.34,0.715,4210,0.615,0.353,2025
-FR016,Toulouse,82,SkinCeuticals,Soins de la peau,93740.62,0.71,4210,0.615,0.353,2025
-FR016,Toulouse,82,Kiehl's,Soins de la peau,80862.92,0.744,4210,0.615,0.353,2025
-FR017,Nice,95,La Roche-Posay,Soins de la peau,203408.93,0.691,5235,0.59,0.509,2025
-FR017,Nice,95,CeraVe,Soins de la peau,198531.78,0.697,5235,0.59,0.509,2025
-FR017,Nice,95,Vichy,Soins de la peau,140671.17,0.712,5235,0.59,0.509,2025
-FR017,Nice,95,SkinCeuticals,Soins de la peau,120305.28,0.671,5235,0.59,0.509,2025
-FR017,Nice,95,Kiehl's,Soins de la peau,98637.43,0.702,5235,0.59,0.509,2025
-FR018,Nantes,85,La Roche-Posay,Soins de la peau,223569.43,0.723,4381,0.679,0.457,2025
-FR018,Nantes,85,CeraVe,Soins de la peau,211750.24,0.722,4381,0.679,0.457,2025
-FR018,Nantes,85,Vichy,Soins de la peau,144468.11,0.711,4381,0.679,0.457,2025
-FR018,Nantes,85,SkinCeuticals,Soins de la peau,110876.71,0.633,4381,0.679,0.457,2025
-FR018,Nantes,85,Kiehl's,Soins de la peau,108928.1,0.723,4381,0.679,0.457,2025
-FR019,Strasbourg,88,La Roche-Posay,Soins de la peau,208322.97,0.651,5518,0.551,0.337,2025
-FR019,Strasbourg,88,CeraVe,Soins de la peau,155667.53,0.694,5518,0.551,0.337,2025
-FR019,Strasbourg,88,Vichy,Soins de la peau,127376.6,0.693,5518,0.551,0.337,2025
-FR019,Strasbourg,88,SkinCeuticals,Soins de la peau,107358.82,0.683,5518,0.551,0.337,2025
-FR019,Strasbourg,88,Kiehl's,Soins de la peau,76875.91,0.72,5518,0.551,0.337,2025
-FR020,Montpellier,101,La Roche-Posay,Soins de la peau,295150.16,0.709,5668,0.581,0.25,2025
-FR020,Montpellier,101,CeraVe,Soins de la peau,233575.22,0.671,5668,0.581,0.25,2025
-FR020,Montpellier,101,Vichy,Soins de la peau,176611.91,0.685,5668,0.581,0.25,2025
-FR020,Montpellier,101,SkinCeuticals,Soins de la peau,146570.84,0.723,5668,0.581,0.25,2025
-FR020,Montpellier,101,Kiehl's,Soins de la peau,121879.14,0.694,5668,0.581,0.25,2025
+FR001,Paris,91,La Roche-Posay,Soins de la peau,233351.3,0.694,4787,0.512,0.483,2025
+FR001,Paris,91,CeraVe,Soins de la peau,192561.01,0.683,4787,0.512,0.483,2025
+FR001,Paris,91,Vichy,Soins de la peau,138600.51,0.698,4787,0.512,0.483,2025
+FR001,Paris,91,SkinCeuticals,Soins de la peau,130245.41,0.692,4787,0.512,0.483,2025
+FR001,Paris,91,Kiehl's,Soins de la peau,114895.8,0.657,4787,0.512,0.483,2025
+FR001,Paris,91,Lancôme Skincare,Soins de la peau,97462.89,0.67,4787,0.512,0.483,2025
+FR002,Paris,85,La Roche-Posay,Soins de la peau,236398.5,0.669,4612,0.597,0.438,2025
+FR002,Paris,85,CeraVe,Soins de la peau,173154.31,0.638,4612,0.597,0.438,2025
+FR002,Paris,85,Vichy,Soins de la peau,126134.98,0.705,4612,0.597,0.438,2025
+FR002,Paris,85,SkinCeuticals,Soins de la peau,119443.44,0.744,4612,0.597,0.438,2025
+FR002,Paris,85,Kiehl's,Soins de la peau,102819.31,0.707,4612,0.597,0.438,2025
+FR002,Paris,85,Lancôme Skincare,Soins de la peau,81685.3,0.687,4612,0.597,0.438,2025
+FR003,Paris,118,La Roche-Posay,Soins de la peau,315483.28,0.745,5827,0.613,0.541,2025
+FR003,Paris,118,CeraVe,Soins de la peau,275872.69,0.71,5827,0.613,0.541,2025
+FR003,Paris,118,Vichy,Soins de la peau,168250.37,0.75,5827,0.613,0.541,2025
+FR003,Paris,118,SkinCeuticals,Soins de la peau,156886.09,0.667,5827,0.613,0.541,2025
+FR003,Paris,118,Kiehl's,Soins de la peau,128659.41,0.658,5827,0.613,0.541,2025
+FR003,Paris,118,Lancôme Skincare,Soins de la peau,114838.44,0.704,5827,0.613,0.541,2025
+FR004,Paris,75,La Roche-Posay,Soins de la peau,165290.57,0.676,4051,0.585,0.36,2025
+FR004,Paris,75,CeraVe,Soins de la peau,130032.08,0.696,4051,0.585,0.36,2025
+FR004,Paris,75,Vichy,Soins de la peau,106578.23,0.705,4051,0.585,0.36,2025
+FR004,Paris,75,SkinCeuticals,Soins de la peau,97564.24,0.654,4051,0.585,0.36,2025
+FR004,Paris,75,Kiehl's,Soins de la peau,88339.01,0.731,4051,0.585,0.36,2025
+FR004,Paris,75,Lancôme Skincare,Soins de la peau,71396.56,0.678,4051,0.585,0.36,2025
+FR005,Paris,93,La Roche-Posay,Soins de la peau,221936.79,0.676,5866,0.591,0.324,2025
+FR005,Paris,93,CeraVe,Soins de la peau,207030.1,0.668,5866,0.591,0.324,2025
+FR005,Paris,93,Vichy,Soins de la peau,144424.68,0.73,5866,0.591,0.324,2025
+FR005,Paris,93,SkinCeuticals,Soins de la peau,124734.04,0.706,5866,0.591,0.324,2025
+FR005,Paris,93,Kiehl's,Soins de la peau,128918.15,0.721,5866,0.591,0.324,2025
+FR005,Paris,93,Lancôme Skincare,Soins de la peau,98146.72,0.705,5866,0.591,0.324,2025
+FR006,Paris,87,La Roche-Posay,Soins de la peau,206271.31,0.69,5530,0.616,0.502,2025
+FR006,Paris,87,CeraVe,Soins de la peau,152960.36,0.669,5530,0.616,0.502,2025
+FR006,Paris,87,Vichy,Soins de la peau,115078.07,0.693,5530,0.616,0.502,2025
+FR006,Paris,87,SkinCeuticals,Soins de la peau,106112.13,0.67,5530,0.616,0.502,2025
+FR006,Paris,87,Kiehl's,Soins de la peau,81204.36,0.735,5530,0.616,0.502,2025
+FR006,Paris,87,Lancôme Skincare,Soins de la peau,71071.58,0.721,5530,0.616,0.502,2025
+FR007,Lyon,101,La Roche-Posay,Soins de la peau,240055.84,0.755,7050,0.624,0.42,2025
+FR007,Lyon,101,CeraVe,Soins de la peau,207511.53,0.741,7050,0.624,0.42,2025
+FR007,Lyon,101,Vichy,Soins de la peau,144239.05,0.732,7050,0.624,0.42,2025
+FR007,Lyon,101,SkinCeuticals,Soins de la peau,132737.72,0.767,7050,0.624,0.42,2025
+FR007,Lyon,101,Kiehl's,Soins de la peau,113653.13,0.733,7050,0.624,0.42,2025
+FR007,Lyon,101,Lancôme Skincare,Soins de la peau,94000.46,0.666,7050,0.624,0.42,2025
+FR008,Lyon,67,La Roche-Posay,Soins de la peau,133561.45,0.697,3883,0.671,0.342,2025
+FR008,Lyon,67,CeraVe,Soins de la peau,134168.47,0.687,3883,0.671,0.342,2025
+FR008,Lyon,67,Vichy,Soins de la peau,86426.83,0.767,3883,0.671,0.342,2025
+FR008,Lyon,67,SkinCeuticals,Soins de la peau,74013.98,0.732,3883,0.671,0.342,2025
+FR008,Lyon,67,Kiehl's,Soins de la peau,62405.58,0.745,3883,0.671,0.342,2025
+FR008,Lyon,67,Lancôme Skincare,Soins de la peau,56727.78,0.74,3883,0.671,0.342,2025
+FR009,Marseille,102,La Roche-Posay,Soins de la peau,190726.17,0.657,5907,0.676,0.451,2025
+FR009,Marseille,102,CeraVe,Soins de la peau,184309.42,0.717,5907,0.676,0.451,2025
+FR009,Marseille,102,Vichy,Soins de la peau,126843.65,0.689,5907,0.676,0.451,2025
+FR009,Marseille,102,SkinCeuticals,Soins de la peau,96492.84,0.729,5907,0.676,0.451,2025
+FR009,Marseille,102,Kiehl's,Soins de la peau,99559.88,0.686,5907,0.676,0.451,2025
+FR009,Marseille,102,Lancôme Skincare,Soins de la peau,88028.84,0.714,5907,0.676,0.451,2025
+FR010,Marseille,65,La Roche-Posay,Soins de la peau,155672.75,0.712,3577,0.522,0.398,2025
+FR010,Marseille,65,CeraVe,Soins de la peau,138602.07,0.713,3577,0.522,0.398,2025
+FR010,Marseille,65,Vichy,Soins de la peau,96157.29,0.717,3577,0.522,0.398,2025
+FR010,Marseille,65,SkinCeuticals,Soins de la peau,86231.22,0.744,3577,0.522,0.398,2025
+FR010,Marseille,65,Kiehl's,Soins de la peau,71792.8,0.724,3577,0.522,0.398,2025
+FR010,Marseille,65,Lancôme Skincare,Soins de la peau,59836.52,0.743,3577,0.522,0.398,2025
+FR011,Bordeaux,98,La Roche-Posay,Soins de la peau,246925.94,0.629,6185,0.587,0.355,2025
+FR011,Bordeaux,98,CeraVe,Soins de la peau,197226.96,0.742,6185,0.587,0.355,2025
+FR011,Bordeaux,98,Vichy,Soins de la peau,130580.59,0.702,6185,0.587,0.355,2025
+FR011,Bordeaux,98,SkinCeuticals,Soins de la peau,121553.42,0.733,6185,0.587,0.355,2025
+FR011,Bordeaux,98,Kiehl's,Soins de la peau,97644.75,0.684,6185,0.587,0.355,2025
+FR011,Bordeaux,98,Lancôme Skincare,Soins de la peau,86654.65,0.684,6185,0.587,0.355,2025
+FR012,Bordeaux,103,La Roche-Posay,Soins de la peau,232063.74,0.712,5658,0.649,0.464,2025
+FR012,Bordeaux,103,CeraVe,Soins de la peau,187981.67,0.699,5658,0.649,0.464,2025
+FR012,Bordeaux,103,Vichy,Soins de la peau,143762.59,0.709,5658,0.649,0.464,2025
+FR012,Bordeaux,103,SkinCeuticals,Soins de la peau,132599.72,0.692,5658,0.649,0.464,2025
+FR012,Bordeaux,103,Kiehl's,Soins de la peau,118537.55,0.696,5658,0.649,0.464,2025
+FR012,Bordeaux,103,Lancôme Skincare,Soins de la peau,84559.34,0.699,5658,0.649,0.464,2025
+FR013,Lille,97,La Roche-Posay,Soins de la peau,212785.35,0.693,7051,0.66,0.488,2025
+FR013,Lille,97,CeraVe,Soins de la peau,157801.76,0.73,7051,0.66,0.488,2025
+FR013,Lille,97,Vichy,Soins de la peau,135121.85,0.684,7051,0.66,0.488,2025
+FR013,Lille,97,SkinCeuticals,Soins de la peau,111511.91,0.728,7051,0.66,0.488,2025
+FR013,Lille,97,Kiehl's,Soins de la peau,92053.16,0.729,7051,0.66,0.488,2025
+FR013,Lille,97,Lancôme Skincare,Soins de la peau,82299.28,0.695,7051,0.66,0.488,2025
+FR014,Lille,101,La Roche-Posay,Soins de la peau,214649.5,0.726,4894,0.562,0.497,2025
+FR014,Lille,101,CeraVe,Soins de la peau,213861.5,0.699,4894,0.562,0.497,2025
+FR014,Lille,101,Vichy,Soins de la peau,137929.66,0.752,4894,0.562,0.497,2025
+FR014,Lille,101,SkinCeuticals,Soins de la peau,122486.87,0.724,4894,0.562,0.497,2025
+FR014,Lille,101,Kiehl's,Soins de la peau,103450.24,0.648,4894,0.562,0.497,2025
+FR014,Lille,101,Lancôme Skincare,Soins de la peau,79802.94,0.701,4894,0.562,0.497,2025
+FR015,Toulouse,88,La Roche-Posay,Soins de la peau,187794.36,0.687,5135,0.602,0.462,2025
+FR015,Toulouse,88,CeraVe,Soins de la peau,168104.01,0.702,5135,0.602,0.462,2025
+FR015,Toulouse,88,Vichy,Soins de la peau,126587.72,0.729,5135,0.602,0.462,2025
+FR015,Toulouse,88,SkinCeuticals,Soins de la peau,86120.14,0.73,5135,0.602,0.462,2025
+FR015,Toulouse,88,Kiehl's,Soins de la peau,79985.97,0.692,5135,0.602,0.462,2025
+FR015,Toulouse,88,Lancôme Skincare,Soins de la peau,63117.46,0.732,5135,0.602,0.462,2025
+FR016,Toulouse,82,La Roche-Posay,Soins de la peau,196831.78,0.767,4210,0.615,0.353,2025
+FR016,Toulouse,82,CeraVe,Soins de la peau,143150.1,0.685,4210,0.615,0.353,2025
+FR016,Toulouse,82,Vichy,Soins de la peau,112621.3,0.715,4210,0.615,0.353,2025
+FR016,Toulouse,82,SkinCeuticals,Soins de la peau,83917.54,0.71,4210,0.615,0.353,2025
+FR016,Toulouse,82,Kiehl's,Soins de la peau,72389.29,0.744,4210,0.615,0.353,2025
+FR016,Toulouse,82,Lancôme Skincare,Soins de la peau,71276.79,0.708,4210,0.615,0.353,2025
+FR017,Nice,95,La Roche-Posay,Soins de la peau,185805.5,0.691,5235,0.59,0.509,2025
+FR017,Nice,95,CeraVe,Soins de la peau,181350.43,0.697,5235,0.59,0.509,2025
+FR017,Nice,95,Vichy,Soins de la peau,128497.2,0.712,5235,0.59,0.509,2025
+FR017,Nice,95,SkinCeuticals,Soins de la peau,109893.81,0.671,5235,0.59,0.509,2025
+FR017,Nice,95,Kiehl's,Soins de la peau,90101.14,0.702,5235,0.59,0.509,2025
+FR017,Nice,95,Lancôme Skincare,Soins de la peau,65906.5,0.672,5235,0.59,0.509,2025
+FR018,Nantes,85,La Roche-Posay,Soins de la peau,203297.79,0.723,4381,0.679,0.457,2025
+FR018,Nantes,85,CeraVe,Soins de la peau,192550.28,0.722,4381,0.679,0.457,2025
+FR018,Nantes,85,Vichy,Soins de la peau,131368.8,0.711,4381,0.679,0.457,2025
+FR018,Nantes,85,SkinCeuticals,Soins de la peau,100823.22,0.633,4381,0.679,0.457,2025
+FR018,Nantes,85,Kiehl's,Soins de la peau,99051.3,0.723,4381,0.679,0.457,2025
+FR018,Nantes,85,Lancôme Skincare,Soins de la peau,72501.19,0.726,4381,0.679,0.457,2025
+FR019,Strasbourg,88,La Roche-Posay,Soins de la peau,189461.25,0.651,5518,0.551,0.337,2025
+FR019,Strasbourg,88,CeraVe,Soins de la peau,141573.27,0.694,5518,0.551,0.337,2025
+FR019,Strasbourg,88,Vichy,Soins de la peau,115843.82,0.693,5518,0.551,0.337,2025
+FR019,Strasbourg,88,SkinCeuticals,Soins de la peau,97638.47,0.683,5518,0.551,0.337,2025
+FR019,Strasbourg,88,Kiehl's,Soins de la peau,69915.51,0.72,5518,0.551,0.337,2025
+FR019,Strasbourg,88,Lancôme Skincare,Soins de la peau,61169.51,0.736,5518,0.551,0.337,2025
+FR020,Montpellier,101,La Roche-Posay,Soins de la peau,266914.25,0.709,5668,0.581,0.25,2025
+FR020,Montpellier,101,CeraVe,Soins de la peau,211229.95,0.671,5668,0.581,0.25,2025
+FR020,Montpellier,101,Vichy,Soins de la peau,159716.11,0.685,5668,0.581,0.25,2025
+FR020,Montpellier,101,SkinCeuticals,Soins de la peau,132548.96,0.723,5668,0.581,0.25,2025
+FR020,Montpellier,101,Kiehl's,Soins de la peau,110219.42,0.694,5668,0.581,0.25,2025
+FR020,Montpellier,101,Lancôme Skincare,Soins de la peau,93158.58,0.646,5668,0.581,0.25,2025

@@ -18,10 +18,6 @@ VILLES = {"Paris": 6, "Lyon": 2, "Marseille": 2, "Bordeaux": 2, "Lille": 2,
 # Ventes par marque de soin (la boutique ne vend que des soins de la peau)
 MIX = {"La Roche-Posay": 0.26, "CeraVe": 0.22, "Vichy": 0.16, "SkinCeuticals": 0.14,
        "Kiehl's": 0.12, "Lancôme Skincare": 0.10}
-# Le concept garde 5 marques (décision d'équipe du 13/11/2026). Les tirages aléatoires gardent
-# les 6 marques d'origine pour ne changer aucun autre chiffre simulé ; Lancôme est retiré ensuite
-# et son CA réparti sur les 5 marques au prorata (CA par boutique inchangé).
-EXCLUDED_BRANDS = {"Lancôme Skincare"}
 
 
 def boutiques():
@@ -44,13 +40,7 @@ def boutiques():
                     "repurchase_rate_6m": round(rachat, 3), "year": 2025,
                 })
             i += 1
-    df = pd.DataFrame(rows)
-    excluded = df["brand"].isin(EXCLUDED_BRANDS)
-    removed = df[excluded].groupby("store_id")["revenue_ttc_eur"].sum()
-    df = df[~excluded].copy()
-    kept = df.groupby("store_id")["revenue_ttc_eur"].transform("sum")
-    df["revenue_ttc_eur"] = (df["revenue_ttc_eur"] * (1 + df["store_id"].map(removed) / kept)).round(2)
-    return df.reset_index(drop=True)
+    return pd.DataFrame(rows)
 
 
 def catalogue():
@@ -62,8 +52,7 @@ def catalogue():
             # gammes exclusivement françaises (packaging non traduisible, licences locales)
             "france_only": bool(rng.random() < 0.06),
         })
-    df = pd.DataFrame(rows)
-    return df[~df["brand"].isin(EXCLUDED_BRANDS)].reset_index(drop=True)
+    return pd.DataFrame(rows)
 
 
 if __name__ == "__main__":
