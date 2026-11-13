@@ -359,6 +359,9 @@ def report(conn, ext, intern):
     for sale_type, share in conn.execute("""SELECT sale_type, SUM(revenue_ttc) * 100.0 / (SELECT SUM(revenue_ttc) FROM fact_sales)
                                             FROM fact_sales GROUP BY 1 ORDER BY 2 DESC"""):
         lines.append(f"- Part du CA « {sale_type} » : {share:.1f} %")
+    for sale_type, basket, per_day in conn.execute("""SELECT sale_type, AVG(ca), COUNT(*) / 20.0 / 313 FROM
+            (SELECT ticket_id, sale_type, SUM(revenue_ttc) AS ca FROM fact_sales GROUP BY 1, 2) GROUP BY 1 ORDER BY 1"""):
+        lines.append(f"- Panier moyen TTC « {sale_type} » : {basket:.1f} €, {per_day:.1f} tickets par jour et par boutique (313 jours)")
     (OUT / "rapport_qualite.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     return fk
 
