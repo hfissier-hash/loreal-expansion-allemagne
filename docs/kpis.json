@@ -8,24 +8,23 @@
     "fr_spend_per_capita": 210.0,
     "dm_share_drugstore_pct": 46.8,
     "drugstore_channel_share_pct": 53.0,
-    "pilot_revenue_share_of_market_pct": 0.011811818065733955,
+    "pilot_revenue_share_of_market_pct": 0.011969474128358873,
     "skin_per_capita_de": 48.2,
     "skin_per_capita_fr": 65.8,
     "skin_growth_de_pct": 11.1,
     "skin_growth_fr_pct": 2.7
   },
   "prix": {
-    "relative_price_index_de_vs_fr": 106.7,
+    "relative_price_index_de_vs_fr": 108.1,
     "price_index_source": "relevé des soins du catalogue, prix public conseillé FR (pondéré par le CA des pilotes)",
     "general_price_level_index_de_vs_fr": 98.2,
-    "skincare_price_index_ht": 107.6,
-    "skincare_price_index_ttc_actual_prices": 117.9,
-    "skincare_price_index_ht_actual_prices": 118.9,
+    "skincare_price_index_ht": 109.0,
+    "skincare_price_index_ttc_actual_prices": 120.5,
+    "skincare_price_index_ht_actual_prices": 121.6,
     "skincare_price_index_by_brand_ttc_ppc": {
       "CeraVe": 115.1,
       "Kiehl's": 100.0,
       "La Roche-Posay": 96.7,
-      "Lancôme Skincare": 93.7,
       "SkinCeuticals": 135.3,
       "Vichy": 99.9
     },
@@ -33,19 +32,17 @@
       "CeraVe": 143.8,
       "Kiehl's": 100.0,
       "La Roche-Posay": 114.7,
-      "Lancôme Skincare": 93.7,
       "SkinCeuticals": 135.3,
       "Vichy": 100.4
     },
     "skincare_price_weights": {
-      "CeraVe": 0.222,
-      "Kiehl's": 0.119,
-      "La Roche-Posay": 0.262,
-      "Lancôme Skincare": 0.099,
-      "SkinCeuticals": 0.138,
-      "Vichy": 0.159
+      "CeraVe": 0.247,
+      "Kiehl's": 0.132,
+      "La Roche-Posay": 0.291,
+      "SkinCeuticals": 0.153,
+      "Vichy": 0.177
     },
-    "skincare_price_n_products": 8,
+    "skincare_price_n_products": 7,
     "vat_de": 19.0,
     "vat_fr": 20.0,
     "gross_margin_rate_fr_pct": 70.3,
@@ -185,30 +182,30 @@
     "customs_pct": 0
   },
   "assortiment": {
-    "catalogue_eligible_pct": 94.6,
-    "nb_sku": 480
+    "catalogue_eligible_pct": 95.1,
+    "nb_sku": 428
   },
   "pilote": {
     "Optimiste": {
-      "revenue_ttc": 2446676,
-      "ebitda": 492201,
-      "ebitda_3y": 996522,
+      "revenue_ttc": 2479333,
+      "ebitda": 509198,
+      "ebitda_3y": 1040716,
       "capex": 1305000,
-      "payback_years": 2.7
+      "payback_years": 2.6
     },
     "Pessimiste": {
-      "revenue_ttc": 1702036,
-      "ebitda": 126922,
-      "ebitda_3y": 46798,
+      "revenue_ttc": 1724753,
+      "ebitda": 138747,
+      "ebitda_3y": 77542,
       "capex": 1305000,
-      "payback_years": 10.3
+      "payback_years": 9.4
     },
     "Réaliste": {
-      "revenue_ttc": 2127545,
-      "ebitda": 335653,
-      "ebitda_3y": 589498,
+      "revenue_ttc": 2155942,
+      "ebitda": 350433,
+      "ebitda_3y": 627927,
       "capex": 1305000,
-      "payback_years": 3.9
+      "payback_years": 3.7
     }
   },
   "flagship": {
@@ -223,24 +220,24 @@
       "Leipzig"
     ],
     "ebitda_by_city": {
-      "München": -163534,
-      "Düsseldorf": -169489,
-      "Frankfurt am Main": -195324,
-      "Stuttgart": -95066,
-      "Hamburg": -143114,
-      "Köln": -140828,
-      "Berlin": -188753,
-      "Leipzig": -60333
+      "München": -158123,
+      "Düsseldorf": -164698,
+      "Frankfurt am Main": -190747,
+      "Stuttgart": -90522,
+      "Hamburg": -138712,
+      "Köln": -136472,
+      "Berlin": -184767,
+      "Leipzig": -56518
     },
     "rent_pct_ca_ht": {
-      "München": 52.8,
-      "Düsseldorf": 53.0,
-      "Frankfurt am Main": 57.7,
-      "Stuttgart": 39.5,
-      "Hamburg": 47.2,
-      "Köln": 47.1,
-      "Berlin": 55.5,
-      "Leipzig": 27.9
+      "München": 52.0,
+      "Düsseldorf": 52.3,
+      "Frankfurt am Main": 57.0,
+      "Stuttgart": 39.0,
+      "Hamburg": 46.6,
+      "Köln": 46.5,
+      "Berlin": 54.8,
+      "Leipzig": 27.6
     }
   },
   "reference_fr": {
@@ -258,42 +255,42 @@
         {
           "year": 2027,
           "stores": 3,
-          "revenue_ttc_eur": 1191425,
-          "ebitda_eur": -123554,
+          "revenue_ttc_eur": 1207327,
+          "ebitda_eur": -115277,
           "capex_eur": 1305000,
-          "cumulative_cash_eur": -1428554
+          "cumulative_cash_eur": -1420277
         },
         {
           "year": 2028,
           "stores": 8,
-          "revenue_ttc_eur": 3239090,
-          "ebitda_eur": -269214,
+          "revenue_ttc_eur": 3282323,
+          "ebitda_eur": -246755,
           "capex_eur": 2175000,
-          "cumulative_cash_eur": -3872769
+          "cumulative_cash_eur": -3842032
         },
         {
           "year": 2029,
           "stores": 15,
-          "revenue_ttc_eur": 6486739,
-          "ebitda_eur": -312758,
+          "revenue_ttc_eur": 6573319,
+          "ebitda_eur": -267782,
           "capex_eur": 3045000,
-          "cumulative_cash_eur": -7230527
+          "cumulative_cash_eur": -7154814
         },
         {
           "year": 2030,
           "stores": 15,
-          "revenue_ttc_eur": 7470535,
-          "ebitda_eur": 168673,
+          "revenue_ttc_eur": 7570246,
+          "ebitda_eur": 220469,
           "capex_eur": 0,
-          "cumulative_cash_eur": -7061853
+          "cumulative_cash_eur": -6934345
         },
         {
           "year": 2031,
           "stores": 15,
-          "revenue_ttc_eur": 7840486,
-          "ebitda_eur": 349801,
+          "revenue_ttc_eur": 7945135,
+          "ebitda_eur": 404162,
           "capex_eur": 0,
-          "cumulative_cash_eur": -6712052
+          "cumulative_cash_eur": -6530184
         }
       ],
       "cash_breakeven_year": null
@@ -303,42 +300,42 @@
         {
           "year": 2027,
           "stores": 3,
-          "revenue_ttc_eur": 1489281,
-          "ebitda_eur": 22557,
+          "revenue_ttc_eur": 1509159,
+          "ebitda_eur": 32903,
           "capex_eur": 1305000,
-          "cumulative_cash_eur": -1282443
+          "cumulative_cash_eur": -1272097
         },
         {
           "year": 2028,
           "stores": 8,
-          "revenue_ttc_eur": 4048863,
-          "ebitda_eur": 127202,
+          "revenue_ttc_eur": 4102904,
+          "ebitda_eur": 155276,
           "capex_eur": 2175000,
-          "cumulative_cash_eur": -3330241
+          "cumulative_cash_eur": -3291821
         },
         {
           "year": 2029,
           "stores": 15,
-          "revenue_ttc_eur": 8108423,
-          "ebitda_eur": 481093,
+          "revenue_ttc_eur": 8216649,
+          "ebitda_eur": 537313,
           "capex_eur": 3045000,
-          "cumulative_cash_eur": -5894148
+          "cumulative_cash_eur": -5799508
         },
         {
           "year": 2030,
           "stores": 15,
-          "revenue_ttc_eur": 9338168,
-          "ebitda_eur": 1082882,
+          "revenue_ttc_eur": 9462808,
+          "ebitda_eur": 1147626,
           "capex_eur": 0,
-          "cumulative_cash_eur": -4811266
+          "cumulative_cash_eur": -4651882
         },
         {
           "year": 2031,
           "stores": 15,
-          "revenue_ttc_eur": 9800607,
-          "ebitda_eur": 1309291,
+          "revenue_ttc_eur": 9931419,
+          "ebitda_eur": 1377242,
           "capex_eur": 0,
-          "cumulative_cash_eur": -3501975
+          "cumulative_cash_eur": -3274640
         }
       ],
       "cash_breakeven_year": null
@@ -348,50 +345,50 @@
         {
           "year": 2027,
           "stores": 3,
-          "revenue_ttc_eur": 1712673,
-          "ebitda_eur": 132141,
+          "revenue_ttc_eur": 1735533,
+          "ebitda_eur": 144039,
           "capex_eur": 1305000,
-          "cumulative_cash_eur": -1172859
+          "cumulative_cash_eur": -1160961
         },
         {
           "year": 2028,
           "stores": 8,
-          "revenue_ttc_eur": 4656192,
-          "ebitda_eur": 424514,
+          "revenue_ttc_eur": 4718340,
+          "ebitda_eur": 456799,
           "capex_eur": 2175000,
-          "cumulative_cash_eur": -2923345
+          "cumulative_cash_eur": -2879162
         },
         {
           "year": 2029,
           "stores": 15,
-          "revenue_ttc_eur": 9324687,
-          "ebitda_eur": 1076481,
+          "revenue_ttc_eur": 9449146,
+          "ebitda_eur": 1141134,
           "capex_eur": 3045000,
-          "cumulative_cash_eur": -4891864
+          "cumulative_cash_eur": -4783028
         },
         {
           "year": 2030,
           "stores": 15,
-          "revenue_ttc_eur": 10738894,
-          "ebitda_eur": 1768538,
+          "revenue_ttc_eur": 10882229,
+          "ebitda_eur": 1842994,
           "capex_eur": 0,
-          "cumulative_cash_eur": -3123326
+          "cumulative_cash_eur": -2940034
         },
         {
           "year": 2031,
           "stores": 15,
-          "revenue_ttc_eur": 11270698,
-          "ebitda_eur": 2028909,
+          "revenue_ttc_eur": 11421132,
+          "ebitda_eur": 2107052,
           "capex_eur": 0,
-          "cumulative_cash_eur": -1094418
+          "cumulative_cash_eur": -832982
         }
       ],
       "cash_breakeven_year": null
     }
   },
   "condition": {
-    "revenue_factor_needed": 1.22,
-    "density_realistic_ttc_m2": 7880,
+    "revenue_factor_needed": 1.2,
+    "density_realistic_ttc_m2": 7985,
     "density_needed_ttc_m2": 9600.0,
     "density_fr_regions_ttc_m2": 8578
   },

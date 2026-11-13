@@ -2,7 +2,7 @@
 
 Projet du module Data Analytics, Eugenia School. **Question du Comex : L'Oréal doit-il lancer un réseau de boutiques spécialisées dans le diagnostic de peau en Allemagne d'ici 2029 ? Est-ce réalisable et rentable ?**
 
-**Réponse : Go conditionnel, limité à 3 boutiques pilotes en 2027**, en rue commerçante 1a. Les 3 pilotes remboursent leur investissement en 3,9 ans (scénario réaliste). Pas d'engagement à 15 boutiques à ce stade : le plan 3 → 8 → 15 n'est pas remboursé fin 2031 dans nos scénarios. La vague 2028 ne se déclenche que si les pilotes atteignent environ 9 600 € de CA par m², soit 22 % de plus que l'estimation réaliste. Le détail est dans la [synthèse IA](docs/synthese_ia.md).
+**Réponse : Go conditionnel, limité à 3 boutiques pilotes en 2027**, en rue commerçante 1a. Les 3 pilotes remboursent leur investissement en 3,7 ans (scénario réaliste). Pas d'engagement à 15 boutiques à ce stade : le plan 3 → 8 → 15 n'est pas remboursé fin 2031 dans nos scénarios. La vague 2028 ne se déclenche que si les pilotes atteignent environ 9 600 € de CA par m², soit 22 % de plus que l'estimation réaliste. Le détail est dans la [synthèse IA](docs/synthese_ia.md).
 
 **Équipe** : Hanine Bendiab, Hugo Fissier, Nathan Skwarek, Gaspard Leroux, Lili Sheppard
 
@@ -29,17 +29,17 @@ L'Oréal est un fabricant, qui vend surtout via des distributeurs. Le projet ét
 | Marché & potentiel | Croissance annuelle du marché | DE +6,3 % / FR +1,6 % (2025) | Plafond de CA accessible |
 | | Part de marché d'un concurrent | dm = 46,8 % des ventes des drogeries | Intensité concurrentielle |
 | | Dépense en soins de la peau par habitant | DE 48 € / FR 66 € (−27 %) ; croissance du soin DE +11,1 % | Potentiel du concept |
-| Prix & marges | Indice de prix relatif des soins du catalogue (DE vs FR) | 106,7 TTC au prix public conseillé français (117,9 aux prix pratiqués) ; relevé de 8 soins des 6 marques, pondéré par marque. Eurostat, toute la consommation : 98,2 | Positionnement prix |
+| Prix & marges | Indice de prix relatif des soins du catalogue (DE vs FR) | 108,1 TTC au prix public conseillé français (120,5 aux prix pratiqués) ; relevé des 7 soins des 5 marques retenues, pondéré par marque. Eurostat, toute la consommation : 98,2 | Positionnement prix |
 | | Marge brute estimée après taxes | 70,3 % du CA HT ; +0,8 % de CA HT grâce à la TVA à 19 % | Rentabilité unitaire |
 | Réseau & implantation | Densité concurrentielle | Villes pilotes : 6,9 drogeries (dm, Rossmann, Müller) et 21 pharmacies pour 100 000 hab. (OpenStreetMap) ; 6,2 au niveau national | Rythme de déploiement |
 | | Coût moyen au m² | 20 – 45 €/m²/mois en rue 1a ; 120 – 320 €/m²/mois sur artère n°1 | Coût de déploiement |
 | Opérations & logistique | Distance moyenne au hub | 271 km depuis Karlsruhe pour les 3 pilotes (776 km depuis l'usine de Vichy, 903 km depuis La Roche-Posay) | Chaîne d'approvisionnement |
 | | Droits de douane / taxes | 0 % de douane, TVA 19 % | Surcoûts à l'import |
 | Assortiment | Indice de pénétration des catégories (DE / FR) | Soins de la peau 0,71 ; capillaires 1,70 | Assortiment ciblé ou complet |
-| | % du catalogue soin France éligible | 94,6 % | Déploiement du catalogue |
-| Rentabilité (synthèse) | Délai de retour sur investissement des 3 pilotes | 3,9 ans (réaliste) ; 10,3 ans (pessimiste) ; 2,7 ans (optimiste) | Go sur les pilotes |
-| | Trésorerie cumulée fin 2031 du plan 15 boutiques | −3,5 M€ (réaliste) ; −1,1 M€ (optimiste) | Go / No-Go sur le passage à l'échelle |
-| | CA par m² nécessaire pour rembourser le plan | ≈ 9 600 € (estimation réaliste : 7 880 €) | Seuil de passage à l'échelle |
+| | % du catalogue soin France éligible | 95,1 % | Déploiement du catalogue |
+| Rentabilité (synthèse) | Délai de retour sur investissement des 3 pilotes | 3,7 ans (réaliste) ; 9,4 ans (pessimiste) ; 2,6 ans (optimiste) | Go sur les pilotes |
+| | Trésorerie cumulée fin 2031 du plan 15 boutiques | −3,3 M€ (réaliste) ; −0,8 M€ (optimiste) | Go / No-Go sur le passage à l'échelle |
+| | CA par m² nécessaire pour rembourser le plan | ≈ 9 600 € (estimation réaliste : 7 985 €) | Seuil de passage à l'échelle |
 
 ### Dictionnaire des données (tables Gold)
 
@@ -113,7 +113,7 @@ Le modèle Gold a **quatre tables de faits** : `fact_business_case` (grain : une
 
 La liste complète, avec un niveau de fiabilité pour chaque source, est dans [`data/raw/sources.csv`](data/raw/sources.csv).
 
-**Limites assumées** : la concurrence par ville est mesurée dans OpenStreetMap pour 5 villes ; Hamburg, Berlin et Leipzig sont estimées avec la densité moyenne des 5 autres (serveurs OSM saturés), et les magasins Douglas y sont probablement sous-comptés. La base France est simulée, avec une graine fixe pour être reproductible. Les populations sont officielles (Destatis, 31/12/2025). L'indice de prix Eurostat porte sur toute la consommation des ménages ; le business case utilise donc un relevé de 8 soins couvrant les 6 marques du catalogue (12/11/2026) : pondérés par marque, les soins sont 6,7 % plus chers en Allemagne qu'au prix public conseillé français, et 17,9 % plus chers qu'aux prix pratiqués par les pharmacies en ligne françaises, qui remisent fortement. Le business case retient le prix public conseillé, plus proche du prix d'une boutique L'Oréal en propre (référence prudente). L'écart vient surtout de CeraVe (115) et SkinCeuticals (135) ; Lancôme est moins cher en Allemagne (94), Kiehl's, Vichy et La Roche-Posay sont au même niveau. Le nombre de magasins Douglas n'est publié que pour le segment Allemagne-Autriche-Suisse-Pays-Bas (486). Les parts de marché de L'Oréal et de Rossmann ne sont pas publiques (données NielsenIQ / Circana payantes).
+**Limites assumées** : la concurrence par ville est mesurée dans OpenStreetMap pour 5 villes ; Hamburg, Berlin et Leipzig sont estimées avec la densité moyenne des 5 autres (serveurs OSM saturés), et les magasins Douglas y sont probablement sous-comptés. La base France est simulée, avec une graine fixe pour être reproductible. Les populations sont officielles (Destatis, 31/12/2025). L'indice de prix Eurostat porte sur toute la consommation des ménages ; le business case utilise donc un relevé de 8 soins (12/11/2026), dont 7 couvrent les 5 marques retenues : pondérés par marque, ces soins sont 8,1 % plus chers en Allemagne qu’au prix public conseillé français, et 20,5 % plus chers qu'aux prix pratiqués par les pharmacies en ligne françaises, qui remisent fortement. Le business case retient le prix public conseillé, plus proche du prix d'une boutique L'Oréal en propre (référence prudente). L'écart vient surtout de CeraVe (115) et SkinCeuticals (135) ; Lancôme est moins cher en Allemagne (94), Kiehl's, Vichy et La Roche-Posay sont au même niveau. Le nombre de magasins Douglas n'est publié que pour le segment Allemagne-Autriche-Suisse-Pays-Bas (486). Les parts de marché de L'Oréal et de Rossmann ne sont pas publiques (données NielsenIQ / Circana payantes).
 
 ## 4. Plan d'organisation & roadmap
 

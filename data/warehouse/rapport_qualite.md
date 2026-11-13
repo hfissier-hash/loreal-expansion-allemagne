@@ -13,13 +13,13 @@ Généré par `src/build_warehouse.py`, ne pas modifier à la main.
 | dim_scenario | 3 |
 | dim_store | 23 |
 | dim_category | 6 |
-| dim_product | 480 |
+| dim_product | 428 |
 | dim_customer | 105 026 |
 | dim_retailer | 8 |
 | dim_hub | 4 |
 | dim_source | 31 |
 | fact_diagnostic | 105 025 |
-| fact_sales | 571 987 |
+| fact_sales | 606 986 |
 | fact_market | 14 |
 | fact_market_share | 7 |
 | fact_market_indicator | 16 |
@@ -35,7 +35,7 @@ Généré par `src/build_warehouse.py`, ne pas modifier à la main.
 ## Contrôles
 
 - Clés étrangères orphelines : 0
-- Écart maximal entre le CA détaillé et le CA agrégé de boutiques_france.csv : 0.02 %
+- Écart maximal entre le CA détaillé et le CA agrégé de boutiques_france.csv : 0.01 %
 - Ventes « après diagnostic » sans diagnostic converti : 0
 - Ventes un dimanche : 0
 
@@ -47,6 +47,6 @@ Généré par `src/build_warehouse.py`, ne pas modifier à la main.
 
 - Diagnostics : 105 025 ; conversion 60.6 % ; rachat sous 6 mois 42.5 % des clientes converties
 - CA TTC : 16.14 M€, soit 807 k€ par boutique
-- Part du CA « sans_diagnostic » : 65.6 %
-- Part du CA « apres_diagnostic » : 26.7 %
-- Part du CA « rachat » : 7.7 %
+- Part du CA « sans_diagnostic » : 67.6 %
+- Part du CA « apres_diagnostic » : 25.1 %
+- Part du CA « rachat » : 7.3 %
