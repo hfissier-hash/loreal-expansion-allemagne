@@ -1,0 +1,1027 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>État des lieux – boutiques de diagnostic de peau en Allemagne</title>
+<style>
+:root{color-scheme:light dark;
+--color-bg:#faf9f7;--color-fg:#1f1e1d;--color-fg-muted:#6b6963;--color-panel:#ffffff;--color-border-line:#e4e1da;
+--color-ok:#16a34a;--color-warn:#d98b0b;--color-bad:#dc2626;
+--cds-border:#e4e1da;--cds-chart-axis:#9a968c;--cds-chart-grid:#e9e6df;--cds-chart-muted:#aaa69c;--cds-chart-reference:#6b6963;--cds-chart-status-critical:#dc2626;
+--cds-text-secondary:#6b6963;--cds-surface-popover:#ffffff;--cds-shadow-popover:0 8px 24px rgba(0,0,0,.18);
+--cds-font-size-body:16px;--cds-font-size-caption:14px;--cds-font-size-heading:21px;--cds-font-size-title:34px;--cds-font-weight-medium:600;
+--cds-gap-md:12px;--cds-gap-lg:22px;--cds-pad-lg:22px;--cds-radius:14px;
+--font-anthropic-sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+--font-anthropic-serif:ui-serif,Georgia,Cambria,"Times New Roman",serif}
+@media (prefers-color-scheme:dark){:root{
+--color-bg:#1a1a19;--color-fg:#f2efe9;--color-fg-muted:#a9a59c;--color-panel:#242423;--color-border-line:#3a3936;
+--color-ok:#4ade80;--color-warn:#fbbf24;--color-bad:#f87171;
+--cds-border:#3a3936;--cds-chart-axis:#7a766d;--cds-chart-grid:#33322f;--cds-chart-muted:#85817a;--cds-chart-reference:#a9a59c;--cds-chart-status-critical:#f87171;
+--cds-text-secondary:#a9a59c;--cds-surface-popover:#2c2b2a;--cds-shadow-popover:0 8px 24px rgba(0,0,0,.6)}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:var(--font-anthropic-sans);font-size:var(--cds-font-size-body);line-height:1.5}
+#dash-root{max-width:1180px;margin:0 auto;padding:24px 16px 64px}
+.dash-select{font:inherit;font-size:var(--cds-font-size-caption);padding:8px 12px;border:1px solid var(--color-border-line);border-radius:10px;background:var(--color-panel);color:var(--color-fg);max-width:100%}
+table{border-collapse:collapse}
+button{font-family:inherit}
+@media print{body{background:#fff}}
+</style></head><body>
+<div id="dash-root" lang="fr">
+
+<style>
+  .eds { display: flex; flex-direction: column; gap: var(--cds-gap-lg); font-family: var(--font-anthropic-sans); color: var(--color-fg); }
+  .eds h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; text-wrap: balance; }
+  .eds h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; text-wrap: balance; }
+  .eds h3 { font-size: var(--cds-font-size-body); font-weight: var(--cds-font-weight-medium); margin: 0; }
+  .eds p { margin: 0; }
+  .eds .eyebrow { font-size: var(--cds-font-size-caption); letter-spacing: .08em; text-transform: uppercase; color: var(--color-fg-muted); }
+  .eds .muted { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); line-height: 1.45; }
+  .eds .lede { max-width: 72ch; line-height: 1.55; }
+  .eds .card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-width: 0; display: flex; flex-direction: column; gap: var(--cds-gap-md); }
+  .eds .sec-head { display: flex; flex-direction: column; gap: 4px; }
+  .eds .bar { display: flex; flex-wrap: wrap; gap: var(--cds-gap-md) var(--cds-gap-lg); align-items: flex-end; }
+  .eds .fld { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+  .eds .fld > .cap { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .eds .chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .eds .chip { font: inherit; font-size: var(--cds-font-size-caption); padding: 5px 11px; border: 1px solid var(--color-border-line); border-radius: 999px; background: transparent; color: var(--color-fg-muted); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+  .eds .chip.on { background: var(--color-fg); color: var(--color-bg); border-color: var(--color-fg); }
+  .eds .chip i { width: 9px; height: 9px; border-radius: 2px; display: inline-block; }
+  .eds .link { font: inherit; font-size: var(--cds-font-size-caption); background: none; border: 0; color: var(--color-fg-muted); text-decoration: underline; cursor: pointer; padding: 4px 2px; }
+  .eds .chip:focus-visible, .eds .link:focus-visible, .eds select:focus-visible, .eds summary:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 2px; }
+  .eds .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--cds-gap-md); }
+  .eds .tile { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .eds .tile .lbl { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .eds .tile .big { font-family: var(--font-anthropic-serif); font-size: 28px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .eds .tile .ref { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); font-variant-numeric: tabular-nums; }
+  .eds .take { border-left: 3px solid var(--color-fg); padding: 2px 0 2px 12px; line-height: 1.5; max-width: 72ch; }
+  .eds .chart { position: relative; min-height: 120px; }
+  .eds .chart svg { display: block; max-width: 100%; }
+  .eds .chart text { fill: var(--cds-text-secondary, var(--color-fg-muted)); font-size: 12px; font-family: var(--font-anthropic-sans); }
+  .eds .chart .strong { fill: var(--color-fg); font-weight: 600; }
+  .eds .tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover, var(--color-panel)); border: 1px solid var(--cds-border, var(--color-border-line)); box-shadow: var(--cds-shadow-popover); border-radius: 6px; padding: 6px 9px; font-size: 14px; color: var(--cds-text-secondary, var(--color-fg)); white-space: nowrap; z-index: 2; }
+  .eds .tablewrap { overflow-x: auto; }
+  .eds table { border-collapse: collapse; width: 100%; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+  .eds th, .eds td { padding: 7px 10px; text-align: left; border-bottom: 1px solid var(--color-border-line); vertical-align: top; }
+  .eds th { color: var(--color-fg-muted); font-weight: var(--cds-font-weight-medium); white-space: nowrap; }
+  .eds th small { display: block; font-weight: 400; }
+  .eds td.num, .eds th.num { text-align: right; }
+  .eds details { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.55; }
+  .eds summary { cursor: pointer; color: var(--color-fg); font-size: var(--cds-font-size-caption); }
+  .eds details > div { display: flex; flex-direction: column; gap: 6px; padding-top: 8px; max-width: 76ch; }
+  .eds dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; }
+  .eds dt { color: var(--color-fg); font-weight: var(--cds-font-weight-medium); }
+  .eds dd { margin: 0; }
+  .eds .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--cds-gap-lg); }
+  @media (max-width: 520px) { .eds .tile .big { font-size: 24px; } .eds dl { grid-template-columns: 1fr; } }
+</style>
+<style>.eds button.tile{border:1px solid color-mix(in srgb, #c9a24a 55%, transparent)}.eds button.tile:hover::after{transform:scale(1.12)}.eds button.tile::after{transition:transform .15s ease}</style>
+<style>.eds details.fold{margin:16px 0}.eds details.fold>summary{cursor:pointer;font-weight:700;padding:8px 0}</style>
+<style>.eds .info{width:26px;height:26px;border-radius:50%;border:0;background:#c9a24a;color:#111;font:italic 800 16px/1 Georgia,serif;cursor:pointer;padding:0;vertical-align:middle}.eds .info:focus-visible{outline:2px solid var(--color-fg);outline-offset:2px}</style>
+<style>
+  /* Habillage doux : dégradés violet, rose, corail ; coins très arrondis ; ombres légères */
+  .eds { --acc: #c9a24a; --acc2: #e6d3a8; --acc3: #a8703c; gap: 26px; }
+  .eds > header { padding: 30px 30px 26px; border-radius: 28px; border: 1px solid color-mix(in srgb, var(--color-fg) 8%, transparent);
+    background: radial-gradient(70% 120% at 0% 0%, color-mix(in srgb, #d6b46a 24%, transparent), transparent 62%),
+                radial-gradient(60% 110% at 100% 0%, color-mix(in srgb, #a8703c 22%, transparent), transparent 60%),
+                radial-gradient(50% 90% at 60% 100%, color-mix(in srgb, #e6d3a8 16%, transparent), transparent 70%), var(--color-panel);
+    box-shadow: 0 18px 40px -22px rgba(201,162,74, .45); }
+  .eds h1 { font-family: var(--font-anthropic-sans); font-weight: 750; letter-spacing: -.025em; line-height: 1.1; font-size: clamp(28px, 4.4vw, 42px);
+    background: linear-gradient(90deg, #c9a24a, #e6d3a8 60%, #a8703c); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .eds .eyebrow { display: inline-block; align-self: flex-start; padding: 4px 12px; border-radius: 999px; background: color-mix(in srgb, #c9a24a 14%, transparent); color: var(--color-fg); letter-spacing: .06em; }
+  .eds h2 { font-weight: 700; letter-spacing: -.01em; font-size: 19px; display: flex; align-items: center; gap: 10px; }
+  .eds h2::before { content: ""; flex: none; width: 12px; height: 12px; border-radius: 50%; background: linear-gradient(135deg, #c9a24a, #e6d3a8); box-shadow: 0 0 0 4px color-mix(in srgb, #c9a24a 16%, transparent); }
+  .eds .card { border-radius: 24px; padding: 26px; border: 1px solid color-mix(in srgb, var(--color-fg) 8%, transparent);
+    box-shadow: 0 1px 2px rgba(20, 16, 40, .05), 0 18px 36px -22px rgba(201,162,74, .35); }
+  .eds .tiles > .card:nth-child(4n+1) { background: linear-gradient(160deg, color-mix(in srgb, #c9a24a 13%, var(--color-panel)), var(--color-panel) 70%); }
+  .eds .tiles > .card:nth-child(4n+2) { background: linear-gradient(160deg, color-mix(in srgb, #e6d3a8 12%, var(--color-panel)), var(--color-panel) 70%); }
+  .eds .tiles > .card:nth-child(4n+3) { background: linear-gradient(160deg, color-mix(in srgb, #a8703c 13%, var(--color-panel)), var(--color-panel) 70%); }
+  .eds .tiles > .card:nth-child(4n+4) { background: linear-gradient(160deg, color-mix(in srgb, #8c8c8c 12%, var(--color-panel)), var(--color-panel) 70%); }
+  .eds .tile .big { font-family: var(--font-anthropic-sans); font-weight: 700; letter-spacing: -.02em; font-size: 30px; }
+  .eds .tile .big { background: linear-gradient(90deg,#c9a24a,#e6d3a8); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .eds .chip { padding: 7px 15px; border-radius: 999px; background: var(--color-panel); transition: transform .15s ease, box-shadow .15s ease; }
+  .eds .chip:hover { transform: translateY(-1px); box-shadow: 0 6px 14px -8px rgba(201,162,74, .6); }
+  .eds .chip.on { background: linear-gradient(135deg, #c9a24a, #d6b46a); color: #111; border-color: transparent; box-shadow: 0 8px 18px -8px rgba(201,162,74, .8); }
+  .eds .seg { border-radius: 999px; padding: 3px; gap: 2px; border: 1px solid color-mix(in srgb, var(--color-fg) 10%, transparent); background: color-mix(in srgb, var(--color-fg) 4%, transparent); }
+  .eds .seg button { border-radius: 999px; border: 0 !important; transition: background .15s ease; }
+  .eds .seg button.on { background: linear-gradient(135deg, #c9a24a, #d6b46a); color: #111; box-shadow: 0 6px 14px -8px rgba(201,162,74, .8); }
+  .eds select.dash-select { border-radius: 14px; }
+  .eds .take { border: 0; border-left: 4px solid #c9a24a; border-radius: 14px; padding: 12px 16px;
+    background: linear-gradient(90deg, color-mix(in srgb, #c9a24a 11%, transparent), color-mix(in srgb, #e6d3a8 6%, transparent)); }
+  .eds .pill { border: 0; background: color-mix(in srgb, currentColor 14%, transparent); }
+  .eds .tablewrap { border-radius: 16px; border: 1px solid color-mix(in srgb, var(--color-fg) 8%, transparent); }
+  .eds table th { background: color-mix(in srgb, #c9a24a 8%, transparent); font-size: 14px; letter-spacing: .02em; }
+  .eds table tbody tr:hover td { background: color-mix(in srgb, #c9a24a 6%, transparent); }
+  .eds table tr:last-child td { border-bottom: 0; }
+  .eds details { border-radius: 14px; background: color-mix(in srgb, var(--color-fg) 4%, transparent); padding: 10px 14px; }
+  .eds details > summary { font-weight: 600; }
+  .eds .card details { background: color-mix(in srgb, #c9a24a 6%, transparent); }
+  .eds input[type=range] { accent-color: #c9a24a; }
+  .eds .link { color: #c9a24a; }
+  @media (prefers-reduced-motion: reduce) { .eds .chip, .eds .seg button { transition: none; } .eds .chip:hover { transform: none; } }
+  @media (max-width: 520px) { .eds > header { padding: 22px 18px; border-radius: 22px; } .eds .card { padding: 18px; border-radius: 20px; } }
+</style>
+<style>
+  .eds button.tile { position: relative; box-shadow: 0 1px 2px rgba(20,16,40,.05), 0 14px 30px -20px rgba(201,162,74,.55); }
+  .eds button.tile::after { content: "i"; position: absolute; top: 12px; right: 14px; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #c9a24a; color: #111; font: italic 800 16px/1 Georgia, serif; box-shadow: 0 6px 14px -6px rgba(201,162,74,.9); }
+  .eds button.tile:hover { box-shadow: 0 18px 34px -16px rgba(201,162,74,.7); }
+  .eds .hint { display: inline-flex; align-self: flex-start; align-items: center; gap: 6px; margin-top: 8px; padding: 5px 12px; border-radius: 999px; background: color-mix(in srgb, #c9a24a 14%, transparent); color: #c9a24a; font-size: 14px; font-weight: 700; transition: background .15s ease, color .15s ease; }
+  .eds button.tile:hover .hint { background: #c9a24a; color: #111; }
+  .eds .hint .h-close { display: none; }
+  .eds button.tile.sel .h-open { display: none; }
+  .eds button.tile.sel .h-close { display: inline; }
+  .eds .cta { font: inherit; font-size: 14px; font-weight: 700; padding: 7px 15px; border-radius: 999px; border: 0; cursor: pointer; color: #111; background: linear-gradient(135deg, #c9a24a, #d6b46a); box-shadow: 0 8px 18px -10px rgba(201,162,74,.9); transition: transform .15s ease; }
+  .eds .cta:hover { transform: translateY(-1px); }
+  .eds .cta:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 2px; }
+  .eds .cta[aria-busy="true"] { opacity: .6; cursor: progress; }
+  .eds .ai { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; margin: 10px 0; }
+  .eds .ai-out { width: 100%; }
+  .eds .ai-box { padding: 14px 16px; border-radius: 16px; line-height: 1.6; max-width: 76ch; background: linear-gradient(135deg, color-mix(in srgb, #c9a24a 10%, transparent), color-mix(in srgb, #e6d3a8 7%, transparent)); }
+  .eds .ai-badge { display: inline-block; margin-bottom: 6px; padding: 2px 10px; border-radius: 999px; font-size: 14px; font-weight: 700; background: color-mix(in srgb, #c9a24a 16%, transparent); color: #c9a24a; }
+  @media (prefers-reduced-motion: reduce) { .eds .cta, .eds .hint { transition: none; } .eds .cta:hover { transform: none; } }
+</style>
+
+<style>
+  .eds button.tile, .sim button.tile { font: inherit; color: inherit; text-align: left; cursor: pointer; transition: transform .15s ease; }
+  .eds button.tile:hover, .sim button.tile:hover { transform: translateY(-2px); }
+  .eds button.tile.sel, .sim button.tile.sel { outline: 2px solid #c9a24a; outline-offset: 2px; }
+  .eds button.tile:focus-visible, .sim button.tile:focus-visible, .sim .link:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 2px; }
+  .eds .hint, .sim .hint { font-size: 14px; color: #c9a24a; font-weight: 600; margin-top: 2px; }
+  .eds .explain, .sim .explain { background: linear-gradient(160deg, color-mix(in srgb, #c9a24a 9%, var(--color-panel)), var(--color-panel) 75%); }
+  .eds .ex-head, .sim .ex-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .eds .explain [data-explain-block], .sim .explain [data-explain-block] { display: flex; flex-direction: column; gap: 10px; max-width: 78ch; line-height: 1.55; }
+  .eds .explain [data-explain-block][hidden], .sim .explain [data-explain-block][hidden] { display: none; }
+  .eds .explain h3, .sim .explain h3 { font-size: 16px; margin: 0; }
+  .eds .explain .formula, .sim .explain .formula { padding: 10px 14px; border-radius: 12px; background: color-mix(in srgb, var(--color-fg) 6%, transparent); font-variant-numeric: tabular-nums; }
+  .sim .link { font: inherit; font-size: var(--cds-font-size-caption); background: none; border: 0; color: #c9a24a; text-decoration: underline; cursor: pointer; padding: 4px 2px; }
+  .sim table { border-collapse: collapse; width: 100%; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+  .sim th, .sim td { padding: 7px 10px; text-align: left; border-bottom: 1px solid var(--color-border-line); }
+  .sim th.num, .sim td.num { text-align: right; }
+  .sim .tablewrap { overflow-x: auto; }
+</style>
+<style>
+  .eds .retenir { margin-top: 14px; padding: 14px 18px; border-radius: 16px; background: linear-gradient(135deg, color-mix(in srgb, #c9a24a 10%, transparent), color-mix(in srgb, #a8703c 8%, transparent)); }
+  .eds .retenir ul { margin: 6px 0 0; padding-left: 20px; line-height: 1.7; }
+  .eds .row-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 8px; }
+  .eds .regl-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+  .eds .regl-card { padding: 14px 16px; border-radius: 16px; background: color-mix(in srgb, #c9a24a 6%, transparent); line-height: 1.5; }
+  .eds .regl-card h3 { margin: 0 0 6px; font-size: 15px; }
+  .eds .regl-impact { margin-top: 8px; font-weight: 700; }
+  @media print { .eds .cta, .eds .link, .eds .ai, .eds .hint, .eds .bar, .eds .chips { display: none !important; } }
+</style>
+
+
+
+
+<div class="eds">
+  <style>.eds .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.eds .tab{padding:8px 16px;border-radius:999px;font-size: 14px;font-weight:700;text-decoration:none;color:#c9a24a;background:color-mix(in srgb,#c9a24a 12%,transparent)}.eds a.tab:hover{background:#c9a24a;color:#111}.eds .tab.on{background:linear-gradient(135deg,#c9a24a,#d6b46a);color:#111}@media print{.eds .tabs{display:none}}</style><nav class="tabs" aria-label="Changer de tableau de bord"><span class="tab on" aria-current="page">État des lieux</span><a class="tab" href="simulateur-rentabilite.html">Prévisions : simulateur de rentabilité</a></nav><style>.eds .simnote{margin:0 0 14px;padding:10px 14px;border-radius:14px;font-size:14px;line-height:1.5;background:color-mix(in srgb,#a8703c 14%,transparent)}</style><p class="simnote"><b>Données estimées :</b> la concurrence de Hambourg, Berlin et Leipzig est déduite de la moyenne des autres villes (marquée *). Le relevé de prix date du 12 novembre 2026.</p>
+  <header class="sec-head">
+    <p class="eyebrow">Boutiques de diagnostic de peau · Allemagne</p>
+    <h1>État des lieux : le marché, les villes et la concurrence</h1>
+    <p class="lede">Le marché de la beauté en Allemagne pèse <b data-draw="val" data-k="de_size">—</b> par an, contre <b data-draw="val" data-k="fr_size">—</b> en France. Il croît de <b data-draw="val" data-k="de_gr">—</b> par an, contre <b data-draw="val" data-k="fr_gr">—</b> en France. Le soin de la peau, la famille de produits qui nous intéresse, y progresse de <b data-draw="val" data-k="sk_gr_de">—</b> par an, contre <b data-draw="val" data-k="sk_gr_fr">—</b> en France.</p>
+    <p class="muted">Comment lire cette page : cliquez sur les boutons pour filtrer, sur une carte marquée d'un rond doré « i » pour voir son calcul, sur « Résumer cette vue » pour un résumé adapté à vos choix. Les montants sont arrondis de la même façon : une décimale pour les pourcentages, les indices et les milliards d'euros ; aucune pour les euros par habitant, les habitants et les kilomètres.</p>
+    <div class="row-actions"><button type="button" class="link" id="reset">Tout remettre par défaut</button> <button type="button" class="cta" id="print-btn">Enregistrer en PDF</button></div>
+    <div class="retenir"><b>À retenir</b>
+      <ul>
+        <li>Le soin de la peau pèse <b data-draw="val" data-k="sk_sh_de">—</b> du marché allemand et progresse de <b data-draw="val" data-k="sk_gr_de">—</b> par an.</li>
+        <li>Avec les choix faits plus bas, la ville la moins concurrentielle est <b data-draw="val" data-k="comp_lo">—</b>.</li>
+        <li>Les soins sont <b data-draw="val" data-k="price_dir">—</b> de <b data-draw="val" data-k="price_pct">—</b> en Allemagne qu'en France (moyenne pondérée par marque).</li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="tiles" aria-label="Chiffres clés">
+    <button type="button" class="card tile" title="Cliquer pour voir le calcul" data-explain-open="de_size"><span class="lbl">Marché beauté en Allemagne</span><span class="big" data-draw="val" data-k="de_size">—</span><span class="ref">France : <span data-draw="val" data-k="fr_size">—</span></span></button>
+    <button type="button" class="card tile" title="Cliquer pour voir le calcul" data-explain-open="de_spend"><span class="lbl">Dépense beauté par habitant et par an</span><span class="big" data-draw="val" data-k="de_spend">—</span><span class="ref">France : <span data-draw="val" data-k="fr_spend">—</span></span></button>
+    <button type="button" class="card tile" title="Cliquer pour voir le calcul" data-explain-open="sk_sh_de"><span class="lbl">Part du soin de la peau dans le marché</span><span class="big" data-draw="val" data-k="sk_sh_de">—</span><span class="ref">France : <span data-draw="val" data-k="sk_sh_fr">—</span></span></button>
+    <button type="button" class="card tile" title="Cliquer pour voir le calcul" data-explain-open="sk_gr_de"><span class="lbl">Croissance du soin de la peau</span><span class="big" data-draw="val" data-k="sk_gr_de">—</span><span class="ref">France : <span data-draw="val" data-k="sk_gr_fr">—</span></span></button>
+  </section>
+
+
+  <section class="card explain" data-explain-panel hidden aria-live="polite">
+    <div class="ex-head"><h2>Comment ce chiffre est calculé</h2><button type="button" class="link" data-explain-open="">Fermer</button></div>
+    <div data-explain-block="de_size" hidden>
+      <h3>Marché beauté en Allemagne : <b data-draw="val" data-k="de_size">—</b></h3>
+      <p>Ce n'est pas un calcul de notre part. C'est une valeur publiée : <b data-draw="val" data-k="de_size_raw">—</b> de ventes en 2025, selon Cosmetics Europe. Arrondie à une décimale, elle s'affiche <b data-draw="val" data-k="de_size">—</b>.</p>
+      <p class="formula">Pour comparer, la France pèse <b data-draw="val" data-k="fr_size_raw">—</b>, affiché <b data-draw="val" data-k="fr_size">—</b>.</p>
+      <p class="muted">Source : « Marché beauté, Allemagne et France » (Cosmetics Europe, édition 2025).</p>
+    </div>
+    <div data-explain-block="de_spend" hidden>
+      <h3>Dépense beauté par habitant : <b data-draw="val" data-k="de_spend">—</b></h3>
+      <p>Valeur publiée par Cosmetics Europe : chaque habitant dépense en moyenne <b data-draw="val" data-k="de_spend">—</b> par an en produits de beauté en Allemagne, contre <b data-draw="val" data-k="fr_spend">—</b> en France. Elle est donnée sans décimale parce que Cosmetics Europe la publie en euros entiers.</p>
+      <p class="muted">Source : « Marché beauté, Allemagne et France ».</p>
+    </div>
+    <div data-explain-block="sk_sh_de" hidden>
+      <h3>Poids du soin de la peau : <b data-draw="val" data-k="sk_sh_de">—</b></h3>
+      <p>Poids d'une famille = ventes de la famille ÷ ventes totales du pays × 100. Calcul avec les chiffres du fichier :</p>
+      <p class="formula">Allemagne : <b data-draw="val" data-k="sk_val_raw">—</b> ÷ <b data-draw="val" data-k="de_size_raw">—</b> × 100 = <b data-draw="val" data-k="sk_share_calc">—</b></p>
+      <p class="formula">France : <b data-draw="val" data-k="sk_val_fr_raw">—</b> ÷ <b data-draw="val" data-k="fr_size_raw">—</b> × 100 = <b data-draw="val" data-k="sk_share_calc_fr">—</b></p>
+      <p>Cosmetics Europe publie <b data-draw="val" data-k="sk_sh_de">—</b> pour l'Allemagne et <b data-draw="val" data-k="sk_sh_fr">—</b> pour la France : le calcul retombe sur ces valeurs.</p>
+      <p class="muted">Sources : « Familles de produits par pays » et « Marché beauté, Allemagne et France ».</p>
+    </div>
+    <div data-explain-block="sk_gr_de" hidden>
+      <h3>Croissance du soin de la peau : <b data-draw="val" data-k="sk_gr_de">—</b></h3>
+      <p>Croissance = (ventes 2025 − ventes 2024) ÷ ventes 2024. Nous ne la recalculons pas : nous reprenons la valeur publiée par Cosmetics Europe, <b data-draw="val" data-k="sk_gr_de">—</b> pour l'Allemagne et <b data-draw="val" data-k="sk_gr_fr">—</b> pour la France, qui s'appuie sur les montants 2024 révisés. L'édition 2024, non révisée, donnerait un résultat légèrement différent.</p>
+      <p>La fédération allemande IKW publie le même chiffre de 11,1 %, ce qui le confirme.</p>
+      <p class="muted">Source : « Familles de produits par pays ».</p>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="h-mkt">
+    <div class="sec-head"><h2 id="h-mkt">L'Allemagne est un marché plus grand que la France</h2><p class="muted">Ventes de produits de beauté en 2025, par famille de produits.</p></div>
+    <div class="bar">
+      <div class="fld"><span class="cap">Pays à comparer</span>
+        <div class="chips"><button type="button" class="chip" data-param="countries" data-val="DE"><i data-draw="swatch" data-k="de"></i>Allemagne</button><button type="button" class="chip" data-param="countries" data-val="FR"><i data-draw="swatch" data-k="fr"></i>France</button></div></div>
+      <div class="fld"><label class="cap" for="sel-mm">Ce que l'on mesure</label>
+        <select class="dash-select" id="sel-mm" data-param="mm"><option value="value_bn_eur">Ventes, en milliards d'euros</option><option value="share_pct">Poids dans le marché du pays, en %</option><option value="growth_pct">Croissance sur un an, en %</option></select></div>
+    </div>
+    <div class="chart" data-draw="mkt" data-source="categories" aria-labelledby="h-mkt"></div>
+    <p class="take">Le soin de la peau représente <b data-draw="val" data-k="sk_sh_de">—</b> du marché allemand (<b data-draw="val" data-k="sk_val_de">—</b>) et progresse de <b data-draw="val" data-k="sk_gr_de">—</b> par an. C'est la famille qui croît le plus vite en Allemagne.</p>
+    <div class="ai"><button type="button" class="cta" data-ai="mkt">✦ Résumer cette vue</button><div class="ai-out" data-draw="aisum" data-sec="mkt" aria-live="polite"></div></div>
+    <details><summary>Comment c'est calculé</summary><div><p>Ces chiffres sont publiés tels quels par la fédération européenne des cosmétiques (Cosmetics Europe, édition 2025). Rien n'est recalculé.</p><p>Le poids d'une famille = ventes de la famille ÷ ventes totales du pays. La croissance compare 2025 à 2024, après révision des montants 2024 par Cosmetics Europe.</p></div></details>
+  </section>
+
+  <section class="card" aria-labelledby="h-vf">
+    <div class="sec-head"><h2 id="h-vf">Choisir les villes à regarder</h2><p class="muted">Ce choix s'applique aux deux blocs suivants : les villes, puis la concurrence.</p></div>
+    <p class="muted">★ : les 3 villes pilotes (ouvertures 2027), affichées en gras dans les graphiques et tableaux.</p>
+    <div class="chips" role="group" aria-label="Villes">
+      <button type="button" class="chip" data-param="cities" data-val="München">★ München</button>
+      <button type="button" class="chip" data-param="cities" data-val="Düsseldorf">★ Düsseldorf</button>
+      <button type="button" class="chip" data-param="cities" data-val="Frankfurt am Main">★ Frankfurt am Main</button>
+      <button type="button" class="chip" data-param="cities" data-val="Stuttgart">Stuttgart</button>
+      <button type="button" class="chip" data-param="cities" data-val="Hamburg">Hamburg</button>
+      <button type="button" class="chip" data-param="cities" data-val="Köln">Köln</button>
+      <button type="button" class="chip" data-param="cities" data-val="Berlin">Berlin</button>
+      <button type="button" class="chip" data-param="cities" data-val="Leipzig">Leipzig</button>
+      <button type="button" class="link" data-all="cities">Toutes</button>
+      <button type="button" class="link" data-none="cities">Aucune</button>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="h-city">
+    <div class="sec-head"><h2 id="h-city">Comment les villes se classent sur l'indicateur choisi</h2><p class="muted">Un indicateur à la fois en graphique, tous les indicateurs dans le tableau.</p></div>
+    <div class="bar">
+      <div class="fld"><label class="cap" for="sel-cm">Indicateur du graphique</label>
+        <select class="dash-select" id="sel-cm" data-param="cm">
+          <option value="pop">Nombre d'habitants</option>
+          <option value="pp">Pouvoir d'achat par habitant (€ par an)</option>
+          <option value="rent1a">Loyer en rue commerçante 1a (€ par m² et par mois)</option>
+          <option value="rentPrime">Loyer sur l'artère n°1 (€ par m² et par mois)</option>
+          <option value="rent80">Loyer annuel d'une boutique de 80 m² en rue 1a (€)</option>
+          <option value="pharm">Pharmacies pour 100 000 habitants</option>
+          <option value="drog">Drogeries pour 100 000 habitants</option>
+          <option value="parf">Parfumeries de luxe pour 100 000 habitants</option>
+          <option value="dist">Distance à l'usine de Karlsruhe (km)</option>
+        </select></div>
+    </div>
+    <p class="muted" data-draw="val" data-k="metric_lbl">—</p>
+    <div class="chart" data-draw="city" data-source="villes loyers concvilles hubs" aria-labelledby="h-city"></div>
+    <p class="take">Avec cet indicateur, la valeur la plus haute est à <b data-draw="val" data-k="city_hi">—</b> (<b data-draw="val" data-k="city_hi_v">—</b>) et la plus basse à <b data-draw="val" data-k="city_lo">—</b> (<b data-draw="val" data-k="city_lo_v">—</b>).</p>
+    <div class="ai"><button type="button" class="cta" data-ai="city">✦ Résumer cette vue</button><div class="ai-out" data-draw="aisum" data-sec="city" aria-live="polite"></div></div>
+    <details><summary>Pour aller plus loin : voir le tableau complet (tous les indicateurs, toutes les villes)</summary><div>
+    <div class="tablewrap"><table data-draw="pivot" data-source="villes loyers concvilles hubs" aria-label="Tous les indicateurs par ville"></table></div>
+    <p class="muted">* Concurrence estimée pour cette ville (voir plus bas).</p></div></details>
+    <details><summary>Comment c'est calculé</summary><div>
+      <dl>
+        <dt>Pouvoir d'achat</dt><dd>Revenu disponible moyen d'un habitant, publié par NielsenIQ-GfK pour 2025.</dd>
+        <dt>Loyer annuel de 80 m²</dt><dd>Loyer au m² et par mois × 12 mois × 80 m² (surface retenue pour une boutique).</dd>
+        <dt>Pour 100 000 habitants</dt><dd>Nombre de magasins ÷ nombre d'habitants × 100 000. Cela permet de comparer une grande et une petite ville.</dd>
+        <dt>Drogeries</dt><dd>Somme des densités de dm, Rossmann et Müller.</dd>
+        <dt>Parfumeries de luxe</dt><dd>Somme des densités de Douglas et Sephora.</dd>
+        <dt>Distance à Karlsruhe</dt><dd>Distance à vol d'oiseau entre la ville et l'usine L'Oréal de Karlsruhe, calculée avec la formule de haversine à partir des coordonnées GPS. Par la route, il faut compter environ 25 % de plus.</dd>
+      </dl></div></details>
+  </section>
+
+
+
+  <section class="card" aria-labelledby="h-sc">
+    <div class="sec-head"><h2 id="h-sc">Où trouver des clients aisés avec un loyer raisonnable ?</h2><p class="muted">Chaque point est une ville cochée plus haut. Plus il est à droite, plus les habitants ont de pouvoir d'achat. Plus il est bas, plus le loyer de la rue commerçante 1a est faible. La taille du point suit le nombre d'habitants. Les traits en pointillés marquent la valeur médiane des villes affichées.</p></div>
+    <div class="chart" data-draw="scatter" data-source="villes loyers concvilles hubs" aria-labelledby="h-sc"></div>
+    <details><summary>Comment c'est calculé</summary><div><p><b>Axe horizontal</b> : pouvoir d'achat par habitant (revenu disponible moyen, en euros par an). <b>Axe vertical</b> : loyer de la rue commerçante 1a (euros par m² et par mois).</p><p><b>Taille du point</b> : nombre d'habitants. <b>Traits en pointillés</b> : valeur médiane des villes affichées, c'est-à-dire celle qui coupe la liste en deux moitiés égales.</p></div></details>
+    <p class="take">Les villes en bas à droite, c'est-à-dire riches avec un loyer modéré, sont les plus intéressantes sur ces deux critères.</p>
+  </section>
+
+  <section class="card" aria-labelledby="h-duel">
+    <div class="sec-head"><h2 id="h-duel">Quelle ville est la plus favorable pour une boutique ?</h2><p class="muted">Choisissez deux villes : la pastille ✓ marque la plus favorable pour une boutique (plus de clients et de pouvoir d'achat, moins de loyer, moins de concurrence, plus près de l'usine).</p></div>
+    <div class="bar">
+      <div class="fld"><label class="cap" for="sel-c1">Ville A</label><select class="dash-select" id="sel-c1" data-param="c1"><option value="München">München</option><option value="Düsseldorf">Düsseldorf</option><option value="Frankfurt am Main">Frankfurt am Main</option><option value="Stuttgart">Stuttgart</option><option value="Hamburg">Hamburg</option><option value="Köln">Köln</option><option value="Berlin">Berlin</option><option value="Leipzig">Leipzig</option></select></div>
+      <div class="fld"><label class="cap" for="sel-c2">Ville B</label><select class="dash-select" id="sel-c2" data-param="c2"><option value="Düsseldorf">Düsseldorf</option><option value="München">München</option><option value="Frankfurt am Main">Frankfurt am Main</option><option value="Stuttgart">Stuttgart</option><option value="Hamburg">Hamburg</option><option value="Köln">Köln</option><option value="Berlin">Berlin</option><option value="Leipzig">Leipzig</option></select></div>
+    </div>
+    <div class="tablewrap"><table data-draw="duel" data-source="villes loyers concvilles hubs" aria-label="Comparaison de deux villes"></table></div>
+    <details><summary>Comment c'est calculé</summary><div><p>Pour chaque indicateur, la pastille ✓ marque la valeur la plus favorable à une boutique : la plus haute pour les habitants et le pouvoir d'achat, la plus basse pour les loyers, la concurrence et la distance à l'usine.</p><p>Les valeurs suivies d'un * sont estimées, non mesurées. « n.d. » veut dire qu'aucune donnée n'est disponible.</p></div></details>
+  </section>
+
+  <section class="card" aria-labelledby="h-comp">
+    <div class="sec-head"><h2 id="h-comp">Où la concurrence est-elle la plus faible ?</h2><p class="muted">Magasins qui vendent des soins ou des conseils beauté, tels que recensés dans OpenStreetMap.</p></div>
+    <div class="bar">
+      <div class="fld"><span class="cap">Enseignes à inclure</span>
+        <div class="chips" role="group" aria-label="Enseignes">
+          <button type="button" class="chip" data-param="comps" data-val="dm-drogerie markt"><i data-draw="swatch" data-k="c0"></i>dm</button>
+          <button type="button" class="chip" data-param="comps" data-val="Rossmann"><i data-draw="swatch" data-k="c1"></i>Rossmann</button>
+          <button type="button" class="chip" data-param="comps" data-val="Müller"><i data-draw="swatch" data-k="c2"></i>Müller</button>
+          <button type="button" class="chip" data-param="comps" data-val="Douglas"><i data-draw="swatch" data-k="c3"></i>Douglas</button>
+          <button type="button" class="chip" data-param="comps" data-val="Sephora"><i data-draw="swatch" data-k="c4"></i>Sephora</button>
+          <button type="button" class="chip" data-param="comps" data-val="Pharmacies"><i data-draw="swatch" data-k="c5"></i>Pharmacies</button>
+          <button type="button" class="chip" data-param="comps" data-val="Instituts de beauté"><i data-draw="swatch" data-k="c6"></i>Instituts de beauté</button>
+          <button type="button" class="link" data-all="comps">Toutes</button>
+          <button type="button" class="link" data-none="comps">Aucune</button>
+        </div></div>
+      <div class="fld"><label class="cap" for="sel-cmeasure">Ce que l'on compte</label>
+        <select class="dash-select" id="sel-cmeasure" data-param="cmeasure"><option value="stores_per_100k">Magasins pour 100 000 habitants</option><option value="store_count">Nombre de magasins</option></select></div>
+    </div>
+    <div class="chart" data-draw="comp" data-source="concvilles" aria-labelledby="h-comp"></div>
+    <p class="take">Avec ces enseignes, la ville la plus concurrentielle est <b data-draw="val" data-k="comp_hi">—</b> (<b data-draw="val" data-k="comp_hi_v">—</b>) et la moins concurrentielle est <b data-draw="val" data-k="comp_lo">—</b> (<b data-draw="val" data-k="comp_lo_v">—</b>).</p>
+    <div class="ai"><button type="button" class="cta" data-ai="comp">✦ Résumer cette vue</button><div class="ai-out" data-draw="aisum" data-sec="comp" aria-live="polite"></div></div>
+    <div class="tablewrap"><table data-draw="comptable" data-source="concvilles" aria-label="Magasins par ville et par enseigne"></table></div>
+    <p class="muted">* Ville estimée : les serveurs d'OpenStreetMap étaient saturés, la densité est celle de la moyenne des cinq villes mesurées (München, Düsseldorf, Frankfurt, Stuttgart, Köln), appliquée à la population de la ville. Les magasins Douglas y sont probablement sous-comptés.</p>
+    <details><summary>Comment c'est calculé</summary><div><p>Magasins pour 100 000 habitants = nombre de magasins dans la ville ÷ population de la ville × 100 000. Une barre plus longue veut dire plus de concurrence à surface de ville égale.</p><p>Les pharmacies comptent parce qu'elles vendent déjà La Roche-Posay, CeraVe et Vichy en Allemagne.</p></div></details>
+    <h3>Les grandes enseignes au niveau national</h3>
+    <div class="tablewrap"><table data-draw="nat" data-source="natcomp" aria-label="Grandes enseignes nationales"></table></div>
+    <p class="muted">Pour Douglas, le chiffre d'affaires est publié pour l'ensemble Allemagne, Autriche, Suisse et Pays-Bas. n.d. : non disponible.</p>
+  </section>
+
+  <section class="card" aria-labelledby="h-prix">
+    <div class="sec-head"><h2 id="h-prix">Les prix : est-ce plus cher en Allemagne ?</h2><p class="muted">Huit soins L'Oréal relevés sur des sites allemands et français le 12 novembre 2026.</p></div>
+    <div class="bar">
+      <div class="fld"><label class="cap" for="sel-brand">Marque</label>
+        <select class="dash-select" id="sel-brand" data-param="brand"><option value="all">Toutes les marques</option><option value="La Roche-Posay">La Roche-Posay</option><option value="CeraVe">CeraVe</option><option value="Vichy">Vichy</option><option value="Kiehl's">Kiehl's</option><option value="SkinCeuticals">SkinCeuticals</option><option value="Lancôme Skincare">Lancôme Skincare</option></select></div>
+      <div class="fld"><label class="cap" for="sel-pbase">Prix français pris comme référence</label>
+        <select class="dash-select" id="sel-pbase" data-param="pbase"><option value="ratio_de_fr_ppc">Prix public conseillé</option><option value="ratio_de_fr">Prix réellement pratiqué (pharmacies en ligne)</option></select></div>
+    </div>
+    <div class="chart" data-draw="price" data-source="prix" aria-labelledby="h-prix"></div>
+    <p class="take">En moyenne, ces soins sont <b data-draw="val" data-k="price_dir">—</b> de <b data-draw="val" data-k="price_pct">—</b> en Allemagne qu'en France (moyenne pondérée par marque, <b data-draw="val" data-k="price_n">—</b> produits). <button type="button" class="info" aria-label="Voir le calcul" title="Voir le calcul" data-explain-open="price_mean">i</button></p>
+    <div class="card explain" data-explain-panel hidden aria-live="polite">
+      <div class="ex-head"><h3>Comment la moyenne est calculée</h3><button type="button" class="link" data-explain-open="">Fermer</button></div>
+      <div data-explain-block="price_mean" hidden>
+        <p>Chaque indice = prix en Allemagne ÷ prix en France × 100. On fait d'abord la moyenne par marque, puis la moyenne des marques pondérée par leur poids dans le chiffre d'affaires des trois pilotes (source : business case du dépôt de l'équipe).</p>
+        <p class="formula"><span data-draw="val" data-k="price_list">—</span> = <b data-draw="val" data-k="price_mean">—</b></p>
+        <p>Un indice moyen au-dessus de 100,0 veut dire « plus cher en Allemagne ». Chaque terme est « indice de la marque × son poids ».</p>
+      </div>
+    </div>
+
+
+    <div class="ai"><button type="button" class="cta" data-ai="price">✦ Résumer cette vue</button><div class="ai-out" data-draw="aisum" data-sec="price" aria-live="polite"></div></div>
+    <div class="tablewrap"><table data-draw="pricetab" data-source="prix" aria-label="Prix des soins en Allemagne et en France"></table></div>
+    <details><summary>Comment c'est calculé</summary><div><p>Indice = prix en Allemagne ÷ prix en France × 100. Un indice de 100 veut dire le même prix. 120 veut dire 20 % plus cher en Allemagne, 90 veut dire 10 % moins cher.</p><p>Le prix public conseillé est le prix affiché par la marque. Le prix pratiqué est celui des pharmacies en ligne françaises, souvent remisé. La moyenne affichée est pondérée par marque, selon le poids de chaque marque dans les ventes des trois pilotes.</p></div></details>
+  </section>
+
+  <details class="fold"><summary>Pour aller plus loin : taxes et niveau général des prix</summary>
+  <section class="grid2">
+    <div class="card">
+      <h2 id="h-tax">Taxes et prix généraux</h2>
+      <div class="tiles">
+        <button type="button" class="card tile" title="Cliquer pour voir le calcul" data-explain-open="vat_de"><span class="lbl">TVA en Allemagne</span><span class="big" data-draw="val" data-k="vat_de">—</span><span class="ref">France : <span data-draw="val" data-k="vat_fr">—</span></span></button>
+        <button type="button" class="card tile" title="Cliquer pour voir le calcul" data-explain-open="pli"><span class="lbl">Niveau des prix, tous biens</span><span class="big" data-draw="val" data-k="pli">—</span><span class="ref">France = 100</span></button>
+        <button type="button" class="card tile" title="Cliquer pour voir le calcul" data-explain-open="customs"><span class="lbl">Droits de douane France → Allemagne</span><span class="big" data-draw="val" data-k="customs">—</span><span class="ref">Marché unique européen</span></button>
+      </div>
+
+      <div class="explain card" data-explain-panel hidden aria-live="polite">
+        <div class="ex-head"><h3>Comment ce chiffre est calculé</h3><button type="button" class="link" data-explain-open="">Fermer</button></div>
+        <div data-explain-block="vat_de" hidden><p>Taux de TVA standard publié par la législation : <b data-draw="val" data-k="vat_de">—</b> en Allemagne, <b data-draw="val" data-k="vat_fr">—</b> en France. Aucun calcul.</p></div>
+        <div data-explain-block="pli" hidden><p>Niveau des prix = indice allemand ÷ indice français × 100, indices Eurostat 2025 (base UE = 100) :</p><p class="formula"><b data-draw="val" data-k="pli_de_raw">—</b> ÷ <b data-draw="val" data-k="pli_fr_raw">—</b> × 100 = <b data-draw="val" data-k="pli">—</b></p><p>Un résultat sous 100,0 veut dire que les prix sont un peu plus bas en Allemagne, tous biens confondus. Pour les soins seuls, voir le relevé de prix plus haut.</p></div>
+        <div data-explain-block="customs" hidden><p>Droit de douane entre deux pays de l'Union européenne : <b data-draw="val" data-k="customs">—</b>. C'est une règle du marché unique, pas un calcul.</p></div>
+      </div>
+      <details><summary>Comment c'est calculé</summary><div><p>Niveau des prix = indice allemand ÷ indice français × 100 (indices Eurostat 2025, base UE = 100). Il porte sur tous les biens et services des ménages, pas seulement la beauté : c'est pourquoi le relevé des soins ci-dessus est plus précis.</p><p>À prix payé égal par le client, une TVA plus basse laisse un chiffre d'affaires hors taxe un peu plus élevé : (1 ÷ 1,19) ÷ (1 ÷ 1,20) − 1, soit environ +0,8 %.</p></div></details>
+    </div>
+    <div class="card">
+      <h2 id="h-regl">Peu d'obstacles : surtout l'étiquetage et les emballages</h2>
+      <div class="regl-grid" data-draw="regl" data-source="regl" aria-label="Règles France et Allemagne"></div>
+    </div>
+  </section>
+  </details>
+
+  <details>
+    <summary>Petit lexique</summary>
+    <div><dl>
+      <dt>Md€</dt><dd>Milliard d'euros, soit 1 000 millions.</dd>
+      <dt>Drogerie</dt><dd>Magasin de grande distribution spécialisé dans l'hygiène et la beauté (dm, Rossmann, Müller). C'est le premier canal de vente des cosmétiques en Allemagne.</dd>
+      <dt>Rue commerçante 1a</dt><dd>Une très bonne rue commerçante de la ville, mais pas la plus chère.</dd>
+      <dt>Artère n°1</dt><dd>La rue commerçante la plus chère de la ville, par exemple la Kaufingerstraße à München.</dd>
+      <dt>Pharmacie</dt><dd>Principal point de vente des marques dermocosmétiques comme La Roche-Posay ou CeraVe.</dd>
+      <dt>Estimé / mesuré</dt><dd>Mesuré : compté directement. Estimé : déduit de la moyenne des villes mesurées.</dd>
+    </dl>
+    <p>Sources : Cosmetics Europe 2025, Destatis, NielsenIQ-GfK, IW Köln, BNP Paribas Real Estate, OpenStreetMap, Sonko Consulting, Douglas Group, Eurostat, relevé de prix dm.de, Douglas et pharmacies en ligne.</p></div>
+  </details>
+</div>
+
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>window.__CSV__={"marche": "country_code,country,market_value_bn_eur,growth_pct,spend_per_capita_eur\nDE,Allemagne,18.012,6.28,216.0\nFR,France,14.464,1.55,210.0\n", "categories": "country_code,category,value_bn_eur,share_pct,growth_pct\nDE,Parfums,2.144,11.9,2.1\nDE,Maquillage,2.239,12.4,1.5\nDE,Soins de la peau,4.023,22.3,11.1\nDE,Capillaires,4.107,22.8,8.1\nDE,Hygiène et toilette,5.499,30.5,5.3\nFR,Parfums,3.401,23.5,3.5\nFR,Maquillage,1.266,8.8,1.7\nFR,Soins de la peau,4.529,31.3,2.7\nFR,Capillaires,1.941,13.4,0.1\nFR,Hygiène et toilette,3.327,23.0,-1.1\n", "villes": "city,state,population,purchasing_power_eur_per_capita,purchasing_power_index,lat,lon\nMünchen,Bayern,1505036,38138,129.0,48.137,11.575\nDüsseldorf,Nordrhein-Westfalen,619444,33782,114.3,51.225,6.776\nFrankfurt am Main,Hessen,760656,32131,108.7,50.11,8.682\nStuttgart,Baden-Württemberg,609365,31853,107.7,48.776,9.183\nHamburg,Hamburg,1869473,31270,105.8,53.551,9.994\nKöln,Nordrhein-Westfalen,1025523,30701,103.8,50.938,6.96\nBerlin,Berlin,3700577,28330,95.8,52.52,13.405\nLeipzig,Sachsen,615932,26987,91.3,51.34,12.375\n", "loyers": "city,location,rent_eur_m2,trend_pct_pa,street\nMünchen,Rue commerçante 1a,45.0,3.3,\nMünchen,Artère n°1,320.0,,Kaufingerstraße\nDüsseldorf,Rue commerçante 1a,23.0,3.2,\nDüsseldorf,Artère n°1,285.0,,Königsallee\nFrankfurt am Main,Rue commerçante 1a,32.0,2.4,\nFrankfurt am Main,Artère n°1,295.0,,Goethestraße\nStuttgart,Rue commerçante 1a,35.0,0.4,\nStuttgart,Artère n°1,200.0,,Königstraße\nHamburg,Rue commerçante 1a,25.0,2.9,\nHamburg,Artère n°1,235.0,,Neuer Wall\nKöln,Rue commerçante 1a,26.0,2.1,\nKöln,Artère n°1,230.0,,Wallrafplatz\nBerlin,Rue commerçante 1a,30.0,3.1,\nBerlin,Artère n°1,250.0,,Tauentzienstraße\nLeipzig,Rue commerçante 1a,20.0,2.2,\nLeipzig,Artère n°1,120.0,,Grimmaische Straße / Petersstraße\n", "concvilles": "city,competitor,store_count,stores_per_100k,status\nMünchen,Douglas,6,0.4,collecté\nMünchen,dm-drogerie markt,59,3.92,collecté\nMünchen,Rossmann,43,2.86,collecté\nMünchen,Müller,12,0.8,collecté\nMünchen,Sephora,1,0.07,collecté\nMünchen,Pharmacies,306,20.33,collecté\nMünchen,Instituts de beauté,498,33.09,collecté\nDüsseldorf,Instituts de beauté,166,26.8,collecté\nDüsseldorf,Pharmacies,152,24.54,collecté\nDüsseldorf,Müller,1,0.16,collecté\nDüsseldorf,Sephora,1,0.16,collecté\nDüsseldorf,dm-drogerie markt,22,3.55,collecté\nDüsseldorf,Douglas,3,0.48,collecté\nDüsseldorf,Rossmann,19,3.07,collecté\nFrankfurt am Main,Douglas,6,0.79,collecté\nFrankfurt am Main,dm-drogerie markt,29,3.81,collecté\nFrankfurt am Main,Rossmann,16,2.1,collecté\nFrankfurt am Main,Müller,3,0.39,collecté\nFrankfurt am Main,Sephora,1,0.13,collecté\nFrankfurt am Main,Pharmacies,147,19.33,collecté\nFrankfurt am Main,Instituts de beauté,191,25.11,collecté\nStuttgart,Sephora,0,0.0,collecté\nStuttgart,Pharmacies,101,16.57,collecté\nStuttgart,Müller,6,0.98,collecté\nStuttgart,Instituts de beauté,139,22.81,collecté\nStuttgart,dm-drogerie markt,20,3.28,collecté\nStuttgart,Douglas,2,0.33,collecté\nStuttgart,Rossmann,6,0.98,collecté\nHamburg,Instituts de beauté,555,29.69,estimé\nHamburg,Sephora,2,0.11,estimé\nHamburg,Müller,10,0.53,estimé\nHamburg,Rossmann,44,2.35,estimé\nHamburg,dm-drogerie markt,72,3.85,estimé\nHamburg,Douglas,10,0.53,estimé\nHamburg,Pharmacies,381,20.38,estimé\nKöln,Pharmacies,214,20.87,collecté\nKöln,Sephora,1,0.1,collecté\nKöln,Müller,1,0.1,collecté\nKöln,Rossmann,22,2.15,collecté\nKöln,dm-drogerie markt,43,4.19,collecté\nKöln,Douglas,6,0.59,collecté\nKöln,Instituts de beauté,349,34.03,collecté\nBerlin,Instituts de beauté,1100,29.73,estimé\nBerlin,Pharmacies,753,20.35,estimé\nBerlin,Sephora,3,0.08,estimé\nBerlin,Müller,19,0.51,estimé\nBerlin,dm-drogerie markt,142,3.84,estimé\nBerlin,Douglas,19,0.51,estimé\nBerlin,Rossmann,87,2.35,estimé\nLeipzig,Pharmacies,125,20.29,estimé\nLeipzig,Douglas,3,0.49,estimé\nLeipzig,dm-drogerie markt,24,3.9,estimé\nLeipzig,Rossmann,14,2.27,estimé\nLeipzig,Müller,3,0.49,estimé\nLeipzig,Sephora,1,0.16,estimé\nLeipzig,Instituts de beauté,183,29.71,estimé\n", "hubs": "hub,country_code,lat,lon\nKarlsruhe,DE,49.007,8.403\nRambouillet,FR,48.643,1.83\nLa Roche-Posay,FR,46.787,0.811\nVichy,FR,46.127,3.426\n", "natcomp": "retailer,segment,stores_de,revenue_bn_eur,status,note\ndm-drogerie markt,Drogerie (mass market),2000.0,13.27,collecté,\nRossmann,Drogerie (mass market),2342.0,10.5,collecté,\nMüller,Drogerie / parfumerie,578.0,,collecté,\nBudni,Drogerie (régional),190.0,,collecté,\nDouglas,Parfumerie (prestige),,2.12,partiel,486 sur Allemagne-Autriche-Suisse-Pays-Bas\nSephora,Parfumerie (prestige),25.0,,collecté,\n", "prix": "product,brand,size,price_de_eur,price_fr_eur,price_fr_ppc_eur,ratio_de_fr,ratio_de_fr_ppc\nEffaclar Duo+ SPF 30,La Roche-Posay,40 ml,16.95,16.79,19.89,1.01,0.852\nToleriane Sensitive Crème,La Roche-Posay,40 ml,17.95,13.99,16.59,1.283,1.082\nBaume / crème hydratante visage et corps,CeraVe,454 g,16.85,11.19,13.99,1.505,1.204\nLait / lotion hydratant(e),CeraVe,236 ml,9.75,7.11,8.89,1.371,1.097\nMinéral 89 Booster (sérum),Vichy,75 ml,31.45,20.89,20.99,1.004,0.999\nUltra Facial Cream,Kiehl's,50 ml,35.0,35.0,35.0,1.0,1.0\nC E Ferulic (sérum),SkinCeuticals,30 ml,180.39,133.29,133.29,1.353,1.353\nGénifique Advanced (sérum),Lancôme Skincare,100 ml,177.0,189.0,189.0,0.937,0.937\n", "taxes": "country_code,price_level_index_eu100,vat_standard_pct,customs_duty_intra_eu_pct\nDE,108.3,19,0\nFR,110.3,20,0\n", "regl": "topic,france,allemagne,impact\nDroits de douane,0 % (marché unique UE),0 % (marché unique UE),Aucun surcoût à l'import\nTVA standard,20 %,19 %,Prix HT plus élevé à prix TTC égal en Allemagne\nRèglement cosmétique,Règlement (CE) 1223/2009,Règlement (CE) 1223/2009,Catalogue conforme sans reformulation\nÉtiquetage,Français,Allemand obligatoire,Ré-étiquetage ou étiquettes multilingues\nEmballages,Filière REP (Citeo),VerpackG : enregistrement LUCID et contrat de système dual,Démarche administrative et coût par emballage\n"};
+window.__DEFAULTS__={"brand": "all", "cities": ["München", "Düsseldorf", "Frankfurt am Main", "Stuttgart", "Hamburg", "Köln", "Berlin", "Leipzig"], "cm": "pop", "cmeasure": "stores_per_100k", "comps": ["dm-drogerie markt", "Rossmann", "Müller", "Douglas", "Sephora", "Pharmacies", "Instituts de beauté"], "countries": ["DE", "FR"], "explain": "", "mm": "value_bn_eur", "pbase": "ratio_de_fr_ppc"};</script>
+<script>
+(function(){
+  function parseCSV(text){
+    const rows=[];let row=[],f='',q=false;
+    for(let i=0;i<text.length;i++){const c=text[i];
+      if(q){ if(c==='"'){ if(text[i+1]==='"'){f+='"';i++;} else q=false; } else f+=c; }
+      else if(c==='"') q=true;
+      else if(c===','){row.push(f);f='';}
+      else if(c==='\n'||c==='\r'){ if(c==='\r'&&text[i+1]==='\n')i++; row.push(f);f=''; if(row.length>1||row[0]!=='')rows.push(row); row=[]; }
+      else f+=c;
+    }
+    if(f!==''||row.length){row.push(f);rows.push(row);}
+    const h=rows.shift()||[];
+    return rows.map(r=>{const o={};h.forEach((k,i)=>{o[k.trim()]=r[i]===undefined?'':r[i];});return o;});
+  }
+  const parsed={};
+  const clone=(o)=>JSON.parse(JSON.stringify(o));
+  let params=clone(window.__DEFAULTS__||{});
+  const drawers={},cbs=[];let pending=false,started=false;
+  function render(){
+    pending=false;
+    Object.keys(drawers).forEach(n=>{document.querySelectorAll('[data-draw="'+n+'"]').forEach(el=>{try{drawers[n](el);}catch(e){console.error('draw '+n,e);}});});
+    cbs.forEach(cb=>{try{cb();}catch(e){console.error('onData',e);}});
+  }
+  function schedule(){ if(!started||pending)return; pending=true; requestAnimationFrame(render); }
+  window.dash={
+    data(id){ if(!(id in (window.__CSV__||{}))) return {status:'error',data:[]};
+      if(!parsed[id]) parsed[id]=parseCSV(window.__CSV__[id]);
+      return {status:'ok',data:parsed[id]}; },
+    params(){ return clone(params); },
+    setParams(o){ Object.assign(params,clone(o)); schedule(); },
+    resetParams(){ params=clone(window.__DEFAULTS__||{}); schedule(); },
+    onData(fn){ cbs.push(fn); },
+    draw(name,fn){ drawers[name]=fn; },
+    __start(){ started=true; render();
+      let t; window.addEventListener('resize',()=>{clearTimeout(t);t=setTimeout(render,150);});
+      document.addEventListener('toggle',()=>schedule(),true);
+      window.addEventListener('beforeprint',render); }
+  };
+  if(typeof d3==='undefined'){ document.addEventListener('DOMContentLoaded',()=>{ const p=document.createElement('p'); p.style.cssText='padding:16px;border:1px solid #c33;border-radius:12px;margin:16px'; p.textContent='La bibliothèque de graphiques (D3) n’a pas pu être chargée : vérifiez la connexion internet puis rechargez la page.'; document.body.prepend(p); }); }
+})();
+</script>
+<script>
+  const PILOTS = ['München', 'Düsseldorf', 'Frankfurt am Main'];
+  const isP = (c) => PILOTS.includes(c);
+  const CITIES = ['München', 'Düsseldorf', 'Frankfurt am Main', 'Stuttgart', 'Hamburg', 'Köln', 'Berlin', 'Leipzig'];
+  const COMPS = ['dm-drogerie markt', 'Rossmann', 'Müller', 'Douglas', 'Sephora', 'Pharmacies', 'Instituts de beauté'];
+  const COMP_LBL = { 'dm-drogerie markt': 'dm' };
+  const nf = (d) => new Intl.NumberFormat('fr-FR', { minimumFractionDigits: d, maximumFractionDigits: d });
+  const sg = (s, v) => (v < 0 ? '−' + s.replace('-', '') : s);
+  const f0 = (v) => sg(nf(0).format(v), v);
+  const f1 = (v) => sg(nf(1).format(v), v);
+  const D = (id) => { const d = dash.data(id); return d.status === 'ok' && d.data.length ? d.data : null; };
+  const L = (n) => { const v = dash.params()[n]; return Array.isArray(v) ? v : []; };
+  const S = (n, def) => { const v = dash.params()[n]; return v == null || v === '' ? def : v; };
+  const emptyMsg = (el, t) => { const p = document.createElement('p'); p.className = 'muted'; p.textContent = t; el.replaceChildren(p); };
+  const PAL = ['#c9a24a', '#8c8c8c', '#e0c98f', '#8a5a2b', '#5f7f86', '#c27c5a', '#6b6b6b'];
+  const colorOf = (k) => (k === 'de' ? '#c9a24a' : k === 'fr' ? '#8c8c8c' : PAL[+k.slice(1) % PAL.length]);
+
+  // Contrôles : l'état vit dans les paramètres de la page.
+  document.querySelectorAll('select[data-param]').forEach((el) => el.addEventListener('change', () => dash.setParams({ [el.dataset.param]: el.value })));
+  document.querySelectorAll('button[data-param]').forEach((el) => el.addEventListener('click', () => {
+    const n = el.dataset.param, v = el.dataset.val, cur = L(n);
+    dash.setParams({ [n]: cur.includes(v) ? cur.filter((x) => x !== v) : cur.concat(v) });
+  }));
+  const ALLS = { cities: CITIES, comps: COMPS };
+  document.querySelectorAll('button[data-all]').forEach((el) => el.addEventListener('click', () => dash.setParams({ [el.dataset.all]: ALLS[el.dataset.all] })));
+  document.querySelectorAll('button[data-none]').forEach((el) => el.addEventListener('click', () => dash.setParams({ [el.dataset.none]: [] })));
+  document.querySelectorAll('[data-explain-open]').forEach((el) => el.addEventListener('click', () => {
+    const k = el.dataset.explainOpen;
+    dash.setParams({ explain: k === '' || S('explain', '') === k ? '' : k });
+  }));
+  const rs = document.getElementById('reset');
+  if (rs) rs.addEventListener('click', () => dash.resetParams());
+
+  dash.onData(() => {
+    document.querySelectorAll('button[data-param]').forEach((el) => {
+      const on = L(el.dataset.param).includes(el.dataset.val);
+      el.classList.toggle('on', on);
+      el.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    document.querySelectorAll('select[data-param]').forEach((el) => {
+      const v = S(el.dataset.param, el.value);
+      if (document.activeElement !== el) el.value = v;
+    });
+  });
+
+  dash.onData(() => {
+    const k = S('explain', '');
+    document.querySelectorAll('[data-explain-panel]').forEach((p) => {
+      let any = false;
+      p.querySelectorAll('[data-explain-block]').forEach((b) => { const on = b.dataset.explainBlock === k; b.hidden = !on; if (on) any = true; });
+      p.hidden = !any;
+    });
+    document.querySelectorAll('button.tile[data-explain-open]').forEach((b) => b.classList.toggle('sel', b.dataset.explainOpen === k));
+  });
+
+  dash.draw('swatch', (el) => { el.style.background = colorOf(el.dataset.k); });
+
+  // --- Données dérivées
+  const hav = (a, b, c, d) => {
+    const r = Math.PI / 180, dl = (c - a) * r, dg = (d - b) * r;
+    const h = Math.sin(dl / 2) ** 2 + Math.cos(a * r) * Math.cos(c * r) * Math.sin(dg / 2) ** 2;
+    return 2 * 6371 * Math.asin(Math.sqrt(h));
+  };
+  function cityTable() {
+    const v = D('villes'), l = D('loyers'), c = D('concvilles'), h = D('hubs');
+    if (!v || !l || !c || !h) return null;
+    const k = h.find((x) => x.hub === 'Karlsruhe');
+    if (!k) return null;
+    return v.map((r) => {
+      const city = r.city;
+      const rent = (loc) => { const x = l.find((y) => y.city === city && y.location === loc); return x ? +x.rent_eur_m2 : null; };
+      const dens = (names) => names.reduce((s, n) => { const x = c.find((y) => y.city === city && y.competitor === n); return s + (x ? +x.stores_per_100k : 0); }, 0);
+      const r1 = rent('Rue commerçante 1a');
+      return {
+        city, pop: +r.population, pp: +r.purchasing_power_eur_per_capita, rent1a: r1, rentPrime: rent('Artère n°1'),
+        rent80: r1 == null ? null : r1 * 12 * 80, pharm: dens(['Pharmacies']), drog: dens(['dm-drogerie markt', 'Rossmann', 'Müller']),
+        parf: dens(['Douglas', 'Sephora']), dist: hav(+r.lat, +r.lon, +k.lat, +k.lon),
+        est: c.some((y) => y.city === city && y.status === 'estimé'),
+      };
+    });
+  }
+  const METRICS = {
+    pop: { l: 'Habitants', u: '', f: (v) => f0(v) },
+    pp: { l: 'Pouvoir d’achat par habitant', u: '€ par an', f: (v) => f0(v) + ' €' },
+    rent1a: { l: 'Loyer rue 1a', u: '€ par m² et par mois', f: (v) => f1(v) + ' €' },
+    rentPrime: { l: 'Loyer artère n°1', u: '€ par m² et par mois', f: (v) => f1(v) + ' €' },
+    rent80: { l: 'Loyer annuel 80 m²', u: '€ par an, rue 1a', f: (v) => f0(v) + ' €' },
+    pharm: { l: 'Pharmacies', u: 'pour 100 000 hab.', f: (v) => f1(v), est: true },
+    drog: { l: 'Drogeries', u: 'pour 100 000 hab.', f: (v) => f1(v), est: true },
+    parf: { l: 'Parfumeries de luxe', u: 'pour 100 000 hab.', f: (v) => f1(v), est: true },
+    dist: { l: 'Distance à Karlsruhe', u: 'km à vol d’oiseau', f: (v) => f0(v) + ' km' },
+  };
+  const selCities = () => CITIES.filter((c) => L('cities').includes(c));
+  function cityRank() {
+    const t = cityTable();
+    if (!t) return null;
+    const m = S('cm', 'pop'), sel = selCities();
+    const rows = t.filter((r) => sel.includes(r.city) && r[m] != null).sort((a, b) => b[m] - a[m]);
+    return { rows, m };
+  }
+  function compData() {
+    const c = D('concvilles');
+    if (!c) return null;
+    const keys = COMPS.filter((k) => L('comps').includes(k)), sel = selCities(), meas = S('cmeasure', 'stores_per_100k');
+    const rows = sel.map((city) => {
+      const o = { city, total: 0, est: c.some((y) => y.city === city && y.status === 'estimé') };
+      keys.forEach((k) => { const x = c.find((y) => y.city === city && y.competitor === k); o[k] = x ? +x[meas] : 0; o.total += o[k]; });
+      return o;
+    }).sort((a, b) => b.total - a.total);
+    return { rows, keys, meas };
+  }
+
+  // Poids de chaque marque dans le CA des pilotes (business case du dépôt, branche feature/kpis) : constantes, pas des données du relevé.
+  const BRAND_W = { 'CeraVe': 0.222, 'Kiehl’s': 0.119, "Kiehl's": 0.119, 'La Roche-Posay': 0.262, 'Lancôme Skincare': 0.099, 'SkinCeuticals': 0.138, 'Vichy': 0.159 };
+  function priceBrands(rows) {
+    const by = d3.rollups(rows, (v) => d3.mean(v, (r) => r.idx), (r) => r.brand).map(([brand, idx]) => ({ brand, idx, w: BRAND_W[brand] || 0 }));
+    const tot = d3.sum(by, (b) => b.w) || by.length;
+    by.forEach((b) => { b.w = (BRAND_W[b.brand] ? b.w : 1 / by.length * tot) / tot; });
+    return by.sort((a, b) => b.w - a.w);
+  }
+  const priceMean = (rows) => d3.sum(priceBrands(rows), (b) => b.idx * b.w);
+  function priceRows() {
+    const p = D('prix');
+    if (!p) return null;
+    const b = S('brand', 'all'), base = S('pbase', 'ratio_de_fr_ppc');
+    const rows = p.filter((r) => b === 'all' || r.brand === b).map((r) => ({
+      product: r.product, brand: r.brand, size: r.size, de: +r.price_de_eur,
+      fr: base === 'ratio_de_fr_ppc' ? +r.price_fr_ppc_eur : +r.price_fr_eur, idx: +r[base] * 100,
+    }));
+    return { rows, base };
+  }
+
+  // --- Textes et chiffres
+  function ctx() {
+    const m = D('marche'), c = D('categories'), t = D('taxes');
+    const de = m && m.find((r) => r.country_code === 'DE'), fr = m && m.find((r) => r.country_code === 'FR');
+    const sk = (cc) => c && c.find((r) => r.country_code === cc && r.category === 'Soins de la peau');
+    return { de, fr, skDE: sk('DE'), skFR: sk('FR'), tx: t, rank: cityRank(), comp: compData(), price: priceRows() };
+  }
+  const VAL = {
+    de_size: (c) => c.de && f1(+c.de.market_value_bn_eur) + ' Md€',
+    fr_size: (c) => c.fr && f1(+c.fr.market_value_bn_eur) + ' Md€',
+    de_gr: (c) => c.de && f1(+c.de.growth_pct) + ' %',
+    fr_gr: (c) => c.fr && f1(+c.fr.growth_pct) + ' %',
+    de_spend: (c) => c.de && f0(+c.de.spend_per_capita_eur) + ' €',
+    fr_spend: (c) => c.fr && f0(+c.fr.spend_per_capita_eur) + ' €',
+    sk_gr_de: (c) => c.skDE && f1(+c.skDE.growth_pct) + ' %',
+    sk_gr_fr: (c) => c.skFR && f1(+c.skFR.growth_pct) + ' %',
+    sk_sh_de: (c) => c.skDE && f1(+c.skDE.share_pct) + ' %',
+    sk_sh_fr: (c) => c.skFR && f1(+c.skFR.share_pct) + ' %',
+    sk_val_de: (c) => c.skDE && f1(+c.skDE.value_bn_eur) + ' Md€',
+    metric_lbl: (c) => { const m = METRICS[S('cm', 'pop')]; return m && (m.l + (m.u ? ' · ' + m.u : '')); },
+    city_hi: (c) => c.rank && c.rank.rows.length && c.rank.rows[0].city,
+    city_hi_v: (c) => c.rank && c.rank.rows.length && METRICS[c.rank.m].f(c.rank.rows[0][c.rank.m]),
+    city_lo: (c) => c.rank && c.rank.rows.length && c.rank.rows[c.rank.rows.length - 1].city,
+    city_lo_v: (c) => c.rank && c.rank.rows.length && METRICS[c.rank.m].f(c.rank.rows[c.rank.rows.length - 1][c.rank.m]),
+    comp_hi: (c) => c.comp && c.comp.rows.length && c.comp.keys.length && c.comp.rows[0].city,
+    comp_hi_v: (c) => c.comp && c.comp.rows.length && c.comp.keys.length && fmtComp(c.comp.rows[0].total, c.comp.meas),
+    comp_lo: (c) => c.comp && c.comp.rows.length && c.comp.keys.length && c.comp.rows[c.comp.rows.length - 1].city,
+    comp_lo_v: (c) => c.comp && c.comp.rows.length && c.comp.keys.length && fmtComp(c.comp.rows[c.comp.rows.length - 1].total, c.comp.meas),
+    price_dir: (c) => c.price && c.price.rows.length && (priceMean(c.price.rows) >= 100 ? 'plus chers' : 'moins chers'),
+    price_pct: (c) => c.price && c.price.rows.length && f1(Math.abs(priceMean(c.price.rows) - 100)) + ' %',
+    price_n: (c) => c.price && String(c.price.rows.length),
+    vat_de: (c) => c.tx && f1(+c.tx.find((r) => r.country_code === 'DE').vat_standard_pct) + ' %',
+    vat_fr: (c) => c.tx && f1(+c.tx.find((r) => r.country_code === 'FR').vat_standard_pct) + ' %',
+    pli: (c) => c.tx && f1((+c.tx.find((r) => r.country_code === 'DE').price_level_index_eu100 / +c.tx.find((r) => r.country_code === 'FR').price_level_index_eu100) * 100),
+    customs: (c) => c.tx && f1(+c.tx.find((r) => r.country_code === 'DE').customs_duty_intra_eu_pct) + ' %',
+  };
+  const nf3 = (v) => nf(3).format(v);
+  Object.assign(VAL, {
+    de_size_raw: (c) => c.de && nf3(+c.de.market_value_bn_eur) + ' Md€',
+    fr_size_raw: (c) => c.fr && nf3(+c.fr.market_value_bn_eur) + ' Md€',
+    sk_val_raw: (c) => c.skDE && nf3(+c.skDE.value_bn_eur) + ' Md€',
+    sk_val_fr_raw: (c) => c.skFR && nf3(+c.skFR.value_bn_eur) + ' Md€',
+    sk_share_calc: (c) => c.skDE && c.de && f1((+c.skDE.value_bn_eur / +c.de.market_value_bn_eur) * 100) + ' %',
+    sk_share_calc_fr: (c) => c.skFR && c.fr && f1((+c.skFR.value_bn_eur / +c.fr.market_value_bn_eur) * 100) + ' %',
+    pli_de_raw: (c) => c.tx && nf(1).format(+c.tx.find((r) => r.country_code === 'DE').price_level_index_eu100),
+    pli_fr_raw: (c) => c.tx && nf(1).format(+c.tx.find((r) => r.country_code === 'FR').price_level_index_eu100),
+    price_list: (c) => c.price && c.price.rows.length && priceBrands(c.price.rows).map((b) => f1(b.idx) + ' × ' + f1(b.w * 100) + ' %').join(' + '),
+    price_mean: (c) => c.price && c.price.rows.length && f1(priceMean(c.price.rows)),
+  });
+  const fmtComp = (v, meas) => (meas === 'store_count' ? f0(v) + ' magasins' : f1(v) + ' pour 100 000 hab.');
+  dash.draw('val', (el) => {
+    let t = null;
+    try { t = VAL[el.dataset.k] && VAL[el.dataset.k](ctx()); } catch (e) { t = null; }
+    el.textContent = t || '—';
+  });
+
+  // --- Graphiques
+  function svgBase(W, H, label) {
+    return d3.create('svg').attr('width', W).attr('height', H).attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', label);
+  }
+  function tipFor(host) {
+    const t = document.createElement('div');
+    t.className = 'tip';
+    t.hidden = true;
+    host.appendChild(t);
+    return {
+      show(ev, txt) {
+        const r = host.getBoundingClientRect();
+        t.textContent = txt;
+        t.hidden = false;
+        t.style.left = Math.max(0, Math.min(ev.clientX - r.left + 12, r.width - t.offsetWidth - 4)) + 'px';
+        t.style.top = Math.max(0, ev.clientY - r.top - 34) + 'px';
+      },
+      hide() { t.hidden = true; },
+    };
+  }
+  const gridAxis = (g, x, H, m, fmt) => g.attr('transform', `translate(0,${H - m.b})`).call(d3.axisBottom(x).ticks(4).tickSize(-(H - m.t - m.b)).tickFormat(fmt))
+    .call((a) => { a.select('.domain').remove(); a.selectAll('.tick line').attr('stroke', 'var(--cds-chart-grid)'); });
+
+
+  // --- Résumés adaptatifs : un texte court qui suit l'indicateur et les filtres choisis
+  const SUM = {};
+  const CITY_MEANING = {
+    pop: 'Plus une ville est peuplée, plus il y a de clients potentiels autour d’une boutique.',
+    pp: 'Un pouvoir d’achat élevé veut dire que les habitants ont plus d’argent à dépenser en soins.',
+    rent1a: 'Un loyer élevé alourdit les coûts fixes d’une boutique, quelle que soit sa fréquentation.',
+    rentPrime: 'La rue la plus chère de la ville donne de la visibilité, mais son loyer pèse très lourd sur la rentabilité.',
+    rent80: 'C’est la somme à payer chaque année pour une boutique de 80 m², avant tout autre coût.',
+    pharm: 'Les pharmacies vendent déjà les marques dermocosmétiques : plus il y en a, plus la concurrence directe est forte.',
+    drog: 'Les drogeries (dm, Rossmann, Müller) sont le premier canal de vente des cosmétiques en Allemagne.',
+    parf: 'Les parfumeries de luxe visent surtout une clientèle de prestige, moins proche de notre offre.',
+    dist: 'Plus la ville est proche de l’usine de Karlsruhe, plus la livraison des boutiques est simple et peu coûteuse.',
+  };
+  const keyOf = (sec) => {
+    const p = dash.params();
+    const parts = { sc: [p.cities], duel: [p.c1, p.c2], city: [p.cm, p.cities], comp: [p.comps, p.cmeasure, p.cities], mkt: [p.mm, p.countries], price: [p.brand, p.pbase] };
+    return JSON.stringify([sec, parts[sec]]);
+  };
+  function cityFacts() {
+    const r = cityRank();
+    if (!r || !r.rows.length) return null;
+    const met = METRICS[r.m], rows = r.rows, hi = rows[0], lo = rows[rows.length - 1];
+    const lines = ['Indicateur : ' + met.l + (met.u ? ' (' + met.u + ')' : '')];
+    rows.forEach((x) => lines.push(x.city + ' : ' + met.f(x[r.m])));
+    lines.push('Valeur la plus haute : ' + hi.city + ' (' + met.f(hi[r.m]) + ')');
+    lines.push('Valeur la plus basse : ' + lo.city + ' (' + met.f(lo[r.m]) + ')');
+    const many = rows.length > 1 && lo[r.m] > 0;
+    const ratio = many ? ', soit ×' + f1(hi[r.m] / lo[r.m]) + ' entre les deux' : '';
+    if (many) lines.push('Écart entre la plus haute et la plus basse : ×' + f1(hi[r.m] / lo[r.m]));
+    lines.push('Ce que cet indicateur veut dire : ' + CITY_MEANING[r.m]);
+    const est = rows.filter((x) => x.est).map((x) => x.city);
+    if (met.est && est.length) lines.push('Valeurs estimées (non mesurées) pour : ' + est.join(', '));
+    const fb = rows.length < 2
+      ? hi.city + ' : ' + met.f(hi[r.m]) + '. ' + CITY_MEANING[r.m]
+      : hi.city + ' arrive en tête (' + met.f(hi[r.m]) + ') et ' + lo.city + ' ferme la marche (' + met.f(lo[r.m]) + ')' + ratio + '. ' + CITY_MEANING[r.m] + (met.est && est.length ? ' Les valeurs de ' + est.join(', ') + ' sont estimées.' : '');
+    return { lines, fallback: fb };
+  }
+  function compFacts() {
+    const d = compData();
+    if (!d || !d.rows.length || !d.keys.length) return null;
+    const cnt = d.meas === 'store_count', fmt = (v) => (cnt ? f0(v) : f1(v));
+    const unit = cnt ? 'magasins' : 'magasins pour 100 000 habitants';
+    const nm = (k) => COMP_LBL[k] || k;
+    const lines = ['Ce que l’on compte : ' + unit, 'Enseignes incluses : ' + d.keys.map(nm).join(', ')];
+    d.rows.forEach((r) => lines.push(r.city + ' : ' + fmt(r.total) + (r.est ? ' (estimé)' : '')));
+    const avg = d.keys.map((k) => ({ k, v: d3.mean(d.rows, (r) => r[k]) })).sort((a, b) => b.v - a.v);
+    lines.push('Enseigne la plus présente en moyenne : ' + nm(avg[0].k) + ' (' + fmt(avg[0].v) + ')');
+    const hi = d.rows[0], lo = d.rows[d.rows.length - 1];
+    const est = d.rows.filter((r) => r.est).map((r) => r.city);
+    if (est.length) lines.push('Villes dont la concurrence est estimée : ' + est.join(', '));
+    const fb = d.rows.length < 2
+      ? hi.city + ' : ' + fmt(hi.total) + ' ' + unit + '.'
+      : 'Avec les enseignes choisies, ' + hi.city + ' est la ville la plus concurrentielle (' + fmt(hi.total) + ') et ' + lo.city + ' la moins concurrentielle (' + fmt(lo.total) + '). L’enseigne la plus présente en moyenne est ' + nm(avg[0].k) + '.' + (est.length ? ' Pour ' + est.join(', ') + ', la concurrence est estimée et non mesurée.' : '');
+    return { lines, fallback: fb };
+  }
+  function mktFacts() {
+    const c = D('categories'), cs = ['DE', 'FR'].filter((x) => L('countries').includes(x)), m = S('mm', 'value_bn_eur');
+    if (!c || !cs.length) return null;
+    const unit = m === 'value_bn_eur' ? ' Md€' : ' %';
+    const lab = { value_bn_eur: 'Ventes en milliards d’euros', share_pct: 'Poids de la famille dans le marché du pays', growth_pct: 'Croissance sur un an' }[m];
+    const name = { DE: 'Allemagne', FR: 'France' };
+    const lines = ['Mesure : ' + lab], tops = [];
+    cs.forEach((cc) => {
+      const rows = c.filter((r) => r.country_code === cc).map((r) => ({ cat: r.category, v: +r[m] })).sort((a, b) => b.v - a.v);
+      if (!rows.length) return;
+      rows.forEach((r) => lines.push(name[cc] + ' · ' + r.cat + ' : ' + f1(r.v) + unit));
+      tops.push(name[cc] + ' : ' + rows[0].cat + ' est en tête (' + f1(rows[0].v) + unit + ')');
+    });
+    if (!tops.length) return null;
+    const sk = cs.map((cc) => { const r = c.find((x) => x.country_code === cc && x.category === 'Soins de la peau'); return r && name[cc] + ' ' + f1(+r[m]) + unit; }).filter(Boolean);
+    lines.push('Soin de la peau : ' + sk.join(' contre '));
+    return { lines, fallback: tops.join('. ') + '. Pour le soin de la peau, la famille qui nous intéresse : ' + sk.join(' contre ') + '.' };
+  }
+  function priceFacts() {
+    const p = priceRows();
+    if (!p || !p.rows.length) return null;
+    const rows = p.rows.slice().sort((a, b) => b.idx - a.idx), mean = priceMean(rows);
+    const lines = ['Base de comparaison : ' + (p.base === 'ratio_de_fr_ppc' ? 'prix public conseillé français' : 'prix pratiqué en France')];
+    rows.forEach((r) => lines.push(r.brand + ' · ' + r.product + ' : indice ' + f1(r.idx) + ' (100,0 = même prix qu’en France)'));
+    lines.push('Indice moyen : ' + f1(mean));
+    const hi = rows[0], lo = rows[rows.length - 1];
+    const dir = mean >= 100 ? 'plus chers' : 'moins chers';
+    return { lines, fallback: 'En moyenne pondérée par marque, ces soins sont ' + dir + ' de ' + f1(Math.abs(mean - 100)) + ' % en Allemagne qu’en France. Le plus cher est ' + hi.product + ' (indice ' + f1(hi.idx) + '), le moins cher est ' + lo.product + ' (indice ' + f1(lo.idx) + ').' };
+  }
+  const FACTS = { city: cityFacts, comp: compFacts, mkt: mktFacts, price: priceFacts };
+  const numsOf = (s) => (s.match(/\d+(?:[   ]\d{3})*(?:[.,]\d+)?/g) || []).map((n) => n.replace(/[   ]/g, '').replace(',', '.'));
+  function numbersOk(text, facts) {
+    const ok = new Set(numsOf(facts));
+    return numsOf(text).every((n) => ok.has(n) || /^\d$/.test(n));
+  }
+  function renderAi(el) {
+    const sec = el.dataset.sec, s = SUM[sec];
+    el.replaceChildren();
+    const mk = (cls, t) => { const d = document.createElement('div'); if (cls) d.className = cls; d.textContent = t; return d; };
+    if (!s) { el.appendChild(mk('muted', 'Le résumé s’adapte à l’indicateur et aux filtres que vous avez choisis.')); return; }
+    if (s.src === 'wait') { el.appendChild(mk('muted', 'Rédaction du résumé en cours…')); return; }
+    if (s.key !== keyOf(sec)) { el.appendChild(mk('muted', 'Vos choix ont changé : cliquez à nouveau pour mettre le résumé à jour.')); return; }
+    const box = mk('ai-box', '');
+    box.appendChild(mk('ai-badge', s.src === 'ia' ? 'Résumé IA' : 'Résumé automatique'));
+    box.appendChild(mk('', s.text));
+    el.appendChild(box);
+  }
+  const refreshAi = () => document.querySelectorAll('[data-draw="aisum"]').forEach(renderAi);
+  async function summarize(sec, btn) {
+    const f = FACTS[sec](), key = keyOf(sec);
+    if (!f) { SUM[sec] = { key, text: 'Pas assez de données pour résumer cette vue : vérifiez que des villes ou des enseignes sont sélectionnées.', src: 'auto' }; refreshAi(); return; }
+    SUM[sec] = { key, text: '', src: 'wait' };
+    btn.setAttribute('aria-busy', 'true');
+    refreshAi();
+    let text = f.fallback, src = 'auto';
+    try {
+      const sm = window.claude && window.claude.use ? await window.claude.use('sample') : null;
+      if (sm) {
+        const prompt = 'Tu rédiges un court résumé pour des lecteurs qui ne connaissent rien au sujet (un comité de direction). Contexte : L’Oréal étudie l’ouverture de boutiques de diagnostic de peau en Allemagne.\nRègles : trois phrases au maximum, français simple, sans jargon, aucun chiffre autre que ceux de la liste ci-dessous, pas de liste ni de titre. Dis ce que le lecteur doit retenir de CETTE vue précise, puis ce que cela peut impliquer pour le choix des villes ou du marché, sans conclure à la place de l’équipe.\nDonnées de la vue :\n- ' + f.lines.join('\n- ');
+        const r = await sm(prompt, { modelTier: 'quick' });
+        const t = ((r && r.text) || '').trim();
+        if (t && numbersOk(t, f.lines.join(' '))) { text = t; src = 'ia'; }
+      }
+    } catch (e) { /* repli automatique */ }
+    SUM[sec] = { key, text, src };
+    btn.removeAttribute('aria-busy');
+    refreshAi();
+  }
+
+  const HIGHER_BETTER = { pop: true, pp: true };
+  function scFacts() {
+    const tb = cityTable(); if (!tb) return null;
+    const sel = selCities(), rows = tb.filter((r) => sel.includes(r.city) && r.pp != null && r.rent1a != null);
+    if (rows.length < 2) return null;
+    const mx = d3.median(rows, (r) => r.pp), my = d3.median(rows, (r) => r.rent1a);
+    const good = rows.filter((r) => r.pp > mx && r.rent1a < my).map((r) => r.city);
+    const lines = ['Pouvoir d’achat médian : ' + f0(mx) + ' €', 'Loyer médian de la rue 1a : ' + f1(my) + ' € par m² et par mois'].concat(rows.map((r) => r.city + ' : pouvoir d’achat ' + f0(r.pp) + ' €, loyer ' + f1(r.rent1a) + ' € par m², ' + f0(r.pop) + ' habitants'), ['Villes plus riches et moins chères que la médiane : ' + (good.length ? good.join(', ') : 'aucune')]);
+    const fb = good.length ? 'Les villes à la fois plus riches et moins chères que la médiane sont : ' + good.join(', ') + '. Ce sont les plus intéressantes sur ces deux critères seulement.' : 'Aucune des villes affichées n’est à la fois plus riche et moins chère que la médiane.';
+    return { lines, fallback: fb };
+  }
+  function duelFacts() {
+    const tb = cityTable(); if (!tb) return null;
+    const a = tb.find((r) => r.city === S('c1', 'München')), b = tb.find((r) => r.city === S('c2', 'Düsseldorf'));
+    if (!a || !b || a.city === b.city) return null;
+    let wa = 0, wb = 0; const lines = [];
+    Object.keys(METRICS).forEach((k) => {
+      const m = METRICS[k], va = a[k], vb = b[k]; if (va == null || vb == null) return;
+      lines.push(m.l + ' : ' + a.city + ' ' + m.f(va) + ', ' + b.city + ' ' + m.f(vb));
+      if (va !== vb) { const aw = HIGHER_BETTER[k] ? va > vb : va < vb; if (aw) wa++; else wb++; }
+    });
+    lines.push('Indicateurs favorables à ' + a.city + ' : ' + wa, 'Indicateurs favorables à ' + b.city + ' : ' + wb);
+    const lead = wa === wb ? 'Les deux villes sont à égalité' : (wa > wb ? a.city : b.city) + ' est plus favorable sur ' + Math.max(wa, wb) + ' indicateurs contre ' + Math.min(wa, wb);
+    return { lines, fallback: lead + '. Pour juger, regardez surtout le loyer et la concurrence, qui pèsent directement sur la rentabilité d’une boutique.' };
+  }
+  Object.assign(FACTS, { sc: scFacts, duel: duelFacts });
+  document.querySelectorAll('button[data-ai]').forEach((b) => b.addEventListener('click', () => summarize(b.dataset.ai, b)));
+  dash.draw('aisum', renderAi);
+  const pb = document.getElementById('print-btn');
+  if (pb) pb.addEventListener('click', () => { try { window.print(); } catch (e) { pb.textContent = 'Impression indisponible ici'; } });
+
+  dash.draw('mkt', (el) => {
+    const c = D('categories'), cs = ['DE', 'FR'].filter((x) => L('countries').includes(x)), m = S('mm', 'value_bn_eur');
+    if (!c) { el.replaceChildren(); return; }
+    if (!cs.length) { emptyMsg(el, 'Choisissez au moins un pays.'); return; }
+    const fmt = m === 'value_bn_eur' ? (v) => f1(v) + ' Md€' : (v) => f1(v) + ' %';
+    const cats = Array.from(new Set(c.map((r) => r.category)));
+    const ref = c.filter((r) => r.country_code === cs[0]);
+    cats.sort((a, b) => +(ref.find((r) => r.category === b) || {})[m] - +(ref.find((r) => r.category === a) || {})[m]);
+    const W = Math.max(el.clientWidth, 280), bh = 18, gap = 14, m0 = { t: 8, r: 70, b: 24, l: W < 420 ? 112 : 140 };
+    const rowH = cs.length * bh + gap, H = m0.t + m0.b + cats.length * rowH;
+    const vals = c.filter((r) => cs.includes(r.country_code)).map((r) => +r[m]).concat(0);
+    const x = d3.scaleLinear().domain(d3.extent(vals)).nice().range([m0.l, W - m0.r]);
+    const svg = svgBase(W, H, 'Comparaison par famille de produits entre ' + cs.join(' et '));
+    svg.append('g').call((g) => gridAxis(g, x, H, m0, (v) => (v === 0 ? '0' : fmt(v))));
+    const rows = [];
+    cats.forEach((cat, i) => cs.forEach((cc, j) => { const r = c.find((y) => y.category === cat && y.country_code === cc); if (r) rows.push({ cat, cc, v: +r[m], y: m0.t + i * rowH + j * bh }); }));
+    svg.selectAll('rect').data(rows).join('rect').attr('x', (d) => x(Math.min(0, d.v))).attr('width', (d) => Math.max(1, Math.abs(x(d.v) - x(0))))
+      .attr('y', (d) => d.y).attr('height', bh - 3).attr('rx', 6).style('fill', (d) => colorOf(d.cc === 'DE' ? 'de' : 'fr'));
+    svg.selectAll('.vl').data(rows).join('text').attr('x', (d) => (d.v >= 0 ? x(d.v) + 5 : x(d.v) - 5)).attr('text-anchor', (d) => (d.v >= 0 ? 'start' : 'end'))
+      .attr('y', (d) => d.y + bh - 6).text((d) => fmt(d.v));
+    svg.selectAll('.nm').data(cats).join('text').attr('class', (d) => (d === 'Soins de la peau' ? 'strong' : '')).attr('x', m0.l - 8).attr('text-anchor', 'end')
+      .attr('y', (d, i) => m0.t + i * rowH + (cs.length * bh) / 2 + 1).text((d) => d);
+    svg.append('line').attr('x1', x(0)).attr('x2', x(0)).attr('y1', m0.t).attr('y2', H - m0.b).attr('stroke', 'var(--cds-chart-axis)');
+    el.replaceChildren(svg.node());
+    const tip = tipFor(el);
+    svg.selectAll('rect').on('mousemove', (ev, d) => tip.show(ev, `${d.cc === 'DE' ? 'Allemagne' : 'France'} · ${d.cat} · ${fmt(d.v)}`)).on('mouseleave', () => tip.hide());
+  });
+
+  dash.draw('city', (el) => {
+    const r = cityRank();
+    if (!r) { el.replaceChildren(); return; }
+    if (!r.rows.length) { emptyMsg(el, 'Choisissez au moins une ville.'); return; }
+    const met = METRICS[r.m], rows = r.rows;
+    const W = Math.max(el.clientWidth, 280), rh = 30, m = { t: 8, r: 110, b: 24, l: 132 }, H = m.t + m.b + rows.length * rh;
+    const x = d3.scaleLinear().domain([0, d3.max(rows, (d) => d[r.m])]).nice().range([m.l, W - m.r]);
+    const y = d3.scaleBand().domain(rows.map((d) => d.city)).range([m.t, H - m.b]).padding(0.3);
+    const svg = svgBase(W, H, 'Classement des villes sur : ' + met.l);
+    svg.append('g').call((g) => gridAxis(g, x, H, m, (v) => (v === 0 ? '0' : nf(0).format(v))));
+    svg.selectAll('rect').data(rows).join('rect').attr('x', m.l).attr('width', (d) => Math.max(1, x(d[r.m]) - m.l)).attr('y', (d) => y(d.city)).attr('height', y.bandwidth()).attr('rx', 6)
+      .style('fill', '#c9a24a');
+    const star = (d) => (met.est && d.est ? ' *' : '');
+    svg.selectAll('.nm').data(rows).join('text').attr('x', m.l - 8).attr('class', (d) => (isP(d.city) ? 'strong' : null)).attr('text-anchor', 'end').attr('y', (d) => y(d.city) + y.bandwidth() / 2 + 4).text((d) => d.city + star(d));
+    svg.selectAll('.vl').data(rows).join('text').attr('class', 'strong').attr('x', (d) => x(d[r.m]) + 6).attr('y', (d) => y(d.city) + y.bandwidth() / 2 + 4).text((d) => met.f(d[r.m]));
+    el.replaceChildren(svg.node());
+    const tip = tipFor(el);
+    svg.selectAll('rect').on('mousemove', (ev, d) => tip.show(ev, `${d.city} · ${met.l} : ${met.f(d[r.m])}`)).on('mouseleave', () => tip.hide());
+  });
+
+  function buildTable(el, heads, rows, numCols, cellStyle) {
+    const t = d3.select(el);
+    el.replaceChildren();
+    t.append('thead').append('tr').selectAll('th').data(heads).join('th').attr('class', (d, i) => (numCols.includes(i) ? 'num' : null))
+      .each(function (d) { const th = d3.select(this); th.append('span').text(d[0]); if (d[1]) th.append('small').text(d[1]); });
+    const tr = t.append('tbody').selectAll('tr').data(rows).join('tr');
+    tr.selectAll('td').data((r) => r).join('td').attr('class', (d, i) => (numCols.includes(i) ? 'num' : null)).text((d) => d.t)
+      .style('font-weight', (d) => (d.b ? '800' : null))
+      .style('background', (d) => d.bg || null);
+  }
+
+  dash.draw('pivot', (el) => {
+    const t = cityTable();
+    if (!t) { el.replaceChildren(); return; }
+    const sel = selCities();
+    const keys = Object.keys(METRICS);
+    const heads = [['Ville', '']].concat(keys.map((k) => [METRICS[k].l, METRICS[k].u]));
+    const rows = t.filter((r) => sel.includes(r.city)).sort((a, b) => b.pop - a.pop).map((r) => [{ t: r.city + (r.est ? ' *' : ''), b: isP(r.city) }].concat(keys.map((k) => ({ t: r[k] == null ? 'n.d.' : METRICS[k].f(r[k]) }))));
+    if (!rows.length) { emptyMsg(el, 'Choisissez au moins une ville.'); return; }
+    buildTable(el, heads, rows, keys.map((k, i) => i + 1));
+  });
+
+  dash.draw('comp', (el) => {
+    const d = compData();
+    if (!d) { el.replaceChildren(); return; }
+    if (!d.rows.length) { emptyMsg(el, 'Choisissez au moins une ville.'); return; }
+    if (!d.keys.length) { emptyMsg(el, 'Choisissez au moins une enseigne.'); return; }
+    const W = Math.max(el.clientWidth, 280), rh = 32, m = { t: 8, r: 96, b: 24, l: 132 }, H = m.t + m.b + d.rows.length * rh;
+    const x = d3.scaleLinear().domain([0, d3.max(d.rows, (r) => r.total) || 1]).nice().range([m.l, W - m.r]);
+    const y = d3.scaleBand().domain(d.rows.map((r) => r.city)).range([m.t, H - m.b]).padding(0.28);
+    const svg = svgBase(W, H, 'Concurrence par ville');
+    svg.append('g').call((g) => gridAxis(g, x, H, m, (v) => (v === 0 ? '0' : nf(0).format(v))));
+    const series = d3.stack().keys(d.keys)(d.rows);
+    const segs = series.flatMap((s) => s.map((p) => ({ key: s.key, city: p.data.city, a: p[0], b: p[1], v: p.data[s.key] })));
+    svg.selectAll('rect').data(segs).join('rect').attr('x', (s) => x(s.a)).attr('width', (s) => Math.max(0, x(s.b) - x(s.a))).attr('y', (s) => y(s.city)).attr('height', y.bandwidth())
+      .style('fill', (s) => colorOf('c' + COMPS.indexOf(s.key))).attr('stroke', 'var(--color-panel)').attr('stroke-width', 1);
+    svg.selectAll('.nm').data(d.rows).join('text').attr('x', m.l - 8).attr('class', (r) => (isP(r.city) ? 'strong' : null)).attr('text-anchor', 'end').attr('y', (r) => y(r.city) + y.bandwidth() / 2 + 4).text((r) => r.city + (r.est ? ' *' : ''));
+    svg.selectAll('.vl').data(d.rows).join('text').attr('class', 'strong').attr('x', (r) => x(r.total) + 6).attr('y', (r) => y(r.city) + y.bandwidth() / 2 + 4).text((r) => (d.meas === 'store_count' ? f0(r.total) : f1(r.total)));
+    el.replaceChildren(svg.node());
+    const tip = tipFor(el);
+    svg.selectAll('rect').on('mousemove', (ev, s) => tip.show(ev, `${s.city} · ${COMP_LBL[s.key] || s.key} · ${fmtComp(s.v, d.meas)}`)).on('mouseleave', () => tip.hide());
+  });
+
+  dash.draw('comptable', (el) => {
+    const d = compData();
+    if (!d) { el.replaceChildren(); return; }
+    if (!d.rows.length || !d.keys.length) { el.replaceChildren(); return; }
+    const heads = [['Ville', '']].concat(d.keys.map((k) => [COMP_LBL[k] || k, ''])).concat([['Total', '']]);
+    const f = (v) => (d.meas === 'store_count' ? f0(v) : f1(v));
+    const mx = {};
+    d.keys.forEach((k) => { mx[k] = d3.max(d.rows, (r) => r[k]) || 1; });
+    const rows = d.rows.map((r) => [{ t: r.city + (r.est ? ' *' : '') }].concat(d.keys.map((k) => ({ t: f(r[k]), bg: `color-mix(in srgb, var(--cds-chart-muted) ${Math.round((r[k] / mx[k]) * 45)}%, transparent)` }))).concat([{ t: f(r.total) }]));
+    buildTable(el, heads, rows, d.keys.map((k, i) => i + 1).concat([d.keys.length + 1]));
+  });
+
+  dash.draw('nat', (el) => {
+    const n = D('natcomp');
+    if (!n) { el.replaceChildren(); return; }
+    const rows = n.map((r) => [{ t: r.retailer }, { t: r.segment }, { t: r.stores_de ? f0(+r.stores_de) : r.note ? r.note : 'n.d.' }, { t: r.revenue_bn_eur ? f1(+r.revenue_bn_eur) + ' Md€' : 'n.d.' }]);
+    buildTable(el, [['Enseigne', ''], ['Type', ''], ['Magasins en Allemagne', ''], ['Chiffre d’affaires', '']], rows, [3]);
+  });
+
+  dash.draw('price', (el) => {
+    const p = priceRows();
+    if (!p) { el.replaceChildren(); return; }
+    if (!p.rows.length) { emptyMsg(el, 'Aucun produit pour cette marque.'); return; }
+    const rows = p.rows.slice().sort((a, b) => b.idx - a.idx);
+    const W = Math.max(el.clientWidth, 280), rh = 30, m = { t: 8, r: 60, b: 24, l: W < 420 ? 120 : 220 }, H = m.t + m.b + rows.length * rh;
+    const lo = Math.min(90, d3.min(rows, (r) => r.idx)), hi = Math.max(110, d3.max(rows, (r) => r.idx));
+    const x = d3.scaleLinear().domain([lo, hi]).nice().range([m.l, W - m.r]);
+    const y = d3.scaleBand().domain(rows.map((r) => r.product)).range([m.t, H - m.b]).padding(0.3);
+    const svg = svgBase(W, H, 'Indice de prix Allemagne par rapport à la France, base 100');
+    svg.append('g').call((g) => gridAxis(g, x, H, m, (v) => nf(1).format(v)));
+    svg.selectAll('rect').data(rows).join('rect').attr('x', (r) => x(Math.min(100, r.idx))).attr('width', (r) => Math.max(2, Math.abs(x(r.idx) - x(100)))).attr('y', (r) => y(r.product)).attr('height', y.bandwidth()).attr('rx', 6)
+      .style('fill', (r) => (r.idx > 100 ? '#c9a24a' : 'var(--cds-chart-muted)'));
+    const cut = (s, n) => (s.length > n ? s.slice(0, n - 1) + '…' : s);
+    svg.selectAll('.nm').data(rows).join('text').attr('x', m.l - 8).attr('text-anchor', 'end').attr('y', (r) => y(r.product) + y.bandwidth() / 2 + 4).text((r) => cut(r.product, W < 420 ? 17 : 32));
+    svg.selectAll('.vl').data(rows).join('text').attr('class', 'strong').attr('x', (r) => (r.idx >= 100 ? x(r.idx) + 6 : x(r.idx) - 6)).attr('text-anchor', (r) => (r.idx >= 100 ? 'start' : 'end')).attr('y', (r) => y(r.product) + y.bandwidth() / 2 + 4).text((r) => f1(r.idx));
+    svg.append('line').attr('x1', x(100)).attr('x2', x(100)).attr('y1', m.t).attr('y2', H - m.b).attr('stroke', 'var(--cds-chart-reference)').attr('stroke-width', 1.5);
+    svg.append('text').attr('x', x(100)).attr('y', H - 4).attr('text-anchor', 'middle').text('100,0 = même prix qu’en France');
+    el.replaceChildren(svg.node());
+    const tip = tipFor(el);
+    svg.selectAll('rect').on('mousemove', (ev, r) => tip.show(ev, `${r.product} · indice ${f1(r.idx)}`)).on('mouseleave', () => tip.hide());
+  });
+
+  dash.draw('pricetab', (el) => {
+    const p = priceRows();
+    if (!p || !p.rows.length) { el.replaceChildren(); return; }
+    const eur = (v) => nf(2).format(v) + ' €';
+    const rows = p.rows.map((r) => [{ t: r.product }, { t: r.brand }, { t: r.size }, { t: eur(r.de) }, { t: eur(r.fr) }, { t: f1(r.idx) }]);
+    buildTable(el, [['Produit', ''], ['Marque', ''], ['Format', ''], ['Prix en Allemagne', ''], ['Prix en France', p.base === 'ratio_de_fr_ppc' ? 'public conseillé' : 'pratiqué'], ['Indice', 'France = 100']], rows, [3, 4, 5]);
+  });
+
+
+
+  dash.draw('scatter', (el) => {
+    const tb = cityTable();
+    if (!tb) { el.replaceChildren(); return; }
+    const sel = selCities(), rows = tb.filter((r) => sel.includes(r.city) && r.pp != null && r.rent1a != null);
+    if (rows.length < 2) { el.replaceChildren(); const p = document.createElement('p'); p.className = 'muted'; p.textContent = 'Cochez au moins deux villes pour voir ce graphique.'; el.appendChild(p); return; }
+    const W = Math.max(el.clientWidth, 280), H = 380, m = { t: 16, r: 24, b: 56, l: 66 };
+    const xe = d3.extent(rows, (r) => r.pp), ye = d3.extent(rows, (r) => r.rent1a);
+    const x = d3.scaleLinear().domain([xe[0] - (xe[1] - xe[0]) * 0.12 - 1, xe[1] + (xe[1] - xe[0]) * 0.18 + 1]).nice().range([m.l, W - m.r]);
+    const y = d3.scaleLinear().domain([Math.max(0, ye[0] - (ye[1] - ye[0]) * 0.2), ye[1] + (ye[1] - ye[0]) * 0.15]).nice().range([H - m.b, m.t]);
+    const rad = d3.scaleSqrt().domain([0, d3.max(rows, (r) => r.pop)]).range([5, 24]);
+    const svg = d3.create('svg').attr('width', W).attr('height', H).attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img')
+      .attr('aria-label', 'Pouvoir d’achat et loyer de la rue commerçante 1a par ville');
+    svg.append('g').attr('transform', `translate(${m.l},0)`).call(d3.axisLeft(y).ticks(5).tickSize(-(W - m.l - m.r)).tickFormat((v) => f0(v) + ' €'))
+      .call((g) => { g.select('.domain').remove(); g.selectAll('.tick line').attr('stroke', 'var(--cds-chart-grid)'); });
+    svg.append('g').attr('transform', `translate(0,${H - m.b})`).call(d3.axisBottom(x).ticks(W < 460 ? 4 : 6).tickSize(0).tickPadding(8).tickFormat((v) => f0(v)))
+      .call((g) => g.select('.domain').attr('stroke', 'var(--cds-chart-axis)'));
+    const mx = d3.median(rows, (r) => r.pp), my = d3.median(rows, (r) => r.rent1a);
+    svg.append('line').attr('x1', x(mx)).attr('x2', x(mx)).attr('y1', m.t).attr('y2', H - m.b).attr('stroke', 'var(--cds-chart-axis)').attr('stroke-dasharray', '4 4');
+    svg.append('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', y(my)).attr('y2', y(my)).attr('stroke', 'var(--cds-chart-axis)').attr('stroke-dasharray', '4 4');
+    const g = svg.selectAll('g.pt').data(rows.slice().sort((a, b) => b.pop - a.pop)).join('g').attr('class', 'pt');
+    g.append('circle').attr('cx', (d) => x(d.pp)).attr('cy', (d) => y(d.rent1a)).attr('r', (d) => rad(d.pop))
+      .style('fill', '#c9a24a').style('fill-opacity', 0.55).style('stroke', '#c9a24a')
+      .append('title').text((d) => `${d.city} : pouvoir d’achat ${f0(d.pp)} €, loyer ${f1(d.rent1a)} € par m², ${f0(d.pop)} habitants`);
+    g.append('text').attr('class', (d) => (isP(d.city) ? 'strong' : null)).attr('y', (d) => y(d.rent1a) + 4)
+      .attr('x', (d) => (x(d.pp) + rad(d.pop) + 6 + d.city.length * 7 > W - m.r ? x(d.pp) - rad(d.pop) - 6 : x(d.pp) + rad(d.pop) + 6))
+      .attr('text-anchor', (d) => (x(d.pp) + rad(d.pop) + 6 + d.city.length * 7 > W - m.r ? 'end' : 'start')).text((d) => d.city);
+    svg.append('text').attr('x', (m.l + W - m.r) / 2).attr('y', H - 10).attr('text-anchor', 'middle').text('Pouvoir d’achat par habitant (€ par an) →');
+    svg.append('text').attr('transform', `translate(14,${(m.t + H - m.b) / 2}) rotate(-90)`).attr('text-anchor', 'middle').text('Loyer, rue 1a (€ par m² et par mois)');
+    el.replaceChildren(svg.node());
+  });
+
+  dash.draw('duel', (el) => {
+    const t = cityTable();
+    if (!t) { el.replaceChildren(); return; }
+    const a = t.find((r) => r.city === S('c1', 'München')), b = t.find((r) => r.city === S('c2', 'Düsseldorf'));
+    if (!a || !b) { el.replaceChildren(); return; }
+    const HIGHER = { pop: true, pp: true };
+    const rows = Object.keys(METRICS).map((k) => {
+      const m = METRICS[k], va = a[k], vb = b[k];
+      const na = va == null ? 'n.d.' : m.f(va), nb = vb == null ? 'n.d.' : m.f(vb);
+      let wa = false, wb = false;
+      if (va != null && vb != null && va !== vb) { const aBetter = HIGHER[k] ? va > vb : va < vb; wa = aBetter; wb = !aBetter; }
+      const est = m.est ? ' *' : '';
+      return [{ t: m.l + (m.u ? ' (' + m.u + ')' : '') }, { t: (wa ? '✓ ' : '') + na + (a.est ? est : ''), bg: wa ? 'color-mix(in srgb, #22c55e 18%, transparent)' : null }, { t: (wb ? '✓ ' : '') + nb + (b.est ? est : ''), bg: wb ? 'color-mix(in srgb, #22c55e 18%, transparent)' : null }];
+    });
+    buildTable(el, [['Indicateur', ''], [a.city, ''], [b.city, '']], rows, [1, 2]);
+  });
+
+  dash.draw('regl', (el) => {
+    const r = D('regl');
+    el.replaceChildren();
+    if (!r) return;
+    r.forEach((q) => {
+      const card = document.createElement('div'); card.className = 'regl-card';
+      const mk = (tag, cls, t) => { const e = document.createElement(tag); if (cls) e.className = cls; e.textContent = t; card.appendChild(e); };
+      mk('h3', '', q.topic);
+      const pc = (x) => String(x).replace(/(\d+) %/g, '$1,0 %');
+      mk('div', 'regl-row', 'France : ' + pc(q.france));
+      mk('div', 'regl-row', 'Allemagne : ' + pc(q.allemagne));
+      mk('div', 'regl-impact', 'Ce que ça change : ' + q.impact);
+      el.appendChild(card);
+    });
+  });
+</script>
+<script>dash.__start();</script>
+</body></html>
