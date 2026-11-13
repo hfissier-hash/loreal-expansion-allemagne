@@ -37,6 +37,37 @@ def villes_avec_loyers():
     return villes
 
 
+def price_index(releve, boutiques, catalogue_brands):
+    """Indice de prix Allemagne / France (France = 100) des soins du catalogue, à partir du relevé.
+
+    Le relevé donne, pour chaque soin, le ratio des prix au litre DE / FR (formats parfois différents),
+    avec deux références françaises : le prix pratiqué (pharmacies en ligne, souvent remisé) et le prix
+    public conseillé. Le business case retient le prix public conseillé, plus proche du prix d'une boutique
+    L'Oréal en propre (référence prudente) ; le prix pratiqué sert de test de sensibilité.
+    1. moyenne des ratios par marque ; 2. moyenne des marques pondérée par leur CA dans les pilotes France.
+    """
+    r = releve.dropna(subset=["ratio_de_fr", "ratio_de_fr_ppc"])
+    r = r[r.brand.isin(catalogue_brands)]
+    if r.empty:
+        return None
+    by_brand = r.groupby("brand")[["ratio_de_fr_ppc", "ratio_de_fr"]].mean() * 100
+    w = boutiques.groupby("brand").revenue_ttc_eur.sum().reindex(by_brand.index).fillna(0)
+    w = w / w.sum()
+    ttc_ppc = float((by_brand.ratio_de_fr_ppc * w).sum())
+    ttc_actual = float((by_brand.ratio_de_fr * w).sum())
+    ht = lambda x: x / 1.19 * 1.20
+    return {
+        "weighted_ttc": ttc_ppc,
+        "weighted_ht": ht(ttc_ppc),
+        "weighted_ttc_actual_prices": ttc_actual,
+        "weighted_ht_actual_prices": ht(ttc_actual),
+        "by_brand_ttc_ppc": {k: round(float(v), 1) for k, v in by_brand.ratio_de_fr_ppc.items()},
+        "by_brand_ttc_actual": {k: round(float(v), 1) for k, v in by_brand.ratio_de_fr.items()},
+        "weights": {k: round(float(v), 3) for k, v in w.items()},
+        "n_products": int(len(r)),
+    }
+
+
 def load():
     h = pd.read_csv(INT / "hypotheses.csv").set_index("parameter")["value"].astype(float).to_dict()
     return {
@@ -50,6 +81,7 @@ def load():
         "hubs_raw": pd.read_csv(EXT / "hubs_loreal.csv"),
         "hubs": pd.read_csv(EXT / "hubs_loreal.csv").set_index("hub"),
         "reglementation": pd.read_csv(EXT / "reglementation.csv"),
+        "releve_prix": pd.read_csv(EXT / "releve_prix_soins.csv"),
         "sources": pd.read_csv(RAW / "sources.csv"),
         "boutiques": pd.read_csv(INT / "boutiques_france.csv"),
         "catalogue": pd.read_csv(INT / "catalogue_france.csv"),
@@ -114,7 +146,11 @@ def build(d):
     skin = d["categories"][d["categories"].category == "Soins de la peau"].set_index("country_code").value_bn_eur * 1e9
     skin_pc = skin / pop
     market_factor = skin_pc["DE"] / skin_pc["FR"]
-    price_factor = prix.loc["DE", "price_level_index_eu100"] / prix.loc["FR", "price_level_index_eu100"]
+    general_price_factor = prix.loc["DE", "price_level_index_eu100"] / prix.loc["FR", "price_level_index_eu100"]
+    price_idx = price_index(d["releve_prix"], b, set(d["catalogue"].brand))
+    # Indice mesuré sur les soins du catalogue (relevé de prix, pondéré par le CA des pilotes par marque).
+    # Repli sur l'indice général Eurostat si le relevé est vide.
+    price_factor = price_idx["weighted_ttc"] / 100 if price_idx else general_price_factor
     vat_de = prix.loc["DE", "vat_standard_pct"] / 100
 
     # --- Fait business case : ville x scénario
@@ -180,6 +216,15 @@ def build(d):
         },
         "prix": {
             "relative_price_index_de_vs_fr": round(float(price_factor * 100), 1),
+            "price_index_source": "relevé des soins du catalogue, prix public conseillé FR (pondéré par le CA des pilotes)" if price_idx else "Eurostat, tous biens et services",
+            "general_price_level_index_de_vs_fr": round(float(general_price_factor * 100), 1),
+            "skincare_price_index_ht": round(price_idx["weighted_ht"], 1) if price_idx else None,
+            "skincare_price_index_ttc_actual_prices": round(price_idx["weighted_ttc_actual_prices"], 1) if price_idx else None,
+            "skincare_price_index_ht_actual_prices": round(price_idx["weighted_ht_actual_prices"], 1) if price_idx else None,
+            "skincare_price_index_by_brand_ttc_ppc": price_idx["by_brand_ttc_ppc"] if price_idx else None,
+            "skincare_price_index_by_brand_ttc_actual": price_idx["by_brand_ttc_actual"] if price_idx else None,
+            "skincare_price_weights": price_idx["weights"] if price_idx else None,
+            "skincare_price_n_products": price_idx["n_products"] if price_idx else 0,
             "vat_de": float(prix.loc["DE", "vat_standard_pct"]), "vat_fr": float(prix.loc["FR", "vat_standard_pct"]),
             "gross_margin_rate_fr_pct": round(gm_rate_fr * 100, 1),
             "gross_margin_rate_de_post_tax_pct": round(gm_rate_fr * 100, 1),
@@ -292,6 +337,7 @@ def check(t, d):
         "aucune ville à 0 concurrent": (d["concurrents_villes"].groupby("city").store_count.sum() > 0).all(),
         "parts de catégories ≈ 100 % par pays": (t["fact_marche_categorie"].groupby("country_code").share_pct.sum().between(99.5, 100.5)).all(),
         "toutes les sources citées existent": set(";".join(pd.concat([d[k].source_id for k in ["marche", "categories", "villes", "concurrents", "concurrents_villes", "loyers", "hubs_raw", "reglementation"]])).split(";")) <= set(d["sources"].source_id),
+        "relevé de prix : chaque marque du catalogue a un prix DE et FR": set(d["catalogue"].brand) <= set(d["releve_prix"].dropna(subset=["ratio_de_fr", "ratio_de_fr_ppc"]).brand),
         "nombre de boutiques France = hypothèse": d["boutiques"].store_id.nunique() == int(d["h"]["nb_boutiques_france"]),
         "plan : 15 boutiques ouvertes en 2029": int(t["fact_plan_deploiement"].query("year == 2029").stores.iloc[0]) == int(d["h"]["deploiement_2029"]),
         "CA pessimiste < réaliste < optimiste": (bc.pivot_table(index=["city", "location"], columns="scenario", values="revenue_ttc_eur").pipe(lambda p: (p["Pessimiste"] < p["Réaliste"]) & (p["Réaliste"] < p["Optimiste"]))).all(),

@@ -35,7 +35,10 @@ CONCERNS_BY_AGE = {
 AGE_BANDS = [("18-24", 0.16), ("25-34", 0.27), ("35-44", 0.22), ("45-54", 0.19), ("55+", 0.16)]
 GENDERS = [("F", 0.78), ("M", 0.22)]
 SKIN_TYPES = [("mixte", 0.30), ("sèche", 0.22), ("sensible", 0.20), ("grasse", 0.15), ("normale", 0.13)]
-BASKET_SIZE = [(1, 0.20), (2, 0.35), (3, 0.30), (4, 0.15)]   # routine conseillée après diagnostic
+# Tailles de panier calées sur l'hypothèse de l'équipe (Gaspard) : ≈ 56 € TTC après diagnostic,
+# ≈ 35 € sans diagnostic (décision du 13/11/2026). Vérifié par tests/test_warehouse.py.
+BASKET_SIZE = [(1, 0.30), (2, 0.45), (3, 0.20), (4, 0.05)]   # routine conseillée après diagnostic
+WALKIN_SIZE = [(1, 0.76), (2, 0.24)]                        # achat sans diagnostic
 REPURCHASE_FIRST_DELAY = (30, 180)                          # « revenue sous 6 mois »
 REPURCHASE_CHAIN_RATE, REPURCHASE_CHAIN_DELAY = 0.40, (45, 120)
 WEEKDAY_FACTOR = {0: 0.80, 1: 0.85, 2: 0.95, 3: 1.00, 4: 1.10, 5: 1.40}   # fermé le dimanche
@@ -150,8 +153,8 @@ def main():
         for brand, target in s["target"].items():
             while target - revenue[brand] > avg_price[brand] / 2:
                 day = rng.choices(open_days, weights=day_weight)[0]
-                p = rng.choice(by_brand[brand])
-                revenue[brand] += ticket(day, store_id, "C0000000", [p], "sans_diagnostic")
+                items = [rng.choice(by_brand[brand]) for _ in range(pick(rng, WALKIN_SIZE))]
+                revenue[brand] += ticket(day, store_id, "C0000000", items, "sans_diagnostic")
 
     write("produits_attributs.csv", products)
     write("clientes.csv", customers)

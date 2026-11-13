@@ -1,0 +1,978 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Simulateur de rentabilité – boutiques en Allemagne</title>
+<style>
+:root{color-scheme:light;
+--color-bg:#faf9f7;--color-fg:#1f1e1d;--color-fg-muted:#6b6963;--color-panel:#ffffff;--color-border-line:#e4e1da;
+--color-ok:#16a34a;--color-warn:#d98b0b;--color-bad:#dc2626;
+--cds-border:#e4e1da;--cds-chart-axis:#9a968c;--cds-chart-grid:#e9e6df;--cds-chart-muted:#aaa69c;--cds-chart-reference:#6b6963;--cds-chart-status-critical:#dc2626;
+--cds-text-secondary:#6b6963;--cds-surface-popover:#ffffff;--cds-shadow-popover:0 8px 24px rgba(0,0,0,.18);
+--cds-font-size-body:16px;--cds-font-size-caption:14px;--cds-font-size-heading:21px;--cds-font-size-title:34px;--cds-font-weight-medium:600;
+--cds-gap-md:12px;--cds-gap-lg:22px;--cds-pad-lg:22px;--cds-radius:14px;
+--font-anthropic-sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+--font-anthropic-serif:ui-serif,Georgia,Cambria,"Times New Roman",serif}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:var(--font-anthropic-sans);font-size:var(--cds-font-size-body);line-height:1.5}
+#dash-root{max-width:1180px;margin:0 auto;padding:24px 16px 64px}
+.dash-select{font:inherit;font-size:var(--cds-font-size-caption);padding:8px 12px;border:1px solid var(--color-border-line);border-radius:10px;background:var(--color-panel);color:var(--color-fg);max-width:100%}
+table{border-collapse:collapse}
+button{font-family:inherit}
+@media print{body{background:#fff}}
+</style></head><body>
+<div id="dash-root" lang="fr">
+
+<style>
+  .sim { display: flex; flex-direction: column; gap: var(--cds-gap-lg); font-family: var(--font-anthropic-sans); color: var(--color-fg); }
+  .sim h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; text-wrap: balance; }
+  .sim h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0 0 4px; text-wrap: balance; }
+  .sim p { margin: 0; }
+  .sim .eyebrow { font-size: var(--cds-font-size-caption); letter-spacing: .08em; text-transform: uppercase; color: var(--color-fg-muted); }
+  .sim .muted { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+  .sim .lede { max-width: 70ch; font-size: var(--cds-font-size-body); line-height: 1.5; }
+  .sim .card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-width: 0; }
+  .sim .controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: var(--cds-gap-lg); align-items: start; }
+  .sim .ctl { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+  .sim .ctl-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 8px; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .sim .ctl-head output { color: var(--color-fg); font-weight: var(--cds-font-weight-medium); font-variant-numeric: tabular-nums; font-size: var(--cds-font-size-body); }
+  .sim input[type=range] { width: 100%; accent-color: #c9a24a; margin: 0; }
+  .sim .seg { display: flex; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); overflow: hidden; }
+  .sim .seg button { flex: 1; font: inherit; font-size: var(--cds-font-size-caption); padding: 8px 6px; border: 0; background: transparent; color: var(--color-fg); cursor: pointer; }
+  .sim .seg button + button { border-left: 1px solid var(--color-border-line); }
+  .sim .seg button.on { background: var(--color-fg); color: var(--color-bg); }
+  .sim .seg button:focus-visible, .sim input:focus-visible, .sim summary:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 2px; }
+  .sim .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: var(--cds-gap-md); }
+  .sim .tile { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .sim .tile .lbl { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .sim .tile .big { font-family: var(--font-anthropic-serif); font-size: 28px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .sim .tile .ref { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); font-variant-numeric: tabular-nums; }
+  .sim .good { color: var(--color-ok); } .sim .bad { color: var(--color-bad); } .sim .warn { color: var(--color-warn); }
+  .sim .pill { display: inline-block; font-size: var(--cds-font-size-caption); font-weight: var(--cds-font-weight-medium); padding: 3px 10px; border-radius: 999px; border: 1px solid currentColor; }
+  .sim .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--cds-gap-lg); }
+  .sim .chart { position: relative; min-height: 300px; }
+  .sim .chart svg { display: block; max-width: 100%; }
+  .sim .chart text { fill: var(--cds-text-secondary, var(--color-fg-muted)); font-size: 12px; font-family: var(--font-anthropic-sans); }
+  .sim .chart .strong { fill: var(--color-fg); font-weight: 600; }
+  .sim .tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover, var(--color-panel)); border: 1px solid var(--cds-border, var(--color-border-line)); box-shadow: var(--cds-shadow-popover); border-radius: 6px; padding: 6px 9px; font-size: 14px; color: var(--cds-text-secondary, var(--color-fg)); white-space: nowrap; z-index: 2; }
+  .sim details { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.5; }
+  .sim summary { cursor: pointer; color: var(--color-fg); }
+  .sim .legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin-bottom: 6px; }
+  .sim .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+  @media (max-width: 520px) { .sim .tile .big { font-size: 24px; } }
+</style>
+<style>.sim button.tile{border:1px solid color-mix(in srgb, #c9a24a 55%, transparent)}.sim button.tile:hover::after{transform:scale(1.12)}.sim button.tile::after{transition:transform .15s ease}</style>
+<style>.sim .hyp{margin:8px 0 0;padding-left:20px;line-height:1.7;max-width:80ch}.sim details.fold{margin:16px 0}.sim details.fold>summary{cursor:pointer;font-weight:700;padding:8px 0}.sim .inv-big{font-size:34px;font-weight:800;line-height:1.1;color:#c9a24a}.sim .inv-box{padding:14px 18px;border-radius:16px;background:linear-gradient(135deg,color-mix(in srgb,#c9a24a 10%,transparent),color-mix(in srgb,#e6d3a8 7%,transparent));line-height:1.6;max-width:76ch}</style>
+<style>.sim .grid2{align-items:start}</style>
+<style>
+  /* Habillage doux : dégradés violet, rose, corail ; coins très arrondis ; ombres légères */
+  .sim { --acc: #c9a24a; --acc2: #e6d3a8; --acc3: #a8703c; gap: 26px; }
+  .sim > header { padding: 30px 30px 26px; border-radius: 28px; border: 1px solid color-mix(in srgb, var(--color-fg) 8%, transparent);
+    background: radial-gradient(70% 120% at 0% 0%, color-mix(in srgb, #d6b46a 24%, transparent), transparent 62%),
+                radial-gradient(60% 110% at 100% 0%, color-mix(in srgb, #a8703c 22%, transparent), transparent 60%),
+                radial-gradient(50% 90% at 60% 100%, color-mix(in srgb, #e6d3a8 16%, transparent), transparent 70%), var(--color-panel);
+    box-shadow: 0 18px 40px -22px rgba(201,162,74, .45); }
+  .sim h1 { font-family: var(--font-anthropic-sans); font-weight: 750; letter-spacing: -.025em; line-height: 1.1; font-size: clamp(28px, 4.4vw, 42px);
+    background: linear-gradient(90deg, #c9a24a, #e6d3a8 60%, #a8703c); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .sim .eyebrow { display: inline-block; align-self: flex-start; padding: 4px 12px; border-radius: 999px; background: color-mix(in srgb, #c9a24a 14%, transparent); color: var(--color-fg); letter-spacing: .06em; }
+  .sim h2 { font-weight: 700; letter-spacing: -.01em; font-size: 19px; display: flex; align-items: center; gap: 10px; }
+  .sim h2::before { content: ""; flex: none; width: 12px; height: 12px; border-radius: 50%; background: linear-gradient(135deg, #c9a24a, #e6d3a8); box-shadow: 0 0 0 4px color-mix(in srgb, #c9a24a 16%, transparent); }
+  .sim .card { border-radius: 24px; padding: 26px; border: 1px solid color-mix(in srgb, var(--color-fg) 8%, transparent);
+    box-shadow: 0 1px 2px rgba(20, 16, 40, .05), 0 18px 36px -22px rgba(201,162,74, .35); }
+  .sim .tiles > .card:nth-child(4n+1) { background: linear-gradient(160deg, color-mix(in srgb, #c9a24a 13%, var(--color-panel)), var(--color-panel) 70%); }
+  .sim .tiles > .card:nth-child(4n+2) { background: linear-gradient(160deg, color-mix(in srgb, #e6d3a8 12%, var(--color-panel)), var(--color-panel) 70%); }
+  .sim .tiles > .card:nth-child(4n+3) { background: linear-gradient(160deg, color-mix(in srgb, #a8703c 13%, var(--color-panel)), var(--color-panel) 70%); }
+  .sim .tiles > .card:nth-child(4n+4) { background: linear-gradient(160deg, color-mix(in srgb, #8c8c8c 12%, var(--color-panel)), var(--color-panel) 70%); }
+  .sim .tile .big { font-family: var(--font-anthropic-sans); font-weight: 700; letter-spacing: -.02em; font-size: 30px; }
+  .sim .chip { padding: 7px 15px; border-radius: 999px; background: var(--color-panel); transition: transform .15s ease, box-shadow .15s ease; }
+  .sim .chip:hover { transform: translateY(-1px); box-shadow: 0 6px 14px -8px rgba(201,162,74, .6); }
+  .sim .chip.on { background: linear-gradient(135deg, #c9a24a, #d6b46a); color: #111; border-color: transparent; box-shadow: 0 8px 18px -8px rgba(201,162,74, .8); }
+  .sim .seg { border-radius: 999px; padding: 3px; gap: 2px; border: 1px solid color-mix(in srgb, var(--color-fg) 10%, transparent); background: color-mix(in srgb, var(--color-fg) 4%, transparent); }
+  .sim .seg button { border-radius: 999px; border: 0 !important; transition: background .15s ease; }
+  .sim .seg button.on { background: linear-gradient(135deg, #c9a24a, #d6b46a); color: #111; box-shadow: 0 6px 14px -8px rgba(201,162,74, .8); }
+  .sim select.dash-select { border-radius: 14px; }
+  .sim .take { border: 0; border-left: 4px solid #c9a24a; border-radius: 14px; padding: 12px 16px;
+    background: linear-gradient(90deg, color-mix(in srgb, #c9a24a 11%, transparent), color-mix(in srgb, #e6d3a8 6%, transparent)); }
+  .sim .pill { border: 0; background: color-mix(in srgb, currentColor 14%, transparent); }
+  .sim .tablewrap { border-radius: 16px; border: 1px solid color-mix(in srgb, var(--color-fg) 8%, transparent); }
+  .sim table th { background: color-mix(in srgb, #c9a24a 8%, transparent); font-size: 14px; letter-spacing: .02em; }
+  .sim table tbody tr:hover td { background: color-mix(in srgb, #c9a24a 6%, transparent); }
+  .sim table tr:last-child td { border-bottom: 0; }
+  .sim details { border-radius: 14px; background: color-mix(in srgb, var(--color-fg) 4%, transparent); padding: 10px 14px; }
+  .sim details > summary { font-weight: 600; }
+  .sim .card details { background: color-mix(in srgb, #c9a24a 6%, transparent); }
+  .sim input[type=range] { accent-color: #c9a24a; }
+  .sim .link { color: #c9a24a; }
+  @media (prefers-reduced-motion: reduce) { .sim .chip, .sim .seg button { transition: none; } .sim .chip:hover { transform: none; } }
+  @media (max-width: 520px) { .sim > header { padding: 22px 18px; border-radius: 22px; } .sim .card { padding: 18px; border-radius: 20px; } }
+</style>
+<style>
+  .sim button.tile { position: relative; box-shadow: 0 1px 2px rgba(20,16,40,.05), 0 14px 30px -20px rgba(201,162,74,.55); }
+  .sim button.tile::after { content: "i"; position: absolute; top: 12px; right: 14px; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #c9a24a; color: #111; font: italic 800 16px/1 Georgia, serif; box-shadow: 0 6px 14px -6px rgba(201,162,74,.9); }
+  .sim button.tile:hover { box-shadow: 0 18px 34px -16px rgba(201,162,74,.7); }
+  .sim .hint { display: inline-flex; align-self: flex-start; align-items: center; gap: 6px; margin-top: 8px; padding: 5px 12px; border-radius: 999px; background: color-mix(in srgb, #c9a24a 14%, transparent); color: #c9a24a; font-size: 14px; font-weight: 700; transition: background .15s ease, color .15s ease; }
+  .sim button.tile:hover .hint { background: #c9a24a; color: #111; }
+  .sim .hint .h-close { display: none; }
+  .sim button.tile.sel .h-open { display: none; }
+  .sim button.tile.sel .h-close { display: inline; }
+  .sim .cta { font: inherit; font-size: 14px; font-weight: 700; padding: 7px 15px; border-radius: 999px; border: 0; cursor: pointer; color: #111; background: linear-gradient(135deg, #c9a24a, #d6b46a); box-shadow: 0 8px 18px -10px rgba(201,162,74,.9); transition: transform .15s ease; }
+  .sim .cta:hover { transform: translateY(-1px); }
+  .sim .cta:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 2px; }
+  .sim .cta[aria-busy="true"] { opacity: .6; cursor: progress; }
+  .sim .ai { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; margin: 10px 0; }
+  .sim .ai-out { width: 100%; }
+  .sim .ai-box { padding: 14px 16px; border-radius: 16px; line-height: 1.6; max-width: 76ch; background: linear-gradient(135deg, color-mix(in srgb, #c9a24a 10%, transparent), color-mix(in srgb, #e6d3a8 7%, transparent)); }
+  .sim .ai-badge { display: inline-block; margin-bottom: 6px; padding: 2px 10px; border-radius: 999px; font-size: 14px; font-weight: 700; background: color-mix(in srgb, #c9a24a 16%, transparent); color: #c9a24a; }
+  @media (prefers-reduced-motion: reduce) { .sim .cta, .sim .hint { transition: none; } .sim .cta:hover { transform: none; } }
+</style>
+
+<style>
+  .eds button.tile, .sim button.tile { font: inherit; color: inherit; text-align: left; cursor: pointer; transition: transform .15s ease; }
+  .eds button.tile:hover, .sim button.tile:hover { transform: translateY(-2px); }
+  .eds button.tile.sel, .sim button.tile.sel { outline: 2px solid #c9a24a; outline-offset: 2px; }
+  .eds button.tile:focus-visible, .sim button.tile:focus-visible, .sim .link:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 2px; }
+  .eds .hint, .sim .hint { font-size: 14px; color: #c9a24a; font-weight: 600; margin-top: 2px; }
+  .eds .explain, .sim .explain { background: linear-gradient(160deg, color-mix(in srgb, #c9a24a 9%, var(--color-panel)), var(--color-panel) 75%); }
+  .eds .ex-head, .sim .ex-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .eds .explain [data-explain-block], .sim .explain [data-explain-block] { display: flex; flex-direction: column; gap: 10px; max-width: 78ch; line-height: 1.55; }
+  .eds .explain [data-explain-block][hidden], .sim .explain [data-explain-block][hidden] { display: none; }
+  .eds .explain h3, .sim .explain h3 { font-size: 16px; margin: 0; }
+  .eds .explain .formula, .sim .explain .formula { padding: 10px 14px; border-radius: 12px; background: color-mix(in srgb, var(--color-fg) 6%, transparent); font-variant-numeric: tabular-nums; }
+  .sim .link { font: inherit; font-size: var(--cds-font-size-caption); background: none; border: 0; color: #c9a24a; text-decoration: underline; cursor: pointer; padding: 4px 2px; }
+  .sim table { border-collapse: collapse; width: 100%; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+  .sim th, .sim td { padding: 7px 10px; text-align: left; border-bottom: 1px solid var(--color-border-line); }
+  .sim th.num, .sim td.num { text-align: right; }
+  .sim .tablewrap { overflow-x: auto; }
+</style>
+
+
+
+<div class="sim"><header class="band"><nav class="tabs" aria-label="Pages"><a class="tab" href="etat-des-lieux.html">État des lieux</a><a class="tab" href="villes.html">Villes</a><a class="tab" href="concurrence.html">Concurrence</a><a class="tab" href="prix-taxes.html">Prix et taxes</a><span class="tab on" aria-current="page">Simulateur</span><a class="tab" href="instructions.html">Instructions</a></nav><div class="band-top"><h1>Simulateur de rentabilité — Allemagne 2027-2031</h1></div><div class="band-filters"><div class="ctl">
+        <div class="ctl-head"><span>Scénario</span></div>
+        <div class="seg" role="group" aria-label="Scénario">
+          <button type="button" data-f="0.8" id="sc-pess">Pessimiste −20 %</button>
+          <button type="button" data-f="1" id="sc-real">Réaliste</button>
+          <button type="button" data-f="1.15" id="sc-opti">Optimiste +15 %</button>
+        </div>
+        
+      <select class="dash-select" id="sel-sdef" data-param="sdef" aria-label="Définition des scénarios"><option value="depot">Scénarios de l’équipe (chiffre d’affaires seul)</option><option value="large">Scénarios élargis (plusieurs critères, à valider)</option></select></div><div class="ctl">
+        <label class="ctl-head" for="sel-plan"><span>Plan d'ouverture</span></label>
+        <select class="dash-select" id="sel-plan" data-param="plan">
+          <option value="full">Plan complet : 3 → 8 → 15 boutiques</option>
+          <option value="sans29">Sans la vague 2029 : 3 → 8 boutiques</option>
+          <option value="pilotes">Pilotes seulement : 3 boutiques</option>
+          <option value="decale">Plan complet décalé d'un an</option>
+        </select>
+        
+      </div><details class="dd"><summary>Villes (<span data-vcount>8</span>)</summary><div class="dd-pop"><div class="chips2" role="group" aria-label="Villes où ouvrir"><button type="button" data-city="München" data-pilot aria-pressed="true">★ München</button><button type="button" data-city="Düsseldorf" data-pilot aria-pressed="true">★ Düsseldorf</button><button type="button" data-city="Frankfurt am Main" data-pilot aria-pressed="true">★ Frankfurt am Main</button><button type="button" data-city="Stuttgart" aria-pressed="true">Stuttgart</button><button type="button" data-city="Hamburg" aria-pressed="true">Hamburg</button><button type="button" data-city="Köln" aria-pressed="true">Köln</button><button type="button" data-city="Berlin" aria-pressed="true">Berlin</button><button type="button" data-city="Leipzig" aria-pressed="true">Leipzig</button></div><p class="muted keep">★ Villes pilotes (en gras)</p></div></details></div></header><p class="simnote">Données simulées : maquette de décision, pas une prévision.</p><section class="tiles" aria-label="Indicateurs clés">
+    <button type="button" class="card tile">
+      <span class="lbl">Trésorerie cumulée fin 2031</span>
+      <span class="big" data-draw="val" data-k="cash31_t">—</span>
+      <span class="ref" data-draw="val" data-k="cash31_ref">—</span>
+  
+    </button>
+    <button type="button" class="card tile">
+      <span class="lbl">Chiffre d'affaires par m² (TTC)</span>
+      <span class="big" data-draw="val" data-k="dens_t">—</span>
+      <span class="ref">Seuil de passage : 9 600 €</span>
+  
+    </button>
+    <button type="button" class="card tile">
+      <span class="lbl">EBITDA annuel des 3 pilotes</span>
+      <span class="big" data-draw="val" data-k="pilot_e">—</span>
+      <span class="ref" data-draw="val" data-k="pilot_e_ref">—</span>
+  
+    </button>
+    <button type="button" class="card tile">
+      <span class="lbl">Retour sur investissement des pilotes</span>
+      <span class="big" data-draw="val" data-k="payback">—</span>
+      <span class="ref">1,31 M€ investis, année pleine</span>
+  
+    </button>
+    <button type="button" class="card tile">
+      <span class="lbl">Réseau à l'équilibre en trésorerie</span>
+      <span class="big" data-draw="val" data-k="be_year">—</span>
+      <span class="ref">Horizon du plan : 2031</span>
+  
+    </button>
+  </section><section class="card" aria-labelledby="verdict-title">
+    <h2 id="verdict-title">Verdict</h2>
+    <p class="lede" data-when="above" hidden><span class="pill good">Seuil atteint</span> <b data-draw="val" data-k="dens">—</b> de CA par m² (seuil : 9 600 €) : vague 2028 déclenchée.</p>
+    <p class="lede" data-when="below" hidden><span class="pill warn">Sous le seuil</span> <b data-draw="val" data-k="dens">—</b> de CA par m² (seuil : 9 600 €) : on reste à 3 pilotes.</p>
+      <div class="ai"><button type="button" class="cta" data-ai="verdict">✦ Résumer cette vue</button><div class="ai-out" data-draw="aisum" data-sec="verdict" aria-live="polite"></div></div>
+  </section><section class="card" aria-labelledby="ctl-title">
+    <div class="hyp-head"><h2 id="ctl-title">Hypothèses</h2><button type="button" class="link" id="reset-sim">Tout remettre par défaut</button></div>
+    <div class="controls">
+      
+      <div class="ctl">
+        <label class="ctl-head" for="in-f"><span>Chiffre d'affaires</span><output data-draw="val" data-k="f_lbl">—</output></label>
+        <input type="range" id="in-f" min="0.6" max="1.6" step="0.01" value="1">
+        
+      </div>
+      <div class="ctl">
+        <label class="ctl-head" for="in-rent"><span>Loyers</span><output data-draw="val" data-k="rent_lbl">—</output></label>
+        <input type="range" id="in-rent" min="0.8" max="1.6" step="0.01" value="1">
+        
+      </div>
+      <div class="ctl">
+        <label class="ctl-head" for="in-staff"><span>Personnel par boutique</span><output data-draw="val" data-k="staff_lbl">—</output></label>
+        <input type="range" id="in-staff" min="150000" max="260000" step="5000" value="200000">
+        
+      </div>
+      
+      
+    </div>
+  <details class="adv"><summary>Hypothèses avancées</summary><div class="controls"><div class="ctl"><label class="ctl-head" for="in-capex"><span>Investissement par boutique</span><output data-draw="val" data-k="capex_lbl">—</output></label><input type="range" id="in-capex" min="0.7" max="1.5" step="0.01" value="1"></div><div class="ctl"><label class="ctl-head" for="in-gm"><span>Marge brute</span><output data-draw="val" data-k="gm_lbl">—</output></label><input type="range" id="in-gm" min="0.8" max="1.2" step="0.01" value="1"></div><div class="ctl"><label class="ctl-head" for="in-vc"><span>Charges variables</span><output data-draw="val" data-k="vc_lbl">—</output></label><input type="range" id="in-vc" min="0.7" max="1.5" step="0.01" value="1"></div><div class="ctl"><label class="ctl-head" for="sel-ramp"><span>Montée en charge</span></label><select class="dash-select" id="sel-ramp" data-param="ramp"><option value="prevue">Prévue : 70 → 90 → 100 %</option><option value="lente">Lente : 50 → 75 → 100 %</option><option value="rapide">Rapide : 85 → 100 → 100 %</option></select></div></div></details></section>
+  <style>.sim .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.sim .tab{padding:8px 16px;border-radius:999px;font-size: 14px;font-weight:700;text-decoration:none;color:#c9a24a;background:color-mix(in srgb,#c9a24a 12%,transparent)}.sim a.tab:hover{background:#c9a24a;color:#111}.sim .tab.on{background:linear-gradient(135deg,#c9a24a,#d6b46a);color:#111}@media print{.sim .tabs{display:none}}</style><style>.sim .simnote{margin:0 0 14px;padding:10px 14px;border-radius:14px;font-size:14px;line-height:1.5;background:color-mix(in srgb,#a8703c 14%,transparent)}</style>
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  <section class="grid2">
+    <div class="card">
+      <h2 id="h-cash">Trésorerie cumulée du réseau</h2>
+      <p class="take"><b data-draw="val" data-k="cash_title">—</b></p>
+      
+      <div class="legend"><span><i data-draw="legend" data-k="0"></i>Votre simulation</span><span><i data-draw="legend" data-k="1"></i>Scénarios de référence</span></div>
+      <div class="chart" data-draw="cash" data-source="boutiques ouvertures" aria-labelledby="h-cash"></div>
+      <div class="ai"><button type="button" class="cta" data-ai="cash">✦ Résumer cette vue</button><div class="ai-out" data-draw="aisum" data-sec="cash" aria-live="polite"></div></div>
+      
+    </div>
+    <div class="card">
+      <h2 id="h-city">EBITDA annuel par ville</h2>
+      
+      <div class="chart" data-draw="city" data-source="boutiques" aria-labelledby="h-city"></div>
+    <div class="ai"><button type="button" class="cta" data-ai="city">✦ Résumer cette vue</button><div class="ai-out" data-draw="aisum" data-sec="city" aria-live="polite"></div></div>
+    
+    </div>
+  </section>
+
+  <details class="fold"><summary>EBITDA et investissements par année</summary>
+  <section class="card">
+    <h2 id="h-year">EBITDA du réseau et investissements</h2>
+    
+    <div class="legend"><span><i data-draw="legend" data-k="2"></i>EBITDA du réseau</span><span><i data-draw="legend" data-k="3"></i>Investissements</span></div>
+    <div class="chart" data-draw="year" data-source="boutiques ouvertures" aria-labelledby="h-year"></div>
+    
+  </section>
+  </details>
+
+
+  <style>.sim .bar2{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:8px 0}.sim .good-t{fill:#16a34a}.sim .bad-t{fill:#ef4444}</style>
+  <style>.sim .ctl-wide{grid-column:1/-1}.sim .chips2{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}.sim .chips2 button{font:inherit;font-size:14px;font-weight:500;padding:7px 14px;border-radius:999px;border:2px solid #c9a24a;cursor:pointer;color:#c9a24a;background:transparent}.sim .chips2 button[aria-pressed="true"]{background:linear-gradient(135deg,#c9a24a,#d6b46a);color:#111}.sim .chips2 button[data-pilot]{font-weight:800}.sim .chips2 button:focus-visible{outline:2px solid var(--color-fg);outline-offset:2px}</style>
+  <section class="card" aria-labelledby="h-torn">
+    <h2 id="h-torn">Sensibilité de la trésorerie 2031 (±20 %)</h2>
+    
+    <div class="chart" data-draw="tornado" data-source="boutiques ouvertures" aria-labelledby="h-torn"></div>
+      <div class="ai"><button type="button" class="cta" data-ai="torn">✦ Résumer cette vue</button><div class="ai-out" data-draw="aisum" data-sec="torn" aria-live="polite"></div></div>
+    
+    
+  </section>
+
+
+  <section class="card" aria-labelledby="h-inv">
+    <h2 id="h-inv">Chiffre d'affaires nécessaire</h2>
+    <div class="bar2"><label class="cap" for="sel-tgt">Objectif</label><select class="dash-select" id="sel-tgt" data-param="tgt">
+      <option value="pay5">Boutiques pilotes remboursées en 5 ans</option>
+      <option value="pay4">Boutiques pilotes remboursées en 4 ans</option>
+      <option value="pay6">Boutiques pilotes remboursées en 6 ans</option>
+      <option value="eq35">Réseau à l'équilibre en trésorerie en 2035</option>
+    </select></div>
+    
+    <div data-draw="inverse" data-source="boutiques ouvertures" aria-live="polite"></div>
+    
+  </section>
+
+  <section class="card" aria-labelledby="h-wf">
+    <h2 id="h-wf">Décomposition de l'EBITDA d'une boutique</h2>
+    <div class="bar2"><label class="cap" for="sel-wc">Ville</label><select class="dash-select" id="sel-wc" data-param="wc"><option value="München">München</option><option value="Düsseldorf">Düsseldorf</option><option value="Frankfurt am Main">Frankfurt am Main</option><option value="Stuttgart">Stuttgart</option><option value="Hamburg">Hamburg</option><option value="Köln">Köln</option><option value="Berlin">Berlin</option><option value="Leipzig">Leipzig</option></select></div>
+    
+    <div class="chart" data-draw="waterfall" data-source="boutiques" aria-labelledby="h-wf"></div>
+    
+  </section>
+
+
+  
+
+  
+</div>
+
+
+<p class="foot">Méthode de calcul, définitions et sources : onglet <a href="instructions.html">Instructions</a>.</p>
+</div>
+<style>
+:root{color-scheme:light}
+html,body{background:#fff!important;color:#1a1a1a}
+body{font-size:15px}
+#dash-root{max-width:1120px}
+.eds,.sim{gap:20px!important}
+.eds>header,.sim>header{background:none!important;border:0!important;box-shadow:none!important;padding:0!important;border-radius:0!important}
+.eds h1,.sim h1{background:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;color:#1a1a1a!important;font-size:26px!important;font-weight:700!important;letter-spacing:-.01em!important;margin:0!important}
+.eds h2,.sim h2{font-size:16px!important;font-weight:700!important;color:#1a1a1a;gap:0!important}
+.eds h2::before,.sim h2::before{display:none!important}
+.eds .card,.sim .card{background:#fff!important;border:1px solid #e6e6e6!important;border-radius:8px!important;box-shadow:none!important;padding:18px!important}
+.eds .tile .big,.sim .tile .big{background:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;color:#1a1a1a!important;font-size:28px!important;font-weight:700!important}
+.eds .tile .lbl,.sim .tile .lbl{color:#555!important;font-size:14px}
+.eds .tile .ref,.sim .tile .ref{color:#777!important}
+.eds button.tile,.sim button.tile{cursor:default!important;pointer-events:none;border:1px solid #e6e6e6!important;transition:none!important}
+.eds button.tile::after,.sim button.tile::after{display:none!important}
+.sim .seg button.on{background:#1a1a1a!important;color:#fff!important}
+.sim .seg button{min-width:0}
+.sim .tile .big{font-size:24px!important;overflow-wrap:anywhere}
+.eds .chip,.sim .chips2 button,.sim .seg button{background:#fff!important;color:#333!important;border:1px solid #d6d6d6!important;box-shadow:none!important;border-radius:999px!important}
+.eds .chip.on,.sim .chips2 button[aria-pressed="true"],.sim .seg button.on,.sim .seg button[aria-pressed="true"]{background:#1a1a1a!important;color:#fff!important;border-color:#1a1a1a!important}
+.eds .seg,.sim .seg{background:none!important;border:0!important;padding:0!important;gap:6px!important}
+.eds .cta{background:#fff!important;color:#1a1a1a!important;border:1px solid #1a1a1a!important;box-shadow:none!important}
+.eds .link,.sim .link{color:#555!important}
+.eds .tab,.sim .tab{background:none!important;color:#555!important;border:1px solid transparent;border-radius:6px!important;padding:6px 12px!important;font-weight:600!important}
+.eds a.tab:hover,.sim a.tab:hover{background:#f3f3f3!important;color:#1a1a1a!important}
+.eds .tab.on,.sim .tab.on{background:#f3f3f3!important;color:#1a1a1a!important;border-color:#e0e0e0}
+.eds .tabs,.sim .tabs{border-bottom:1px solid #e6e6e6;padding-bottom:8px;margin-bottom:6px!important}
+.eds .simnote,.sim .simnote{background:none!important;padding:0!important;margin:0!important;color:#777!important;font-size:13px!important}
+.eds .muted,.sim .muted{color:#777!important;font-size:13px!important}
+.eds .tablewrap{border:1px solid #eee!important}
+.eds table th{background:#fafafa!important;color:#555!important}
+.eds table tbody tr:hover td{background:#fafafa!important}
+.eds details,.sim details{background:none!important;padding:0!important}
+.eds details>summary,.sim details>summary{color:#555!important;font-weight:600}
+.eds .regl-card{background:#fafafa!important}
+.eds input[type=range],.sim input[type=range]{accent-color:#1a1a1a}
+.sim .pill,.eds .pill{border-radius:4px!important}
+.foot{margin:24px 0 0;color:#777;font-size:13px}
+.foot a{color:#555}
+@media print{.tabs{display:none}}
+
+.eds>header.band,.sim>header.band{background:#1a1a1a!important;padding:12px 18px 16px!important;border-radius:10px!important}
+.band{background:#1a1a1a;color:#fff;border-radius:10px;padding:12px 18px 16px;display:flex;flex-direction:column;gap:10px}
+.eds .band h1,.sim .band h1{color:#fff!important;font-size:24px!important}
+.band-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
+.band .row-actions{margin:0!important}
+.eds .band .tabs,.sim .band .tabs{border-bottom:1px solid #333;margin:0!important;padding-bottom:8px}
+.eds .band .tab,.sim .band .tab{color:#bbb!important}
+.eds .band a.tab:hover,.sim .band a.tab:hover{background:#2a2a2a!important;color:#fff!important}
+.eds .band .tab.on,.sim .band .tab.on{background:#333!important;color:#fff!important;border-color:#444}
+.band-filters{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end}
+.band .cap,.band .ctl-head,.band .muted{color:#bbb!important;font-size:13px!important}
+.eds .band .chip,.sim .band .chips2 button{background:transparent!important;color:#ddd!important;border:1px solid #666!important}
+.eds .band .chip.on,.sim .band .chips2 button[aria-pressed="true"]{background:#c9a24a!important;color:#111!important;border-color:#c9a24a!important}
+.band .link{color:#ccc!important}
+.band .cta{background:transparent!important;color:#fff!important;border:1px solid #fff!important}
+.sim .band .seg button{background:transparent!important;color:#ddd!important;border:1px solid #666!important}
+.sim .band .seg button.on{background:#c9a24a!important;color:#111!important;border-color:#c9a24a!important}
+.sim .band .ctl{display:flex;flex-direction:column;gap:6px;min-width:0}
+.sim .band .ctl-wide{flex:1 1 100%}
+.sim .band .seg{flex-wrap:nowrap}
+.sim .band .seg button{white-space:nowrap;padding:8px 14px!important;flex:0 0 auto!important}
+.grid-two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid-two>.card{min-width:0}
+@media(max-width:820px){.grid-two{grid-template-columns:1fr}}
+.eds .tiles .tile,.sim .tiles .tile{align-items:center;text-align:center}
+.eds .tile .lbl,.sim .tile .lbl{color:#1a1a1a!important;font-size:15px}
+.eds h2,.sim h2{text-transform:none}
+
+.ai{display:flex;flex-direction:column;gap:8px;align-items:flex-start;margin:4px 0 0}
+.ai-out{width:100%}
+.ai-out>.muted{display:none}
+.cta{font:inherit;font-size:13px!important;font-weight:600;padding:4px 12px!important;border-radius:999px!important;border:1px solid #bbb!important;background:#fff!important;color:#333!important;cursor:pointer;box-shadow:none!important}
+.cta:hover{background:#f3f3f3!important}
+.ai-box{background:#fafafa!important;border:1px solid #eee;border-radius:8px!important;padding:10px 14px!important;font-size:14px;max-width:70ch}
+.ai-badge{display:block!important;font-size:12px!important;color:#777!important;background:none!important;padding:0!important;margin-bottom:4px}
+@media print{.ai{display:none!important}}
+.hyp-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.adv{margin-top:14px}
+.adv>summary{cursor:pointer;font-weight:600;color:#555}
+.adv .controls{margin-top:12px}
+.dd{position:relative}
+.dd>summary{list-style:none;cursor:pointer;padding:8px 14px;border:1px solid #666;border-radius:8px;color:#fff;background:#222;font-size:14px;min-width:150px}
+.eds .band .dd>summary,.sim .band .dd>summary{color:#fff!important}
+.dd>summary::-webkit-details-marker{display:none}
+.dd>summary::after{content:"▾";float:right;margin-left:12px}
+.dd-pop{position:absolute;z-index:20;top:calc(100% + 6px);left:0;width:min(520px,86vw);background:#fff;color:#1a1a1a;border:1px solid #ddd;border-radius:10px;box-shadow:0 10px 28px rgba(0,0,0,.2);padding:14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.dd-pop .muted{flex:1 1 100%;margin:4px 0 0;color:#777!important}
+.eds .dd-pop .chip,.sim .dd-pop .chips2 button,.sim .dd-pop button{background:#fff!important;color:#333!important;border:1px solid #d6d6d6!important}
+.eds .dd-pop .chip.on,.sim .dd-pop button[aria-pressed="true"]{background:#c9a24a!important;color:#111!important;border-color:#c9a24a!important}
+.dd-pop .link{color:#555!important}
+.sim .dd-pop .chips2{display:contents}
+.eds .chip.on{background:#f0f0f0!important;color:#1a1a1a!important;border-color:#1a1a1a!important}
+.sim .band-filters .ctl-wide{display:none}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>window.__CSV__={"boutiques": "city,revenue_ttc_eur,gross_margin_eur,rent_eur,staff_eur,other_costs_eur,logistics_eur,capex_eur\nMünchen,779696.77,460520.78,48600.0,200000.0,65520.74,12933.79,435000.0\nDüsseldorf,690847.6,408042.83,24840.0,200000.0,58054.42,11677.65,435000.0\nFrankfurt am Main,657000.3,388051.23,34560.0,200000.0,55210.11,9565.15,435000.0\nStuttgart,650956.14,384481.3,37800.0,200000.0,54702.2,8845.35,435000.0\nHamburg,639472.24,377698.44,27000.0,200000.0,53737.16,13275.77,435000.0\nKöln,627383.91,370558.58,28080.0,200000.0,52721.34,10264.84,435000.0\nBerlin,579030.63,341999.15,32400.0,200000.0,48658.04,12093.95,435000.0\nLeipzig,551831.9,325934.47,21600.0,200000.0,46372.43,10294.68,435000.0\n", "ouvertures": "city,year\nMünchen,2027\nDüsseldorf,2027\nFrankfurt am Main,2027\nHamburg,2028\nStuttgart,2028\nKöln,2028\nBerlin,2028\nLeipzig,2028\nMünchen,2029\nDüsseldorf,2029\nFrankfurt am Main,2029\nHamburg,2029\nStuttgart,2029\nKöln,2029\nBerlin,2029\n"};
+window.__DEFAULTS__={"explain": "", "f": 1, "rent": 1, "staff": 200000};</script>
+<script>
+(function(){
+  function parseCSV(text){
+    const rows=[];let row=[],f='',q=false;
+    for(let i=0;i<text.length;i++){const c=text[i];
+      if(q){ if(c==='"'){ if(text[i+1]==='"'){f+='"';i++;} else q=false; } else f+=c; }
+      else if(c==='"') q=true;
+      else if(c===','){row.push(f);f='';}
+      else if(c==='\n'||c==='\r'){ if(c==='\r'&&text[i+1]==='\n')i++; row.push(f);f=''; if(row.length>1||row[0]!=='')rows.push(row); row=[]; }
+      else f+=c;
+    }
+    if(f!==''||row.length){row.push(f);rows.push(row);}
+    const h=rows.shift()||[];
+    return rows.map(r=>{const o={};h.forEach((k,i)=>{o[k.trim()]=r[i]===undefined?'':r[i];});return o;});
+  }
+  const parsed={};
+  const clone=(o)=>JSON.parse(JSON.stringify(o));
+  let params=clone(window.__DEFAULTS__||{});
+  const drawers={},cbs=[];let pending=false,started=false;
+  function render(){
+    pending=false;
+    Object.keys(drawers).forEach(n=>{document.querySelectorAll('[data-draw="'+n+'"]').forEach(el=>{try{drawers[n](el);}catch(e){console.error('draw '+n,e);}});});
+    cbs.forEach(cb=>{try{cb();}catch(e){console.error('onData',e);}});
+    /*SELBIND*/document.querySelectorAll('select[data-param]').forEach(el=>{const v=params[el.dataset.param]; if(document.activeElement!==el) el.value=(v!=null&&v!=='')?v:el.options[0].value;});
+  }
+  function schedule(){ if(!started||pending)return; pending=true; requestAnimationFrame(render); }
+  window.dash={
+    data(id){ if(!(id in (window.__CSV__||{}))) return {status:'error',data:[]};
+      if(!parsed[id]) parsed[id]=parseCSV(window.__CSV__[id]);
+      return {status:'ok',data:parsed[id]}; },
+    params(){ return clone(params); },
+    setParams(o){ Object.assign(params,clone(o)); schedule(); },
+    resetParams(){ params=clone(window.__DEFAULTS__||{}); schedule(); },
+    onData(fn){ cbs.push(fn); },
+    draw(name,fn){ drawers[name]=fn; },
+    __start(){ started=true; document.querySelectorAll('select[data-param]').forEach(el=>el.addEventListener('change',()=>{const o={};o[el.dataset.param]=el.value;window.dash.setParams(o);})); render();
+      let t; window.addEventListener('resize',()=>{clearTimeout(t);t=setTimeout(render,150);});
+      document.addEventListener('toggle',()=>schedule(),true);
+      window.addEventListener('beforeprint',render); }
+  };
+  if(typeof d3==='undefined'){ document.addEventListener('DOMContentLoaded',()=>{ const p=document.createElement('p'); p.style.cssText='padding:16px;border:1px solid #c33;border-radius:12px;margin:16px'; p.textContent='La bibliothèque de graphiques (D3) n’a pas pu être chargée : vérifiez la connexion internet puis rechargez la page.'; document.body.prepend(p); }); }
+})();
+</script>
+<script>
+  // Constantes choisies par l'équipe (README du dépôt), pas des données.
+  const RAMP = [0.7, 0.9, 1];
+  const RAMPS = { prevue: [0.7, 0.9, 1], lente: [0.5, 0.75, 1], rapide: [0.85, 1, 1] };
+  const DENS_REAL = 7880, DENS_NEEDED = 9600;
+  const PILOTS = ['München', 'Düsseldorf', 'Frankfurt am Main'];
+  const YEARS = [2027, 2028, 2029, 2030, 2031];
+  const YEARS_EXT = [2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035];
+  const SCEN = [{ f: 0.8, name: 'Pessimiste' }, { f: 1, name: 'Réaliste' }, { f: 1.15, name: 'Optimiste' }];
+
+  const nf = (d) => new Intl.NumberFormat('fr-FR', { minimumFractionDigits: d, maximumFractionDigits: d });
+  const sgn = (s, v) => (v < 0 ? '−' + s.replace('-', '') : s);
+  const fM = (v) => sgn(nf(2).format(v / 1e6), v) + ' M€';
+  const fK = (v) => sgn(nf(0).format(v / 1e3), v) + ' k€';
+  const fE = (v) => sgn(nf(0).format(v), v) + ' €';
+
+  function load() {
+    const b = dash.data('boutiques'), o = dash.data('ouvertures');
+    if (b.status !== 'ok' || o.status !== 'ok' || !b.data.length) return null;
+    const B = {};
+    b.data.forEach((r) => {
+      B[r.city] = { gm: +r.gross_margin_eur, other: +r.other_costs_eur, logi: +r.logistics_eur, rent: +r.rent_eur, capex: +r.capex_eur };
+    });
+    return { B, O: o.data.map((r) => ({ city: r.city, year: +r.year })) };
+  }
+
+  function params() {
+    const p = dash.params();
+    return { f: +p.f || 1, rent: +p.rent || 1, staff: +p.staff || 200000, plan: p.plan || 'full', off: p.off || '', capex: +p.capex || 1, gm: +p.gm || 1, vc: +p.vc || 1, ramp: RAMPS[p.ramp] ? p.ramp : 'prevue' };
+  }
+  const offList = (p) => (p.off || '').split('|').filter(Boolean);
+  function openings(m, p) {
+    let O = m.O;
+    if (p.plan === 'pilotes') O = O.filter((o) => o.year === 2027);
+    else if (p.plan === 'sans29') O = O.filter((o) => o.year < 2029);
+    else if (p.plan === 'decale') O = O.map((o) => ({ ...o, year: o.year + 1 }));
+    const off = offList(p);
+    return O.filter((o) => !off.includes(o.city));
+  }
+
+  function storeEbitda(r, p, k) {
+    return (r.gm * p.gm - (r.other + r.logi) * p.vc) * p.f * k - r.rent * p.rent - p.staff;
+  }
+
+  function plan(m, p, years) {
+    let cum = 0;
+    const O = openings(m, p);
+    return (years || YEARS).map((y) => {
+      let e = 0, cap = 0, n = 0;
+      O.forEach((o) => {
+        if (o.year > y || !m.B[o.city]) return;
+        n++;
+        e += storeEbitda(m.B[o.city], p, RAMPS[p.ramp][Math.min(y - o.year, 2)]);
+        if (y === o.year) cap += m.B[o.city].capex * p.capex;
+      });
+      cum += e - cap;
+      return { year: y, stores: n, ebitda: e, capex: cap, cum };
+    });
+  }
+
+  function cities(m, p) {
+    return Object.keys(m.B).map((c) => ({ city: c, ebitda: storeEbitda(m.B[c], p, 1), pilot: PILOTS.includes(c) }))
+      .sort((a, b) => b.ebitda - a.ebitda);
+  }
+
+  function summary() {
+    const m = load();
+    if (!m) return null;
+    const p = params();
+    const base = { f: 1, rent: 1, staff: 200000, plan: 'full', off: '', capex: 1, gm: 1, vc: 1, ramp: 'prevue' };
+    const pl = plan(m, p), pb = plan(m, base), ext = plan(m, p, YEARS_EXT);
+    const off = offList(p), pilots = PILOTS.filter((c) => !off.includes(c));
+    const pilotE = pilots.reduce((s, c) => s + storeEbitda(m.B[c], p, 1), 0);
+    const pilotE0 = PILOTS.reduce((s, c) => s + storeEbitda(m.B[c], base, 1), 0);
+    const capex = pilots.reduce((s, c) => s + m.B[c].capex * p.capex, 0);
+    const be = pl.find((y) => y.cum >= 0);
+    return { m, p, pl, pb, ext, pilots, pilotE, pilotE0, capex, be, dens: DENS_REAL * p.f };
+  }
+
+  const VAL = {
+    f_lbl: (s) => '×' + nf(2).format(s.p.f),
+    f_x: (s) => nf(2).format(s.p.f),
+    rent_lbl: (s) => '×' + nf(2).format(s.p.rent),
+    staff_lbl: (s) => fK(s.p.staff),
+    capex_lbl: (s) => '×' + nf(2).format(s.p.capex),
+    gm_lbl: (s) => '×' + nf(2).format(s.p.gm),
+    vc_lbl: (s) => '×' + nf(2).format(s.p.vc),
+    dens: (s) => fE(s.dens),
+    dens_t: (s) => fE(s.dens),
+    cash31: (s) => fM(s.pl[4].cum),
+    cash31_t: (s) => fM(s.pl[4].cum),
+    cash31_ref: (s) => 'Réaliste de référence : ' + fM(s.pb[4].cum),
+    pilot_e: (s) => fK(s.pilotE),
+    pilot_e_ref: (s) => 'Réaliste de référence : ' + fK(s.pilotE0),
+    payback: (s) => (s.pilotE > 0 ? nf(1).format(s.capex / s.pilotE) + ' ans' : 'Jamais'),
+    be_year: (s) => (s.be ? String(s.be.year) : 'Non atteint'),
+  };
+  const TONE = {
+    cash31_t: (s) => (s.pl[4].cum >= 0 ? 'good' : 'bad'),
+    dens_t: (s) => (s.dens >= DENS_NEEDED ? 'good' : 'warn'),
+    pilot_e: (s) => (s.pilotE > 0 ? 'good' : 'bad'),
+    payback: (s) => (s.pilotE > 0 && s.capex / s.pilotE <= 6 ? 'good' : 'warn'),
+    be_year: (s) => (s.be ? 'good' : 'bad'),
+  };
+
+  // Contrôles : l'état vit dans les paramètres de la page.
+  const $ = (id) => document.getElementById(id);
+  const inputs = [['in-f', 'f'], ['in-rent', 'rent'], ['in-staff', 'staff'], ['in-capex', 'capex'], ['in-gm', 'gm'], ['in-vc', 'vc']];
+  inputs.forEach(([id, name]) => {
+    const el = $(id);
+    if (el) el.addEventListener('input', () => dash.setParams({ [name]: +el.value }));
+  });
+  document.querySelectorAll('.chips2 button').forEach((b) => b.addEventListener('click', () => {
+    const cur = offList(params()), c = b.dataset.city;
+    dash.setParams({ off: (cur.includes(c) ? cur.filter((x) => x !== c) : cur.concat(c)).join('|') });
+  }));
+  dash.onData(() => {
+    const off = offList(params());
+    document.querySelectorAll('.chips2 button').forEach((b) => b.setAttribute('aria-pressed', String(!off.includes(b.dataset.city))));
+  });
+  document.querySelectorAll('.seg button').forEach((b) => {
+    b.addEventListener('click', () => {
+      const f = +b.dataset.f, big = dash.params().sdef === 'large';
+      const X = { '0.8': { rent: 1.1, capex: 1.15, vc: 1.1, gm: 1, ramp: 'lente' }, '1': { rent: 1, capex: 1, vc: 1, gm: 1, ramp: 'prevue' }, '1.15': { rent: 0.95, capex: 0.95, vc: 0.95, gm: 1, ramp: 'rapide' } };
+      dash.setParams(big ? Object.assign({ f }, X[String(f)]) : { f });
+    });
+  });
+
+  dash.onData(() => {
+    const p = params();
+    inputs.forEach(([id, name]) => {
+      const el = $(id);
+      if (el && document.activeElement !== el) el.value = p[name];
+    });
+    document.querySelectorAll('.seg button').forEach((b) => b.classList.toggle('on', Math.abs(+b.dataset.f - p.f) < 0.005));
+    const s = summary();
+    document.querySelectorAll('[data-when]').forEach((el) => {
+      el.hidden = !s || (el.dataset.when === 'above') !== (s.dens >= DENS_NEEDED);
+    });
+  });
+
+  document.querySelectorAll('[data-explain-open]').forEach((el) => el.addEventListener('click', () => {
+    const k = el.dataset.explainOpen;
+    dash.setParams({ explain: k === '' || dash.params().explain === k ? '' : k });
+  }));
+  dash.onData(() => {
+    const k = dash.params().explain || '';
+    document.querySelectorAll('[data-explain-panel]').forEach((p) => {
+      let any = false;
+      p.querySelectorAll('[data-explain-block]').forEach((b) => { const on = b.dataset.explainBlock === k; b.hidden = !on; if (on) any = true; });
+      p.hidden = !any;
+    });
+    document.querySelectorAll('button.tile[data-explain-open]').forEach((b) => b.classList.toggle('sel', b.dataset.explainOpen === k));
+  });
+  VAL.capex = (s) => fM(s.capex);
+  VAL.ramp_lbl = () => RAMP.map((r) => nf(0).format(r * 100) + ' %').join(' · ');
+  VAL.seuil_lbl = () => fE(DENS_NEEDED);
+  VAL.cash_title = (s) => {
+    const e = s.ext, last = e[e.length - 1];
+    let lo = e[0];
+    e.forEach((d) => { if (d.cum < lo.cum) lo = d; });
+    const be = e.find((d) => d.cum >= 0);
+    if (lo.cum >= 0) return 'Le réseau ne consomme pas de trésorerie sur cette période';
+    if (lo.year === last.year) return 'Besoin de financement : plus de ' + fM(-lo.cum) + ', la trésorerie baisse encore en ' + last.year;
+    return 'Besoin de financement maximal : ' + fM(-lo.cum) + ' en ' + lo.year + (be ? ', équilibre atteint en ' + be.year : ', pas encore à l\u2019équilibre en ' + last.year);
+  };
+  function mkTable(el, heads, rows) {
+    const t = d3.select(el);
+    el.replaceChildren();
+    t.append('thead').append('tr').selectAll('th').data(heads).join('th').attr('class', (d, i) => (i ? 'num' : null)).text((d) => d);
+    t.append('tbody').selectAll('tr').data(rows).join('tr').selectAll('td').data((r) => r).join('td').attr('class', (d, i) => (i ? 'num' : null)).text((d) => d);
+  }
+  dash.draw('ex_plan', (el) => {
+    const s = summary();
+    if (!s) { el.replaceChildren(); return; }
+    mkTable(el, ['Année', 'Boutiques ouvertes', 'EBITDA du réseau', 'Investissements', 'Trésorerie cumulée'], s.pl.map((d) => [String(d.year), String(d.stores), fM(d.ebitda), fM(d.capex), fM(d.cum)]));
+  });
+  dash.draw('ex_pilots', (el) => {
+    const s = summary();
+    if (!s) { el.replaceChildren(); return; }
+    const rows = s.pilots.map((c) => {
+      const r = s.m.B[c], gm = (r.gm - r.other - r.logi) * s.p.f;
+      return [c, fK(gm), fK(r.rent * s.p.rent), fK(s.p.staff), fK(gm - r.rent * s.p.rent - s.p.staff)];
+    });
+    rows.push(['Total', '', '', '', fK(s.pilotE)]);
+    mkTable(el, ['Ville', 'Marge après charges variables', 'Loyer', 'Personnel', 'EBITDA'], rows);
+  });
+
+  dash.draw('val', (el) => {
+    const k = el.dataset.k, s = summary();
+    if (!s || !VAL[k]) { el.textContent = '—'; return; }
+    el.textContent = VAL[k](s);
+    if (TONE[k]) { el.classList.remove('good', 'bad', 'warn'); el.classList.add(TONE[k](s)); }
+  });
+
+  dash.draw('legend', (el) => {
+    const c = ['#c9a24a'];
+    const map = { 0: c[0], 1: 'var(--cds-chart-muted)', 2: c[0], 3: 'var(--cds-chart-muted)' };
+    el.style.background = map[el.dataset.k];
+  });
+
+  function tipFor(host) {
+    const t = document.createElement('div');
+    t.className = 'tip';
+    t.hidden = true;
+    host.appendChild(t);
+    return {
+      show(ev, html) {
+        const r = host.getBoundingClientRect();
+        t.textContent = html;
+        t.hidden = false;
+        const x = Math.min(ev.clientX - r.left + 12, r.width - t.offsetWidth - 4);
+        t.style.left = Math.max(0, x) + 'px';
+        t.style.top = Math.max(0, ev.clientY - r.top - 34) + 'px';
+      },
+      hide() { t.hidden = true; },
+    };
+  }
+
+  function svgBase(el, W, H, label) {
+    const svg = d3.create('svg').attr('width', W).attr('height', H).attr('viewBox', `0 0 ${W} ${H}`)
+      .attr('role', 'img').attr('aria-label', label);
+    return svg;
+  }
+
+  // --- Trésorerie cumulée
+  dash.draw('cash', (el) => {
+    const s = summary();
+    if (!s) { el.replaceChildren(); return; }
+    const W = Math.max(el.clientWidth, 280), H = 320, m = { t: 14, r: W < 420 ? 74 : 104, b: 28, l: 52 };
+    const refs = SCEN.map((sc) => ({ ...sc, pts: plan(s.m, { ...s.p, f: sc.f }, YEARS_EXT) }));
+    const cur = s.ext, n = cur.length - 1;
+    const all = cur.map((d) => d.cum).concat(...refs.map((r) => r.pts.map((d) => d.cum)), 0);
+    const y = d3.scaleLinear().domain([d3.min(all), d3.max(all)]).nice().range([H - m.b, m.t]);
+    const x = d3.scalePoint().domain(YEARS_EXT).range([m.l, W - m.r]);
+    const svg = svgBase(el, W, H, 'Trésorerie cumulée du réseau de 2027 à 2035, simulation et trois scénarios de référence');
+    svg.append('rect').attr('x', x(2031)).attr('y', m.t).attr('width', W - m.r - x(2031)).attr('height', H - m.b - m.t).style('fill', 'var(--cds-chart-grid)').style('fill-opacity', 0.45);
+    svg.append('g').attr('transform', `translate(${m.l},0)`)
+      .call(d3.axisLeft(y).ticks(5).tickSize(-(W - m.r - m.l)).tickFormat((v) => (v === 0 ? '0' : sgn(nf(2).format(v / 1e6), v) + ' M€')))
+      .call((g) => { g.select('.domain').remove(); g.selectAll('.tick line').attr('stroke', 'var(--cds-chart-grid)'); });
+    svg.append('g').attr('transform', `translate(0,${H - m.b})`).call(d3.axisBottom(x).tickSize(0).tickPadding(8).tickValues(YEARS_EXT.filter((v, i) => (W < 460 ? i % 2 === 0 : true))))
+      .call((g) => g.select('.domain').attr('stroke', 'var(--cds-chart-axis)'));
+    svg.append('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', y(0)).attr('y2', y(0)).attr('stroke', 'var(--cds-chart-axis)');
+    const line = d3.line().x((d) => x(d.year)).y((d) => y(d.cum));
+    const lastY = y(cur[n].cum);
+    refs.forEach((r) => {
+      svg.append('path').attr('d', line(r.pts)).attr('fill', 'none').attr('stroke', 'var(--cds-chart-muted)').attr('stroke-width', 1.5).attr('stroke-dasharray', '4 3');
+      const ly = y(r.pts[n].cum);
+      if (Math.abs(ly - lastY) > 14) svg.append('text').attr('x', W - m.r + 8).attr('y', ly + 4).text(r.name);
+    });
+    svg.append('path').attr('d', line(cur)).attr('fill', 'none').attr('stroke', '#c9a24a').attr('stroke-width', 2.5);
+    svg.append('text').attr('class', 'strong').attr('x', W - m.r + 8).attr('y', lastY + 4).text('Simulation');
+    let lo = cur[0];
+    cur.forEach((d) => { if (d.cum < lo.cum) lo = d; });
+    if (lo.cum < 0) {
+      svg.append('circle').attr('cx', x(lo.year)).attr('cy', y(lo.cum)).attr('r', 7).style('fill', 'none').style('stroke', '#ef4444').style('stroke-width', 2.5);
+      const left = x(lo.year) > (m.l + W - m.r) / 2;
+      svg.append('text').attr('class', 'strong').attr('x', x(lo.year) + (left ? -12 : 12)).attr('y', y(lo.cum) - 10).attr('text-anchor', left ? 'end' : 'start').text('Point bas ' + fM(lo.cum));
+    }
+    el.replaceChildren(svg.node());
+    const tip = tipFor(el);
+    svg.selectAll('circle.pt').data(cur).join('circle').attr('class', 'pt').attr('cx', (d) => x(d.year)).attr('cy', (d) => y(d.cum)).attr('r', 3.5)
+      .style('fill', '#c9a24a').style('cursor', 'default')
+      .on('mousemove', (ev, d) => tip.show(ev, `${d.year}${d.year > 2031 ? ' (hypothèse)' : ''} · ${d.stores} boutiques · ${fM(d.cum)}`))
+      .on('mouseleave', () => tip.hide());
+  });
+
+  // --- EBITDA par ville
+  dash.draw('city', (el) => {
+    const s = summary();
+    if (!s) { el.replaceChildren(); return; }
+    const rows = cities(s.m, s.p);
+    const W = Math.max(el.clientWidth, 280), rh = 30, m = { t: 8, r: 56, b: 22, l: 156 }, H = m.t + m.b + rows.length * rh;
+    const ext = d3.extent(rows.map((d) => d.ebitda).concat(0));
+    const x = d3.scaleLinear().domain(ext).nice().range([m.l, W - m.r]);
+    const y = d3.scaleBand().domain(rows.map((d) => d.city)).range([m.t, H - m.b]).padding(0.3);
+    const svg = svgBase(el, W, H, 'EBITDA annuel d’une boutique par ville, en année pleine');
+    svg.append('g').attr('transform', `translate(0,${H - m.b})`).call(d3.axisBottom(x).ticks(4).tickSize(-(H - m.t - m.b)).tickFormat((v) => (v === 0 ? '0' : fK(v))))
+      .call((g) => { g.select('.domain').remove(); g.selectAll('.tick line').attr('stroke', 'var(--cds-chart-grid)'); });
+    let tip = { show() {}, hide() {} };
+    svg.selectAll('rect').data(rows).join('rect')
+      .attr('x', (d) => x(Math.min(0, d.ebitda))).attr('width', (d) => Math.abs(x(d.ebitda) - x(0)))
+      .attr('y', (d) => y(d.city)).attr('height', y.bandwidth()).attr('rx', 6)
+      .style('fill', (d) => (d.ebitda >= 0 ? '#c9a24a' : 'var(--cds-chart-status-critical)'))
+      .on('mousemove', (ev, d) => tip.show(ev, `${d.city} · ${fK(d.ebitda)} par an`)).on('mouseleave', () => tip.hide());
+    svg.selectAll('.nm').data(rows).join('text').attr('class', (d) => (d.pilot ? 'strong' : '')).attr('x', m.l - 8).attr('text-anchor', 'end')
+      .attr('y', (d) => y(d.city) + y.bandwidth() / 2 + 4).text((d) => d.city + (d.pilot ? ' ★' : ''));
+    svg.selectAll('.vl').data(rows).join('text').attr('x', (d) => (d.ebitda >= 0 ? x(d.ebitda) + 5 : x(d.ebitda) - 5))
+      .attr('text-anchor', (d) => (d.ebitda >= 0 ? 'start' : 'end')).attr('y', (d) => y(d.city) + y.bandwidth() / 2 + 4).text((d) => fK(d.ebitda));
+    svg.append('line').attr('x1', x(0)).attr('x2', x(0)).attr('y1', m.t).attr('y2', H - m.b).attr('stroke', 'var(--cds-chart-axis)');
+    el.replaceChildren(svg.node());
+    tip = tipFor(el);
+  });
+
+  // --- Par année
+  dash.draw('year', (el) => {
+    const s = summary();
+    if (!s) { el.replaceChildren(); return; }
+    const W = Math.max(el.clientWidth || 560, 280), H = 280, m = { t: 12, r: 12, b: 28, l: 56 };
+    const x0 = d3.scaleBand().domain(YEARS).range([m.l, W - m.r]).padding(0.25);
+    const x1 = d3.scaleBand().domain(['e', 'c']).range([0, x0.bandwidth()]).padding(0.08);
+    const vals = s.pl.flatMap((d) => [d.ebitda, -d.capex, 0]);
+    const y = d3.scaleLinear().domain(d3.extent(vals)).nice().range([H - m.b, m.t]);
+    const svg = svgBase(el, W, H, 'EBITDA du réseau et investissements de 2027 à 2031');
+    svg.append('g').attr('transform', `translate(${m.l},0)`).call(d3.axisLeft(y).ticks(5).tickSize(-(W - m.l - m.r)).tickFormat((v) => (v === 0 ? '0' : sgn(nf(2).format(v / 1e6), v) + ' M€')))
+      .call((g) => { g.select('.domain').remove(); g.selectAll('.tick line').attr('stroke', 'var(--cds-chart-grid)'); });
+    let tip = { show() {}, hide() {} };
+    const bars = s.pl.flatMap((d) => [{ y: d.year, k: 'e', v: d.ebitda, n: 'EBITDA' }, { y: d.year, k: 'c', v: -d.capex, n: 'Investissements' }]);
+    svg.selectAll('rect').data(bars).join('rect')
+      .attr('x', (d) => x0(d.y) + x1(d.k)).attr('width', x1.bandwidth())
+      .attr('y', (d) => Math.min(y(0), y(d.v))).attr('height', (d) => Math.max(1, Math.abs(y(d.v) - y(0)))).attr('rx', 6)
+      .style('fill', (d) => (d.k === 'e' ? '#c9a24a' : 'var(--cds-chart-muted)'))
+      .on('mousemove', (ev, d) => tip.show(ev, `${d.y} · ${d.n} ${fM(d.v)}`)).on('mouseleave', () => tip.hide());
+    svg.append('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', y(0)).attr('y2', y(0)).attr('stroke', 'var(--cds-chart-axis)');
+    svg.append('g').selectAll('text').data(s.pl).join('text').attr('x', (d) => x0(d.year) + x0.bandwidth() / 2).attr('text-anchor', 'middle')
+      .attr('y', H - 8).text((d) => d.year + ' · ' + d.stores + ' boutiques');
+    el.replaceChildren(svg.node());
+    tip = tipFor(el);
+  });
+
+  // --- Sensibilité : effet de ±20 % sur la trésorerie 2031
+  dash.draw('tornado', (el) => {
+    const s = summary();
+    if (!s) { el.replaceChildren(); return; }
+    const W = Math.max(el.clientWidth, 280), narrow = W < 460, m = { t: 10, r: 14, b: 14, l: narrow ? 104 : 150 }, rowH = 62, H = m.t + m.b + rowH * 3;
+    const base = s.pl[4].cum, cash = (over) => plan(s.m, { ...s.p, ...over })[4].cum - base;
+    const vars = [
+      { n: 'Chiffre d’affaires', key: 'f' },
+      { n: 'Loyers', key: 'rent' },
+      { n: 'Personnel', key: 'staff' },
+    ].map((v) => {
+      const lo = cash({ [v.key]: s.p[v.key] * 0.8 }), hi = cash({ [v.key]: s.p[v.key] * 1.2 });
+      const left = lo <= hi ? { pct: '−20 %', d: lo } : { pct: '+20 %', d: hi };
+      const right = lo <= hi ? { pct: '+20 %', d: hi } : { pct: '−20 %', d: lo };
+      return { ...v, left, right, span: Math.max(Math.abs(lo), Math.abs(hi)) };
+    }).sort((a, b) => b.span - a.span);
+    const ext = d3.extent(vars.flatMap((v) => [v.left.d, v.right.d, 0])), pad = (ext[1] - ext[0]) * 0.3 || 1;
+    const x = d3.scaleLinear().domain([ext[0] - pad, ext[1] + pad]).range([m.l, W - m.r]);
+    const svg = svgBase(el, W, H, 'Effet de plus ou moins 20 % du chiffre d’affaires, des loyers et du personnel sur la trésorerie cumulée fin 2031');
+    const row = svg.selectAll('g.row').data(vars).join('g').attr('class', 'row').attr('transform', (d, i) => `translate(0,${m.t + i * rowH})`);
+    row.append('text').attr('class', 'strong').attr('x', 0).attr('y', 24).text((d) => d.n);
+    row.append('text').attr('x', 0).attr('y', 42).text((d) => `${d.left.pct} ◀ ▶ ${d.right.pct}`);
+    [['left', 'end'], ['right', 'start']].forEach(([side, anchor]) => {
+      row.append('rect').attr('x', (d) => Math.min(x(0), x(d[side].d))).attr('y', 12).attr('height', 32).attr('rx', 6)
+        .attr('width', (d) => Math.max(2, Math.abs(x(d[side].d) - x(0))))
+        .style('fill', (d) => (d[side].d >= 0 ? '#16a34a' : '#ef4444'))
+        .append('title').text((d) => `${d.n} ${d[side].pct} : ${fM(d[side].d)} sur la trésorerie 2031`);
+      row.append('text').attr('text-anchor', anchor).attr('y', 33)
+        .attr('x', (d) => x(d[side].d) + (anchor === 'end' ? -6 : 6)).text((d) => (d[side].d > 0 ? '+' : '') + fM(d[side].d));
+    });
+    svg.append('line').attr('x1', x(0)).attr('x2', x(0)).attr('y1', m.t).attr('y2', H - m.b).attr('stroke', 'var(--cds-chart-axis)');
+    el.replaceChildren(svg.node());
+  });
+
+  // --- Cascade : de la marge brute à l'EBITDA d'une boutique
+  dash.draw('waterfall', (el) => {
+    const s = summary();
+    if (!s) { el.replaceChildren(); return; }
+    const city = dash.params().wc || 'München', r = s.m.B[city];
+    if (!r) { el.replaceChildren(); return; }
+    const f = s.p.f;
+    const steps = [
+      { n: 'Marge brute', v: r.gm * f }, { n: 'Autres charges', v: -r.other * f }, { n: 'Logistique', v: -r.logi * f },
+      { n: 'Loyer', v: -r.rent * s.p.rent }, { n: 'Personnel', v: -s.p.staff },
+    ];
+    let c = 0;
+    const rows = steps.map((d, i) => { const a = c; c += d.v; return { n: d.n, v: d.v, a, b: c, total: i === 0 }; });
+    rows.push({ n: 'EBITDA', v: c, a: 0, b: c, total: true, final: true });
+    const W = Math.max(el.clientWidth, 280), m = { t: 8, r: 78, b: 8, l: W < 460 ? 108 : 130 }, rowH = 44, H = m.t + m.b + rowH * rows.length;
+    const ext = d3.extent(rows.flatMap((d) => [d.a, d.b, 0]));
+    const x = d3.scaleLinear().domain([ext[0], ext[1]]).nice().range([m.l, W - m.r]);
+    const svg = svgBase(el, W, H, 'Cascade de la marge brute à l’EBITDA d’une boutique à ' + city);
+    const g = svg.selectAll('g').data(rows).join('g').attr('transform', (d, i) => `translate(0,${m.t + i * rowH})`);
+    g.append('text').attr('class', (d) => (d.total ? 'strong' : null)).attr('x', 0).attr('y', 27).text((d) => d.n);
+    g.append('rect').attr('x', (d) => x(Math.min(d.a, d.b))).attr('y', 8).attr('height', 28).attr('rx', 6)
+      .attr('width', (d) => Math.max(2, Math.abs(x(d.b) - x(d.a))))
+      .style('fill', (d) => (d.final ? (d.v >= 0 ? '#16a34a' : '#ef4444') : d.total ? '#c9a24a' : 'var(--cds-chart-muted)'))
+      .append('title').text((d) => d.n + ' : ' + fK(d.v));
+    g.append('text').attr('class', 'strong').attr('y', 27).attr('x', (d) => x(Math.max(d.a, d.b)) + 6).text((d) => fK(d.v));
+    svg.append('line').attr('x1', x(0)).attr('x2', x(0)).attr('y1', m.t).attr('y2', H - m.b).attr('stroke', 'var(--cds-chart-axis)');
+    el.replaceChildren(svg.node());
+  });
+
+  // --- Résumés adaptatifs (Claude si disponible, sinon texte automatique)
+  const SUM = {};
+  const PLAN_LBL = { full: 'plan complet 3 → 8 → 15 boutiques', sans29: 'plan sans la vague 2029 (8 boutiques)', pilotes: 'pilotes seulement (3 boutiques)', decale: 'plan complet décalé d’un an' };
+  const keyOf = (sec) => { const p = dash.params(); return JSON.stringify([sec, p.f, p.rent, p.staff, p.plan, p.off, sec === 'wf' ? p.wc : null]); };
+  function setupLines(s) {
+    const off = offList(s.p);
+    return ['Facteur de chiffre d’affaires : ×' + nf(2).format(s.p.f), 'Facteur de loyers : ×' + nf(2).format(s.p.rent), 'Personnel par boutique : ' + fK(s.p.staff), 'Plan d’ouverture : ' + (PLAN_LBL[s.p.plan] || s.p.plan), off.length ? 'Villes retirées du plan : ' + off.join(', ') : 'Aucune ville retirée du plan'];
+  }
+  function levers(s) {
+    const base = s.pl[4].cum, cash = (o) => plan(s.m, { ...s.p, ...o })[4].cum - base;
+    return [{ n: 'le chiffre d’affaires', key: 'f' }, { n: 'les loyers', key: 'rent' }, { n: 'le personnel', key: 'staff' }]
+      .map((v) => { const a = cash({ [v.key]: s.p[v.key] * 0.8 }), b = cash({ [v.key]: s.p[v.key] * 1.2 }); return { ...v, lo: a, hi: b, span: Math.max(Math.abs(a), Math.abs(b)) }; })
+      .sort((a, b) => b.span - a.span);
+  }
+  function cashFacts() {
+    const s = summary(); if (!s) return null;
+    const e = s.ext, last = e[e.length - 1];
+    let lo = e[0]; e.forEach((d) => { if (d.cum < lo.cum) lo = d; });
+    const be = e.find((d) => d.cum >= 0);
+    const lines = setupLines(s).concat(['Trésorerie cumulée fin 2031 : ' + fM(s.pl[4].cum), 'Point bas de la trésorerie : ' + fM(lo.cum) + ' en ' + lo.year, be ? 'Équilibre de la trésorerie atteint en ' + be.year : 'Équilibre non atteint avant ' + last.year, 'Les années après 2031 sont une hypothèse de rythme de croisière']);
+    const fb = (lo.cum >= 0 ? 'Le réseau ne consomme pas de trésorerie sur la période.' : 'Le besoin de financement maximal est de ' + fM(-lo.cum) + ', atteint en ' + lo.year + '.') + ' La trésorerie cumulée fin 2031 est de ' + fM(s.pl[4].cum) + '. ' + (be ? 'L’équilibre est atteint en ' + be.year + '.' : 'L’équilibre n’est pas atteint avant ' + last.year + ' (au-delà de 2031, c’est une hypothèse).');
+    return { lines, fallback: fb };
+  }
+  function tornFacts() {
+    const s = summary(); if (!s) return null;
+    const L = levers(s), lines = setupLines(s).concat(['Trésorerie cumulée fin 2031 : ' + fM(s.pl[4].cum)]);
+    L.forEach((v) => lines.push('Pour ' + v.n + ' : de −20 % à +20 %, l’écart va de ' + fM(Math.min(v.lo, v.hi)) + ' à ' + fM(Math.max(v.lo, v.hi))));
+    lines.push('Levier le plus fort : ' + L[0].n);
+    const pm = (v) => '±' + fM(v.span).replace('−', '');
+    return { lines, fallback: 'Le levier qui pèse le plus sur la trésorerie fin 2031 est ' + L[0].n + ' (' + pm(L[0]) + ' pour 20 % de variation), devant ' + L[1].n + ' (' + pm(L[1]) + ') et ' + L[2].n + ' (' + pm(L[2]) + ').' };
+  }
+  function wfFacts() {
+    const s = summary(); if (!s) return null;
+    const city = dash.params().wc || 'München', r = s.m.B[city]; if (!r) return null;
+    const f = s.p.f, g = r.gm * f, ch = [['les autres charges', r.other * f], ['la logistique', r.logi * f], ['le loyer', r.rent * s.p.rent], ['le personnel', s.p.staff]].sort((a, b) => b[1] - a[1]);
+    const eb = g - ch.reduce((a, c) => a + c[1], 0);
+    const lines = setupLines(s).concat(['Ville : ' + city, 'Marge brute : ' + fK(g), 'Autres charges : ' + fK(r.other * f), 'Logistique : ' + fK(r.logi * f), 'Loyer : ' + fK(r.rent * s.p.rent), 'Personnel : ' + fK(s.p.staff), 'EBITDA annuel en année pleine : ' + fK(eb), 'Charge la plus lourde : ' + ch[0][0]]);
+    return { lines, fallback: city + ' : une boutique en année pleine dégage un EBITDA de ' + fK(eb) + ' à partir d’une marge brute de ' + fK(g) + '. La charge la plus lourde est ' + ch[0][0] + ' (' + fK(ch[0][1]) + ').' };
+  }
+  const FACTS = { cash: cashFacts, torn: tornFacts, wf: wfFacts };
+  const numsOf = (x) => (x.match(/\d+(?:[   ]\d{3})*(?:[.,]\d+)?/g) || []).map((n) => n.replace(/[   ]/g, '').replace(',', '.'));
+  const numbersOk = (text, facts) => { const ok = new Set(numsOf(facts)); return numsOf(text).every((n) => ok.has(n) || /^\d$/.test(n)); };
+  function renderAi(el) {
+    const sec = el.dataset.sec, s = SUM[sec];
+    el.replaceChildren();
+    const mk = (cls, x) => { const e = document.createElement('div'); if (cls) e.className = cls; e.textContent = x; return e; };
+    if (!s) { el.appendChild(mk('muted', 'Le résumé s’adapte à vos réglages (scénario, plan, villes).')); return; }
+    if (s.src === 'wait') { el.appendChild(mk('muted', 'Rédaction du résumé en cours…')); return; }
+    if (s.key !== keyOf(sec)) { el.appendChild(mk('muted', 'Vos réglages ont changé : cliquez à nouveau pour mettre le résumé à jour.')); return; }
+    const box = mk('ai-box', '');
+    box.appendChild(mk('ai-badge', s.src === 'ia' ? 'Résumé IA' : 'Résumé automatique'));
+    box.appendChild(mk('', s.text));
+    el.appendChild(box);
+  }
+  const refreshAi = () => document.querySelectorAll('[data-draw="aisum"]').forEach(renderAi);
+  async function summarize(sec, btn) {
+    const f = FACTS[sec](), key = keyOf(sec);
+    if (!f) { SUM[sec] = { key, text: 'Pas assez de données pour résumer cette vue.', src: 'auto' }; refreshAi(); return; }
+    SUM[sec] = { key, text: '', src: 'wait' };
+    btn.setAttribute('aria-busy', 'true');
+    refreshAi();
+    let text = f.fallback, src = 'auto';
+    try {
+      const sm = window.claude && window.claude.use ? await window.claude.use('sample') : null;
+      if (sm) {
+        const prompt = 'Tu rédiges un court résumé pour des lecteurs qui ne connaissent rien au sujet (un comité de direction). Contexte : L’Oréal étudie un plan d’ouverture de boutiques de diagnostic de peau en Allemagne, et ce simulateur calcule sa rentabilité.\nRègles : trois phrases au maximum, français simple, sans jargon, aucun chiffre autre que ceux de la liste ci-dessous, pas de liste ni de titre. Dis ce que le lecteur doit retenir de CETTE vue avec les réglages actuels, sans conclure à la place de l’équipe sur le lancement.\nDonnées de la vue :\n- ' + f.lines.join('\n- ');
+        const r = await sm(prompt, { modelTier: 'quick' });
+        const x = ((r && r.text) || '').trim();
+        if (x && numbersOk(x, f.lines.join(' '))) { text = x; src = 'ia'; }
+      }
+    } catch (e) { /* repli automatique */ }
+    SUM[sec] = { key, text, src };
+    btn.removeAttribute('aria-busy');
+    refreshAi();
+  }
+
+  function cityFacts() {
+    const s = summary(); if (!s) return null;
+    const rows = cities(s.m, s.p); if (!rows.length) return null;
+    const hi = rows[0], lo = rows[rows.length - 1], neg = rows.filter((r) => r.ebitda < 0);
+    const lines = setupLines(s).concat(rows.map((r) => r.city + (r.pilot ? ' (pilote)' : '') + ' : ' + fK(r.ebitda) + ' par an'), ['Ville la plus rentable : ' + hi.city, 'Ville la moins rentable : ' + lo.city, 'Villes qui perdent de l’argent : ' + (neg.length ? neg.map((r) => r.city).join(', ') : 'aucune')]);
+    const pil = rows.filter((r) => r.pilot).map((r) => r.city);
+    const fb = hi.city + ' est la boutique la plus rentable (' + fK(hi.ebitda) + ' par an) et ' + lo.city + ' la moins rentable (' + fK(lo.ebitda) + '). ' + (neg.length ? 'Elles perdent de l’argent à : ' + neg.map((r) => r.city).join(', ') + '. ' : 'Aucune ville ne perd de l’argent en année pleine. ') + 'Les villes pilotes sont ' + pil.join(', ') + '.';
+    return { lines, fallback: fb };
+  }
+  function yearFacts() {
+    const s = summary(); if (!s) return null;
+    const p = s.pl, first = p[0], last = p[p.length - 1], capex = p.reduce((a, d) => a + d.capex, 0);
+    const lines = setupLines(s).concat(p.map((d) => d.year + ' : ' + d.stores + ' boutiques, EBITDA ' + fM(d.ebitda) + ', investissements ' + fM(d.capex)), ['Investissements cumulés : ' + fM(capex)]);
+    const fb = 'Le réseau passe de ' + first.stores + ' boutiques en ' + first.year + ' à ' + last.stores + ' en ' + last.year + '. Son EBITDA est de ' + fM(last.ebitda) + ' en ' + last.year + ', pour ' + fM(capex) + ' d’investissements cumulés.';
+    return { lines, fallback: fb };
+  }
+  Object.assign(FACTS, { city: cityFacts, year: yearFacts });
+
+  // --- Calcul à l'envers : quel facteur de chiffre d'affaires pour atteindre l'objectif ?
+  const pilotsOf = (p) => { const off = offList(p); return PILOTS.filter((c) => !off.includes(c)); };
+  const TARGETS = { pay4: { n: 4 }, pay5: { n: 5 }, pay6: { n: 6 }, eq35: { eq: true } };
+  function solveF(m, p, ok) {
+    let lo = 0.2, hi = 6;
+    if (ok({ ...p, f: lo })) return lo;
+    if (!ok({ ...p, f: hi })) return null;
+    for (let i = 0; i < 50; i++) { const mid = (lo + hi) / 2; if (ok({ ...p, f: mid })) hi = mid; else lo = mid; }
+    return hi;
+  }
+  function inverse() {
+    const s = summary(); if (!s) return null;
+    const tg = TARGETS[dash.params().tgt || 'pay5'] || TARGETS.pay5;
+    const ok = tg.eq
+      ? (q) => { const e = plan(s.m, q, YEARS_EXT); return e[e.length - 1].cum >= 0; }
+      : (q) => { const ps = pilotsOf(q), eb = ps.reduce((a, c) => a + storeEbitda(s.m.B[c], q, 1), 0), cp = ps.reduce((a, c) => a + s.m.B[c].capex * q.capex, 0); return eb > 0 && cp / eb <= tg.n; };
+    return { s, f: solveF(s.m, s.p, ok) };
+  }
+  dash.draw('inverse', (el) => {
+    const r = inverse();
+    el.replaceChildren();
+    if (!r) return;
+    const mk = (cls, x) => { const e = document.createElement('div'); if (cls) e.className = cls; e.textContent = x; return e; };
+    const box = mk('inv-box', '');
+    if (r.f == null) { box.appendChild(mk('', 'Avec ces réglages, l’objectif n’est pas atteint, même avec un chiffre d’affaires multiplié par 6. Essayez de baisser les loyers ou le personnel, ou de changer de plan.')); el.appendChild(box); return; }
+    const f = r.f, pct = nf(1).format(Math.abs(f - 1) * 100) + ' %';
+    const sc = f <= SCEN[0].f ? 'en dessous du scénario pessimiste' : f <= SCEN[1].f ? 'entre le scénario pessimiste et le réaliste' : f <= SCEN[2].f ? 'entre le scénario réaliste et l’optimiste' : 'au-delà du scénario optimiste : peu réaliste';
+    box.appendChild(mk('inv-big', '×' + nf(2).format(f)));
+    box.appendChild(mk('', 'Il faut un chiffre d’affaires ' + pct + (f >= 1 ? ' supérieur' : ' inférieur') + ' au scénario réaliste, soit ' + sc + '.'));
+    box.appendChild(mk('', 'Cela représente environ ' + fE(DENS_REAL * f) + ' de chiffre d’affaires par m², pour un seuil de ' + fE(DENS_NEEDED) + '.'));
+    el.appendChild(box);
+  });
+  function verdictFacts() {
+    const s = summary(); if (!s) return null;
+    const above = s.dens >= DENS_NEEDED;
+    const lines = setupLines(s).concat(['Chiffre d’affaires par m² : ' + fE(s.dens), 'Seuil demandé : ' + fE(DENS_NEEDED), above ? 'Le seuil est atteint' : 'Le seuil n’est pas atteint', 'Trésorerie cumulée fin 2031 : ' + fM(s.pl[4].cum), 'EBITDA annuel des boutiques pilotes : ' + fK(s.pilotE), 'Remboursement des pilotes : ' + (s.pilotE > 0 ? nf(1).format(s.capex / s.pilotE) + ' ans' : 'jamais')]);
+    const fb = 'Une boutique encaisse ' + fE(s.dens) + ' de chiffre d’affaires par m², ' + (above ? 'au-dessus' : 'en dessous') + ' du seuil de ' + fE(DENS_NEEDED) + '. La trésorerie cumulée fin 2031 est de ' + fM(s.pl[4].cum) + '. Les pilotes sont remboursés en ' + (s.pilotE > 0 ? nf(1).format(s.capex / s.pilotE) + ' ans' : 'jamais') + '.';
+    return { lines, fallback: fb };
+  }
+  FACTS.verdict = verdictFacts;
+  document.querySelectorAll('button[data-ai]').forEach((b) => b.addEventListener('click', () => summarize(b.dataset.ai, b)));
+  dash.draw('aisum', renderAi);
+</script>
+<script>
+dash.onData(()=>{const n=document.querySelectorAll('.band [data-param="cities"].on, .band [data-city][aria-pressed="true"]').length;document.querySelectorAll('[data-vcount]').forEach(e=>e.textContent=n);});
+(function(){var b=document.getElementById('reset-sim');if(b)b.addEventListener('click',function(){dash.resetParams();});})();
+document.addEventListener('click',e=>{document.querySelectorAll('.dd[open]').forEach(d=>{if(!d.contains(e.target))d.removeAttribute('open');});});
+</script>
+<script>dash.__start();</script>
+</body></html>

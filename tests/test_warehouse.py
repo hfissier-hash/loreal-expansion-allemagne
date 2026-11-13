@@ -78,6 +78,13 @@ class WarehouseTest(unittest.TestCase):
         self.assertEqual(self.one("SELECT COUNT(*) FROM fact_market_indicator"), expected)
         self.assertEqual(self.one("SELECT COUNT(*) FROM fact_market_indicator WHERE value IS NULL"), 0)
 
+    def test_basket_matches_team_hypothesis(self):
+        # hypothèse de l'équipe : ≈ 56 € TTC après diagnostic, ≈ 35 € sans diagnostic
+        basket = dict(self.db.execute("""SELECT sale_type, AVG(ca) FROM
+            (SELECT ticket_id, sale_type, SUM(revenue_ttc) AS ca FROM fact_sales GROUP BY 1, 2) GROUP BY 1"""))
+        self.assertAlmostEqual(basket["apres_diagnostic"], 56, delta=2)
+        self.assertAlmostEqual(basket["sans_diagnostic"], 35, delta=2)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -27,3 +27,6 @@ LOREAL_ACP,Active Cosmetics Production : usines de Vichy et La Roche-Posay,L'Or�
 DM_DE,Relevé de prix en ligne (dm-med),dm-drogerie markt,https://www.dm.de,Site marchand,Élevée
 REDCARE_FR,Relevé de prix en ligne (pharmacie en ligne),Redcare Pharmacie,https://www.redcare-pharmacie.fr,Site marchand,Moyenne-élevée
 KIEHLS,Relevé de prix en ligne (sites officiels kiehls.de et kiehls.fr),Kiehl's (L'Oréal),https://www.kiehls.de,Site de la marque,Élevée
+SHOPAPO_DE,Relevé de prix en ligne (pharmacie en ligne),Shop Apotheke,https://www.shop-apotheke.com,Site marchand,Élevée
+DOUGLAS_DE,Relevé de prix en ligne (prix conseillé),Douglas Deutschland,https://www.douglas.de,Site marchand,Élevée
+NOCIBE_FR,Relevé de prix en ligne (groupe Douglas),Nocibé,https://www.nocibe.fr,Site marchand,Élevée

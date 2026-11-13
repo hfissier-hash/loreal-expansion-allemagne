@@ -17,15 +17,15 @@ Généré par `src/build_warehouse.py`, ne pas modifier à la main.
 | dim_customer | 105 026 |
 | dim_retailer | 8 |
 | dim_hub | 4 |
-| dim_source | 28 |
+| dim_source | 31 |
 | fact_diagnostic | 105 025 |
-| fact_sales | 571 987 |
+| fact_sales | 571 969 |
 | fact_market | 14 |
 | fact_market_share | 7 |
 | fact_market_indicator | 16 |
 | fact_competition | 56 |
 | fact_rent | 16 |
-| fact_price | 12 |
+| fact_price | 16 |
 | fact_hub_distance | 72 |
 | fact_business_case | 48 |
 | fact_deployment_plan | 15 |
@@ -35,7 +35,7 @@ Généré par `src/build_warehouse.py`, ne pas modifier à la main.
 ## Contrôles
 
 - Clés étrangères orphelines : 0
-- Écart maximal entre le CA détaillé et le CA agrégé de boutiques_france.csv : 0.02 %
+- Écart maximal entre le CA détaillé et le CA agrégé de boutiques_france.csv : 0.03 %
 - Ventes « après diagnostic » sans diagnostic converti : 0
 - Ventes un dimanche : 0
 
@@ -46,7 +46,10 @@ Généré par `src/build_warehouse.py`, ne pas modifier à la main.
 ## Repères de la base interne simulée (2025)
 
 - Diagnostics : 105 025 ; conversion 60.6 % ; rachat sous 6 mois 42.5 % des clientes converties
-- CA TTC : 16.14 M€, soit 807 k€ par boutique
-- Part du CA « sans_diagnostic » : 65.6 %
-- Part du CA « apres_diagnostic » : 26.7 %
-- Part du CA « rachat » : 7.7 %
+- CA TTC : 16.15 M€, soit 807 k€ par boutique
+- Part du CA « sans_diagnostic » : 71.2 %
+- Part du CA « apres_diagnostic » : 22.2 %
+- Part du CA « rachat » : 6.7 %
+- Panier moyen TTC « apres_diagnostic » : 56.2 €, 10.2 tickets par jour et par boutique (313 jours)
+- Panier moyen TTC « rachat » : 43.0 €, 4.0 tickets par jour et par boutique (313 jours)
+- Panier moyen TTC « sans_diagnostic » : 35.1 €, 52.3 tickets par jour et par boutique (313 jours)
