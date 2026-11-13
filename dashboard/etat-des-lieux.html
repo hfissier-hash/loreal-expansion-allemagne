@@ -2,7 +2,7 @@
 <html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>État des lieux – boutiques de diagnostic de peau en Allemagne</title>
 <style>
-:root{color-scheme:light dark;
+:root{color-scheme:light;
 --color-bg:#faf9f7;--color-fg:#1f1e1d;--color-fg-muted:#6b6963;--color-panel:#ffffff;--color-border-line:#e4e1da;
 --color-ok:#16a34a;--color-warn:#d98b0b;--color-bad:#dc2626;
 --cds-border:#e4e1da;--cds-chart-axis:#9a968c;--cds-chart-grid:#e9e6df;--cds-chart-muted:#aaa69c;--cds-chart-reference:#6b6963;--cds-chart-status-critical:#dc2626;
@@ -11,11 +11,7 @@
 --cds-gap-md:12px;--cds-gap-lg:22px;--cds-pad-lg:22px;--cds-radius:14px;
 --font-anthropic-sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 --font-anthropic-serif:ui-serif,Georgia,Cambria,"Times New Roman",serif}
-@media (prefers-color-scheme:dark){:root{
---color-bg:#1a1a19;--color-fg:#f2efe9;--color-fg-muted:#a9a59c;--color-panel:#242423;--color-border-line:#3a3936;
---color-ok:#4ade80;--color-warn:#fbbf24;--color-bad:#f87171;
---cds-border:#3a3936;--cds-chart-axis:#7a766d;--cds-chart-grid:#33322f;--cds-chart-muted:#85817a;--cds-chart-reference:#a9a59c;--cds-chart-status-critical:#f87171;
---cds-text-secondary:#a9a59c;--cds-surface-popover:#2c2b2a;--cds-shadow-popover:0 8px 24px rgba(0,0,0,.6)}}
+
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:var(--font-anthropic-sans);font-size:var(--cds-font-size-body);line-height:1.5}
@@ -172,77 +168,10 @@ button{font-family:inherit}
 
 
 <div class="eds">
-  <style>.eds .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.eds .tab{padding:8px 16px;border-radius:999px;font-size: 14px;font-weight:700;text-decoration:none;color:#c9a24a;background:color-mix(in srgb,#c9a24a 12%,transparent)}.eds a.tab:hover{background:#c9a24a;color:#111}.eds .tab.on{background:linear-gradient(135deg,#c9a24a,#d6b46a);color:#111}@media print{.eds .tabs{display:none}}</style><nav class="tabs" aria-label="Changer de tableau de bord"><span class="tab on" aria-current="page">État des lieux</span><a class="tab" href="simulateur-rentabilite.html">Prévisions : simulateur de rentabilité</a></nav><style>.eds .simnote{margin:0 0 14px;padding:10px 14px;border-radius:14px;font-size:14px;line-height:1.5;background:color-mix(in srgb,#a8703c 14%,transparent)}</style><p class="simnote"><b>Données estimées :</b> la concurrence de Hambourg, Berlin et Leipzig est déduite de la moyenne des autres villes (marquée *). Le relevé de prix date du 12 novembre 2026.</p>
-  <header class="sec-head">
-    <p class="eyebrow">Boutiques de diagnostic de peau · Allemagne</p>
-    <h1>État des lieux : le marché, les villes et la concurrence</h1>
-    <p class="lede">Le marché de la beauté en Allemagne pèse <b data-draw="val" data-k="de_size">—</b> par an, contre <b data-draw="val" data-k="fr_size">—</b> en France. Il croît de <b data-draw="val" data-k="de_gr">—</b> par an, contre <b data-draw="val" data-k="fr_gr">—</b> en France. Le soin de la peau, la famille de produits qui nous intéresse, y progresse de <b data-draw="val" data-k="sk_gr_de">—</b> par an, contre <b data-draw="val" data-k="sk_gr_fr">—</b> en France.</p>
-    <p class="muted">Comment lire cette page : cliquez sur les boutons pour filtrer, sur une carte marquée d'un rond doré « i » pour voir son calcul, sur « Résumer cette vue » pour un résumé adapté à vos choix. Les montants sont arrondis de la même façon : une décimale pour les pourcentages, les indices et les milliards d'euros ; aucune pour les euros par habitant, les habitants et les kilomètres.</p>
-    <div class="row-actions"><button type="button" class="link" id="reset">Tout remettre par défaut</button> <button type="button" class="cta" id="print-btn">Enregistrer en PDF</button></div>
-    <div class="retenir"><b>À retenir</b>
-      <ul>
-        <li>Le soin de la peau pèse <b data-draw="val" data-k="sk_sh_de">—</b> du marché allemand et progresse de <b data-draw="val" data-k="sk_gr_de">—</b> par an.</li>
-        <li>Avec les choix faits plus bas, la ville la moins concurrentielle est <b data-draw="val" data-k="comp_lo">—</b>.</li>
-        <li>Les soins sont <b data-draw="val" data-k="price_dir">—</b> de <b data-draw="val" data-k="price_pct">—</b> en Allemagne qu'en France (moyenne pondérée par marque).</li>
-      </ul>
-    </div>
-  </header>
+  <style>.eds .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.eds .tab{padding:8px 16px;border-radius:999px;font-size: 14px;font-weight:700;text-decoration:none;color:#c9a24a;background:color-mix(in srgb,#c9a24a 12%,transparent)}.eds a.tab:hover{background:#c9a24a;color:#111}.eds .tab.on{background:linear-gradient(135deg,#c9a24a,#d6b46a);color:#111}@media print{.eds .tabs{display:none}}</style><style>.eds .simnote{margin:0 0 14px;padding:10px 14px;border-radius:14px;font-size:14px;line-height:1.5;background:color-mix(in srgb,#a8703c 14%,transparent)}</style>
+  
 
-  <section class="tiles" aria-label="Chiffres clés">
-    <button type="button" class="card tile" title="Cliquer pour voir le calcul" data-explain-open="de_size"><span class="lbl">Marché beauté en Allemagne</span><span class="big" data-draw="val" data-k="de_size">—</span><span class="ref">France : <span data-draw="val" data-k="fr_size">—</span></span></button>
-    <button type="button" class="card tile" title="Cliquer pour voir le calcul" data-explain-open="de_spend"><span class="lbl">Dépense beauté par habitant et par an</span><span class="big" data-draw="val" data-k="de_spend">—</span><span class="ref">France : <span data-draw="val" data-k="fr_spend">—</span></span></button>
-    <button type="button" class="card tile" title="Cliquer pour voir le calcul" data-explain-open="sk_sh_de"><span class="lbl">Part du soin de la peau dans le marché</span><span class="big" data-draw="val" data-k="sk_sh_de">—</span><span class="ref">France : <span data-draw="val" data-k="sk_sh_fr">—</span></span></button>
-    <button type="button" class="card tile" title="Cliquer pour voir le calcul" data-explain-open="sk_gr_de"><span class="lbl">Croissance du soin de la peau</span><span class="big" data-draw="val" data-k="sk_gr_de">—</span><span class="ref">France : <span data-draw="val" data-k="sk_gr_fr">—</span></span></button>
-  </section>
-
-
-  <section class="card explain" data-explain-panel hidden aria-live="polite">
-    <div class="ex-head"><h2>Comment ce chiffre est calculé</h2><button type="button" class="link" data-explain-open="">Fermer</button></div>
-    <div data-explain-block="de_size" hidden>
-      <h3>Marché beauté en Allemagne : <b data-draw="val" data-k="de_size">—</b></h3>
-      <p>Ce n'est pas un calcul de notre part. C'est une valeur publiée : <b data-draw="val" data-k="de_size_raw">—</b> de ventes en 2025, selon Cosmetics Europe. Arrondie à une décimale, elle s'affiche <b data-draw="val" data-k="de_size">—</b>.</p>
-      <p class="formula">Pour comparer, la France pèse <b data-draw="val" data-k="fr_size_raw">—</b>, affiché <b data-draw="val" data-k="fr_size">—</b>.</p>
-      <p class="muted">Source : « Marché beauté, Allemagne et France » (Cosmetics Europe, édition 2025).</p>
-    </div>
-    <div data-explain-block="de_spend" hidden>
-      <h3>Dépense beauté par habitant : <b data-draw="val" data-k="de_spend">—</b></h3>
-      <p>Valeur publiée par Cosmetics Europe : chaque habitant dépense en moyenne <b data-draw="val" data-k="de_spend">—</b> par an en produits de beauté en Allemagne, contre <b data-draw="val" data-k="fr_spend">—</b> en France. Elle est donnée sans décimale parce que Cosmetics Europe la publie en euros entiers.</p>
-      <p class="muted">Source : « Marché beauté, Allemagne et France ».</p>
-    </div>
-    <div data-explain-block="sk_sh_de" hidden>
-      <h3>Poids du soin de la peau : <b data-draw="val" data-k="sk_sh_de">—</b></h3>
-      <p>Poids d'une famille = ventes de la famille ÷ ventes totales du pays × 100. Calcul avec les chiffres du fichier :</p>
-      <p class="formula">Allemagne : <b data-draw="val" data-k="sk_val_raw">—</b> ÷ <b data-draw="val" data-k="de_size_raw">—</b> × 100 = <b data-draw="val" data-k="sk_share_calc">—</b></p>
-      <p class="formula">France : <b data-draw="val" data-k="sk_val_fr_raw">—</b> ÷ <b data-draw="val" data-k="fr_size_raw">—</b> × 100 = <b data-draw="val" data-k="sk_share_calc_fr">—</b></p>
-      <p>Cosmetics Europe publie <b data-draw="val" data-k="sk_sh_de">—</b> pour l'Allemagne et <b data-draw="val" data-k="sk_sh_fr">—</b> pour la France : le calcul retombe sur ces valeurs.</p>
-      <p class="muted">Sources : « Familles de produits par pays » et « Marché beauté, Allemagne et France ».</p>
-    </div>
-    <div data-explain-block="sk_gr_de" hidden>
-      <h3>Croissance du soin de la peau : <b data-draw="val" data-k="sk_gr_de">—</b></h3>
-      <p>Croissance = (ventes 2025 − ventes 2024) ÷ ventes 2024. Nous ne la recalculons pas : nous reprenons la valeur publiée par Cosmetics Europe, <b data-draw="val" data-k="sk_gr_de">—</b> pour l'Allemagne et <b data-draw="val" data-k="sk_gr_fr">—</b> pour la France, qui s'appuie sur les montants 2024 révisés. L'édition 2024, non révisée, donnerait un résultat légèrement différent.</p>
-      <p>La fédération allemande IKW publie le même chiffre de 11,1 %, ce qui le confirme.</p>
-      <p class="muted">Source : « Familles de produits par pays ».</p>
-    </div>
-  </section>
-
-  <section class="card" aria-labelledby="h-mkt">
-    <div class="sec-head"><h2 id="h-mkt">L'Allemagne est un marché plus grand que la France</h2><p class="muted">Ventes de produits de beauté en 2025, par famille de produits.</p></div>
-    <div class="bar">
-      <div class="fld"><span class="cap">Pays à comparer</span>
-        <div class="chips"><button type="button" class="chip" data-param="countries" data-val="DE"><i data-draw="swatch" data-k="de"></i>Allemagne</button><button type="button" class="chip" data-param="countries" data-val="FR"><i data-draw="swatch" data-k="fr"></i>France</button></div></div>
-      <div class="fld"><label class="cap" for="sel-mm">Ce que l'on mesure</label>
-        <select class="dash-select" id="sel-mm" data-param="mm"><option value="value_bn_eur">Ventes, en milliards d'euros</option><option value="share_pct">Poids dans le marché du pays, en %</option><option value="growth_pct">Croissance sur un an, en %</option></select></div>
-    </div>
-    <div class="chart" data-draw="mkt" data-source="categories" aria-labelledby="h-mkt"></div>
-    <p class="take">Le soin de la peau représente <b data-draw="val" data-k="sk_sh_de">—</b> du marché allemand (<b data-draw="val" data-k="sk_val_de">—</b>) et progresse de <b data-draw="val" data-k="sk_gr_de">—</b> par an. C'est la famille qui croît le plus vite en Allemagne.</p>
-    <div class="ai"><button type="button" class="cta" data-ai="mkt">✦ Résumer cette vue</button><div class="ai-out" data-draw="aisum" data-sec="mkt" aria-live="polite"></div></div>
-    <details><summary>Comment c'est calculé</summary><div><p>Ces chiffres sont publiés tels quels par la fédération européenne des cosmétiques (Cosmetics Europe, édition 2025). Rien n'est recalculé.</p><p>Le poids d'une famille = ventes de la famille ÷ ventes totales du pays. La croissance compare 2025 à 2024, après révision des montants 2024 par Cosmetics Europe.</p></div></details>
-  </section>
-
-  <section class="card" aria-labelledby="h-vf">
-    <div class="sec-head"><h2 id="h-vf">Choisir les villes à regarder</h2><p class="muted">Ce choix s'applique aux deux blocs suivants : les villes, puis la concurrence.</p></div>
-    <p class="muted">★ : les 3 villes pilotes (ouvertures 2027), affichées en gras dans les graphiques et tableaux.</p>
-    <div class="chips" role="group" aria-label="Villes">
+  <header class="band"><nav class="tabs" aria-label="Pages"><span class="tab on" aria-current="page">État des lieux</span><a class="tab" href="villes.html">Villes</a><a class="tab" href="concurrence.html">Concurrence</a><a class="tab" href="prix-taxes.html">Prix et taxes</a><a class="tab" href="simulateur-rentabilite.html">Simulateur</a><a class="tab" href="instructions.html">Instructions</a></nav><div class="band-top"><h1>État des lieux — Allemagne</h1><div class="row-actions"><button type="button" class="link" id="reset">Tout remettre par défaut</button> <button type="button" class="cta" id="print-btn">Enregistrer en PDF</button></div></div><div class="band-filters"><details class="dd"><summary>Villes (<span data-vcount>8</span>)</summary><div class="dd-pop"><div class="chips" role="group" aria-label="Villes">
       <button type="button" class="chip" data-param="cities" data-val="München">★ München</button>
       <button type="button" class="chip" data-param="cities" data-val="Düsseldorf">★ Düsseldorf</button>
       <button type="button" class="chip" data-param="cities" data-val="Frankfurt am Main">★ Frankfurt am Main</button>
@@ -253,11 +182,30 @@ button{font-family:inherit}
       <button type="button" class="chip" data-param="cities" data-val="Leipzig">Leipzig</button>
       <button type="button" class="link" data-all="cities">Toutes</button>
       <button type="button" class="link" data-none="cities">Aucune</button>
-    </div>
+    </div><p class="muted keep">★ Villes pilotes (en gras)</p></div></details></div></header><p class="simnote">Valeurs marquées * : estimées. Relevé de prix du 12 novembre 2026.</p><section class="tiles" aria-label="Chiffres clés">
+    <button type="button" class="card tile"><span class="lbl">Marché beauté en Allemagne</span><span class="big" data-draw="val" data-k="de_size">—</span><span class="ref">France : <span data-draw="val" data-k="fr_size">—</span></span></button>
+    <button type="button" class="card tile"><span class="lbl">Dépense beauté par habitant</span><span class="big" data-draw="val" data-k="de_spend">—</span><span class="ref">France : <span data-draw="val" data-k="fr_spend">—</span></span></button>
+    <button type="button" class="card tile"><span class="lbl">Poids du soin de la peau</span><span class="big" data-draw="val" data-k="sk_sh_de">—</span><span class="ref">France : <span data-draw="val" data-k="sk_sh_fr">—</span></span></button>
+    <button type="button" class="card tile"><span class="lbl">Croissance du soin de la peau</span><span class="big" data-draw="val" data-k="sk_gr_de">—</span><span class="ref">France : <span data-draw="val" data-k="sk_gr_fr">—</span></span></button>
   </section>
 
-  <section class="card" aria-labelledby="h-city">
-    <div class="sec-head"><h2 id="h-city">Comment les villes se classent sur l'indicateur choisi</h2><p class="muted">Un indicateur à la fois en graphique, tous les indicateurs dans le tableau.</p></div>
+
+  
+
+  <div class="grid-two"><section class="card" aria-labelledby="h-mkt">
+    <div class="sec-head"><h2 id="h-mkt">Marché beauté par famille de produits, 2025</h2></div>
+    <div class="bar">
+      <div class="fld"><span class="cap">Pays à comparer</span>
+        <div class="chips"><button type="button" class="chip" data-param="countries" data-val="DE"><i data-draw="swatch" data-k="de"></i>Allemagne</button><button type="button" class="chip" data-param="countries" data-val="FR"><i data-draw="swatch" data-k="fr"></i>France</button></div></div>
+      <div class="fld"><label class="cap" for="sel-mm">Ce que l'on mesure</label>
+        <select class="dash-select" id="sel-mm" data-param="mm"><option value="value_bn_eur">Ventes, en milliards d'euros</option><option value="share_pct">Poids dans le marché du pays, en %</option><option value="growth_pct">Croissance sur un an, en %</option></select></div>
+    </div>
+    <div class="chart" data-draw="mkt" data-source="categories" aria-labelledby="h-mkt"></div>
+    
+    <div class="ai"><button type="button" class="cta" data-ai="mkt">✦ Résumer cette vue</button><div class="ai-out" data-draw="aisum" data-sec="mkt" aria-live="polite"></div></div>
+    
+  </section><section class="card" aria-labelledby="h-city">
+    <div class="sec-head"><h2 id="h-city">Classement des villes</h2></div>
     <div class="bar">
       <div class="fld"><label class="cap" for="sel-cm">Indicateur du graphique</label>
         <select class="dash-select" id="sel-cm" data-param="cm">
@@ -274,136 +222,128 @@ button{font-family:inherit}
     </div>
     <p class="muted" data-draw="val" data-k="metric_lbl">—</p>
     <div class="chart" data-draw="city" data-source="villes loyers concvilles hubs" aria-labelledby="h-city"></div>
-    <p class="take">Avec cet indicateur, la valeur la plus haute est à <b data-draw="val" data-k="city_hi">—</b> (<b data-draw="val" data-k="city_hi_v">—</b>) et la plus basse à <b data-draw="val" data-k="city_lo">—</b> (<b data-draw="val" data-k="city_lo_v">—</b>).</p>
+    
     <div class="ai"><button type="button" class="cta" data-ai="city">✦ Résumer cette vue</button><div class="ai-out" data-draw="aisum" data-sec="city" aria-live="polite"></div></div>
-    <details><summary>Pour aller plus loin : voir le tableau complet (tous les indicateurs, toutes les villes)</summary><div>
+    
+    
+  </section></div><section class="card" aria-labelledby="h-pivot"><h2 id="h-pivot">Villes : tous les indicateurs</h2>
     <div class="tablewrap"><table data-draw="pivot" data-source="villes loyers concvilles hubs" aria-label="Tous les indicateurs par ville"></table></div>
-    <p class="muted">* Concurrence estimée pour cette ville (voir plus bas).</p></div></details>
-    <details><summary>Comment c'est calculé</summary><div>
-      <dl>
-        <dt>Pouvoir d'achat</dt><dd>Revenu disponible moyen d'un habitant, publié par NielsenIQ-GfK pour 2025.</dd>
-        <dt>Loyer annuel de 80 m²</dt><dd>Loyer au m² et par mois × 12 mois × 80 m² (surface retenue pour une boutique).</dd>
-        <dt>Pour 100 000 habitants</dt><dd>Nombre de magasins ÷ nombre d'habitants × 100 000. Cela permet de comparer une grande et une petite ville.</dd>
-        <dt>Drogeries</dt><dd>Somme des densités de dm, Rossmann et Müller.</dd>
-        <dt>Parfumeries de luxe</dt><dd>Somme des densités de Douglas et Sephora.</dd>
-        <dt>Distance à Karlsruhe</dt><dd>Distance à vol d'oiseau entre la ville et l'usine L'Oréal de Karlsruhe, calculée avec la formule de haversine à partir des coordonnées GPS. Par la route, il faut compter environ 25 % de plus.</dd>
-      </dl></div></details>
-  </section>
+    <p class="muted">* Concurrence estimée pour cette ville (voir plus bas).</p></section>
 
 
 
-  <section class="card" aria-labelledby="h-sc">
-    <div class="sec-head"><h2 id="h-sc">Où trouver des clients aisés avec un loyer raisonnable ?</h2><p class="muted">Chaque point est une ville cochée plus haut. Plus il est à droite, plus les habitants ont de pouvoir d'achat. Plus il est bas, plus le loyer de la rue commerçante 1a est faible. La taille du point suit le nombre d'habitants. Les traits en pointillés marquent la valeur médiane des villes affichées.</p></div>
-    <div class="chart" data-draw="scatter" data-source="villes loyers concvilles hubs" aria-labelledby="h-sc"></div>
-    <details><summary>Comment c'est calculé</summary><div><p><b>Axe horizontal</b> : pouvoir d'achat par habitant (revenu disponible moyen, en euros par an). <b>Axe vertical</b> : loyer de la rue commerçante 1a (euros par m² et par mois).</p><p><b>Taille du point</b> : nombre d'habitants. <b>Traits en pointillés</b> : valeur médiane des villes affichées, c'est-à-dire celle qui coupe la liste en deux moitiés égales.</p></div></details>
-    <p class="take">Les villes en bas à droite, c'est-à-dire riches avec un loyer modéré, sont les plus intéressantes sur ces deux critères.</p>
-  </section>
+  
 
-  <section class="card" aria-labelledby="h-duel">
-    <div class="sec-head"><h2 id="h-duel">Quelle ville est la plus favorable pour une boutique ?</h2><p class="muted">Choisissez deux villes : la pastille ✓ marque la plus favorable pour une boutique (plus de clients et de pouvoir d'achat, moins de loyer, moins de concurrence, plus près de l'usine).</p></div>
-    <div class="bar">
-      <div class="fld"><label class="cap" for="sel-c1">Ville A</label><select class="dash-select" id="sel-c1" data-param="c1"><option value="München">München</option><option value="Düsseldorf">Düsseldorf</option><option value="Frankfurt am Main">Frankfurt am Main</option><option value="Stuttgart">Stuttgart</option><option value="Hamburg">Hamburg</option><option value="Köln">Köln</option><option value="Berlin">Berlin</option><option value="Leipzig">Leipzig</option></select></div>
-      <div class="fld"><label class="cap" for="sel-c2">Ville B</label><select class="dash-select" id="sel-c2" data-param="c2"><option value="Düsseldorf">Düsseldorf</option><option value="München">München</option><option value="Frankfurt am Main">Frankfurt am Main</option><option value="Stuttgart">Stuttgart</option><option value="Hamburg">Hamburg</option><option value="Köln">Köln</option><option value="Berlin">Berlin</option><option value="Leipzig">Leipzig</option></select></div>
-    </div>
-    <div class="tablewrap"><table data-draw="duel" data-source="villes loyers concvilles hubs" aria-label="Comparaison de deux villes"></table></div>
-    <details><summary>Comment c'est calculé</summary><div><p>Pour chaque indicateur, la pastille ✓ marque la valeur la plus favorable à une boutique : la plus haute pour les habitants et le pouvoir d'achat, la plus basse pour les loyers, la concurrence et la distance à l'usine.</p><p>Les valeurs suivies d'un * sont estimées, non mesurées. « n.d. » veut dire qu'aucune donnée n'est disponible.</p></div></details>
-  </section>
+  
 
-  <section class="card" aria-labelledby="h-comp">
-    <div class="sec-head"><h2 id="h-comp">Où la concurrence est-elle la plus faible ?</h2><p class="muted">Magasins qui vendent des soins ou des conseils beauté, tels que recensés dans OpenStreetMap.</p></div>
-    <div class="bar">
-      <div class="fld"><span class="cap">Enseignes à inclure</span>
-        <div class="chips" role="group" aria-label="Enseignes">
-          <button type="button" class="chip" data-param="comps" data-val="dm-drogerie markt"><i data-draw="swatch" data-k="c0"></i>dm</button>
-          <button type="button" class="chip" data-param="comps" data-val="Rossmann"><i data-draw="swatch" data-k="c1"></i>Rossmann</button>
-          <button type="button" class="chip" data-param="comps" data-val="Müller"><i data-draw="swatch" data-k="c2"></i>Müller</button>
-          <button type="button" class="chip" data-param="comps" data-val="Douglas"><i data-draw="swatch" data-k="c3"></i>Douglas</button>
-          <button type="button" class="chip" data-param="comps" data-val="Sephora"><i data-draw="swatch" data-k="c4"></i>Sephora</button>
-          <button type="button" class="chip" data-param="comps" data-val="Pharmacies"><i data-draw="swatch" data-k="c5"></i>Pharmacies</button>
-          <button type="button" class="chip" data-param="comps" data-val="Instituts de beauté"><i data-draw="swatch" data-k="c6"></i>Instituts de beauté</button>
-          <button type="button" class="link" data-all="comps">Toutes</button>
-          <button type="button" class="link" data-none="comps">Aucune</button>
-        </div></div>
-      <div class="fld"><label class="cap" for="sel-cmeasure">Ce que l'on compte</label>
-        <select class="dash-select" id="sel-cmeasure" data-param="cmeasure"><option value="stores_per_100k">Magasins pour 100 000 habitants</option><option value="store_count">Nombre de magasins</option></select></div>
-    </div>
-    <div class="chart" data-draw="comp" data-source="concvilles" aria-labelledby="h-comp"></div>
-    <p class="take">Avec ces enseignes, la ville la plus concurrentielle est <b data-draw="val" data-k="comp_hi">—</b> (<b data-draw="val" data-k="comp_hi_v">—</b>) et la moins concurrentielle est <b data-draw="val" data-k="comp_lo">—</b> (<b data-draw="val" data-k="comp_lo_v">—</b>).</p>
-    <div class="ai"><button type="button" class="cta" data-ai="comp">✦ Résumer cette vue</button><div class="ai-out" data-draw="aisum" data-sec="comp" aria-live="polite"></div></div>
-    <div class="tablewrap"><table data-draw="comptable" data-source="concvilles" aria-label="Magasins par ville et par enseigne"></table></div>
-    <p class="muted">* Ville estimée : les serveurs d'OpenStreetMap étaient saturés, la densité est celle de la moyenne des cinq villes mesurées (München, Düsseldorf, Frankfurt, Stuttgart, Köln), appliquée à la population de la ville. Les magasins Douglas y sont probablement sous-comptés.</p>
-    <details><summary>Comment c'est calculé</summary><div><p>Magasins pour 100 000 habitants = nombre de magasins dans la ville ÷ population de la ville × 100 000. Une barre plus longue veut dire plus de concurrence à surface de ville égale.</p><p>Les pharmacies comptent parce qu'elles vendent déjà La Roche-Posay, CeraVe et Vichy en Allemagne.</p></div></details>
-    <h3>Les grandes enseignes au niveau national</h3>
-    <div class="tablewrap"><table data-draw="nat" data-source="natcomp" aria-label="Grandes enseignes nationales"></table></div>
-    <p class="muted">Pour Douglas, le chiffre d'affaires est publié pour l'ensemble Allemagne, Autriche, Suisse et Pays-Bas. n.d. : non disponible.</p>
-  </section>
+  
 
-  <section class="card" aria-labelledby="h-prix">
-    <div class="sec-head"><h2 id="h-prix">Les prix : est-ce plus cher en Allemagne ?</h2><p class="muted">Huit soins L'Oréal relevés sur des sites allemands et français le 12 novembre 2026.</p></div>
-    <div class="bar">
-      <div class="fld"><label class="cap" for="sel-brand">Marque</label>
-        <select class="dash-select" id="sel-brand" data-param="brand"><option value="all">Toutes les marques</option><option value="La Roche-Posay">La Roche-Posay</option><option value="CeraVe">CeraVe</option><option value="Vichy">Vichy</option><option value="Kiehl's">Kiehl's</option><option value="SkinCeuticals">SkinCeuticals</option><option value="Lancôme Skincare">Lancôme Skincare</option></select></div>
-      <div class="fld"><label class="cap" for="sel-pbase">Prix français pris comme référence</label>
-        <select class="dash-select" id="sel-pbase" data-param="pbase"><option value="ratio_de_fr_ppc">Prix public conseillé</option><option value="ratio_de_fr">Prix réellement pratiqué (pharmacies en ligne)</option></select></div>
-    </div>
-    <div class="chart" data-draw="price" data-source="prix" aria-labelledby="h-prix"></div>
-    <p class="take">En moyenne, ces soins sont <b data-draw="val" data-k="price_dir">—</b> de <b data-draw="val" data-k="price_pct">—</b> en Allemagne qu'en France (moyenne pondérée par marque, <b data-draw="val" data-k="price_n">—</b> produits). <button type="button" class="info" aria-label="Voir le calcul" title="Voir le calcul" data-explain-open="price_mean">i</button></p>
-    <div class="card explain" data-explain-panel hidden aria-live="polite">
-      <div class="ex-head"><h3>Comment la moyenne est calculée</h3><button type="button" class="link" data-explain-open="">Fermer</button></div>
-      <div data-explain-block="price_mean" hidden>
-        <p>Chaque indice = prix en Allemagne ÷ prix en France × 100. On fait d'abord la moyenne par marque, puis la moyenne des marques pondérée par leur poids dans le chiffre d'affaires des trois pilotes (source : business case du dépôt de l'équipe).</p>
-        <p class="formula"><span data-draw="val" data-k="price_list">—</span> = <b data-draw="val" data-k="price_mean">—</b></p>
-        <p>Un indice moyen au-dessus de 100,0 veut dire « plus cher en Allemagne ». Chaque terme est « indice de la marque × son poids ».</p>
-      </div>
-    </div>
+  
 
+  
 
-    <div class="ai"><button type="button" class="cta" data-ai="price">✦ Résumer cette vue</button><div class="ai-out" data-draw="aisum" data-sec="price" aria-live="polite"></div></div>
-    <div class="tablewrap"><table data-draw="pricetab" data-source="prix" aria-label="Prix des soins en Allemagne et en France"></table></div>
-    <details><summary>Comment c'est calculé</summary><div><p>Indice = prix en Allemagne ÷ prix en France × 100. Un indice de 100 veut dire le même prix. 120 veut dire 20 % plus cher en Allemagne, 90 veut dire 10 % moins cher.</p><p>Le prix public conseillé est le prix affiché par la marque. Le prix pratiqué est celui des pharmacies en ligne françaises, souvent remisé. La moyenne affichée est pondérée par marque, selon le poids de chaque marque dans les ventes des trois pilotes.</p></div></details>
-  </section>
-
-  <details class="fold"><summary>Pour aller plus loin : taxes et niveau général des prix</summary>
-  <section class="grid2">
-    <div class="card">
-      <h2 id="h-tax">Taxes et prix généraux</h2>
-      <div class="tiles">
-        <button type="button" class="card tile" title="Cliquer pour voir le calcul" data-explain-open="vat_de"><span class="lbl">TVA en Allemagne</span><span class="big" data-draw="val" data-k="vat_de">—</span><span class="ref">France : <span data-draw="val" data-k="vat_fr">—</span></span></button>
-        <button type="button" class="card tile" title="Cliquer pour voir le calcul" data-explain-open="pli"><span class="lbl">Niveau des prix, tous biens</span><span class="big" data-draw="val" data-k="pli">—</span><span class="ref">France = 100</span></button>
-        <button type="button" class="card tile" title="Cliquer pour voir le calcul" data-explain-open="customs"><span class="lbl">Droits de douane France → Allemagne</span><span class="big" data-draw="val" data-k="customs">—</span><span class="ref">Marché unique européen</span></button>
-      </div>
-
-      <div class="explain card" data-explain-panel hidden aria-live="polite">
-        <div class="ex-head"><h3>Comment ce chiffre est calculé</h3><button type="button" class="link" data-explain-open="">Fermer</button></div>
-        <div data-explain-block="vat_de" hidden><p>Taux de TVA standard publié par la législation : <b data-draw="val" data-k="vat_de">—</b> en Allemagne, <b data-draw="val" data-k="vat_fr">—</b> en France. Aucun calcul.</p></div>
-        <div data-explain-block="pli" hidden><p>Niveau des prix = indice allemand ÷ indice français × 100, indices Eurostat 2025 (base UE = 100) :</p><p class="formula"><b data-draw="val" data-k="pli_de_raw">—</b> ÷ <b data-draw="val" data-k="pli_fr_raw">—</b> × 100 = <b data-draw="val" data-k="pli">—</b></p><p>Un résultat sous 100,0 veut dire que les prix sont un peu plus bas en Allemagne, tous biens confondus. Pour les soins seuls, voir le relevé de prix plus haut.</p></div>
-        <div data-explain-block="customs" hidden><p>Droit de douane entre deux pays de l'Union européenne : <b data-draw="val" data-k="customs">—</b>. C'est une règle du marché unique, pas un calcul.</p></div>
-      </div>
-      <details><summary>Comment c'est calculé</summary><div><p>Niveau des prix = indice allemand ÷ indice français × 100 (indices Eurostat 2025, base UE = 100). Il porte sur tous les biens et services des ménages, pas seulement la beauté : c'est pourquoi le relevé des soins ci-dessus est plus précis.</p><p>À prix payé égal par le client, une TVA plus basse laisse un chiffre d'affaires hors taxe un peu plus élevé : (1 ÷ 1,19) ÷ (1 ÷ 1,20) − 1, soit environ +0,8 %.</p></div></details>
-    </div>
-    <div class="card">
-      <h2 id="h-regl">Peu d'obstacles : surtout l'étiquetage et les emballages</h2>
-      <div class="regl-grid" data-draw="regl" data-source="regl" aria-label="Règles France et Allemagne"></div>
-    </div>
-  </section>
-  </details>
-
-  <details>
-    <summary>Petit lexique</summary>
-    <div><dl>
-      <dt>Md€</dt><dd>Milliard d'euros, soit 1 000 millions.</dd>
-      <dt>Drogerie</dt><dd>Magasin de grande distribution spécialisé dans l'hygiène et la beauté (dm, Rossmann, Müller). C'est le premier canal de vente des cosmétiques en Allemagne.</dd>
-      <dt>Rue commerçante 1a</dt><dd>Une très bonne rue commerçante de la ville, mais pas la plus chère.</dd>
-      <dt>Artère n°1</dt><dd>La rue commerçante la plus chère de la ville, par exemple la Kaufingerstraße à München.</dd>
-      <dt>Pharmacie</dt><dd>Principal point de vente des marques dermocosmétiques comme La Roche-Posay ou CeraVe.</dd>
-      <dt>Estimé / mesuré</dt><dd>Mesuré : compté directement. Estimé : déduit de la moyenne des villes mesurées.</dd>
-    </dl>
-    <p>Sources : Cosmetics Europe 2025, Destatis, NielsenIQ-GfK, IW Köln, BNP Paribas Real Estate, OpenStreetMap, Sonko Consulting, Douglas Group, Eurostat, relevé de prix dm.de, Douglas et pharmacies en ligne.</p></div>
-  </details>
+  
 </div>
 
 
+<p class="foot">Méthode de calcul, définitions et sources : onglet <a href="instructions.html">Instructions</a>.</p>
 </div>
+<style>
+:root{color-scheme:light}
+html,body{background:#fff!important;color:#1a1a1a}
+body{font-size:15px}
+#dash-root{max-width:1120px}
+.eds,.sim{gap:20px!important}
+.eds>header,.sim>header{background:none!important;border:0!important;box-shadow:none!important;padding:0!important;border-radius:0!important}
+.eds h1,.sim h1{background:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;color:#1a1a1a!important;font-size:26px!important;font-weight:700!important;letter-spacing:-.01em!important;margin:0!important}
+.eds h2,.sim h2{font-size:16px!important;font-weight:700!important;color:#1a1a1a;gap:0!important}
+.eds h2::before,.sim h2::before{display:none!important}
+.eds .card,.sim .card{background:#fff!important;border:1px solid #e6e6e6!important;border-radius:8px!important;box-shadow:none!important;padding:18px!important}
+.eds .tile .big,.sim .tile .big{background:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;color:#1a1a1a!important;font-size:28px!important;font-weight:700!important}
+.eds .tile .lbl,.sim .tile .lbl{color:#555!important;font-size:14px}
+.eds .tile .ref,.sim .tile .ref{color:#777!important}
+.eds button.tile,.sim button.tile{cursor:default!important;pointer-events:none;border:1px solid #e6e6e6!important;transition:none!important}
+.eds button.tile::after,.sim button.tile::after{display:none!important}
+.sim .seg button.on{background:#1a1a1a!important;color:#fff!important}
+.sim .seg button{min-width:0}
+.sim .tile .big{font-size:24px!important;overflow-wrap:anywhere}
+.eds .chip,.sim .chips2 button,.sim .seg button{background:#fff!important;color:#333!important;border:1px solid #d6d6d6!important;box-shadow:none!important;border-radius:999px!important}
+.eds .chip.on,.sim .chips2 button[aria-pressed="true"],.sim .seg button.on,.sim .seg button[aria-pressed="true"]{background:#1a1a1a!important;color:#fff!important;border-color:#1a1a1a!important}
+.eds .seg,.sim .seg{background:none!important;border:0!important;padding:0!important;gap:6px!important}
+.eds .cta{background:#fff!important;color:#1a1a1a!important;border:1px solid #1a1a1a!important;box-shadow:none!important}
+.eds .link,.sim .link{color:#555!important}
+.eds .tab,.sim .tab{background:none!important;color:#555!important;border:1px solid transparent;border-radius:6px!important;padding:6px 12px!important;font-weight:600!important}
+.eds a.tab:hover,.sim a.tab:hover{background:#f3f3f3!important;color:#1a1a1a!important}
+.eds .tab.on,.sim .tab.on{background:#f3f3f3!important;color:#1a1a1a!important;border-color:#e0e0e0}
+.eds .tabs,.sim .tabs{border-bottom:1px solid #e6e6e6;padding-bottom:8px;margin-bottom:6px!important}
+.eds .simnote,.sim .simnote{background:none!important;padding:0!important;margin:0!important;color:#777!important;font-size:13px!important}
+.eds .muted,.sim .muted{color:#777!important;font-size:13px!important}
+.eds .tablewrap{border:1px solid #eee!important}
+.eds table th{background:#fafafa!important;color:#555!important}
+.eds table tbody tr:hover td{background:#fafafa!important}
+.eds details,.sim details{background:none!important;padding:0!important}
+.eds details>summary,.sim details>summary{color:#555!important;font-weight:600}
+.eds .regl-card{background:#fafafa!important}
+.eds input[type=range],.sim input[type=range]{accent-color:#1a1a1a}
+.sim .pill,.eds .pill{border-radius:4px!important}
+.foot{margin:24px 0 0;color:#777;font-size:13px}
+.foot a{color:#555}
+@media print{.tabs{display:none}}
+
+.eds>header.band,.sim>header.band{background:#1a1a1a!important;padding:12px 18px 16px!important;border-radius:10px!important}
+.band{background:#1a1a1a;color:#fff;border-radius:10px;padding:12px 18px 16px;display:flex;flex-direction:column;gap:10px}
+.eds .band h1,.sim .band h1{color:#fff!important;font-size:24px!important}
+.band-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
+.band .row-actions{margin:0!important}
+.eds .band .tabs,.sim .band .tabs{border-bottom:1px solid #333;margin:0!important;padding-bottom:8px}
+.eds .band .tab,.sim .band .tab{color:#bbb!important}
+.eds .band a.tab:hover,.sim .band a.tab:hover{background:#2a2a2a!important;color:#fff!important}
+.eds .band .tab.on,.sim .band .tab.on{background:#333!important;color:#fff!important;border-color:#444}
+.band-filters{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end}
+.band .cap,.band .ctl-head,.band .muted{color:#bbb!important;font-size:13px!important}
+.eds .band .chip,.sim .band .chips2 button{background:transparent!important;color:#ddd!important;border:1px solid #666!important}
+.eds .band .chip.on,.sim .band .chips2 button[aria-pressed="true"]{background:#c9a24a!important;color:#111!important;border-color:#c9a24a!important}
+.band .link{color:#ccc!important}
+.band .cta{background:transparent!important;color:#fff!important;border:1px solid #fff!important}
+.sim .band .seg button{background:transparent!important;color:#ddd!important;border:1px solid #666!important}
+.sim .band .seg button.on{background:#c9a24a!important;color:#111!important;border-color:#c9a24a!important}
+.sim .band .ctl{display:flex;flex-direction:column;gap:6px;min-width:0}
+.sim .band .ctl-wide{flex:1 1 100%}
+.sim .band .seg{flex-wrap:nowrap}
+.sim .band .seg button{white-space:nowrap;padding:8px 14px!important;flex:0 0 auto!important}
+.grid-two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid-two>.card{min-width:0}
+@media(max-width:820px){.grid-two{grid-template-columns:1fr}}
+.eds .tiles .tile,.sim .tiles .tile{align-items:center;text-align:center}
+.eds .tile .lbl,.sim .tile .lbl{color:#1a1a1a!important;font-size:15px}
+.eds h2,.sim h2{text-transform:none}
+
+.ai{display:flex;flex-direction:column;gap:8px;align-items:flex-start;margin:4px 0 0}
+.ai-out{width:100%}
+.ai-out>.muted{display:none}
+.cta{font:inherit;font-size:13px!important;font-weight:600;padding:4px 12px!important;border-radius:999px!important;border:1px solid #bbb!important;background:#fff!important;color:#333!important;cursor:pointer;box-shadow:none!important}
+.cta:hover{background:#f3f3f3!important}
+.ai-box{background:#fafafa!important;border:1px solid #eee;border-radius:8px!important;padding:10px 14px!important;font-size:14px;max-width:70ch}
+.ai-badge{display:block!important;font-size:12px!important;color:#777!important;background:none!important;padding:0!important;margin-bottom:4px}
+@media print{.ai{display:none!important}}
+.hyp-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.adv{margin-top:14px}
+.adv>summary{cursor:pointer;font-weight:600;color:#555}
+.adv .controls{margin-top:12px}
+.dd{position:relative}
+.dd>summary{list-style:none;cursor:pointer;padding:8px 14px;border:1px solid #666;border-radius:8px;color:#fff;background:#222;font-size:14px;min-width:150px}
+.eds .band .dd>summary,.sim .band .dd>summary{color:#fff!important}
+.dd>summary::-webkit-details-marker{display:none}
+.dd>summary::after{content:"▾";float:right;margin-left:12px}
+.dd-pop{position:absolute;z-index:20;top:calc(100% + 6px);left:0;width:min(520px,86vw);background:#fff;color:#1a1a1a;border:1px solid #ddd;border-radius:10px;box-shadow:0 10px 28px rgba(0,0,0,.2);padding:14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.dd-pop .muted{flex:1 1 100%;margin:4px 0 0;color:#777!important}
+.eds .dd-pop .chip,.sim .dd-pop .chips2 button,.sim .dd-pop button{background:#fff!important;color:#333!important;border:1px solid #d6d6d6!important}
+.eds .dd-pop .chip.on,.sim .dd-pop button[aria-pressed="true"]{background:#c9a24a!important;color:#111!important;border-color:#c9a24a!important}
+.dd-pop .link{color:#555!important}
+.sim .dd-pop .chips2{display:contents}
+.eds .chip.on{background:#f0f0f0!important;color:#1a1a1a!important;border-color:#1a1a1a!important}
+.sim .band-filters .ctl-wide{display:none}
+</style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 <script>window.__CSV__={"marche": "country_code,country,market_value_bn_eur,growth_pct,spend_per_capita_eur\nDE,Allemagne,18.012,6.28,216.0\nFR,France,14.464,1.55,210.0\n", "categories": "country_code,category,value_bn_eur,share_pct,growth_pct\nDE,Parfums,2.144,11.9,2.1\nDE,Maquillage,2.239,12.4,1.5\nDE,Soins de la peau,4.023,22.3,11.1\nDE,Capillaires,4.107,22.8,8.1\nDE,Hygiène et toilette,5.499,30.5,5.3\nFR,Parfums,3.401,23.5,3.5\nFR,Maquillage,1.266,8.8,1.7\nFR,Soins de la peau,4.529,31.3,2.7\nFR,Capillaires,1.941,13.4,0.1\nFR,Hygiène et toilette,3.327,23.0,-1.1\n", "villes": "city,state,population,purchasing_power_eur_per_capita,purchasing_power_index,lat,lon\nMünchen,Bayern,1505036,38138,129.0,48.137,11.575\nDüsseldorf,Nordrhein-Westfalen,619444,33782,114.3,51.225,6.776\nFrankfurt am Main,Hessen,760656,32131,108.7,50.11,8.682\nStuttgart,Baden-Württemberg,609365,31853,107.7,48.776,9.183\nHamburg,Hamburg,1869473,31270,105.8,53.551,9.994\nKöln,Nordrhein-Westfalen,1025523,30701,103.8,50.938,6.96\nBerlin,Berlin,3700577,28330,95.8,52.52,13.405\nLeipzig,Sachsen,615932,26987,91.3,51.34,12.375\n", "loyers": "city,location,rent_eur_m2,trend_pct_pa,street\nMünchen,Rue commerçante 1a,45.0,3.3,\nMünchen,Artère n°1,320.0,,Kaufingerstraße\nDüsseldorf,Rue commerçante 1a,23.0,3.2,\nDüsseldorf,Artère n°1,285.0,,Königsallee\nFrankfurt am Main,Rue commerçante 1a,32.0,2.4,\nFrankfurt am Main,Artère n°1,295.0,,Goethestraße\nStuttgart,Rue commerçante 1a,35.0,0.4,\nStuttgart,Artère n°1,200.0,,Königstraße\nHamburg,Rue commerçante 1a,25.0,2.9,\nHamburg,Artère n°1,235.0,,Neuer Wall\nKöln,Rue commerçante 1a,26.0,2.1,\nKöln,Artère n°1,230.0,,Wallrafplatz\nBerlin,Rue commerçante 1a,30.0,3.1,\nBerlin,Artère n°1,250.0,,Tauentzienstraße\nLeipzig,Rue commerçante 1a,20.0,2.2,\nLeipzig,Artère n°1,120.0,,Grimmaische Straße / Petersstraße\n", "concvilles": "city,competitor,store_count,stores_per_100k,status\nMünchen,Douglas,6,0.4,collecté\nMünchen,dm-drogerie markt,59,3.92,collecté\nMünchen,Rossmann,43,2.86,collecté\nMünchen,Müller,12,0.8,collecté\nMünchen,Sephora,1,0.07,collecté\nMünchen,Pharmacies,306,20.33,collecté\nMünchen,Instituts de beauté,498,33.09,collecté\nDüsseldorf,Instituts de beauté,166,26.8,collecté\nDüsseldorf,Pharmacies,152,24.54,collecté\nDüsseldorf,Müller,1,0.16,collecté\nDüsseldorf,Sephora,1,0.16,collecté\nDüsseldorf,dm-drogerie markt,22,3.55,collecté\nDüsseldorf,Douglas,3,0.48,collecté\nDüsseldorf,Rossmann,19,3.07,collecté\nFrankfurt am Main,Douglas,6,0.79,collecté\nFrankfurt am Main,dm-drogerie markt,29,3.81,collecté\nFrankfurt am Main,Rossmann,16,2.1,collecté\nFrankfurt am Main,Müller,3,0.39,collecté\nFrankfurt am Main,Sephora,1,0.13,collecté\nFrankfurt am Main,Pharmacies,147,19.33,collecté\nFrankfurt am Main,Instituts de beauté,191,25.11,collecté\nStuttgart,Sephora,0,0.0,collecté\nStuttgart,Pharmacies,101,16.57,collecté\nStuttgart,Müller,6,0.98,collecté\nStuttgart,Instituts de beauté,139,22.81,collecté\nStuttgart,dm-drogerie markt,20,3.28,collecté\nStuttgart,Douglas,2,0.33,collecté\nStuttgart,Rossmann,6,0.98,collecté\nHamburg,Instituts de beauté,555,29.69,estimé\nHamburg,Sephora,2,0.11,estimé\nHamburg,Müller,10,0.53,estimé\nHamburg,Rossmann,44,2.35,estimé\nHamburg,dm-drogerie markt,72,3.85,estimé\nHamburg,Douglas,10,0.53,estimé\nHamburg,Pharmacies,381,20.38,estimé\nKöln,Pharmacies,214,20.87,collecté\nKöln,Sephora,1,0.1,collecté\nKöln,Müller,1,0.1,collecté\nKöln,Rossmann,22,2.15,collecté\nKöln,dm-drogerie markt,43,4.19,collecté\nKöln,Douglas,6,0.59,collecté\nKöln,Instituts de beauté,349,34.03,collecté\nBerlin,Instituts de beauté,1100,29.73,estimé\nBerlin,Pharmacies,753,20.35,estimé\nBerlin,Sephora,3,0.08,estimé\nBerlin,Müller,19,0.51,estimé\nBerlin,dm-drogerie markt,142,3.84,estimé\nBerlin,Douglas,19,0.51,estimé\nBerlin,Rossmann,87,2.35,estimé\nLeipzig,Pharmacies,125,20.29,estimé\nLeipzig,Douglas,3,0.49,estimé\nLeipzig,dm-drogerie markt,24,3.9,estimé\nLeipzig,Rossmann,14,2.27,estimé\nLeipzig,Müller,3,0.49,estimé\nLeipzig,Sephora,1,0.16,estimé\nLeipzig,Instituts de beauté,183,29.71,estimé\n", "hubs": "hub,country_code,lat,lon\nKarlsruhe,DE,49.007,8.403\nRambouillet,FR,48.643,1.83\nLa Roche-Posay,FR,46.787,0.811\nVichy,FR,46.127,3.426\n", "natcomp": "retailer,segment,stores_de,revenue_bn_eur,status,note\ndm-drogerie markt,Drogerie (mass market),2000.0,13.27,collecté,\nRossmann,Drogerie (mass market),2342.0,10.5,collecté,\nMüller,Drogerie / parfumerie,578.0,,collecté,\nBudni,Drogerie (régional),190.0,,collecté,\nDouglas,Parfumerie (prestige),,2.12,partiel,486 sur Allemagne-Autriche-Suisse-Pays-Bas\nSephora,Parfumerie (prestige),25.0,,collecté,\n", "prix": "product,brand,size,price_de_eur,price_fr_eur,price_fr_ppc_eur,ratio_de_fr,ratio_de_fr_ppc\nEffaclar Duo+ SPF 30,La Roche-Posay,40 ml,16.95,16.79,19.89,1.01,0.852\nToleriane Sensitive Crème,La Roche-Posay,40 ml,17.95,13.99,16.59,1.283,1.082\nBaume / crème hydratante visage et corps,CeraVe,454 g,16.85,11.19,13.99,1.505,1.204\nLait / lotion hydratant(e),CeraVe,236 ml,9.75,7.11,8.89,1.371,1.097\nMinéral 89 Booster (sérum),Vichy,75 ml,31.45,20.89,20.99,1.004,0.999\nUltra Facial Cream,Kiehl's,50 ml,35.0,35.0,35.0,1.0,1.0\nC E Ferulic (sérum),SkinCeuticals,30 ml,180.39,133.29,133.29,1.353,1.353\nGénifique Advanced (sérum),Lancôme Skincare,100 ml,177.0,189.0,189.0,0.937,0.937\n", "taxes": "country_code,price_level_index_eu100,vat_standard_pct,customs_duty_intra_eu_pct\nDE,108.3,19,0\nFR,110.3,20,0\n", "regl": "topic,france,allemagne,impact\nDroits de douane,0 % (marché unique UE),0 % (marché unique UE),Aucun surcoût à l'import\nTVA standard,20 %,19 %,Prix HT plus élevé à prix TTC égal en Allemagne\nRèglement cosmétique,Règlement (CE) 1223/2009,Règlement (CE) 1223/2009,Catalogue conforme sans reformulation\nÉtiquetage,Français,Allemand obligatoire,Ré-étiquetage ou étiquettes multilingues\nEmballages,Filière REP (Citeo),VerpackG : enregistrement LUCID et contrat de système dual,Démarche administrative et coût par emballage\n"};
 window.__DEFAULTS__={"brand": "all", "cities": ["München", "Düsseldorf", "Frankfurt am Main", "Stuttgart", "Hamburg", "Köln", "Berlin", "Leipzig"], "cm": "pop", "cmeasure": "stores_per_100k", "comps": ["dm-drogerie markt", "Rossmann", "Müller", "Douglas", "Sephora", "Pharmacies", "Instituts de beauté"], "countries": ["DE", "FR"], "explain": "", "mm": "value_bn_eur", "pbase": "ratio_de_fr_ppc"};</script>
@@ -430,6 +370,7 @@ window.__DEFAULTS__={"brand": "all", "cities": ["München", "Düsseldorf", "Fran
     pending=false;
     Object.keys(drawers).forEach(n=>{document.querySelectorAll('[data-draw="'+n+'"]').forEach(el=>{try{drawers[n](el);}catch(e){console.error('draw '+n,e);}});});
     cbs.forEach(cb=>{try{cb();}catch(e){console.error('onData',e);}});
+    /*SELBIND*/document.querySelectorAll('select[data-param]').forEach(el=>{const v=params[el.dataset.param]; if(document.activeElement!==el) el.value=(v!=null&&v!=='')?v:el.options[0].value;});
   }
   function schedule(){ if(!started||pending)return; pending=true; requestAnimationFrame(render); }
   window.dash={
@@ -441,7 +382,7 @@ window.__DEFAULTS__={"brand": "all", "cities": ["München", "Düsseldorf", "Fran
     resetParams(){ params=clone(window.__DEFAULTS__||{}); schedule(); },
     onData(fn){ cbs.push(fn); },
     draw(name,fn){ drawers[name]=fn; },
-    __start(){ started=true; render();
+    __start(){ started=true; document.querySelectorAll('select[data-param]').forEach(el=>el.addEventListener('change',()=>{const o={};o[el.dataset.param]=el.value;window.dash.setParams(o);})); render();
       let t; window.addEventListener('resize',()=>{clearTimeout(t);t=setTimeout(render,150);});
       document.addEventListener('toggle',()=>schedule(),true);
       window.addEventListener('beforeprint',render); }
@@ -1022,6 +963,11 @@ window.__DEFAULTS__={"brand": "all", "cities": ["München", "Düsseldorf", "Fran
       el.appendChild(card);
     });
   });
+</script>
+<script>
+dash.onData(()=>{const n=document.querySelectorAll('.band [data-param="cities"].on, .band [data-city][aria-pressed="true"]').length;document.querySelectorAll('[data-vcount]').forEach(e=>e.textContent=n);});
+(function(){var b=document.getElementById('reset-sim');if(b)b.addEventListener('click',function(){dash.resetParams();});})();
+document.addEventListener('click',e=>{document.querySelectorAll('.dd[open]').forEach(d=>{if(!d.contains(e.target))d.removeAttribute('open');});});
 </script>
 <script>dash.__start();</script>
 </body></html>

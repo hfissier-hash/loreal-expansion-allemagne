@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Instructions – dashboards boutiques Allemagne</title>
+<style>
+:root{color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:#1a1a1a;font:15px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+main{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;border-bottom:1px solid #e6e6e6;padding-bottom:8px;margin-bottom:24px}
+.tab{padding:6px 12px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;color:#555;border:1px solid transparent}
+a.tab:hover{background:#f3f3f3;color:#1a1a1a}
+.tab.on{background:#f3f3f3;color:#1a1a1a;border-color:#e0e0e0}
+h1{font-size:26px;margin:0 0 4px}
+.sub{color:#777;margin:0 0 28px}
+h2{font-size:17px;margin:32px 0 10px;padding-top:12px;border-top:1px solid #eee}
+dl{margin:0;display:grid;grid-template-columns:minmax(150px,220px) 1fr;gap:10px 20px}
+dt{font-weight:600}dd{margin:0;color:#333}
+ul{padding-left:20px;margin:0}li{margin:6px 0;color:#333}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{text-align:left;padding:6px 10px;border-bottom:1px solid #eee;vertical-align:top}th{color:#555;background:#fafafa}
+a{color:#1a1a1a}
+@media(max-width:600px){dl{grid-template-columns:1fr;gap:2px}dd{margin-bottom:10px}}
+@media print{.tabs{display:none}}
+</style></head><body><main>
+<nav class="tabs" aria-label="Pages"><a class="tab" href="etat-des-lieux.html">État des lieux</a><a class="tab" href="villes.html">Villes</a><a class="tab" href="concurrence.html">Concurrence</a><a class="tab" href="prix-taxes.html">Prix et taxes</a><a class="tab" href="simulateur-rentabilite.html">Simulateur</a><span class="tab on" aria-current="page">Instructions</span></nav>
+<h1>Instructions</h1>
+<p class="sub">Méthode de calcul, définitions, hypothèses et sources des deux tableaux de bord.</p>
+
+<h2>1. Utiliser les tableaux de bord</h2>
+<ul>
+<li>Les boutons ronds filtrent les graphiques : un clic active ou retire une ville, une enseigne ou un pays. « Toutes » et « Aucune » cochent ou décochent tout.</li>
+<li>« Tout remettre par défaut » rétablit les choix de départ. « Enregistrer en PDF » ouvre l'impression du navigateur.</li>
+<li>★ : les trois villes pilotes (München, Düsseldorf, Frankfurt am Main, ouvertures 2027), écrites en gras. * : valeur estimée et non mesurée. n.d. : donnée non disponible.</li>
+<li>Arrondis : une décimale pour les pourcentages, les indices et les milliards d'euros ; aucune pour les euros par habitant, les habitants, les kilomètres, les k€ et les euros ; deux pour les M€ et les facteurs ; deux pour les prix de vente.</li>
+</ul>
+
+<h2>2. État des lieux : calculs</h2>
+<dl>
+<dt>Marché beauté, dépense par habitant</dt><dd>Valeurs publiées par Cosmetics Europe (édition 2025) : Allemagne 18,012 Md€, France 14,464 Md€. Aucun recalcul.</dd>
+<dt>Poids d'une famille de produits</dt><dd>Ventes de la famille ÷ ventes totales du pays × 100. Allemagne, soin de la peau : 4,023 ÷ 18,012 × 100 = 22,3 %.</dd>
+<dt>Croissance</dt><dd>Valeur publiée par Cosmetics Europe, qui compare 2025 à 2024 après révision des montants 2024. La fédération IKW publie le même chiffre de 11,1 % pour le soin de la peau en Allemagne.</dd>
+<dt>Pouvoir d'achat</dt><dd>Revenu disponible moyen par habitant, publié par NielsenIQ-GfK pour 2025.</dd>
+<dt>Loyer annuel d'une boutique de 80 m²</dt><dd>Loyer en rue commerçante 1a (€ par m² et par mois) × 12 × 80.</dd>
+<dt>Magasins pour 100 000 habitants</dt><dd>Nombre de magasins ÷ population × 100 000. Drogeries = dm + Rossmann + Müller. Parfumeries de luxe = Douglas + Sephora.</dd>
+<dt>Distance à Karlsruhe</dt><dd>Distance à vol d'oiseau jusqu'à l'usine L'Oréal de Karlsruhe (formule de haversine sur les coordonnées GPS). Par la route, compter environ 25 % de plus.</dd>
+<dt>Graphique pouvoir d'achat et loyer</dt><dd>Un point par ville. À droite : pouvoir d'achat plus élevé. En bas : loyer 1a plus faible. Taille : nombre d'habitants. Pointillés : médiane des villes affichées. Les villes en bas à droite sont les plus favorables sur ces deux critères.</dd>
+<dt>Comparer deux villes</dt><dd>✓ marque la valeur la plus favorable à une boutique : la plus haute pour les habitants et le pouvoir d'achat, la plus basse pour les loyers, la concurrence et la distance.</dd>
+<dt>Concurrence</dt><dd>Magasins recensés dans OpenStreetMap (API Overpass). Hamburg, Berlin et Leipzig sont estimés : densité moyenne des cinq villes mesurées (München, Düsseldorf, Frankfurt, Stuttgart, Köln) appliquée à leur population. Les magasins Douglas y sont probablement sous-comptés. Pour Douglas, le chiffre d'affaires national couvre l'Allemagne, l'Autriche, la Suisse et les Pays-Bas.</dd>
+<dt>Indice de prix</dt><dd>Prix en Allemagne ÷ prix en France × 100 : 100 = même prix, 120 = 20 % plus cher en Allemagne. Huit soins relevés le 12 novembre 2026. La référence française est au choix le prix public conseillé ou le prix pratiqué par les pharmacies en ligne.</dd>
+<dt>Indice moyen</dt><dd>Moyenne des indices par marque, puis moyenne des marques pondérée par leur poids dans le chiffre d'affaires des trois pilotes (business case de l'équipe) : La Roche-Posay 26,2 %, CeraVe 22,2 %, Vichy 15,9 %, SkinCeuticals 13,8 %, Kiehl's 11,9 %, Lancôme 9,9 %.</dd>
+<dt>Niveau des prix, tous biens</dt><dd>Indice allemand ÷ indice français × 100 (Eurostat 2025, UE = 100) : 108,3 ÷ 110,3 × 100 = 98,2. Il couvre tous les biens des ménages, pas seulement la beauté.</dd>
+<dt>TVA</dt><dd>19 % en Allemagne, 20 % en France. À prix payé égal, une TVA plus basse laisse un chiffre d'affaires hors taxe environ 0,8 % plus élevé.</dd>
+</dl>
+
+<h2>3. Simulateur : calculs</h2>
+<dl>
+<dt>EBITDA d'une boutique (année)</dt><dd>(marge brute − autres charges − logistique) × facteur de chiffre d'affaires × montée en charge − loyer × facteur de loyers − personnel.</dd>
+<dt>Montée en charge</dt><dd>70 % la première année d'une boutique, 90 % la deuxième, 100 % ensuite. Elle s'applique à la marge et aux charges variables ; loyer et personnel sont dus en totalité dès l'ouverture.</dd>
+<dt>Trésorerie cumulée</dt><dd>Somme, année après année, de l'EBITDA du réseau moins les investissements des boutiques ouvertes cette année-là (435 000 € par boutique). Le réseau est à l'équilibre l'année où ce cumul repasse au-dessus de zéro.</dd>
+<dt>Calendrier d'ouverture</dt><dd>3 boutiques en 2027 (pilotes), 5 en 2028, 7 en 2029, soit 15 boutiques dans 8 villes.</dd>
+<dt>CA par m²</dt><dd>7 880 € de CA TTC par m² en scénario réaliste × facteur de chiffre d'affaires. Seuil de passage vers la vague 2028 : 9 600 € par m². Les boutiques françaises des régions réalisent 8 578 €.</dd>
+<dt>Retour sur investissement des pilotes</dt><dd>Investissement des trois pilotes ÷ EBITDA annuel des trois pilotes en année pleine.</dd>
+<dt>Hypothèses avancées</dt><dd>Quatre réglages en plus : <b>investissement par boutique</b> (× 0,70 à × 1,50 sur les 435 000 €), <b>marge brute</b> (× 0,80 à × 1,20, sans toucher au chiffre d'affaires), <b>charges variables</b> (logistique et autres charges, × 0,70 à × 1,50) et <b>montée en charge</b> : prévue (70, 90, 100 %), lente (50, 75, 100 %) ou rapide (85, 100, 100 %). À × 1,00 et « prévue », on retrouve exactement le business case de l'équipe. « Tout remettre par défaut » rétablit tous les réglages.</dd>
+<dt>Scénarios élargis</dt><dd>Option du menu sous les boutons de scénario. Elle fait varier plusieurs critères à la fois. <b>Pessimiste</b> : CA × 0,8, loyers × 1,10, investissement × 1,15, charges variables × 1,10, montée en charge lente. <b>Optimiste</b> : CA × 1,15, loyers × 0,95, investissement × 0,95, charges variables × 0,95, montée en charge rapide. <b>Ces valeurs sont une proposition de départ, à faire valider par l'équipe</b> : elles ne viennent pas de l'équipe. Le choix « Scénarios de l'équipe » ne change que le chiffre d'affaires.</dd>
+<dt>Scénarios</dt><dd>Pessimiste × 0,8, réaliste × 1, optimiste × 1,15 sur le chiffre d'affaires. Ils reproduisent les trois scénarios du business case de l'équipe (branche feature/kpis).</dd>
+<dt>Sensibilité</dt><dd>Le calcul complet est refait en faisant varier un levier de −20 % puis +20 %, les autres restant à votre réglage. Chaque barre est l'écart de trésorerie fin 2031 par rapport à votre simulation. Vert : la trésorerie s'améliore ; rouge : elle se dégrade. Le levier chiffre d'affaires agit sur la marge brute, les autres charges et la logistique.</dd>
+<dt>Chiffre d'affaires nécessaire</dt><dd>Recherche par essais successifs du facteur de chiffre d'affaires pour lequel l'objectif est juste atteint, le reste étant inchangé, puis conversion en CA par m².</dd>
+<dt>Décomposition de l'EBITDA</dt><dd>Marge brute − autres charges − logistique − loyer − personnel, pour une boutique en année pleine.</dd>
+<dt>Zone grisée après 2031</dt><dd>Hypothèse : chaque boutique reste à son rythme de croisière, sans inflation ni changement de prix.</dd>
+</dl>
+
+<h2>4. Hypothèses et limites</h2>
+<ul>
+<li>Le simulateur reprend le business case recalculé par l'équipe (branche feature/kpis : scénario réaliste, rue commerçante 1a), qui fait foi. La feuille de scénarios de Gaspard (visiteurs, taux d'achat, panier) est une autre approche, non reprise ici.</li>
+<li>Les ventes des boutiques en France viennent d'une base interne simulée : les résultats sont une maquette de décision, pas une prévision.</li>
+<li>Non pris en compte : impôts, amortissements, frais financiers, saisonnalité, arrivée de nouveaux concurrents.</li>
+<li>Concurrence de Hamburg, Berlin et Leipzig estimée (voir section 2).</li>
+<li>Les pages embarquent une copie des données de l'équipe : elles ne se mettent pas à jour toutes seules.</li>
+</ul>
+
+<h2>5. Lexique</h2>
+<dl>
+<dt>Md€</dt><dd>Milliard d'euros.</dd>
+<dt>EBITDA</dt><dd>Résultat avant amortissements, impôts et frais financiers : ce que rapporte l'exploitation.</dd>
+<dt>Drogerie</dt><dd>Magasin de grande distribution spécialisé hygiène et beauté (dm, Rossmann, Müller), premier canal de vente des cosmétiques en Allemagne.</dd>
+<dt>Rue commerçante 1a</dt><dd>Très bonne rue commerçante, mais pas la plus chère de la ville.</dd>
+<dt>Artère n°1</dt><dd>Rue commerçante la plus chère de la ville (par exemple la Kaufingerstraße à München).</dd>
+<dt>Pilotes</dt><dd>Les trois boutiques ouvertes en 2027 : München, Düsseldorf, Frankfurt am Main.</dd>
+</dl>
+
+<h2>6. Sources</h2>
+<div class="tw"><table><thead><tr><th>Source</th><th>Éditeur</th><th>Type</th><th>Fiabilité</th></tr></thead><tbody>
+<tr><td><a href="https://via.ritzau.dk/files/13559575/15049655/464298/da" target="_blank" rel="noopener">European Cosmetics Market Performance 2025</a></td><td>Cosmetics Europe</td><td>Fédération professionnelle</td><td>Élevée</td></tr>
+<tr><td><a href="https://www.premiumbeautynews.com/en/cosmetics-europe-european-beauty,25947" target="_blank" rel="noopener">European beauty market 2024 (via Premium Beauty News)</a></td><td>Cosmetics Europe</td><td>Presse spécialisée</td><td>Élevée</td></tr>
+<tr><td><a href="https://www.ssb.no/en/priser-og-prisindekser/konsumpriser/statistikk/sammenlikning-av-prisniva-i-europa" target="_blank" rel="noopener">Comparison of price levels in Europe 2025 (données Eurostat)</a></td><td>Statistics Norway / Eurostat</td><td>Open data officielle</td><td>Élevée</td></tr>
+<tr><td><a href="https://nielseniq.com/global/de/news-center/2025/kaufkraft-der-deutschen-erhoeht-sich-2025-was-den-anstieg-der-verbraucherpreise-jedoch-nicht-kompensiert/" target="_blank" rel="noopener">Kaufkraft Deutschland 2025</a></td><td>NielsenIQ-GfK</td><td>Étude de marché</td><td>Élevée</td></tr>
+<tr><td><a href="https://www.iwkoeln.de/fileadmin/user_upload/Studien/Report/PDF/2026/IW-Report_2026-Mietentwicklung-Einzelhandel.pdf" target="_blank" rel="noopener">Mietentwicklung im innerstädtischen Einzelhandel 2018-2025</a></td><td>Institut der deutschen Wirtschaft</td><td>Institut de recherche</td><td>Élevée</td></tr>
+<tr><td><a href="https://www.cushmanwakefield.com/de-de/germany/news/2025/11/main-streets-across-the-world" target="_blank" rel="noopener">Main Streets Across the World 2025</a></td><td>Cushman &amp; Wakefield</td><td>Conseil immobilier</td><td>Élevée</td></tr>
+<tr><td><a href="https://www.sonko-consulting.com/guides/german-beauty-retailers" target="_blank" rel="noopener">Who Sells Beauty in Germany? A Retail Map for Brands</a></td><td>Sonko Consulting</td><td>Cabinet de conseil</td><td>Moyenne</td></tr>
+<tr><td><a href="https://douglas.group/fileadmin/user_upload/DOUGLAS_Geschaeftsbericht_2024-2025_DE.pdf" target="_blank" rel="noopener">Douglas Group : résultats et rapport annuel 2024/25</a></td><td>Douglas Group</td><td>Rapport financier</td><td>Élevée</td></tr>
+<tr><td><a href="https://www.handelsdaten.de/drogerien-und-drogeriemarkte/2024-marktanteile-umsatzstaerkste-drogeriemaerkte-deutschland" target="_blank" rel="noopener">Marktanteile Drogeriemärkte 2024</a></td><td>Handelsdaten.de</td><td>Statistiques</td><td>Moyenne</td></tr>
+<tr><td><a href="https://www.ikw.org/en/market-data" target="_blank" rel="noopener">IKW Market Data</a></td><td>Industrieverband Körperpflege- und Waschmittel</td><td>Fédération professionnelle</td><td>Élevée</td></tr>
+<tr><td><a href="https://www.loreal-finance.com/fr/rapport-annuel-2023/loreal-dans-le-monde/dach/" target="_blank" rel="noopener">L&#x27;Oréal en Allemagne, en Autriche et en Suisse (rapport annuel 2023)</a></td><td>L&#x27;Oréal</td><td>Rapport annuel</td><td>Élevée</td></tr>
+<tr><td><a href="https://www.loreal-finance.com/fr/rapport-annuel-2024/loreal-dans-le-monde/france/" target="_blank" rel="noopener">L&#x27;Oréal en France (rapport annuel 2024)</a></td><td>L&#x27;Oréal</td><td>Rapport annuel</td><td>Élevée</td></tr>
+<tr><td><a href="https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Gemeindeverzeichnis/_inhalt.html" target="_blank" rel="noopener">Population des communes au 31/12/2025 (Gemeindeverzeichnis, mise à jour du Zensus 2022)</a></td><td>Destatis / Statistische Landesämter</td><td>Open data officielle</td><td>Élevée</td></tr>
+<tr><td><a href="https://taxation-customs.ec.europa.eu" target="_blank" rel="noopener">Taux de TVA standard (DE 19 % / FR 20 %)</a></td><td>Législations nationales</td><td>Réglementation</td><td>Élevée</td></tr>
+<tr><td><a href="https://biorius.com/de/kosmetikverordnung/europa/" target="_blank" rel="noopener">Règlement (CE) n° 1223/2009 relatif aux produits cosmétiques</a></td><td>Union européenne</td><td>Réglementation</td><td>Élevée</td></tr>
+<tr><td><a href="https://www.frankfurt-main.ihk.de/recht/uebersicht-alle-rechtsthemen/lebensmittel-und-bedarfsgegenstaenderecht/kosmetik-5195262" target="_blank" rel="noopener">Kosmetik - Herstellung, Import und Vertrieb</a></td><td>IHK Frankfurt am Main</td><td>Chambre de commerce</td><td>Élevée</td></tr>
+<tr><td><a href="https://taxation-customs.ec.europa.eu" target="_blank" rel="noopener">Union douanière de l&#x27;UE</a></td><td>Commission européenne</td><td>Réglementation</td><td>Élevée</td></tr>
+<tr><td>Base interne simulée (boutiques France, catalogue, hypothèses)</td><td>Équipe projet</td><td>Données simulées</td><td>À valider</td></tr>
+<tr><td><a href="https://overpass-api.de" target="_blank" rel="noopener">OpenStreetMap via l&#x27;API Overpass</a></td><td>Contributeurs OpenStreetMap</td><td>Open data (API)</td><td>Moyenne</td></tr>
+<tr><td><a href="https://www.premiumbeautynews.com/en/prestige-beauty-2025-france-falls,27212" target="_blank" rel="noopener">Prestige beauty 2025 : France falls behind in a rising European market (données Circana relayées)</a></td><td>Premium Beauty News / Circana</td><td>Panel distributeur (presse)</td><td>Moyenne-élevée</td></tr>
+<tr><td><a href="https://www.circana.com/post/beauty-market-trends-in-europe-mid-range-brands-are-gaining-momentum" target="_blank" rel="noopener">Beauty market trends in Europe: mid-range brands are gaining momentum</a></td><td>Circana</td><td>Panel distributeur</td><td>Élevée</td></tr>
+<tr><td><a href="https://nielseniq.com/wp-content/uploads/sites/4/2026/04/Global-Beauty-Views-2026.pdf" target="_blank" rel="noopener">Global Beauty Views 2026</a></td><td>NielsenIQ</td><td>Panel distributeur</td><td>Élevée</td></tr>
+<tr><td><a href="https://www.kosmetiknachrichten.de/2025/12/04/schoenheits-und-haushaltspflege-2025-branche-erwirtschaftet-erneut-ein-wachstumsplus" target="_blank" rel="noopener">Schönheits- und Haushaltspflege 2025 (bilan annuel IKW)</a></td><td>Kosmetik Nachrichten / IKW</td><td>Fédération professionnelle (presse)</td><td>Élevée</td></tr>
+<tr><td><a href="https://www.realestate.bnpparibas.de/sites/default/files/document/2026-07/bnppre-top-retailm%C3%A4rkte-2026-h1-inkl-b-standorte.pdf" target="_blank" rel="noopener">Top-Retailmärkte in Deutschland, S1 2026 (loyers prime des 8 villes)</a></td><td>BNP Paribas Real Estate</td><td>Conseil immobilier</td><td>Élevée</td></tr>
+<tr><td><a href="https://loreal.com/en/articles/l-oreal-for-the-future/france-active-cosmetics-production-two-plants-go-carbon-neutral" target="_blank" rel="noopener">Active Cosmetics Production : usines de Vichy et La Roche-Posay</a></td><td>L&#x27;Oréal</td><td>Site de l&#x27;entreprise</td><td>Élevée</td></tr>
+</tbody></table></div>
+</main></body></html>

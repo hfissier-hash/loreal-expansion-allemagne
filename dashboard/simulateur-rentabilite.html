@@ -2,7 +2,7 @@
 <html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Simulateur de rentabilité – boutiques en Allemagne</title>
 <style>
-:root{color-scheme:light dark;
+:root{color-scheme:light;
 --color-bg:#faf9f7;--color-fg:#1f1e1d;--color-fg-muted:#6b6963;--color-panel:#ffffff;--color-border-line:#e4e1da;
 --color-ok:#16a34a;--color-warn:#d98b0b;--color-bad:#dc2626;
 --cds-border:#e4e1da;--cds-chart-axis:#9a968c;--cds-chart-grid:#e9e6df;--cds-chart-muted:#aaa69c;--cds-chart-reference:#6b6963;--cds-chart-status-critical:#dc2626;
@@ -11,11 +11,7 @@
 --cds-gap-md:12px;--cds-gap-lg:22px;--cds-pad-lg:22px;--cds-radius:14px;
 --font-anthropic-sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 --font-anthropic-serif:ui-serif,Georgia,Cambria,"Times New Roman",serif}
-@media (prefers-color-scheme:dark){:root{
---color-bg:#1a1a19;--color-fg:#f2efe9;--color-fg-muted:#a9a59c;--color-panel:#242423;--color-border-line:#3a3936;
---color-ok:#4ade80;--color-warn:#fbbf24;--color-bad:#f87171;
---cds-border:#3a3936;--cds-chart-axis:#7a766d;--cds-chart-grid:#33322f;--cds-chart-muted:#85817a;--cds-chart-reference:#a9a59c;--cds-chart-status-critical:#f87171;
---cds-text-secondary:#a9a59c;--cds-surface-popover:#2c2b2a;--cds-shadow-popover:0 8px 24px rgba(0,0,0,.6)}}
+
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:var(--font-anthropic-sans);font-size:var(--cds-font-size-body);line-height:1.5}
@@ -151,42 +147,15 @@ button{font-family:inherit}
 
 
 
-<div class="sim">
-  <style>.sim .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.sim .tab{padding:8px 16px;border-radius:999px;font-size: 14px;font-weight:700;text-decoration:none;color:#c9a24a;background:color-mix(in srgb,#c9a24a 12%,transparent)}.sim a.tab:hover{background:#c9a24a;color:#111}.sim .tab.on{background:linear-gradient(135deg,#c9a24a,#d6b46a);color:#111}@media print{.sim .tabs{display:none}}</style><nav class="tabs" aria-label="Changer de tableau de bord"><a class="tab" href="etat-des-lieux.html">État des lieux</a><span class="tab on" aria-current="page">Prévisions : simulateur de rentabilité</span></nav><style>.sim .simnote{margin:0 0 14px;padding:10px 14px;border-radius:14px;font-size:14px;line-height:1.5;background:color-mix(in srgb,#a8703c 14%,transparent)}</style><p class="simnote"><b>Données simulées :</b> la base interne des boutiques en France est simulée ; les résultats sont une maquette de décision, pas une prévision.</p>
-  <header>
-    <p class="eyebrow">Boutiques de diagnostic de peau · Allemagne 2027-2031</p>
-    <h1>Simulateur de rentabilité des boutiques en Allemagne</h1>
-    <p class="muted">Les cartes marquées d'un rond doré « i » sont cliquables : elles montrent le calcul pas à pas. Maquette interactive. Le modèle de calcul du dépôt (scénario réaliste, rue commerçante 1a) est recalculé dans la page à chaque réglage.</p>
-  </header>
-
-  <section class="card" aria-labelledby="ctl-title">
-    <h2 id="ctl-title">Hypothèses à tester</h2>
-    <div class="controls">
-      <div class="ctl">
-        <div class="ctl-head"><span>Scénario de chiffre d'affaires</span></div>
+<div class="sim"><header class="band"><nav class="tabs" aria-label="Pages"><a class="tab" href="etat-des-lieux.html">État des lieux</a><a class="tab" href="villes.html">Villes</a><a class="tab" href="concurrence.html">Concurrence</a><a class="tab" href="prix-taxes.html">Prix et taxes</a><span class="tab on" aria-current="page">Simulateur</span><a class="tab" href="instructions.html">Instructions</a></nav><div class="band-top"><h1>Simulateur de rentabilité — Allemagne 2027-2031</h1></div><div class="band-filters"><div class="ctl">
+        <div class="ctl-head"><span>Scénario</span></div>
         <div class="seg" role="group" aria-label="Scénario">
           <button type="button" data-f="0.8" id="sc-pess">Pessimiste −20 %</button>
           <button type="button" data-f="1" id="sc-real">Réaliste</button>
           <button type="button" data-f="1.15" id="sc-opti">Optimiste +15 %</button>
         </div>
-        <p class="muted">Un scénario règle le curseur ci-contre sur sa valeur. Le curseur affine ensuite.</p>
-      </div>
-      <div class="ctl">
-        <label class="ctl-head" for="in-f"><span>Chiffre d'affaires vs réaliste</span><output data-draw="val" data-k="f_lbl">—</output></label>
-        <input type="range" id="in-f" min="0.6" max="1.6" step="0.01" value="1">
-        <p class="muted">Multiplie CA, marge brute, charges variables et logistique.</p>
-      </div>
-      <div class="ctl">
-        <label class="ctl-head" for="in-rent"><span>Loyers vs hypothèse de base</span><output data-draw="val" data-k="rent_lbl">—</output></label>
-        <input type="range" id="in-rent" min="0.8" max="1.6" step="0.01" value="1">
-        <p class="muted">Rue commerçante 1a : 21 à 49 k€ par an selon la ville.</p>
-      </div>
-      <div class="ctl">
-        <label class="ctl-head" for="in-staff"><span>Personnel par boutique</span><output data-draw="val" data-k="staff_lbl">—</output></label>
-        <input type="range" id="in-staff" min="150000" max="260000" step="5000" value="200000">
-        <p class="muted">Base du dépôt : 200 k€ par an et par boutique.</p>
-      </div>
-      <div class="ctl">
+        
+      <select class="dash-select" id="sel-sdef" data-param="sdef" aria-label="Définition des scénarios"><option value="depot">Scénarios de l’équipe (chiffre d’affaires seul)</option><option value="large">Scénarios élargis (plusieurs critères, à valider)</option></select></div><div class="ctl">
         <label class="ctl-head" for="sel-plan"><span>Plan d'ouverture</span></label>
         <select class="dash-select" id="sel-plan" data-param="plan">
           <option value="full">Plan complet : 3 → 8 → 15 boutiques</option>
@@ -194,125 +163,104 @@ button{font-family:inherit}
           <option value="pilotes">Pilotes seulement : 3 boutiques</option>
           <option value="decale">Plan complet décalé d'un an</option>
         </select>
-        <p class="muted">Le Comex peut ralentir ou arrêter le déploiement : le besoin de financement change aussitôt.</p>
-      </div>
-      <div class="ctl ctl-wide">
-        <div class="ctl-head"><span>Villes où ouvrir</span></div>
-        <div class="chips2" role="group" aria-label="Villes où ouvrir"><button type="button" data-city="München" data-pilot aria-pressed="true">★ München</button><button type="button" data-city="Düsseldorf" data-pilot aria-pressed="true">★ Düsseldorf</button><button type="button" data-city="Frankfurt am Main" data-pilot aria-pressed="true">★ Frankfurt am Main</button><button type="button" data-city="Stuttgart" aria-pressed="true">Stuttgart</button><button type="button" data-city="Hamburg" aria-pressed="true">Hamburg</button><button type="button" data-city="Köln" aria-pressed="true">Köln</button><button type="button" data-city="Berlin" aria-pressed="true">Berlin</button><button type="button" data-city="Leipzig" aria-pressed="true">Leipzig</button></div>
-        <p class="muted">★ et gras : les 3 villes pilotes (ouvertures 2027). Cliquez sur une ville pour la retirer du plan (toutes ses boutiques disparaissent), recliquez pour la remettre.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="card" aria-labelledby="verdict-title">
-    <h2 id="verdict-title">Lecture pour le Comex</h2>
-    <p class="lede" data-when="above" hidden>
-      <span class="pill good">Seuil atteint</span>
-      À ×<b data-draw="val" data-k="f_x">—</b> le réaliste, une boutique encaisse <b data-draw="val" data-k="dens">—</b> de CA par m². C'est au-dessus des 9 600 € demandés : la vague 2028 peut être déclenchée. Trésorerie cumulée fin 2031 : <b data-draw="val" data-k="cash31">—</b>.
-    </p>
-    <p class="lede" data-when="below" hidden>
-      <span class="pill warn">Sous le seuil</span>
-      À ×<b data-draw="val" data-k="f_x">—</b> le réaliste, une boutique encaisse <b data-draw="val" data-k="dens">—</b> de CA par m², sous les 9 600 € demandés : on reste à 3 pilotes. Le plan choisi laisserait <b data-draw="val" data-k="cash31">—</b> de trésorerie cumulée fin 2031.
-    </p>
-      <div class="ai"><button type="button" class="cta" data-ai="verdict">✦ Résumer cette vue</button><div class="ai-out" data-draw="aisum" data-sec="verdict" aria-live="polite"></div></div>
-  </section>
-
-  <section class="tiles" aria-label="Indicateurs clés">
-    <button type="button" class="card tile" title="Cliquer pour voir le calcul" data-explain-open="cash31">
+        
+      </div><details class="dd"><summary>Villes (<span data-vcount>8</span>)</summary><div class="dd-pop"><div class="chips2" role="group" aria-label="Villes où ouvrir"><button type="button" data-city="München" data-pilot aria-pressed="true">★ München</button><button type="button" data-city="Düsseldorf" data-pilot aria-pressed="true">★ Düsseldorf</button><button type="button" data-city="Frankfurt am Main" data-pilot aria-pressed="true">★ Frankfurt am Main</button><button type="button" data-city="Stuttgart" aria-pressed="true">Stuttgart</button><button type="button" data-city="Hamburg" aria-pressed="true">Hamburg</button><button type="button" data-city="Köln" aria-pressed="true">Köln</button><button type="button" data-city="Berlin" aria-pressed="true">Berlin</button><button type="button" data-city="Leipzig" aria-pressed="true">Leipzig</button></div><p class="muted keep">★ Villes pilotes (en gras)</p></div></details></div></header><p class="simnote">Données simulées : maquette de décision, pas une prévision.</p><section class="tiles" aria-label="Indicateurs clés">
+    <button type="button" class="card tile">
       <span class="lbl">Trésorerie cumulée fin 2031</span>
       <span class="big" data-draw="val" data-k="cash31_t">—</span>
       <span class="ref" data-draw="val" data-k="cash31_ref">—</span>
   
     </button>
-    <button type="button" class="card tile" title="Cliquer pour voir le calcul" data-explain-open="dens">
+    <button type="button" class="card tile">
       <span class="lbl">Chiffre d'affaires par m² (TTC)</span>
       <span class="big" data-draw="val" data-k="dens_t">—</span>
       <span class="ref">Seuil de passage : 9 600 €</span>
   
     </button>
-    <button type="button" class="card tile" title="Cliquer pour voir le calcul" data-explain-open="pilot">
+    <button type="button" class="card tile">
       <span class="lbl">EBITDA annuel des 3 pilotes</span>
       <span class="big" data-draw="val" data-k="pilot_e">—</span>
       <span class="ref" data-draw="val" data-k="pilot_e_ref">—</span>
   
     </button>
-    <button type="button" class="card tile" title="Cliquer pour voir le calcul" data-explain-open="payback">
-      <span class="lbl">Remboursement des boutiques pilotes</span>
+    <button type="button" class="card tile">
+      <span class="lbl">Retour sur investissement des pilotes</span>
       <span class="big" data-draw="val" data-k="payback">—</span>
       <span class="ref">1,31 M€ investis, année pleine</span>
   
     </button>
-    <button type="button" class="card tile" title="Cliquer pour voir le calcul" data-explain-open="be">
+    <button type="button" class="card tile">
       <span class="lbl">Réseau à l'équilibre en trésorerie</span>
       <span class="big" data-draw="val" data-k="be_year">—</span>
       <span class="ref">Horizon du plan : 2031</span>
   
     </button>
-  </section>
+  </section><section class="card" aria-labelledby="verdict-title">
+    <h2 id="verdict-title">Verdict</h2>
+    <p class="lede" data-when="above" hidden><span class="pill good">Seuil atteint</span> <b data-draw="val" data-k="dens">—</b> de CA par m² (seuil : 9 600 €) : vague 2028 déclenchée.</p>
+    <p class="lede" data-when="below" hidden><span class="pill warn">Sous le seuil</span> <b data-draw="val" data-k="dens">—</b> de CA par m² (seuil : 9 600 €) : on reste à 3 pilotes.</p>
+      <div class="ai"><button type="button" class="cta" data-ai="verdict">✦ Résumer cette vue</button><div class="ai-out" data-draw="aisum" data-sec="verdict" aria-live="polite"></div></div>
+  </section><section class="card" aria-labelledby="ctl-title">
+    <div class="hyp-head"><h2 id="ctl-title">Hypothèses</h2><button type="button" class="link" id="reset-sim">Tout remettre par défaut</button></div>
+    <div class="controls">
+      
+      <div class="ctl">
+        <label class="ctl-head" for="in-f"><span>Chiffre d'affaires</span><output data-draw="val" data-k="f_lbl">—</output></label>
+        <input type="range" id="in-f" min="0.6" max="1.6" step="0.01" value="1">
+        
+      </div>
+      <div class="ctl">
+        <label class="ctl-head" for="in-rent"><span>Loyers</span><output data-draw="val" data-k="rent_lbl">—</output></label>
+        <input type="range" id="in-rent" min="0.8" max="1.6" step="0.01" value="1">
+        
+      </div>
+      <div class="ctl">
+        <label class="ctl-head" for="in-staff"><span>Personnel par boutique</span><output data-draw="val" data-k="staff_lbl">—</output></label>
+        <input type="range" id="in-staff" min="150000" max="260000" step="5000" value="200000">
+        
+      </div>
+      
+      
+    </div>
+  <details class="adv"><summary>Hypothèses avancées</summary><div class="controls"><div class="ctl"><label class="ctl-head" for="in-capex"><span>Investissement par boutique</span><output data-draw="val" data-k="capex_lbl">—</output></label><input type="range" id="in-capex" min="0.7" max="1.5" step="0.01" value="1"></div><div class="ctl"><label class="ctl-head" for="in-gm"><span>Marge brute</span><output data-draw="val" data-k="gm_lbl">—</output></label><input type="range" id="in-gm" min="0.8" max="1.2" step="0.01" value="1"></div><div class="ctl"><label class="ctl-head" for="in-vc"><span>Charges variables</span><output data-draw="val" data-k="vc_lbl">—</output></label><input type="range" id="in-vc" min="0.7" max="1.5" step="0.01" value="1"></div><div class="ctl"><label class="ctl-head" for="sel-ramp"><span>Montée en charge</span></label><select class="dash-select" id="sel-ramp" data-param="ramp"><option value="prevue">Prévue : 70 → 90 → 100 %</option><option value="lente">Lente : 50 → 75 → 100 %</option><option value="rapide">Rapide : 85 → 100 → 100 %</option></select></div></div></details></section>
+  <style>.sim .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.sim .tab{padding:8px 16px;border-radius:999px;font-size: 14px;font-weight:700;text-decoration:none;color:#c9a24a;background:color-mix(in srgb,#c9a24a 12%,transparent)}.sim a.tab:hover{background:#c9a24a;color:#111}.sim .tab.on{background:linear-gradient(135deg,#c9a24a,#d6b46a);color:#111}@media print{.sim .tabs{display:none}}</style><style>.sim .simnote{margin:0 0 14px;padding:10px 14px;border-radius:14px;font-size:14px;line-height:1.5;background:color-mix(in srgb,#a8703c 14%,transparent)}</style>
+  
+
+  
+
+  
+
+  
 
 
-  <section class="card explain" data-explain-panel hidden aria-live="polite">
-    <div class="ex-head"><h2>Comment ce chiffre est calculé</h2><button type="button" class="link" data-explain-open="">Fermer</button></div>
-    <div data-explain-block="cash31" hidden>
-      <h3>Trésorerie cumulée fin 2031 : <b data-draw="val" data-k="cash31">—</b></h3>
-      <p>Chaque année, on prend l'EBITDA de toutes les boutiques ouvertes, on retire les investissements des boutiques qui ouvrent cette année-là, et on l'ajoute au total des années précédentes.</p>
-      <div class="tablewrap"><table data-draw="ex_plan" aria-label="Plan année par année"></table></div>
-      <p class="muted">Les boutiques ouvertes atteignent 70 % de leur régime normal la première année, 90 % la deuxième, 100 % ensuite. Tous les montants sont en M€ avec deux décimales.</p>
-    </div>
-    <div data-explain-block="dens" hidden>
-      <h3>CA par m² : <b data-draw="val" data-k="dens">—</b></h3>
-      <p class="formula">7 880 € (CA TTC par m² du scénario réaliste) × <b data-draw="val" data-k="f_lbl">—</b> (curseur de chiffre d'affaires) = <b data-draw="val" data-k="dens">—</b></p>
-      <p>Pour rembourser le plan, il faut atteindre 9 600 € par m². Les boutiques françaises, elles, réalisent 8 578 € dans les régions.</p>
-    </div>
-    <div data-explain-block="pilot" hidden>
-      <h3>EBITDA annuel des 3 pilotes : <b data-draw="val" data-k="pilot_e">—</b></h3>
-      <p class="formula">EBITDA d'une boutique = (marge brute − autres charges − logistique) × facteur de CA − loyer − personnel</p>
-      <div class="tablewrap"><table data-draw="ex_pilots" aria-label="EBITDA des trois pilotes"></table></div>
-      <p class="muted">Année pleine, 100 % du régime normal. Montants en k€ sans décimale.</p>
-    </div>
-    <div data-explain-block="payback" hidden>
-      <h3>Retour sur investissement : <b data-draw="val" data-k="payback">—</b></h3>
-      <p class="formula">Investissement des 3 pilotes <b data-draw="val" data-k="capex">—</b> ÷ EBITDA annuel <b data-draw="val" data-k="pilot_e">—</b> = <b data-draw="val" data-k="payback">—</b></p>
-      <p>Chaque boutique coûte 435 000 € à ouvrir. Résultat en années, avec une décimale.</p>
-    </div>
-    <div data-explain-block="be" hidden>
-      <h3>Réseau à l'équilibre en trésorerie : <b data-draw="val" data-k="be_year">—</b></h3>
-      <p>C'est la première année où la trésorerie cumulée repasse au-dessus de zéro. Si ce n'est pas le cas avant 2031, la page affiche « Non atteint ».</p>
-      <div class="tablewrap"><table data-draw="ex_plan" aria-label="Plan année par année"></table></div>
-    </div>
-  </section>
+  
 
   <section class="grid2">
     <div class="card">
-      <h2 id="h-cash">Combien d'argent faut-il avancer, et quand le plan se rembourse-t-il ?</h2>
+      <h2 id="h-cash">Trésorerie cumulée du réseau</h2>
       <p class="take"><b data-draw="val" data-k="cash_title">—</b></p>
-      <p class="muted">Votre plan d'ouverture, avec les trois scénarios en repère. Après 2031 (zone grisée), chaque boutique reste à son rythme de croisière : c'est une hypothèse, pas une donnée.</p>
+      
       <div class="legend"><span><i data-draw="legend" data-k="0"></i>Votre simulation</span><span><i data-draw="legend" data-k="1"></i>Scénarios de référence</span></div>
       <div class="chart" data-draw="cash" data-source="boutiques ouvertures" aria-labelledby="h-cash"></div>
       <div class="ai"><button type="button" class="cta" data-ai="cash">✦ Résumer cette vue</button><div class="ai-out" data-draw="aisum" data-sec="cash" aria-live="polite"></div></div>
-      <details><summary>Comment c'est calculé</summary><div>
-        <p><b>Trésorerie cumulée</b> = somme, année après année, de l'EBITDA du réseau moins les investissements des boutiques ouvertes cette année-là.</p>
-        <p><b>EBITDA d'une boutique</b> = (marge brute − autres charges − logistique) × facteur de chiffre d'affaires × montée en charge − loyer × facteur de loyers − personnel.</p>
-        <p><b>Montée en charge</b> : 70 % la première année d'une boutique, 90 % la deuxième, 100 % ensuite.</p>
-        <p><b>Point bas</b> = valeur la plus basse de la courbe : c'est le besoin de financement maximal. Après 2031, on suppose que chaque boutique reste à son rythme de croisière (hypothèse).</p>
-      </div></details>
+      
     </div>
     <div class="card">
-      <h2 id="h-city">Quelles villes gagnent de l'argent en année pleine</h2>
-      <p class="muted">EBITDA annuel d'une boutique en rue 1a. ★ = villes pilotes 2027.</p>
+      <h2 id="h-city">EBITDA annuel par ville</h2>
+      
       <div class="chart" data-draw="city" data-source="boutiques" aria-labelledby="h-city"></div>
     <div class="ai"><button type="button" class="cta" data-ai="city">✦ Résumer cette vue</button><div class="ai-out" data-draw="aisum" data-sec="city" aria-live="polite"></div></div>
-    <details><summary>Comment c'est calculé</summary><div><p><b>EBITDA d'une boutique en année pleine</b> = (marge brute − autres charges − logistique) × facteur de chiffre d'affaires − loyer × facteur de loyers − personnel. Chaque ville est calculée avec son propre loyer (rue commerçante 1a) et sa propre marge.</p><p>Une barre rouge signifie que la boutique perd de l'argent chaque année, même à pleine vitesse. Les villes pilotes (★) sont celles où l'on ouvre en 2027.</p></div></details>
+    
     </div>
   </section>
 
-  <details class="fold"><summary>Pour aller plus loin : EBITDA du réseau et investissements, année par année</summary>
+  <details class="fold"><summary>EBITDA et investissements par année</summary>
   <section class="card">
-    <h2 id="h-year">Bénéfice d'exploitation (EBITDA) du réseau et investissements, année par année</h2>
-    <p class="muted">Les investissements pèsent en 2027, 2028 et 2029, quand les boutiques ouvrent.</p>
+    <h2 id="h-year">EBITDA du réseau et investissements</h2>
+    
     <div class="legend"><span><i data-draw="legend" data-k="2"></i>EBITDA du réseau</span><span><i data-draw="legend" data-k="3"></i>Investissements</span></div>
     <div class="chart" data-draw="year" data-source="boutiques ouvertures" aria-labelledby="h-year"></div>
-    <details><summary>Comment c'est calculé</summary><div><p><b>EBITDA du réseau</b> = somme de l'EBITDA de toutes les boutiques déjà ouvertes cette année-là, avec la montée en charge (70 % la première année, 90 % la deuxième, 100 % ensuite).</p><p><b>Investissements</b> = coût d'ouverture des boutiques ouvertes cette année-là (barres grises, vers le bas). Ils pèsent seulement l'année d'ouverture.</p></div></details>
+    
   </section>
   </details>
 
@@ -320,69 +268,141 @@ button{font-family:inherit}
   <style>.sim .bar2{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:8px 0}.sim .good-t{fill:#16a34a}.sim .bad-t{fill:#ef4444}</style>
   <style>.sim .ctl-wide{grid-column:1/-1}.sim .chips2{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}.sim .chips2 button{font:inherit;font-size:14px;font-weight:500;padding:7px 14px;border-radius:999px;border:2px solid #c9a24a;cursor:pointer;color:#c9a24a;background:transparent}.sim .chips2 button[aria-pressed="true"]{background:linear-gradient(135deg,#c9a24a,#d6b46a);color:#111}.sim .chips2 button[data-pilot]{font-weight:800}.sim .chips2 button:focus-visible{outline:2px solid var(--color-fg);outline-offset:2px}</style>
   <section class="card" aria-labelledby="h-torn">
-    <h2 id="h-torn">Quel levier pèse le plus sur la trésorerie : chiffre d'affaires, loyers ou personnel ?</h2>
-    <p class="muted">Effet sur la trésorerie cumulée fin 2031 si chaque élément varie de 20 % (en plus ou en moins), les autres restant à votre réglage. Sur chaque ligne, la variation écrite à gauche donne la barre de gauche, celle de droite donne la barre de droite.</p>
+    <h2 id="h-torn">Sensibilité de la trésorerie 2031 (±20 %)</h2>
+    
     <div class="chart" data-draw="tornado" data-source="boutiques ouvertures" aria-labelledby="h-torn"></div>
       <div class="ai"><button type="button" class="cta" data-ai="torn">✦ Résumer cette vue</button><div class="ai-out" data-draw="aisum" data-sec="torn" aria-live="polite"></div></div>
-    <details><summary>Comment c'est calculé</summary><div>
-      <p>Pour chaque levier, on refait tout le calcul du plan en le faisant varier de −20 % puis de +20 %, les autres réglages restant les vôtres. Chaque barre est l'écart entre la trésorerie fin 2031 ainsi recalculée et la trésorerie de votre simulation actuelle.</p>
-      <p>Le levier « chiffre d'affaires » multiplie la marge brute, les autres charges et la logistique. Les leviers « loyers » et « personnel » agissent sur leur propre ligne.</p>
-    </div></details>
-    <p class="muted">Vert : la trésorerie s'améliore. Rouge : elle se dégrade. Les barres sont des écarts par rapport à votre simulation actuelle.</p>
+    
+    
   </section>
 
 
   <section class="card" aria-labelledby="h-inv">
-    <h2 id="h-inv">Quel chiffre d'affaires faut-il pour atteindre l'objectif ?</h2>
+    <h2 id="h-inv">Chiffre d'affaires nécessaire</h2>
     <div class="bar2"><label class="cap" for="sel-tgt">Objectif</label><select class="dash-select" id="sel-tgt" data-param="tgt">
       <option value="pay5">Boutiques pilotes remboursées en 5 ans</option>
       <option value="pay4">Boutiques pilotes remboursées en 4 ans</option>
       <option value="pay6">Boutiques pilotes remboursées en 6 ans</option>
       <option value="eq35">Réseau à l'équilibre en trésorerie en 2035</option>
     </select></div>
-    <p class="muted">On part de vos autres réglages (loyers, personnel, plan, villes). Le curseur de chiffre d'affaires est ignoré : c'est lui que l'on cherche.</p>
+    
     <div data-draw="inverse" data-source="boutiques ouvertures" aria-live="polite"></div>
-    <details><summary>Comment c'est calculé</summary><div>
-      <p>On cherche, par essais successifs, le facteur de chiffre d'affaires pour lequel l'objectif est juste atteint, tout le reste étant inchangé. « Remboursées en N ans » veut dire : investissement des pilotes ÷ EBITDA annuel des pilotes en année pleine ≤ N. « À l'équilibre en 2035 » veut dire : trésorerie cumulée du réseau ≥ 0 en 2035 (les années après 2031 sont une hypothèse de rythme de croisière).</p>
-      <p>Le facteur est comparé aux trois scénarios du dépôt, puis converti en chiffre d'affaires par m² pour le comparer au seuil demandé.</p>
-    </div></details>
+    
   </section>
 
   <section class="card" aria-labelledby="h-wf">
-    <h2 id="h-wf">D'où vient le bénéfice d'exploitation (EBITDA) d'une boutique</h2>
+    <h2 id="h-wf">Décomposition de l'EBITDA d'une boutique</h2>
     <div class="bar2"><label class="cap" for="sel-wc">Ville</label><select class="dash-select" id="sel-wc" data-param="wc"><option value="München">München</option><option value="Düsseldorf">Düsseldorf</option><option value="Frankfurt am Main">Frankfurt am Main</option><option value="Stuttgart">Stuttgart</option><option value="Hamburg">Hamburg</option><option value="Köln">Köln</option><option value="Berlin">Berlin</option><option value="Leipzig">Leipzig</option></select></div>
-    <p class="muted">Boutique en année pleine, avec vos réglages. On part de la marge brute et on retire chaque charge, une par une, jusqu'à l'EBITDA.</p>
+    
     <div class="chart" data-draw="waterfall" data-source="boutiques" aria-labelledby="h-wf"></div>
-    <details><summary>Comment c'est calculé</summary><div>
-      <p><b>EBITDA</b> = marge brute − autres charges − logistique − loyer − personnel, pour une boutique en année pleine (100 % de montée en charge).</p>
-      <p>La marge brute, les autres charges et la logistique sont multipliées par votre facteur de chiffre d'affaires. Le loyer est multiplié par votre facteur de loyers. Le personnel est votre réglage.</p>
-    </div></details>
+    
   </section>
 
 
-  <section class="card" aria-labelledby="h-hyp">
-    <h2 id="h-hyp">Ce que ce simulateur suppose, et ses limites</h2>
-    <ul class="hyp">
-      <li><b>Modèle :</b> il reprend le business case recalculé du dépôt de l'équipe (branche feature/kpis : scénario réaliste, rue commerçante 1a, prix des soins mesurés sur le relevé), qui fait foi. La feuille de calcul de scénarios de Gaspard (visiteurs, taux d'achat, panier) est une autre approche : elle n'est pas reprise ici.</li>
-      <li><b>Montée en charge :</b> une boutique réalise <b data-draw="val" data-k="ramp_lbl">—</b> de son rythme de croisière la 1re, la 2e et la 3e année. C'est une hypothèse de l'équipe.</li>
-      <li><b>Seuil de passage :</b> la vague 2028 est déclenchée si une boutique encaisse au moins <b data-draw="val" data-k="seuil_lbl">—</b> de chiffre d'affaires par m².</li>
-      <li><b>Base interne simulée :</b> les ventes des boutiques en France viennent d'une base simulée. Les résultats sont une maquette de décision, pas une prévision.</li>
-      <li><b>Après 2031 :</b> les années 2032 à 2035 supposent que chaque boutique reste à son rythme de croisière, sans inflation ni changement de prix.</li>
-      <li><b>Ce qui n'est pas dans le calcul :</b> impôts, amortissements, frais financiers, saisonnalité et concurrence nouvelle.</li>
-    </ul>
-  </section>
+  
 
-  <details>
-    <summary>Comment c'est calculé</summary>
-    <p>EBITDA d'une boutique = marge brute − loyer − personnel − autres charges − logistique. L'EBITDA est le résultat avant amortissements, impôts et frais financiers : c'est l'argent que rapporte l'exploitation. Le chiffre d'affaires est la base : quand on le multiplie par un facteur, la marge brute, les autres charges et la logistique suivent, mais le loyer et le personnel restent fixes. C'est pourquoi un petit recul du chiffre d'affaires pèse lourd sur le résultat.</p>
-    <p>Retour sur investissement = investissement ÷ EBITDA annuel. Trésorerie cumulée = somme, année après année, de l'EBITDA du réseau moins les investissements d'ouverture (435 000 € par boutique). Le réseau est à l'équilibre l'année où ce cumul repasse au-dessus de zéro.</p>
-    <p>CA par m² = chiffre d'affaires TTC d'une boutique ÷ sa surface. Le seuil de 9 600 € est celui à partir duquel le plan est remboursé d'après le dépôt du projet.</p>
-    <p>Base : tables Gold du dépôt L'Oréal Expansion Allemagne, branche feature/kpis (scénario réaliste, rue commerçante 1a, 8 villes). Montée en charge des boutiques : 70 % la première année, 90 % la deuxième, 100 % ensuite, appliquée à la marge et aux charges variables. Loyer et personnel sont dus en totalité dès l'ouverture. Calendrier : 3 ouvertures en 2027, 5 en 2028, 7 en 2029. Densité de référence : 7 880 € de CA TTC par m² en réaliste, contre 8 578 € dans les régions françaises. Le curseur de chiffre d'affaires reproduit les trois scénarios du dépôt (0,8 ; 1 ; 1,15). La base interne des boutiques France est simulée.</p>
-  </details>
+  
 </div>
 
 
+<p class="foot">Méthode de calcul, définitions et sources : onglet <a href="instructions.html">Instructions</a>.</p>
 </div>
+<style>
+:root{color-scheme:light}
+html,body{background:#fff!important;color:#1a1a1a}
+body{font-size:15px}
+#dash-root{max-width:1120px}
+.eds,.sim{gap:20px!important}
+.eds>header,.sim>header{background:none!important;border:0!important;box-shadow:none!important;padding:0!important;border-radius:0!important}
+.eds h1,.sim h1{background:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;color:#1a1a1a!important;font-size:26px!important;font-weight:700!important;letter-spacing:-.01em!important;margin:0!important}
+.eds h2,.sim h2{font-size:16px!important;font-weight:700!important;color:#1a1a1a;gap:0!important}
+.eds h2::before,.sim h2::before{display:none!important}
+.eds .card,.sim .card{background:#fff!important;border:1px solid #e6e6e6!important;border-radius:8px!important;box-shadow:none!important;padding:18px!important}
+.eds .tile .big,.sim .tile .big{background:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;color:#1a1a1a!important;font-size:28px!important;font-weight:700!important}
+.eds .tile .lbl,.sim .tile .lbl{color:#555!important;font-size:14px}
+.eds .tile .ref,.sim .tile .ref{color:#777!important}
+.eds button.tile,.sim button.tile{cursor:default!important;pointer-events:none;border:1px solid #e6e6e6!important;transition:none!important}
+.eds button.tile::after,.sim button.tile::after{display:none!important}
+.sim .seg button.on{background:#1a1a1a!important;color:#fff!important}
+.sim .seg button{min-width:0}
+.sim .tile .big{font-size:24px!important;overflow-wrap:anywhere}
+.eds .chip,.sim .chips2 button,.sim .seg button{background:#fff!important;color:#333!important;border:1px solid #d6d6d6!important;box-shadow:none!important;border-radius:999px!important}
+.eds .chip.on,.sim .chips2 button[aria-pressed="true"],.sim .seg button.on,.sim .seg button[aria-pressed="true"]{background:#1a1a1a!important;color:#fff!important;border-color:#1a1a1a!important}
+.eds .seg,.sim .seg{background:none!important;border:0!important;padding:0!important;gap:6px!important}
+.eds .cta{background:#fff!important;color:#1a1a1a!important;border:1px solid #1a1a1a!important;box-shadow:none!important}
+.eds .link,.sim .link{color:#555!important}
+.eds .tab,.sim .tab{background:none!important;color:#555!important;border:1px solid transparent;border-radius:6px!important;padding:6px 12px!important;font-weight:600!important}
+.eds a.tab:hover,.sim a.tab:hover{background:#f3f3f3!important;color:#1a1a1a!important}
+.eds .tab.on,.sim .tab.on{background:#f3f3f3!important;color:#1a1a1a!important;border-color:#e0e0e0}
+.eds .tabs,.sim .tabs{border-bottom:1px solid #e6e6e6;padding-bottom:8px;margin-bottom:6px!important}
+.eds .simnote,.sim .simnote{background:none!important;padding:0!important;margin:0!important;color:#777!important;font-size:13px!important}
+.eds .muted,.sim .muted{color:#777!important;font-size:13px!important}
+.eds .tablewrap{border:1px solid #eee!important}
+.eds table th{background:#fafafa!important;color:#555!important}
+.eds table tbody tr:hover td{background:#fafafa!important}
+.eds details,.sim details{background:none!important;padding:0!important}
+.eds details>summary,.sim details>summary{color:#555!important;font-weight:600}
+.eds .regl-card{background:#fafafa!important}
+.eds input[type=range],.sim input[type=range]{accent-color:#1a1a1a}
+.sim .pill,.eds .pill{border-radius:4px!important}
+.foot{margin:24px 0 0;color:#777;font-size:13px}
+.foot a{color:#555}
+@media print{.tabs{display:none}}
+
+.eds>header.band,.sim>header.band{background:#1a1a1a!important;padding:12px 18px 16px!important;border-radius:10px!important}
+.band{background:#1a1a1a;color:#fff;border-radius:10px;padding:12px 18px 16px;display:flex;flex-direction:column;gap:10px}
+.eds .band h1,.sim .band h1{color:#fff!important;font-size:24px!important}
+.band-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
+.band .row-actions{margin:0!important}
+.eds .band .tabs,.sim .band .tabs{border-bottom:1px solid #333;margin:0!important;padding-bottom:8px}
+.eds .band .tab,.sim .band .tab{color:#bbb!important}
+.eds .band a.tab:hover,.sim .band a.tab:hover{background:#2a2a2a!important;color:#fff!important}
+.eds .band .tab.on,.sim .band .tab.on{background:#333!important;color:#fff!important;border-color:#444}
+.band-filters{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end}
+.band .cap,.band .ctl-head,.band .muted{color:#bbb!important;font-size:13px!important}
+.eds .band .chip,.sim .band .chips2 button{background:transparent!important;color:#ddd!important;border:1px solid #666!important}
+.eds .band .chip.on,.sim .band .chips2 button[aria-pressed="true"]{background:#c9a24a!important;color:#111!important;border-color:#c9a24a!important}
+.band .link{color:#ccc!important}
+.band .cta{background:transparent!important;color:#fff!important;border:1px solid #fff!important}
+.sim .band .seg button{background:transparent!important;color:#ddd!important;border:1px solid #666!important}
+.sim .band .seg button.on{background:#c9a24a!important;color:#111!important;border-color:#c9a24a!important}
+.sim .band .ctl{display:flex;flex-direction:column;gap:6px;min-width:0}
+.sim .band .ctl-wide{flex:1 1 100%}
+.sim .band .seg{flex-wrap:nowrap}
+.sim .band .seg button{white-space:nowrap;padding:8px 14px!important;flex:0 0 auto!important}
+.grid-two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid-two>.card{min-width:0}
+@media(max-width:820px){.grid-two{grid-template-columns:1fr}}
+.eds .tiles .tile,.sim .tiles .tile{align-items:center;text-align:center}
+.eds .tile .lbl,.sim .tile .lbl{color:#1a1a1a!important;font-size:15px}
+.eds h2,.sim h2{text-transform:none}
+
+.ai{display:flex;flex-direction:column;gap:8px;align-items:flex-start;margin:4px 0 0}
+.ai-out{width:100%}
+.ai-out>.muted{display:none}
+.cta{font:inherit;font-size:13px!important;font-weight:600;padding:4px 12px!important;border-radius:999px!important;border:1px solid #bbb!important;background:#fff!important;color:#333!important;cursor:pointer;box-shadow:none!important}
+.cta:hover{background:#f3f3f3!important}
+.ai-box{background:#fafafa!important;border:1px solid #eee;border-radius:8px!important;padding:10px 14px!important;font-size:14px;max-width:70ch}
+.ai-badge{display:block!important;font-size:12px!important;color:#777!important;background:none!important;padding:0!important;margin-bottom:4px}
+@media print{.ai{display:none!important}}
+.hyp-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.adv{margin-top:14px}
+.adv>summary{cursor:pointer;font-weight:600;color:#555}
+.adv .controls{margin-top:12px}
+.dd{position:relative}
+.dd>summary{list-style:none;cursor:pointer;padding:8px 14px;border:1px solid #666;border-radius:8px;color:#fff;background:#222;font-size:14px;min-width:150px}
+.eds .band .dd>summary,.sim .band .dd>summary{color:#fff!important}
+.dd>summary::-webkit-details-marker{display:none}
+.dd>summary::after{content:"▾";float:right;margin-left:12px}
+.dd-pop{position:absolute;z-index:20;top:calc(100% + 6px);left:0;width:min(520px,86vw);background:#fff;color:#1a1a1a;border:1px solid #ddd;border-radius:10px;box-shadow:0 10px 28px rgba(0,0,0,.2);padding:14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.dd-pop .muted{flex:1 1 100%;margin:4px 0 0;color:#777!important}
+.eds .dd-pop .chip,.sim .dd-pop .chips2 button,.sim .dd-pop button{background:#fff!important;color:#333!important;border:1px solid #d6d6d6!important}
+.eds .dd-pop .chip.on,.sim .dd-pop button[aria-pressed="true"]{background:#c9a24a!important;color:#111!important;border-color:#c9a24a!important}
+.dd-pop .link{color:#555!important}
+.sim .dd-pop .chips2{display:contents}
+.eds .chip.on{background:#f0f0f0!important;color:#1a1a1a!important;border-color:#1a1a1a!important}
+.sim .band-filters .ctl-wide{display:none}
+</style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 <script>window.__CSV__={"boutiques": "city,revenue_ttc_eur,gross_margin_eur,rent_eur,staff_eur,other_costs_eur,logistics_eur,capex_eur\nMünchen,779696.77,460520.78,48600.0,200000.0,65520.74,12933.79,435000.0\nDüsseldorf,690847.6,408042.83,24840.0,200000.0,58054.42,11677.65,435000.0\nFrankfurt am Main,657000.3,388051.23,34560.0,200000.0,55210.11,9565.15,435000.0\nStuttgart,650956.14,384481.3,37800.0,200000.0,54702.2,8845.35,435000.0\nHamburg,639472.24,377698.44,27000.0,200000.0,53737.16,13275.77,435000.0\nKöln,627383.91,370558.58,28080.0,200000.0,52721.34,10264.84,435000.0\nBerlin,579030.63,341999.15,32400.0,200000.0,48658.04,12093.95,435000.0\nLeipzig,551831.9,325934.47,21600.0,200000.0,46372.43,10294.68,435000.0\n", "ouvertures": "city,year\nMünchen,2027\nDüsseldorf,2027\nFrankfurt am Main,2027\nHamburg,2028\nStuttgart,2028\nKöln,2028\nBerlin,2028\nLeipzig,2028\nMünchen,2029\nDüsseldorf,2029\nFrankfurt am Main,2029\nHamburg,2029\nStuttgart,2029\nKöln,2029\nBerlin,2029\n"};
 window.__DEFAULTS__={"explain": "", "f": 1, "rent": 1, "staff": 200000};</script>
@@ -409,6 +429,7 @@ window.__DEFAULTS__={"explain": "", "f": 1, "rent": 1, "staff": 200000};</script
     pending=false;
     Object.keys(drawers).forEach(n=>{document.querySelectorAll('[data-draw="'+n+'"]').forEach(el=>{try{drawers[n](el);}catch(e){console.error('draw '+n,e);}});});
     cbs.forEach(cb=>{try{cb();}catch(e){console.error('onData',e);}});
+    /*SELBIND*/document.querySelectorAll('select[data-param]').forEach(el=>{const v=params[el.dataset.param]; if(document.activeElement!==el) el.value=(v!=null&&v!=='')?v:el.options[0].value;});
   }
   function schedule(){ if(!started||pending)return; pending=true; requestAnimationFrame(render); }
   window.dash={
@@ -420,7 +441,7 @@ window.__DEFAULTS__={"explain": "", "f": 1, "rent": 1, "staff": 200000};</script
     resetParams(){ params=clone(window.__DEFAULTS__||{}); schedule(); },
     onData(fn){ cbs.push(fn); },
     draw(name,fn){ drawers[name]=fn; },
-    __start(){ started=true; render();
+    __start(){ started=true; document.querySelectorAll('select[data-param]').forEach(el=>el.addEventListener('change',()=>{const o={};o[el.dataset.param]=el.value;window.dash.setParams(o);})); render();
       let t; window.addEventListener('resize',()=>{clearTimeout(t);t=setTimeout(render,150);});
       document.addEventListener('toggle',()=>schedule(),true);
       window.addEventListener('beforeprint',render); }
@@ -431,6 +452,7 @@ window.__DEFAULTS__={"explain": "", "f": 1, "rent": 1, "staff": 200000};</script
 <script>
   // Constantes choisies par l'équipe (README du dépôt), pas des données.
   const RAMP = [0.7, 0.9, 1];
+  const RAMPS = { prevue: [0.7, 0.9, 1], lente: [0.5, 0.75, 1], rapide: [0.85, 1, 1] };
   const DENS_REAL = 7880, DENS_NEEDED = 9600;
   const PILOTS = ['München', 'Düsseldorf', 'Frankfurt am Main'];
   const YEARS = [2027, 2028, 2029, 2030, 2031];
@@ -455,7 +477,7 @@ window.__DEFAULTS__={"explain": "", "f": 1, "rent": 1, "staff": 200000};</script
 
   function params() {
     const p = dash.params();
-    return { f: +p.f || 1, rent: +p.rent || 1, staff: +p.staff || 200000, plan: p.plan || 'full', off: p.off || '' };
+    return { f: +p.f || 1, rent: +p.rent || 1, staff: +p.staff || 200000, plan: p.plan || 'full', off: p.off || '', capex: +p.capex || 1, gm: +p.gm || 1, vc: +p.vc || 1, ramp: RAMPS[p.ramp] ? p.ramp : 'prevue' };
   }
   const offList = (p) => (p.off || '').split('|').filter(Boolean);
   function openings(m, p) {
@@ -468,7 +490,7 @@ window.__DEFAULTS__={"explain": "", "f": 1, "rent": 1, "staff": 200000};</script
   }
 
   function storeEbitda(r, p, k) {
-    return (r.gm - r.other - r.logi) * p.f * k - r.rent * p.rent - p.staff;
+    return (r.gm * p.gm - (r.other + r.logi) * p.vc) * p.f * k - r.rent * p.rent - p.staff;
   }
 
   function plan(m, p, years) {
@@ -479,8 +501,8 @@ window.__DEFAULTS__={"explain": "", "f": 1, "rent": 1, "staff": 200000};</script
       O.forEach((o) => {
         if (o.year > y || !m.B[o.city]) return;
         n++;
-        e += storeEbitda(m.B[o.city], p, RAMP[Math.min(y - o.year, 2)]);
-        if (y === o.year) cap += m.B[o.city].capex;
+        e += storeEbitda(m.B[o.city], p, RAMPS[p.ramp][Math.min(y - o.year, 2)]);
+        if (y === o.year) cap += m.B[o.city].capex * p.capex;
       });
       cum += e - cap;
       return { year: y, stores: n, ebitda: e, capex: cap, cum };
@@ -496,12 +518,12 @@ window.__DEFAULTS__={"explain": "", "f": 1, "rent": 1, "staff": 200000};</script
     const m = load();
     if (!m) return null;
     const p = params();
-    const base = { f: 1, rent: 1, staff: 200000, plan: 'full', off: '' };
+    const base = { f: 1, rent: 1, staff: 200000, plan: 'full', off: '', capex: 1, gm: 1, vc: 1, ramp: 'prevue' };
     const pl = plan(m, p), pb = plan(m, base), ext = plan(m, p, YEARS_EXT);
     const off = offList(p), pilots = PILOTS.filter((c) => !off.includes(c));
     const pilotE = pilots.reduce((s, c) => s + storeEbitda(m.B[c], p, 1), 0);
     const pilotE0 = PILOTS.reduce((s, c) => s + storeEbitda(m.B[c], base, 1), 0);
-    const capex = pilots.reduce((s, c) => s + m.B[c].capex, 0);
+    const capex = pilots.reduce((s, c) => s + m.B[c].capex * p.capex, 0);
     const be = pl.find((y) => y.cum >= 0);
     return { m, p, pl, pb, ext, pilots, pilotE, pilotE0, capex, be, dens: DENS_REAL * p.f };
   }
@@ -511,6 +533,9 @@ window.__DEFAULTS__={"explain": "", "f": 1, "rent": 1, "staff": 200000};</script
     f_x: (s) => nf(2).format(s.p.f),
     rent_lbl: (s) => '×' + nf(2).format(s.p.rent),
     staff_lbl: (s) => fK(s.p.staff),
+    capex_lbl: (s) => '×' + nf(2).format(s.p.capex),
+    gm_lbl: (s) => '×' + nf(2).format(s.p.gm),
+    vc_lbl: (s) => '×' + nf(2).format(s.p.vc),
     dens: (s) => fE(s.dens),
     dens_t: (s) => fE(s.dens),
     cash31: (s) => fM(s.pl[4].cum),
@@ -531,7 +556,7 @@ window.__DEFAULTS__={"explain": "", "f": 1, "rent": 1, "staff": 200000};</script
 
   // Contrôles : l'état vit dans les paramètres de la page.
   const $ = (id) => document.getElementById(id);
-  const inputs = [['in-f', 'f'], ['in-rent', 'rent'], ['in-staff', 'staff']];
+  const inputs = [['in-f', 'f'], ['in-rent', 'rent'], ['in-staff', 'staff'], ['in-capex', 'capex'], ['in-gm', 'gm'], ['in-vc', 'vc']];
   inputs.forEach(([id, name]) => {
     const el = $(id);
     if (el) el.addEventListener('input', () => dash.setParams({ [name]: +el.value }));
@@ -545,7 +570,11 @@ window.__DEFAULTS__={"explain": "", "f": 1, "rent": 1, "staff": 200000};</script
     document.querySelectorAll('.chips2 button').forEach((b) => b.setAttribute('aria-pressed', String(!off.includes(b.dataset.city))));
   });
   document.querySelectorAll('.seg button').forEach((b) => {
-    b.addEventListener('click', () => dash.setParams({ f: +b.dataset.f }));
+    b.addEventListener('click', () => {
+      const f = +b.dataset.f, big = dash.params().sdef === 'large';
+      const X = { '0.8': { rent: 1.1, capex: 1.15, vc: 1.1, gm: 1, ramp: 'lente' }, '1': { rent: 1, capex: 1, vc: 1, gm: 1, ramp: 'prevue' }, '1.15': { rent: 0.95, capex: 0.95, vc: 0.95, gm: 1, ramp: 'rapide' } };
+      dash.setParams(big ? Object.assign({ f }, X[String(f)]) : { f });
+    });
   });
 
   dash.onData(() => {
@@ -912,7 +941,7 @@ window.__DEFAULTS__={"explain": "", "f": 1, "rent": 1, "staff": 200000};</script
     const tg = TARGETS[dash.params().tgt || 'pay5'] || TARGETS.pay5;
     const ok = tg.eq
       ? (q) => { const e = plan(s.m, q, YEARS_EXT); return e[e.length - 1].cum >= 0; }
-      : (q) => { const ps = pilotsOf(q), eb = ps.reduce((a, c) => a + storeEbitda(s.m.B[c], q, 1), 0), cp = ps.reduce((a, c) => a + s.m.B[c].capex, 0); return eb > 0 && cp / eb <= tg.n; };
+      : (q) => { const ps = pilotsOf(q), eb = ps.reduce((a, c) => a + storeEbitda(s.m.B[c], q, 1), 0), cp = ps.reduce((a, c) => a + s.m.B[c].capex * q.capex, 0); return eb > 0 && cp / eb <= tg.n; };
     return { s, f: solveF(s.m, s.p, ok) };
   }
   dash.draw('inverse', (el) => {
@@ -939,6 +968,11 @@ window.__DEFAULTS__={"explain": "", "f": 1, "rent": 1, "staff": 200000};</script
   FACTS.verdict = verdictFacts;
   document.querySelectorAll('button[data-ai]').forEach((b) => b.addEventListener('click', () => summarize(b.dataset.ai, b)));
   dash.draw('aisum', renderAi);
+</script>
+<script>
+dash.onData(()=>{const n=document.querySelectorAll('.band [data-param="cities"].on, .band [data-city][aria-pressed="true"]').length;document.querySelectorAll('[data-vcount]').forEach(e=>e.textContent=n);});
+(function(){var b=document.getElementById('reset-sim');if(b)b.addEventListener('click',function(){dash.resetParams();});})();
+document.addEventListener('click',e=>{document.querySelectorAll('.dd[open]').forEach(d=>{if(!d.contains(e.target))d.removeAttribute('open');});});
 </script>
 <script>dash.__start();</script>
 </body></html>
