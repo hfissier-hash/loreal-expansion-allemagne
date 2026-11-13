@@ -14,7 +14,7 @@ Projet du module Data Analytics, Eugenia School. **Question du Comex : L'Oréal 
 | Activité en France | Plus de 50 marques, 11 usines, environ 15 500 salariés directs ([rapport annuel 2024](https://www.loreal-finance.com/fr/rapport-annuel-2024/loreal-dans-le-monde/france/)) |
 | Concept | Boutiques en propre **spécialisées dans le diagnostic de peau**, qui recommandent les soins des marques du groupe |
 | Réseau France | **X = 20 boutiques pilotes** en France (hypothèse du projet, base interne simulée) |
-| Catalogue | Environ 480 références de soin : La Roche-Posay, CeraVe, Vichy, SkinCeuticals, Kiehl's, Lancôme Skincare |
+| Catalogue | 428 références de soin, 5 marques : La Roche-Posay, CeraVe, Vichy, SkinCeuticals, Kiehl's |
 | Plan étudié | 3 boutiques en 2027, 8 en 2028, 15 en 2029 |
 | Pays ciblé | **Allemagne**, dans le cadre de la stratégie 2027-2029 |
 
